@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-Bold.eot');
+    src: url('subset-EuclidCircularA-Bold.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-Bold.woff2') format('woff2'),
+        url('subset-EuclidCircularA-Bold.woff') format('woff'),
+        url('subset-EuclidCircularA-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-MediumItalic.eot');
+    src: url('subset-EuclidCircularA-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-MediumItalic.woff2') format('woff2'),
+        url('subset-EuclidCircularA-MediumItalic.woff') format('woff'),
+        url('subset-EuclidCircularA-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-Light.eot');
+    src: url('subset-EuclidCircularA-Light.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-Light.woff2') format('woff2'),
+        url('subset-EuclidCircularA-Light.woff') format('woff'),
+        url('subset-EuclidCircularA-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-SemiBoldItalic.eot');
+    src: url('subset-EuclidCircularA-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-SemiBoldItalic.woff2') format('woff2'),
+        url('subset-EuclidCircularA-SemiBoldItalic.woff') format('woff'),
+        url('subset-EuclidCircularA-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-BoldItalic.eot');
+    src: url('subset-EuclidCircularA-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-BoldItalic.woff2') format('woff2'),
+        url('subset-EuclidCircularA-BoldItalic.woff') format('woff'),
+        url('subset-EuclidCircularA-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-Medium.eot');
+    src: url('subset-EuclidCircularA-Medium.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-Medium.woff2') format('woff2'),
+        url('subset-EuclidCircularA-Medium.woff') format('woff'),
+        url('subset-EuclidCircularA-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-SemiBold.eot');
+    src: url('subset-EuclidCircularA-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-SemiBold.woff2') format('woff2'),
+        url('subset-EuclidCircularA-SemiBold.woff') format('woff'),
+        url('subset-EuclidCircularA-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-LightItalic.eot');
+    src: url('subset-EuclidCircularA-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-LightItalic.woff2') format('woff2'),
+        url('subset-EuclidCircularA-LightItalic.woff') format('woff'),
+        url('subset-EuclidCircularA-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-Italic.eot');
+    src: url('subset-EuclidCircularA-Italic.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-Italic.woff2') format('woff2'),
+        url('subset-EuclidCircularA-Italic.woff') format('woff'),
+        url('subset-EuclidCircularA-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular A';
+    src: url('subset-EuclidCircularA-Regular.eot');
+    src: url('subset-EuclidCircularA-Regular.eot?#iefix') format('embedded-opentype'),
+        url('subset-EuclidCircularA-Regular.woff2') format('woff2'),
+        url('subset-EuclidCircularA-Regular.woff') format('woff'),
+        url('subset-EuclidCircularA-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
