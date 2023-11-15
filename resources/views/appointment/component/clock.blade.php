@@ -6,10 +6,7 @@
         <div class="stepsTitle d-flex align-items-start">
             <div class="step">4</div>
             <div class="text"><span>Saat Seçimi</span></div>
-            <div id="swiperButtons" class="swiper-buttons">
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
+
         </div>
     </div>
     <div class="servicesBoxContent">

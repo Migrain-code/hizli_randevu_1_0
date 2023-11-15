@@ -4,7 +4,7 @@
             class="footerTopContent d-flex flex-column flex-lg-row align-items-center justify-content-around"
         >
             <div class="footerPhone order-2 order-lg-1">
-                <img src="/assets/images/phone.png" alt="" />
+                <img src="{{image(setting('speed_footer_image'))}}" alt="" />
             </div>
             <div
                 class="footerDownload order-1 order-lg-2 d-flex flex-column flex-sm-row align-items-center"
@@ -13,7 +13,7 @@
               <strong>Uygulamamızı</strong>
               İndirdiniz mi?
             </span>
-                <a href="javascript:;">
+                <a href="{{setting('speed_mobile_app_store_link')}}" target="_blank">
               <span class="icon">
                 <svg
                     width="51"
@@ -32,7 +32,7 @@
               </span>
                     <span><i>Download On The</i> <strong>App Store</strong></span>
                 </a>
-                <a href="javascript:;">
+                <a href="{{setting('speed_mobile_play_store_link')}}" target="_blank">
               <span class="icon">
                 <svg
                     width="36"
@@ -49,7 +49,7 @@
               </span>
                     <span><i>Get It On</i> <strong>Play Store</strong></span>
                 </a>
-                <a href="javascript:;">
+                <a href="{{setting('speed_mobile_huawei_store_link')}}">
               <span class="icon">
                 <svg
                     width="51"
@@ -64,7 +64,7 @@
                   />
                 </svg>
               </span>
-                    <span><i>Get It On</i> <strong>Play Store</strong></span>
+                    <span><i>Get It On</i> <strong>Huawei Store</strong></span>
                 </a>
             </div>
         </div>
@@ -78,7 +78,7 @@
                             <div class="col-lg-2">
                                 <div class="footerLogo">
                                     <a href="javascript:;">
-                                        <img src="/assets/images/footer-logo.svg" alt="" />
+                                        <img src="{{image(setting('speed_footer_logo'))}}" alt="" />
                                     </a>
                                 </div>
                             </div>
@@ -86,10 +86,10 @@
                                 <div
                                     class="footerTopMenu d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-md-end"
                                 >
-                                    <a href="javascript:;">Salonlar</a>
-                                    <a href="javascript:;"> Hizmetler</a>
-                                    <a href="javascript:;">Destek</a>
-                                    <a href="javascript:;">Blog</a>
+                                    <a href="/">Anasayfa</a>
+                                    <a href="{{route('about')}}"> Hakkımızda</a>
+                                    <a href="{{route('activity.index')}}">Etkinlikler</a>
+                                    <a href="{{route('blog.index')}}">Bloglar</a>
                                 </div>
                             </div>
                         </div>
@@ -104,19 +104,19 @@
                       <span class="icon"
                       ><img src="/assets/images/icons/ico-location.svg" alt=""
                           /></span>
-                                    <span>G.M.K.P Mah. Kartal Sokak No: 20 Daire: 10</span>
+                                    <span>{{setting('speed_address')}}</span>
                                 </li>
                                 <li>
                       <span class="icon"
                       ><img src="/assets/images/icons/ico-phone.svg" alt=""
                           /></span>
-                                    <span>05537021355</span>
+                                    <span>{{setting('speed_phone')}}</span>
                                 </li>
                                 <li>
                       <span class="icon"
                       ><img src="/assets/images/icons/ico-mail.svg" alt=""
                           /></span>
-                                    <span>mmskre@gmail.com</span>
+                                    <span>{{setting('speed_email')}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -124,16 +124,16 @@
                             <strong>Müşteriler İçin</strong>
                             <ul class="footerList">
                                 <li>
-                                    <a href="javascript:;">Giriş Yap</a>
+                                    <a href="{{route('customer.login')}}">Giriş Yap</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">Kayıt Ol</a>
+                                    <a href="{{route('customer.register')}}">Kayıt Ol</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">İşletmeler İçin</a>
+                                    <a href="{{env('remote_url')}}" target="_blank">İşletmeler İçin</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">S.S.S</a>
+                                    <a href="{{route('about')}}">Hakkımızda</a>
                                 </li>
                             </ul>
                         </div>
@@ -141,28 +141,22 @@
                         <div class="footerItem">
                             <strong>Önerilen Linkler</strong>
                             <ul class="footerList">
-                                <li>
-                                    <a href="javascript:;">Berberler</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Kuaförler</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Makyaj Studioları</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">Spalar</a>
-                                </li>
+                                @forelse($recommendedLinks as $link)
+                                    <li>
+                                        <a href="{{$link->url}}">{{$link->title}}</a>
+                                    </li>
+                                @empty
+                                @endforelse
                             </ul>
                         </div>
                         <div class="footerItem">
                             <strong>Yardım</strong>
                             <ul class="footerList">
                                 <li>
-                                    <a href="javascript:;">Hakkımızda</a>
+                                    <a href="{{route('contact')}}">İletişim</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">İletişim</a>
+                                    <a href="{{route('faq')}}">Destek</a>
                                 </li>
                             </ul>
                         </div>
@@ -173,22 +167,24 @@
                                 <div
                                     class="bottomLinks d-flex align-items-center justify-content-center justify-content-lg-start"
                                 >
-                                    <a href="javascript:;">Gizlilik Koşulları</a>
-                                    <a href="javascript:;">Şartlar ve Koşullar</a>
+                                    @foreach($use_pages as $page)
+                                        <a href="{{route('page.detail', $page->slug)}}">{{$page->title}}</a>
+                                    @endforeach
+
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div
                                     class="copyRight d-flex align-items-center justify-content-center"
                                 >
-                                    © Hizli Randevu. Tüm hakları saklıdır.
+                                   {{now()->year}} © {{setting('speed_site_title')}}. Tüm hakları saklıdır.
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div
                                     class="social d-flex align-items-center justify-content-center justify-content-lg-end"
                                 >
-                                    <a href="javascript:;">
+                                    <a href="{{setting('speed_facebook_url')}}" target="_blank">
                                         <svg
                                             width="14"
                                             height="27"
@@ -202,7 +198,7 @@
                                             />
                                         </svg>
                                     </a>
-                                    <a href="javascript:;">
+                                    <a href="{{setting('speed_twitter_url')}}" target="_blank">
                                         <svg
                                             width="25"
                                             height="25"
@@ -216,7 +212,7 @@
                                             />
                                         </svg>
                                     </a>
-                                    <a href="javascript:;">
+                                    <a href="{{setting('speed_instagram_url')}}" target="_blank">
                                         <svg
                                             width="30"
                                             height="30"

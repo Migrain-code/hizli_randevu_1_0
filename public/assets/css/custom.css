@@ -1,491 +1,611 @@
 .seenIcon.read {
-  background: rgba(46, 207, 128, 0.2) !important;
+    background: rgba(46, 207, 128, 0.2) !important;
 }
 
 .seenIcon.unread {
-  background: rgba(243, 41, 41, 0.2) !important;
+    background: rgba(243, 41, 41, 0.2) !important;
 }
 
 .categoryList a {
-  font-size: 14px !important;
-  padding: 12px 24px !important;
-  line-height: 22px !important;
+    font-size: 14px !important;
+    padding: 12px 24px !important;
+    line-height: 22px !important;
 }
 
 .servicesBox .summaryContent .summaryServices .summaryServicesItem {
-  padding: 12px 24px !important;
+    padding: 12px 24px !important;
 }
 
 .servicesBox .summaryContent .summaryServices .summaryServicesItem span {
-  font-size: 14px !important;
-  line-height: 22px !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
 }
 
 .servicesSuccess {
-  margin: 0 !important;
-  margin-top: 100px !important;
+    margin: 0 !important;
+    margin-top: 100px !important;
 }
 
 .profileContent {
-  min-height: 900px !important;
+    min-height: 900px !important;
 }
 
 .owl-carousel .owl-item img {
-  border-radius: 15px !important;
+    border-radius: 15px !important;
 }
 
 footer .footerBottom .center .footerItem strong {
-  font-size: 20px !important;
+    font-size: 20px !important;
 }
 
 footer .footerBottom .center .footerItem ul li a {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 footer .footerBottom .center .footerItem ul li {
-  margin-bottom: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 footer .footerBottom .center .footerItem strong {
-  margin-bottom: 20px !important;
+    margin-bottom: 20px !important;
 }
 
 footer .footerBottom .center .footerItem ul.adressList li {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 footer .footerBottom .bottom .bottomLinks a {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 footer .footerBottom .bottom .copyRight {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 footer .footerBottom .top .footerTopMenu a {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 footer {
-  padding: 100px 100px 20px 100px !important;
+    padding: 100px 100px 20px 100px !important;
 }
 
 .hc-offcanvas-nav li {
-  margin-bottom: 10px !important;
+    margin-bottom: 10px !important;
 }
 
 .hc-offcanvas-nav .nav-wrapper {
-  background: rgb(0 0 0 / 0%) !important;
+    background: rgb(0 0 0 / 0%) !important;
 }
 
 .hc-offcanvas-nav ul {
-  background: rgb(0 0 0 / 0%) !important;
+    background: rgb(0 0 0 / 0%) !important;
 }
 
 .hc-offcanvas-nav .nav-container {
-  background: rgb(0 0 0 / 84%) !important;
+    background: rgb(0 0 0 / 84%) !important;
 }
 
 .homeEventsList a .text {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 #featuredServices .featuredBox .featuredBoxItem span {
-  font-size: 16px !important;
+    font-size: 16px !important;
 }
 
 #studiosTab {
-  padding: 100px 0 !important;
+    padding: 100px 0 !important;
 }
 
 .hc-offcanvas-nav li:last-child {
-  margin-top: auto !important;
+    margin-top: auto !important;
 }
 
 .hc-offcanvas-nav li {
-  font-family: "Euclid Circular A" !important;
-  font-size: 14px !important;
+    font-family: "Euclid Circular A" !important;
+    font-size: 14px !important;
 }
 
 .hc-offcanvas-nav li a {
-  font-size: 14px !important;
+    font-size: 14px !important;
 }
 
 .hc-offcanvas-nav li:last-child img {
-  width: 200px !important;
+    width: 200px !important;
 }
 
 #studiosTab .tab-content .tab-pane a:before {
-  top: 50%;
-  transform: translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #studiosTab .tab-content .tab-pane a {
-  padding: 24px 40px !important;
+    padding: 24px 40px !important;
 }
 
 @media (max-width: 576px) {
-  .servicesBox .stepsTitle .text p {
-    margin-bottom: 12px !important;
-  }
+    .servicesBox .stepsTitle .text p {
+        margin-bottom: 12px !important;
+    }
 
-  #sallonType #sallonTypeSlider .panels .panel {
-    min-height: 250px !important;
-  }
+    #sallonType #sallonTypeSlider .panels .panel {
+        min-height: 250px !important;
+    }
 
-  .formBox .formBoxContent .formBoxForm {
-    padding: 0 15px !important;
-  }
+    .formBox .formBoxContent .formBoxForm {
+        padding: 0 15px !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .linkGroup {
-    flex-direction: row !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .linkGroup {
+        flex-direction: row !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .linkGroup a {
-    border-radius: unset !important;
-    font-size: 12px !important;
-    padding: 4px 10px !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .linkGroup a {
+        border-radius: unset !important;
+        font-size: 12px !important;
+        padding: 4px 10px !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .linkGroup a + a {
-    margin-top: unset !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .linkGroup a + a {
+        margin-top: unset !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .linkGroup a:first-child {
-    border-radius: 57px 0px 0px 57px !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .linkGroup a:first-child {
+        border-radius: 57px 0px 0px 57px !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .linkGroup a:last-child {
-    border-radius: 0px 57px 57px 0px !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .linkGroup a:last-child {
+        border-radius: 0px 57px 57px 0px !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .linkGroup a {
-    line-height: 22px !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .linkGroup a {
+        line-height: 22px !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .description {
-    font-size: 14px !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .description {
+        font-size: 14px !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .saloonInfoTitle span {
-    font-size: 20px !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .saloonInfoTitle span {
+        font-size: 20px !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .infoRating span {
-    margin: 0 !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .infoRating span {
+        margin: 0 !important;
+    }
 
-  .saloonInfoBox {
-    padding: 20px 20px !important;
-  }
+    .saloonInfoBox {
+        padding: 20px 20px !important;
+    }
 }
 
 @media (max-width: 1600px) {
-  #studiosTab .tab-content .tab-pane a {
-    line-height: 0px !important;
-  }
+    #studiosTab .tab-content .tab-pane a {
+        line-height: 0px !important;
+    }
 
-  #bigSlider .bigSliderContent .item a img {
-    height: 200px !important;
-  }
+    #bigSlider .bigSliderContent .item a img {
+        height: 200px !important;
+    }
 }
 
 .hc-nav-original li:last-child {
-  display: none !important;
+    display: none !important;
 }
 
 .hc-nav-original li svg {
-  display: none !important;
+    display: none !important;
 }
 
 .hc-offcanvas-nav li a {
-  display: flex !important;
-  align-items: center !important;
-  gap: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
 }
 
 .hc-offcanvas-nav li svg {
-  display: none !important;
+    display: none !important;
 }
 
 #featuredServices .featuredLinks a {
-  font-size: 14px !important;
-  padding: 12px 24px !important;
-  line-height: 22px !important;
+    font-size: 14px !important;
+    padding: 12px 24px !important;
+    line-height: 22px !important;
 }
 
 @media (max-width: 1200px) {
-  .hc-offcanvas-nav li svg {
-    display: block !important;
-  }
+    .hc-offcanvas-nav li svg {
+        display: block !important;
+    }
 
-  footer {
-    padding: 0 !important;
-  }
+    footer {
+        padding: 0 !important;
+    }
 }
 
 header .logo img {
-  max-width: 210px !important;
+    max-width: 210px !important;
 }
 
 .breadcrumb .breadcrumb-item {
-  font-size: 18px !important;
-  line-height: 24px !important;
+    font-size: 18px !important;
+    line-height: 24px !important;
 }
 
 .breadcrumb .breadcrumb-item a {
-  font-size: 18px !important;
-  line-height: 24px !important;
+    font-size: 18px !important;
+    line-height: 24px !important;
 }
 
 .js-photo-gallery .eventUserItem {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .js-photo-gallery .eventUserItem .photo {
-  width: 130px !important;
-  border-radius: 50% !important;
+    width: 130px !important;
+    border-radius: 50% !important;
 }
 
 .js-photo-gallery .eventUserItem .photo img {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
 }
 
 .js-photo-gallery .eventUserItem .photo {
-  text-align: center !important;
+    text-align: center !important;
 }
 
 .js-photo-gallery .eventUserItem .photo span {
-  margin-top: 10px !important;
-  display: block !important;
+    margin-top: 10px !important;
+    display: block !important;
 }
 
 .js-photo-gallery .owl-dots {
-  margin: 0 !important;
+    margin: 0 !important;
 }
 
 @media (max-width: 768px) {
-  .servicesSuccess {
-    padding: 20px !important;
-  }
+    .servicesSuccess {
+        padding: 20px !important;
+    }
 
-  .servicesSuccess .servicesSuccessContent strong {
-    font-size: 20px !important;
-  }
+    .servicesSuccess .servicesSuccessContent strong {
+        font-size: 20px !important;
+    }
 
-  .servicesSuccess .servicesSuccessContent span {
-    font-size: 14px !important;
-  }
+    .servicesSuccess .servicesSuccessContent span {
+        font-size: 14px !important;
+    }
 
-  .servicesSuccess i {
-    font-size: 20px !important;
-  }
+    .servicesSuccess i {
+        font-size: 20px !important;
+    }
 
-  .formBox .formBoxContent {
-    display: flex !important;
-    flex-direction: column !important;
-  }
+    .formBox .formBoxContent {
+        display: flex !important;
+        flex-direction: column !important;
+    }
 
-  .formBox .formBoxContent .formBoxSlider {
-  }
+    .formBox .formBoxContent .formBoxSlider {
+    }
 
-  .copyPhone {
-    justify-content: flex-start !important;
-    line-height: 0 !important;
-  }
+    .copyPhone {
+        justify-content: flex-start !important;
+        line-height: 0 !important;
+    }
 
-  .ts-control > input {
-    min-width: 0 !important;
-  }
+    .ts-control > input {
+        min-width: 0 !important;
+    }
 
-  .mobile-hidden {
-    display: none;
-  }
+    .mobile-hidden {
+        display: none;
+    }
 
-  .formBox .formBoxContent .formLogo {
-    margin-top: 10px !important;
-  }
+    .formBox .formBoxContent .formLogo {
+        margin-top: 10px !important;
+    }
 
-  .form-floating .form-control {
-    padding: 4px 20px !important;
-    height: calc(2.5rem + calc(var(--bs-border-width) * 2)) !important;
-    font-size: 14px !important;
-  }
+    .form-floating .form-control {
+        padding: 4px 20px !important;
+        height: calc(2.5rem + calc(var(--bs-border-width) * 2)) !important;
+        font-size: 14px !important;
+    }
 
-  .formBox .formBoxContent .formBoxForm .btn-pink {
-    padding: 18px 14px !important;
-    font-size: 14px !important;
-  }
+    .formBox .formBoxContent .formBoxForm .btn-pink {
+        padding: 18px 14px !important;
+        font-size: 14px !important;
+    }
 
-  .formBox .formBoxContent .formBoxForm .btn-gray {
-    padding: 18px 14px !important;
-    font-size: 14px !important;
-  }
+    .formBox .formBoxContent .formBoxForm .btn-gray {
+        padding: 18px 14px !important;
+        font-size: 14px !important;
+    }
 
-  .form-floating > label {
-    font-size: 14px !important;
-    padding: 0.5rem 0.75rem !important;
-  }
+    .form-floating > label {
+        font-size: 14px !important;
+        padding: 0.5rem 0.75rem !important;
+    }
 
-  .copyPhone span {
-    font-size: 14px !important;
-  }
+    .copyPhone span {
+        font-size: 14px !important;
+    }
 
-  .saloonDetailSliders #saloonDetailSlider1 .saloonDetailSliderBigPhoto img {
-    height: 200px !important;
-  }
+    .saloonDetailSliders #saloonDetailSlider1 .saloonDetailSliderBigPhoto img {
+        height: 200px !important;
+    }
 
-  .servicesSuccess {
-    margin-top: 50px !important;
-  }
+    .servicesSuccess {
+        margin-top: 50px !important;
+    }
 
-  #packageDetail .packageHeader div[class*="col-"] .boxItem {
-    border: none !important;
-    border-bottom: 2px solid rgba(67, 80, 110, 0.1) !important;
-    padding: 10px 0 8px !important;
-  }
+    #packageDetail .packageHeader div[class*="col-"] .boxItem {
+        border: none !important;
+        border-bottom: 2px solid rgba(67, 80, 110, 0.1) !important;
+        padding: 10px 0 8px !important;
+    }
 
-  #packageDetail .packageHeader div[class*="col-"] .boxItem span {
-    height: 10px !important;
-    font-size: 14px !important;
-  }
+    #packageDetail .packageHeader div[class*="col-"] .boxItem span {
+        height: 10px !important;
+        font-size: 14px !important;
+    }
 
-  #packageDetail .packageHeader div[class*="col-"] .boxItem strong {
-    font-size: 16px !important;
-  }
+    #packageDetail .packageHeader div[class*="col-"] .boxItem strong {
+        font-size: 16px !important;
+    }
 
-  .packageSummary .packageSummaryItem span {
-    font-size: 16px !important;
-  }
+    .packageSummary .packageSummaryItem span {
+        font-size: 16px !important;
+    }
 
-  .sendComments .form-floating .form-control {
-    padding: 20px 20px !important;
-    height: calc(5.5rem + calc(var(--bs-border-width) * 2)) !important;
-  }
+    .sendComments .form-floating .form-control {
+        padding: 20px 20px !important;
+        height: calc(5.5rem + calc(var(--bs-border-width) * 2)) !important;
+    }
 
-  .customCheck > span {
-    font-size: 14px !important;
-  }
+    .customCheck > span {
+        font-size: 14px !important;
+    }
 
-  .profileSettings .form-floating .form-control {
-    height: calc(3.5rem + calc(var(--bs-border-width) * 2)) !important;
-  }
+    .profileSettings .form-floating .form-control {
+        height: calc(3.5rem + calc(var(--bs-border-width) * 2)) !important;
+    }
 }
 
 @media (min-width: 768px) {
-  .desktop-hidden {
-    display: none;
-  }
+    .desktop-hidden {
+        display: none;
+    }
 }
 
 .servicesSuccess span {
-  font-size: 20px !important;
+    font-size: 20px !important;
 }
 
 .formBox {
-  height: 100% !important;
+    height: 100% !important;
 }
 
 .formBox .formBoxContent.forgotPass .btn-pink {
-  margin-top: 20px !important;
+    margin-top: 20px !important;
 }
 
 .back-sign-page a {
-  color: #43506e;
-  font-size: 14px;
-  display: block;
-  text-align: center;
+    color: #43506e;
+    font-size: 14px;
+    display: block;
+    text-align: center;
 }
 
 .mobile-menu-logo {
-  position: absolute !important;
-  top: 14px !important;
-  left: 0 !important;
+    position: absolute !important;
+    top: 14px !important;
+    left: 0 !important;
 }
 
 .hc-offcanvas-nav .nav-close-button span::before {
-  transform: rotate(135deg) !important;
+    transform: rotate(135deg) !important;
 }
 
 .hc-offcanvas-nav .nav-close-button span::after {
-  width: 20px !important;
-  height: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 .hc-offcanvas-nav .nav-close-button span::before {
-  width: 20px !important;
-  height: 20px !important;
-  margin-left: -25px !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-left: -25px !important;
 }
 
 @media (max-width: 576px) {
-  .breadcrumb .breadcrumb-item a {
-    font-size: 14px !important;
-  }
+    .breadcrumb .breadcrumb-item a {
+        font-size: 14px !important;
+    }
 
-  .breadcrumb .breadcrumb-item {
-    font-size: 14px !important;
-  }
+    .breadcrumb .breadcrumb-item {
+        font-size: 14px !important;
+    }
 
-  #breadcrumbs {
-    margin: 10px !important;
-    padding-bottom: 0 !important;
-  }
+    #breadcrumbs {
+        margin: 10px !important;
+        padding-bottom: 0 !important;
+    }
 
-  .breadcrumb {
-    margin-bottom: 0 !important;
-  }
+    .breadcrumb {
+        margin-bottom: 0 !important;
+    }
 
-  .saloonInfoBox .saloonInfoHeader .infoRating span {
-    font-size: 14px !important;
-  }
+    .saloonInfoBox .saloonInfoHeader .infoRating span {
+        font-size: 14px !important;
+    }
 
-  .saloonDetailBox {
-    padding: 20px !important;
-  }
+    .saloonDetailBox {
+        padding: 20px !important;
+    }
 
-  .saloonDetailBox .detailBoxContent {
-    font-size: 14px !important;
-  }
+    .saloonDetailBox .detailBoxContent {
+        font-size: 14px !important;
+    }
 
-  .saloonDetailBox .detailTitle {
-    font-size: 16px !important;
-  }
+    .saloonDetailBox .detailTitle {
+        font-size: 16px !important;
+    }
 
-  .saloonDetailBox .btn-detail {
-    font-size: 16px !important;
-    padding: 10px !important;
-  }
+    .saloonDetailBox .btn-detail {
+        font-size: 16px !important;
+        padding: 10px !important;
+    }
 
-  .saloonDetailBox
+    .saloonDetailBox
     .detailBoxContent
     .detailBoxContentList
     .detailBoxContentListItem
     span {
-    font-size: 14px !important;
-  }
+        font-size: 14px !important;
+    }
 
-  .detailRating span {
-    font-size: 14px !important;
-  }
+    .detailRating span {
+        font-size: 14px !important;
+    }
 
-  .commentsList .commentListItem .commentsText .commentsTop a {
-    font-size: 16px !important;
-  }
+    .commentsList .commentListItem .commentsText .commentsTop a {
+        font-size: 16px !important;
+    }
 
-  .commentsList .commentListItem .commentsText p {
-    font-size: 14px !important;
-  }
+    .commentsList .commentListItem .commentsText p {
+        font-size: 14px !important;
+    }
 
-  #servicesTab .accordion-button {
-    font-size: 16px !important;
-  }
+    #servicesTab .accordion-button {
+        font-size: 16px !important;
+    }
 
-  .pageTab.salloonsTab .nav .nav-item .nav-link {
-    padding: 2px 40px !important;
-  }
+    .pageTab.salloonsTab .nav .nav-item .nav-link {
+        padding: 2px 40px !important;
+    }
+}
+
+.contact-page {
+}
+
+.contact-page .info-box .info-item {
+    background-color: #fff;
+    padding: 52px 46px;
+}
+
+.contact-page .info-box .info-item h3 {
+    color: #43506e;
+    font-family: Euclid Circular A;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.contact-page .info-box .info-item h3 span {
+    font-weight: 600;
+}
+
+.contact-page .info-box .info-item p {
+    color: #43506e;
+    font-family: Euclid Circular A;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30.541px; /* 121.196% */
+    opacity: 0.4;
+}
+
+.contact-page .info-box .info-item p a {
+    text-decoration: none;
+    color: #43506e;
+}
+
+.contact-page .contact-form {
+    margin-top: 50px;
+}
+
+.contact-page .contact-form .form .hero {
+    margin-bottom: 70px;
+}
+
+.contact-page .contact-form .form .hero h2 {
+    color: #43506e;
+    font-family: Euclid Circular A;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.642px;
+    text-transform: capitalize;
+}
+
+.contact-page .contact-form .form .hero h2 span {
+    font-weight: 600;
+}
+
+.contact-page .contact-form .form .hero p {
+    color: #43506e;
+    font-family: Euclid Circular A;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.484px;
+    opacity: 0.5;
+}
+
+.contact-page .contact-form .form .field {
+    margin-bottom: 20px;
+}
+
+.contact-page .contact-form .form .field input,
+.contact-page .contact-form .form .field textarea,
+.contact-page .contact-form .form .field select {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    background: none;
+    border-bottom: 1px solid rgba(67, 80, 110, 0.2);
+    padding: 20px 0;
+    color: #43506e;
+    font-family: Euclid Circular A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.contact-page .contact-form .form .field button {
+    background-color: #f22969;
+    padding: 20px 80px;
+    color: #fff;
+    font-family: Euclid Circular A;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    outline: none;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-page .contact-form .form .field button:hover {
+    background: #43506e;
+}
+
+.contact-page .contact-form .map iframe {
+    filter: grayscale();
+}
+
+@media (max-width: 768px) {
+    .contact-page .info-box .info-item {
+        margin-bottom: 20px;
+    }
 }

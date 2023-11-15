@@ -65,25 +65,24 @@
                                         aria-labelledby="pills-hizmet-tab"
                                         tabindex="0"
                                     >
-                                        <form method="post" id="serviceSearch">
+                                        <form method="post" id="serviceSearch" action="{{route('search.cityAndServiceCategory')}}">
+                                            @csrf
                                             <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
                                                     <div class="customSelect iconSelect servicesSelect customTomSelect mb-4 mb-md-0">
-                                                        <select class="tomSelect">
-                                                            <option>Hizmet Seçiniz</option>
-                                                            <option>Hizmet Seçiniz2</option>
-                                                            <option>Hizmet Seçiniz3</option>
-                                                            <option>Hizmet Seçiniz4</option>
-                                                            <option>Hizmet Seçiniz5</option>
-                                                            <option>Hizmet Seçiniz6</option>
+                                                        <select class="tomSelect" placeholder="" name="service_id">
+                                                            <option value="">Hizmet Seçin</option>
+                                                            @foreach($services as $service)
+                                                                <option value="{{$service->id}}">{{$service->name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="customSelect iconSelect citySelect customTomSelect mb-4 mb-md-0">
-                                                        <select class="tomSelect">
-                                                            <option>Şehir Seçiniz</option>
-                                                            <option>Şehir Seçiniz2</option>
-                                                            <option>Şehir Seçiniz3</option>
-                                                            <option>Şehir Seçiniz4</option>
-                                                            <option>Şehir Seçiniz5</option>
+                                                        <select class="tomSelect" name="city_id">
+                                                            <option value="">Şehir Seçin</option>
+
+                                                            @foreach($cities as $city)
+                                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <a href="#" onclick="$('#serviceSearch').submit()" class="btn-pink btn-rounded">
@@ -120,28 +119,26 @@
                                         role="tabpanel"
                                         aria-labelledby="pills-salonturu-tab"
                                         tabindex="0">
-                                        <form method="post" id="categorySearch">
+                                        <form method="post" id="categorySearch" action="{{route('search.businessCategoryAndCity')}}">
+                                            @csrf
                                             <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
                                                 <div class="customSelect iconSelect servicesSelect customTomSelect mb-4 mb-md-0">
-                                                    <select class="tomSelect">
-                                                        <option>Hizmet Seçiniz</option>
-                                                        <option>Hizmet Seçiniz2</option>
-                                                        <option>Hizmet Seçiniz3</option>
-                                                        <option>Hizmet Seçiniz4</option>
-                                                        <option>Hizmet Seçiniz5</option>
-                                                        <option>Hizmet Seçiniz6</option>
+                                                    <select class="tomSelect" name="category_id" placeholder="İşletme Türü Seçin">
+                                                        <option value="">İşletme Türü Seçin</option>
+                                                        @foreach($categories as $category)
+                                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 <div class="customSelect iconSelect citySelect customTomSelect mb-4 mb-md-0">
-                                                    <select class="tomSelect">
-                                                        <option>Şehir Seçiniz</option>
-                                                        <option>Şehir Seçiniz2</option>
-                                                        <option>Şehir Seçiniz3</option>
-                                                        <option>Şehir Seçiniz4</option>
-                                                        <option>Şehir Seçiniz5</option>
+                                                    <select class="tomSelect" name="city_id" placeholder="Şehir Seçin">
+                                                        <option value="">Şehir Seçin</option>
+                                                        @foreach($cities as $city)
+                                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
-                                                <a href="#" onclick="$('#serviceSearch').submit()" class="btn-pink btn-rounded">
+                                                <a href="#" onclick="$('#categorySearch').submit()" class="btn-pink btn-rounded">
                                                     <svg
                                                         width="22"
                                                         height="23"
@@ -177,13 +174,8 @@
                                         tabindex="0"
                                     >
                                         <div class="customSelect iconSelect servicesSelect customTomSelect mb-4 mb-md-0">
-                                            <select class="tomSelect">
-                                                <option>Salon Adı</option>
-                                                <option>Hizmet Seçiniz2</option>
-                                                <option>Hizmet Seçiniz3</option>
-                                                <option>Hizmet Seçiniz4</option>
-                                                <option>Hizmet Seçiniz5</option>
-                                                <option>Hizmet Seçiniz6</option>
+                                            <select class="" id="salonName">
+
                                             </select>
                                         </div>
 
@@ -198,7 +190,7 @@
                                 @foreach($ads as $adHeader)
                                     <div class="item">
                                         <div class="photo">
-                                            <img src="/assets/images/topbanner.png" alt="" />
+                                            <img src="{{image($adHeader->image)}}" alt="" />
                                         </div>
                                         <div class="text">
                                             <strong>{{$adHeader->title}}</strong>
@@ -242,7 +234,7 @@
                                 @foreach($ads as $adBrand)
                                     <div class="item">
                                         <a href="{{$adBrand->link}}" target="_blank">
-                                            <img src="/assets/images/brands/zara.svg" alt="" />
+                                            <img src="{{image($adBrand->logo ?? $adBrand->image)}}" alt="" />
                                         </a>
                                     </div>
                                 @endforeach
@@ -262,7 +254,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="featuredTitle">Öne Çıkan Hizmetler</div>
+                        <div class="featuredTitle">{{main('speed_section_1_main_title')}}</div>
                     </div>
                 </div>
                 <div class="row">
@@ -280,18 +272,17 @@
                     <div class="col-lg-4">
                         <div class="featuredBoxItem">
                             <div class="icon">
-                                <img src="assets/images/icons/ico-search-2.svg" alt="" />
+                                <img src="/assets/images/icons/ico-search-2.svg" alt="" />
                             </div>
-                            <strong>Salonları Arayın</strong>
-                            <span
-                            >Binlerce salon arasından arama yapın, size en uygun hizmet
-                  veren yerleri bulun ve randevunuzu hemen kolayca alın.</span
-                            >
-                            <a href="javascript:;">
-                                Salon Ara
+                            <strong>{{main('speed_section_1_box_1_title')}}</strong>
+                            <span>
+                                {{main('speed_section_1_box_1_description')}}
+                            </span>
+                            <a href="{{main('speed_section_1_box_1_link')}}" target="_blank">
+                                {{main('speed_section_1_box_1_button_text')}}
                                 <svg
                                     width="10"
-                                    height="17"
+                                    height="15"
                                     viewBox="0 0 10 17"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -307,21 +298,21 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="featuredBoxItem">
                             <div class="icon">
-                                <img src="assets/images/icons/ico-search-2.svg" alt="" />
+                                <img src="/assets/images/icons/ico-search-2.svg" alt="" />
                             </div>
-                            <strong>Salonları Arayın</strong>
-                            <span
-                            >Binlerce salon arasından arama yapın, size en uygun hizmet
-                  veren yerleri bulun ve randevunuzu hemen kolayca alın.</span
-                            >
-                            <a href="javascript:;">
-                                Salon Ara
+                            <strong>{{main('speed_section_1_box_2_title')}}</strong>
+                            <span>
+                                {{main('speed_section_1_box_2_description')}}
+                            </span>
+                            <a href="{{main('speed_section_1_box_2_link')}}" target="_blank">
+                                {{main('speed_section_1_box_2_button_text')}}
                                 <svg
                                     width="10"
-                                    height="17"
+                                    height="15"
                                     viewBox="0 0 10 17"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -337,21 +328,21 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-4">
                         <div class="featuredBoxItem">
                             <div class="icon">
-                                <img src="assets/images/icons/ico-search-2.svg" alt="" />
+                                <img src="/assets/images/icons/ico-search-2.svg" alt="" />
                             </div>
-                            <strong>Salonları Arayın</strong>
-                            <span
-                            >Binlerce salon arasından arama yapın, size en uygun hizmet
-                  veren yerleri bulun ve randevunuzu hemen kolayca alın.</span
-                            >
-                            <a href="javascript:;">
-                                Salon Ara
+                            <strong>{{main('speed_section_1_box_3_title')}}</strong>
+                            <span>
+                                {{main('speed_section_1_box_3_description')}}
+                            </span>
+                            <a href="{{main('speed_section_1_box_3_link')}}" target="_blank">
+                                {{main('speed_section_1_box_3_button_text')}}
                                 <svg
                                     width="10"
-                                    height="17"
+                                    height="15"
                                     viewBox="0 0 10 17"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
@@ -380,8 +371,7 @@
                                 <span>Türleri</span>
                             </div>
                             <p class="my-auto">
-                                Blandit convallis lectus lacus lobortis. In nibh gravida
-                                porttitor pulvinar. Nulla mauris risus vitae dictumst.
+                                {{main('speed_section_2_text')}}
                             </p>
                             <div class="mt-auto">
                                 <a href="javascript:;" class="btn-pink btn-rounded">
@@ -399,7 +389,7 @@
                                 @foreach($categories as $category)
                                     @if($loop->index < 5)
                                         <div
-                                            class="panel active"
+                                            class="panel @if($loop->first) active @endif"
                                             style="
                                           background-image: url(/assets/images/sallontype.jpg);
                                         "
@@ -408,7 +398,7 @@
                                                 class="text d-flex align-items-center justify-content-between"
                                             >
                                                 <strong>{{$category->name}}</strong>
-                                                <a href="javascript:;"
+                                                <a href="{{route('search.businessCategorySearch', $category->slug)}}"
                                                 ><svg
                                                         width="20"
                                                         height="15"
@@ -478,7 +468,7 @@
                                 <div class="row">
                                     @foreach($fCategory->cities as $city)
                                         <div class="col-sm-6 col-lg-4">
-                                            <a href="javascript:;">{{$city->city->name}} {{$fCategory->category->name}}</a>
+                                            <a href="{{route('search.cityAndCategory', [$city->city->slug, $fCategory->category->slug])}}">{{$city->city->name}} {{$fCategory->category->name}}</a>
                                         </div>
                                     @endforeach
 
@@ -504,50 +494,18 @@
 
                 <div class="d-flex flex-column flex-lg-row">
                     <div class="homeEventsList">
-                        <a href="javascript:;" class="d-flex align-items-center">
-                <span class="date">
-                  <strong>01</strong>
-                  <span>Ocak</span>
-                  <span>2023</span>
-                </span>
-                            <span class="text"
-                            >Consequat risus mollis morbi quam nunc turpis. Amet donec
-                  vestibulum enim cras.</span
-                            >
-                        </a>
-                        <a href="javascript:;" class="d-flex align-items-center">
-                <span class="date">
-                  <strong>01</strong>
-                  <span>Ocak</span>
-                  <span>2023</span>
-                </span>
-                            <span class="text"
-                            >Consequat risus mollis morbi quam nunc turpis. Amet donec
-                  vestibulum enim cras.</span
-                            >
-                        </a>
-                        <a href="javascript:;" class="d-flex align-items-center">
-                <span class="date">
-                  <strong>01</strong>
-                  <span>Ocak</span>
-                  <span>2023</span>
-                </span>
-                            <span class="text"
-                            >Consequat risus mollis morbi quam nunc turpis. Amet donec
-                  vestibulum enim cras.</span
-                            >
-                        </a>
-                        <a href="javascript:;" class="d-flex align-items-center">
-                <span class="date">
-                  <strong>01</strong>
-                  <span>Ocak</span>
-                  <span>2023</span>
-                </span>
-                            <span class="text"
-                            >Consequat risus mollis morbi quam nunc turpis. Amet donec
-                  vestibulum enim cras.</span
-                            >
-                        </a>
+                        @foreach($activities as $activity)
+                            <a href="{{route('activity.detail', $activity->slug)}}" class="d-flex align-items-center">
+                                <span class="date">
+                                  <strong>{{\Illuminate\Support\Carbon::parse($activity->start_date)->format('d')}}</strong>
+                                  <span>{{\Illuminate\Support\Carbon::parse($activity->start_date)->translatedFormat('F')}}</span>
+                                  <span>{{\Illuminate\Support\Carbon::parse($activity->start_date)->format('Y')}}</span>
+                                </span>
+                                <span class="text">
+                                    {{$activity->title}}
+                                </span>
+                            </a>
+                        @endforeach
                     </div>
                     <div id="eventDatePicker"></div>
                 </div>
@@ -563,8 +521,7 @@
                                 Yazılarımız
                             </div>
                             <p>
-                                Hac mollis viverra ornare enim enim lectus. Velit justo quam
-                                iaculis risus facilisis auctor in.
+                               {{main('speed_section_3_text')}}
                             </p>
                             <div
                                 id="customBlogSliderNav"
@@ -586,7 +543,7 @@
                                             </div>
                                             <div class="blogSliderText">
                                                 <strong>{{$blog->title}}.</strong>
-                                                <a href="javascript:;">
+                                                <a href="{{route('blog.detail', $blog->slug)}}">
                                                     <span>Daha Fazla Bilgi</span>
                                                     <svg
                                                         width="12"
@@ -625,4 +582,42 @@
             </div>
         </section>
     </article>
+@endsection
+@section('scripts')
+    <script>
+        var mySelect3 = new TomSelect("#salonName", {
+            remoteUrl: '/api/salon-ara',
+            remoteSearch: true,
+            create: false,
+            highlight: false,
+            load: function(query, callback) {
+                $.ajax({
+                    url: '/api/salon-ara', // Sunucu tarafındaki arama API'sinin URL'si
+                    method: 'POST',
+                    data: { q: query }, // Arama sorgusu
+                    dataType: 'json', // Beklenen veri tipi
+                    success: function(data) {
+
+                        var results = data.businesses.map(function(item) {
+                            return {
+                                value: item.id,
+                                text: item.name,
+                            };
+                        });
+
+                        callback(results);
+                    },
+                    error: function() {
+                        console.error("Arama sırasında bir hata oluştu.");
+                    }
+                });
+            }
+        });
+        $('#salonName').on('change', function (){
+            let val = $(this).val();
+            window.location.href= "/business/"+val;
+
+        });
+    </script>
+
 @endsection

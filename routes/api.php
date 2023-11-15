@@ -14,6 +14,8 @@ use App\Http\Controllers\Api\AppointmentController;
 |
 */
 
+Route::post('/salon-ara', [\App\Http\Controllers\SearchController::class, 'salonName']);
+
 Route::prefix('appointment')->group(function (){
     Route::post('/clock/get', [AppointmentController::class, 'getClock']);
 });

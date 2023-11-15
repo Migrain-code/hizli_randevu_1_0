@@ -1,6 +1,12 @@
 <div class="col-lg-3">
+
     <div class="saloonItem">
         <div class="saloonPhoto">
+            @if(auth('customer')->check())
+                <a href="javascipt:void(0);" class="fav-btn" data-business="{{$business->id}}" onclick="toggleHeart(this)">
+                    <i id="heartIcon" @if(in_array($business->id, auth('customer')->user()->favorites()->pluck('business_id')->toArray()))) class="fa fa-heart" @else class="fa fa-heart-o" @endif></i>
+                </a>
+            @endif
             <a href="{{route('business.detail', $business->slug)}}">
                 <img
                     src="/assets/images/saloonphoto.png"

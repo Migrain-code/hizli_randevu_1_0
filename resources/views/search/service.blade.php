@@ -25,18 +25,19 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="pageFilter mb-5">
-                            <div class="row">
+                            <form class="row" method="post" id="serviceForm" action="{{route('search.cityAndServiceCategory')}}">
+                                @csrf
                                 <div class="col-lg-4">
                                     <div
                                         class="customSelect iconSelect servicesSelect customTomSelect"
                                     >
-                                        <select class="tomSelect">
-                                            <option>Şehir Seçiniz</option>
-                                            <option>Hizmet Seçiniz2</option>
-                                            <option>Hizmet Seçiniz3</option>
-                                            <option>Hizmet Seçiniz4</option>
-                                            <option>Hizmet Seçiniz5</option>
-                                            <option>Hizmet Seçiniz6</option>
+                                        <select class="tomSelect" name="service_id">
+                                            <option value="">Hizmet seçiniz</option>
+                                            @forelse($services as $service)
+                                                <option value="{{$service->id}}">{{$service->name}}</option>
+                                            @empty
+
+                                            @endforelse
                                         </select>
                                     </div>
                                 </div>
@@ -44,13 +45,13 @@
                                     <div
                                         class="customSelect iconSelect servicesSelect customTomSelect"
                                     >
-                                        <select class="tomSelect">
-                                            <option>Hizmet Seçiniz</option>
-                                            <option>Hizmet Seçiniz2</option>
-                                            <option>Hizmet Seçiniz3</option>
-                                            <option>Hizmet Seçiniz4</option>
-                                            <option>Hizmet Seçiniz5</option>
-                                            <option>Hizmet Seçiniz6</option>
+                                        <select class="tomSelect" name="city_id">
+                                            <option value="">Şehir seçiniz</option>
+                                            @forelse($cities as $city)
+                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                            @empty
+
+                                            @endforelse
                                         </select>
                                     </div>
                                 </div>
@@ -58,7 +59,7 @@
                                 <div
                                     class="col-lg-4 d-flex align-items-center justify-content-end"
                                 >
-                                    <a href="javascript:;" class="btn-pink">
+                                    <a href="javascript:;" onclick="$('#serviceForm').submit()" class="btn-pink">
                                         <svg
                                             class="me-4"
                                             width="22"
@@ -85,7 +86,7 @@
                                         Ara
                                     </a>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <div class="categoryList mb-5">
                             <div
@@ -183,7 +184,13 @@
                                             @forelse($businesses as $business)
                                                 @include('layouts.components.business')
                                             @empty
+                                                <div class="alert alert-warning">
+                                                    Aradığınız türde işletme kaydı bulunamadı
+                                                </div>
                                             @endforelse
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            {!! $businesses->links() !!}
                                         </div>
                                     </div>
                                 </div>

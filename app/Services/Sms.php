@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\SendedSms;
+
 class Sms
 {
     private static string $apiUrl = "https://api.netgsm.com.tr/sms/send/get";
@@ -13,6 +15,10 @@ class Sms
 
     public static function send($number, $message)
     {
+        $sms = new SendedSms();
+        $sms->phone = $number;
+        $sms->message = $message;
+        $sms->save();
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => self::$apiUrl,

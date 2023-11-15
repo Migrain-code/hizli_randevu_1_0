@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Campaign extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
+    protected $translatable =['title', 'slug', 'description'];
     const STATUS_LIST=[
         0 => [
             'html' => '<span class="badge light badge-warning fw-bolder px-2 py-2">Onay Bekliyor</span>',
@@ -42,5 +44,20 @@ class Campaign extends Model
     public function business()
     {
         return $this->hasOne(Business::class, 'id', 'business_id');
+    }
+
+    public function getTitle()
+    {
+         return $this->translate('title');
+    }
+
+    public function getDescription()
+    {
+         return $this->translate('description');
+    }
+
+    public function getSlug()
+    {
+         return $this->translate('slug');
     }
 }

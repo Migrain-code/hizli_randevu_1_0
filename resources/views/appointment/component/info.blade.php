@@ -16,7 +16,7 @@
     </div>
     <div class="servicesBox">
         @if(auth('customer')->check())
-            <div class="alert alert-info"> Da Sie in Ihrem Konto angemeldet sind, werden Sie nicht nach weiteren Informationen gefragt.</div>
+            <div class="alert alert-info"> Giriş Yaptığınız için kullanıcı bilgileriniz istenmeyecektir.</div>
         @else
             <div
                 class="d-flex align-items-center justify-content-between"
@@ -51,14 +51,15 @@
                     <label for="floatingInput">Adınız Soyadınız</label>
                 </div>
 
-                <div
-                    class="buttonGroups d-flex align-items-center justify-content-end"
-                >
-                    <a href="{{route('business.detail', $business->slug)}}" class="btn-gray">İptal</a>
-                    <a href="javascript:;" onclick="$('#step-4-form').submit()" class="btn-pink">Gönder</a>
-                </div>
+
             </div>
         @endif
+            <div
+                class="buttonGroups d-flex align-items-center justify-content-end"
+            >
+                <a href="{{route('business.detail', $business->slug)}}" class="btn-gray">İptal</a>
+                <a href="javascript:;" onclick="$('#step-4-form').submit()" class="btn-pink">Gönder</a>
+            </div>
     </div>
     </form>
 @endif

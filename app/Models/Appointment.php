@@ -11,39 +11,39 @@ class Appointment extends Model
     protected $fillable=['comment_status'];
     const STATUS_LIST=[
         0 => [
-            'html' => '<span class="badge light badge-warning fw-bolder px-2 py-2">Onay Bekliyor</span>',
+            'html' => '<span class="badge rounded-pill text-bg-warning fw-bolder px-2 py-2 appointmentStatus">Onay Bekliyor</span>',
             'text' => 'Onay Bekliyor'
         ],
         1 => [
-            'html' => '<span class="badge light badge-success fw-bolder px-2 py-2">Onaylandı</span>',
+            'html' => '<span class="badge rounded-pill text-bg-success fw-bolder px-2 py-2 appointmentStatus">Onaylandı</span>',
             'text' => 'Onaylandı'
         ],
         2 => [
-            'html' => '<span class="badge light badge-info fw-bolder px-2 py-2">Randevu Zamanı</span>',
+            'html' => '<span class="badge rounded-pill text-bg-info fw-bolder px-2 py-2 appointmentStatus">Randevu Zamanı</span>',
             'text' => 'Randevu Zamanı'
         ],
         3 => [
-            'html' => '<span class="badge light badge-info fw-bolder px-2 py-2">Başladı</span>',
+            'html' => '<span class="badge rounded-pill text-bg-info fw-bolder px-2 py-2 appointmentStatus">Başladı</span>',
             'text' => 'Başladı'
         ],
         4 => [
-            'html' => '<span class="badge light badge-success fw-bolder px-2 py-2">Tamamlandı</span>',
+            'html' => '<span class="badge badge-success fw-bolder px-2 py-2 appointmentStatus">Tamamlandı</span>',
             'text' => 'Tamamlandı'
         ],
         5 => [
-            'html' => '<span class="badge light badge-info fw-bolder px-2 py-2">Ödeme Bekleniyor</span>',
+            'html' => '<span class="badge rounded-pill text-bg-info fw-bolder px-2 py-2 appointmentStatus">Ödeme Bekleniyor</span>',
             'text' => 'Ödeme Bekleniyor'
         ],
         6 => [
-            'html' => '<span class="badge badge-primary fw-bolder px-2 py-2">Ödeme Alındı</span>',
+            'html' => '<span class="badge rounded-pill text-bg-primary fw-bolder px-2 py-2 appointmentStatus">Ödeme Alındı</span>',
             'text' => 'Ödeme Alındı'
         ],
         7 => [
-            'html' => '<span class="badge badge-success fw-bolder px-2 py-2">Ödeme Onaylandı</span>',
+            'html' => '<span class="badge rounded-pill text-bg-success fw-bolder px-2 py-2 appointmentStatus">Ödeme Onaylandı</span>',
             'text' => 'Ödeme Onaylandı'
         ],
         8 => [
-            'html' => '<span class="badge light badge-danger fw-bolder px-2 py-2">İptal Edildi</span>',
+            'html' => '<span class="badge rounded-pill text-bg-danger fw-bolder px-2 py-2 appointmentStatus">İptal Edildi</span>',
             'text' => 'İptal Edildi'
         ],
 

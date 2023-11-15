@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-4 col-xl-3 d-flex align-items-center">
                 <div class="logo">
-                    <a href="javascript:;">
+                    <a href="/">
                         <img
-                            src="/assets/images/header-logo.svg"
+                            src="{{image(setting('speed_logo_white'))}}"
                             class="logo-white"
                             alt="logo"
                         />
                         <img
-                            src="/assets/images/logo-dark.svg"
+                            src="{{image(setting('speed_logo_dark'))}}"
                             class="logo-dark"
                             alt="logo"
                         />
@@ -21,7 +21,7 @@
                 <div class="topMenu">
                     <ul>
                         <li class="active">
-                            <a href="javascript:;">
+                            <a href="/">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-home-2"
@@ -68,7 +68,7 @@
                             </a>
                             <ul>
                                 @foreach($categories as $category)
-                                    <li><a href="javascript:;">{{$category->name}}</a></li>
+                                    <li><a href="{{route('search.businessCategorySearch', $category->slug)}}">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -112,7 +112,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="{{route('faq')}}">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-24-hours"
@@ -139,7 +139,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="{{route('blog.index')}}">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="icon icon-tabler icon-tabler-article"
@@ -189,11 +189,10 @@
                                         d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"
                                     ></path>
                                 </svg>
-                                İşletmeler</a
-                            >
+                                İşletmeler</a>
                         </li>
                         <li class="mobile-menu-logo">
-                            <img src="/assets/images/header-logo.svg" alt="" />
+                            <img src="{{image(setting('speed_logo_white'))}}" alt="" />
                         </li>
                     </ul>
                 </div>
@@ -202,10 +201,12 @@
                 class="col-8 col-xl-3 d-flex align-items-center justify-content-end"
             >
                 <div class="headerRight">
-                    <a href="javscript:;" class="btn-outline-white"> Giriş Yap </a>
-                    <a href="javascript:;" class="btn-white d-none d-sm-block"
-                    >İşletmeler</a
-                    >
+                    @if(auth('customer')->check())
+                        <a href="{{route('customer.home')}}" class="btn-outline-white"> <i class="fa fa-user-circle"></i> Hesabım </a>
+                    @else
+                        <a href="{{route('customer.login')}}" class="btn-outline-white"> Giriş Yap </a>
+                    @endif
+                    <a href="{{env('REMOTE_URL')}}" target="_blank" class="btn-white d-none d-sm-block">İşletmeler</a>
                     <a href="javascript:;" class="toggle"><span></span></a>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+<link type="image/x-icon" href="{{image(setting('speed_favicon'))}}" rel="icon">
 <link rel="stylesheet" href="/assets/fonts/EuclidCircularA/stylesheet.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,6 +15,7 @@
 <link rel="stylesheet" href="/assets/css/hc-offcanvas-nav.carbon.css" />
 
 <link rel="stylesheet" href="/assets/css/tom-select.css" />
+
 <link rel="stylesheet" href="/assets/css/style.css" />
 <link rel="stylesheet" href="/assets/css/responsive.css" />
 <link rel="stylesheet" href="/assets/css/custom.css" />
@@ -36,6 +38,30 @@
     }
     ::-webkit-scrollbar-track{
         background-color: #ebeaec;
+    }
+    .saloonItem{
+        position: relative !important;
+    }
+    .saloonItem .saloonPhoto .fav-btn{
+        width: 30px;
+        position: absolute;
+        height: 30px;
+        z-index: 10;
+        right: 23px;
+        top: 15px;
+        background-color: white;
+        text-align: center;
+        border-radius: 50%;
+        align-items: center;
+        display: flex;
+        text-decoration: none;
+        justify-content: center;
+        color: #ff002d;
+        border: none;
+    }
+    .appointmentStatus{
+        font-size: 15px;
+        line-height: 23px;
     }
 </style>
 @yield('styles')

@@ -68,7 +68,6 @@
             padding: 20px;
             border-radius: 50%;
         }
-
     </style>
 
 @endsection
@@ -181,11 +180,10 @@
 
                         personelTimesDiv.appendChild(newTimeInput);
                         var docTimesHtml = "";
-
                         row.clocks.forEach(function (clock){
                             if (clock.durum == false){
                                 var newHtml = `
-                          <div class="timePickers">
+
                             <div class="timePickerRadio">
                                 <input
                                     class="form-check-input"
@@ -196,14 +194,12 @@
                                 />
                                 <span>${clock.saat}</span>
                             </div>
-                          </div>
                         `;
 
                                 docTimesHtml += newHtml;
                             }
                             else {
                                 var newHtml = `
-                          <div class="timePickers">
                             <div class="timePickerRadio">
                                 <input
                                     class="form-check-input active-time"
@@ -214,7 +210,6 @@
                                 />
                                 <span>${clock.saat}</span>
                             </div>
-                          </div>
                         `;
                                 docTimesHtml += newHtml;
                             }
@@ -222,8 +217,10 @@
 
                         var newSlide = document.createElement('div');
                         newSlide.classList.add('swiper-slide');
-                        newSlide.classList.add('doc-times');
-                        newSlide.innerHTML =`<div class="w-100 text-center" style="padding: 15px"><h4>${row.personel.name} İçin Saat Seçin</h4></div>` + docTimesHtml;
+                        var newTimePicker = document.createElement('div');
+                        newTimePicker.classList.add('timePickers');
+                        newTimePicker.innerHTML = docTimesHtml;
+                        newSlide.innerHTML =`<div class="w-100 text-center" style="padding: 15px"><h4>${row.personel.name} İçin Saat Seçin</h4></div>` + newTimePicker.outerHTML;
 
                         var swiperWrapper = document.querySelector('.swiper-wrapper');
                         swiperWrapper.appendChild(newSlide);

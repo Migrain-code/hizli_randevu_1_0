@@ -28,7 +28,9 @@
                     </select>
                 </div>
             @endforeach
-            <button class="btn-five-light my-3 fs-5 fw-light p-2" style="background-color: #01af00;color: white;margin-left: auto" type="submit">Tarih/Saat Seç</button>
+            <div class="d-flex justify-content-end">
+                <button class="btn-pink" style="border: 0px; margin-top: 10px;" type="submit">Tarih/Saat Seç</button>
+            </div>
         </form>
 
     </div>

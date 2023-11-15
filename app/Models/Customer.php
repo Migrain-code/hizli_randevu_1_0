@@ -15,7 +15,7 @@ class Customer extends Authenticatable
 
     public function appointments()
     {
-        return $this->hasMany(Appointment::class, 'customer_id', 'id')->where('status','<>' ,1)->where('status','<>' ,0)->latest();
+        return $this->hasMany(Appointment::class, 'customer_id', 'id');
     }
 
     public function device()
@@ -29,7 +29,7 @@ class Customer extends Authenticatable
     }
     public function notifications()
     {
-        return $this->hasMany(CustomerNotificationMobile::class, 'customer_id', 'id');
+        return $this->hasMany(CustomerNotificationMobile::class, 'customer_id', 'id')->latest('status');
     }
 
     public function permissions()
@@ -52,11 +52,17 @@ class Customer extends Authenticatable
     }
     public function city()
     {
-        return $this->hasOne(City::class, 'id', 'city_id');
+        return $this->hasOne(City::class, 'id', 'city_id')->withDefault([
+            'id' => 1,
+            'name' => "Konum Bulunamadı"
+        ]);
     }
     public function district()
     {
-        return $this->hasOne(District::class, 'id', 'district_id');
+        return $this->hasOne(District::class, 'id', 'district_id')->withDefault([
+            'id' => 1,
+            'name' => "Konum Bulunamadı"
+        ]);
     }
 
     public function sendSms($message)
@@ -64,4 +70,5 @@ class Customer extends Authenticatable
         Sms::send(clearPhone($this->phone), $message);
         return true;
     }
+
 }

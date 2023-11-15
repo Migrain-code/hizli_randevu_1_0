@@ -13,4 +13,14 @@ class Blog extends Model
     {
         return $this->hasMany(BlogComment::class, 'blog_id', 'id')->where('status', 1);
     }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
+    public function social()
+    {
+        return $this->hasOne(BlogSocial::class, 'blog_id', 'id');
+    }
 }
