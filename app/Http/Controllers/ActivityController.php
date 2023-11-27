@@ -13,7 +13,7 @@ class ActivityController extends Controller
 {
     public function index()
     {
-        $activities = Activity::latest()->paginate(10);
+        $activities = Activity::where('status', 1)->latest()->paginate(10);
         $ads = Ads::where('type', 5)->where('status', 1)->take(2)->get();
         return view('activity.index', compact('activities', 'ads'));
     }
@@ -21,6 +21,7 @@ class ActivityController extends Controller
     public function detail($slug)
     {
         $activity = Activity::where('slug', $slug)->first();
+
         $latestActivities = Activity::latest()->take(5)->get();
 
         return view('activity.detail', compact('activity', 'latestActivities'));

@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Etkinlikler')
 @section('styles')
 
 @endsection
@@ -30,12 +31,12 @@
                                     @foreach($activities as $activity)
                                         <a href="{{route('activity.detail', $activity->slug)}}" class="d-flex align-items-center">
                                             <span class="date">
-                                              <strong>{{\Illuminate\Support\Carbon::parse($activity->start_date)->format('d')}}</strong>
-                                              <span>{{\Illuminate\Support\Carbon::parse($activity->start_date)->translatedFormat('F')}}</span>
-                                              <span>{{\Illuminate\Support\Carbon::parse($activity->start_date)->format('Y')}}</span>
+                                              <strong>{{\Illuminate\Support\Carbon::parse($activity->start_time)->format('d')}}</strong>
+                                              <span>{{\Illuminate\Support\Carbon::parse($activity->start_time)->translatedFormat('F')}}</span>
+                                              <span>{{\Illuminate\Support\Carbon::parse($activity->start_time)->format('Y')}}</span>
                                             </span>
                                             <span class="text">
-                                                {{$activity->title}}
+                                                {{$activity->getTitle()}}
                                             </span>
                                         </a>
                                     @endforeach

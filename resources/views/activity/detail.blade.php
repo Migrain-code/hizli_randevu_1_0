@@ -1,7 +1,11 @@
 @extends('layouts.master')
-@section('title', $activity->title)
+@section('title', $activity->getTitle())
 @section('styles')
-
+    <style>
+        iframe{
+            border-radius: 25px;
+        }
+    </style>
 @endsection
 @section('content')
     <article id="page">
@@ -16,7 +20,7 @@
                                     Etkinlikler
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">
-                                    {{$activity->title}}
+                                    {{$activity->getTitle()}}
                                 </li>
                             </ol>
                         </nav>
@@ -32,15 +36,27 @@
                             <div class="col-12 border-end">
                                 <div class="pe-md-4">
                                     <div class="pageBanner mb-5">
-                                        <img
-                                            src="{{image($activity->image)}}"
-                                            class="w-100"
-                                            alt=""
-                                        />
+                                        <div id="carouselExample" class="carousel slide">
+                                            <div class="carousel-inner">
+                                                @foreach($activity->sliders as $slider)
+                                                    <div class="carousel-item active">
+                                                        <img src="{{image($slider->image)}}" class="d-block w-100" alt="...">
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
                                     </div>
 
                                     <h2 class="pageTitle mb-5">
-                                        {{$activity->title}}
+                                        {{$activity->getTitle()}}
                                     </h2>
                                     <div class="postMeta d-flex align-items-center flex-wrap">
                                         <div class="metaItem user d-flex align-items-center">
@@ -52,7 +68,7 @@
                                                 src="/assets/images/icons/ico-calendar.svg"
                                                 alt=""
                                             />
-                                            <span>{{$activity->start_date}}</span>
+                                            <span>{{\Illuminate\Support\Carbon::parse($activity->start_time)->format('d.m.Y H:i')}}</span>
                                         </div>
                                         <div class="metaItem d-flex align-items-center">
                                             <img src="/assets/images/icons/ico-users.svg" alt=""/>
@@ -68,7 +84,7 @@
                                         >Etkinliğe Katıl</a>
                                     </div>
                                     <div class="pageText">
-                                        {!! $activity->description !!}
+                                        {!! $activity->getDescription() !!}
                                     </div>
                                     <div class="socialShare d-flex align-items-center my-4">
                                         <a href="javascript:;">
@@ -148,86 +164,97 @@
                                             </svg>
                                         </a>
                                     </div>
-                                    <div class="eventsUsers">
-                                        <div
-                                            class="pageSubTitle mt-5 pt-5 pb-3 mb-4 border-bottom"
-                                        >
-                                            Kullanıcılar
-                                        </div>
-                                        <div class="js-photo-gallery">
-                                            <div class="owl-carousel">
-                                                @forelse($activity->personels as $personel)
-                                                    <div class="item">
-                                                        <div class="eventUserItem">
-                                                            <div class="photo">
-                                                                <img src="{{image($personel->image)}}" alt=""/>
-                                                                <span>{{$personel->name}}</span>
+                                    @if($activity->personels->count() > 0)
+                                        <div class="eventsUsers">
+                                            <div
+                                                class="pageSubTitle mt-5 pt-5 pb-3 mb-4 border-bottom"
+                                            >
+                                                Kullanıcılar
+                                            </div>
+                                            <div class="js-photo-gallery">
+                                                <div class="owl-carousel">
+                                                    @forelse($activity->personels as $personel)
+                                                        <div class="item">
+                                                            <div class="eventUserItem">
+                                                                <div class="photo">
+                                                                    <img src="{{image($personel->image)}}" alt=""/>
+                                                                    <span>{{$personel->name}}</span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                @empty
+                                                    @empty
 
-                                                @endforelse
+                                                    @endforelse
 
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="sponsorLogos">
-                                        <div
-                                            class="pageSubTitle mt-5 pt-5 pb-3 mb-4 border-bottom"
-                                        >
-                                            Sponsorlar
-                                        </div>
-                                        <div class="sponsorList">
-                                            <div class="row">
-                                                <div class="js-event-sponsor">
-                                                    <div class="owl-carousel">
-                                                        @forelse($activity->sponsors as $sponsor)
-                                                            <div class="item">
-                                                                <div class="sponsorItem">
-                                                                    <div class="sponsorLogo">
-                                                                        <img
-                                                                            src="{{image($sponsor->image)}}"
-                                                                            alt=""
-                                                                        />
+                                    @endif
+                                    @if($activity->sponsors->count() > 0)
+                                        <div class="sponsorLogos">
+                                            <div
+                                                class="pageSubTitle mt-5 pt-5 pb-3 mb-4 border-bottom"
+                                            >
+                                                Sponsorlar
+                                            </div>
+                                            <div class="sponsorList">
+                                                <div class="row">
+                                                    <div class="js-event-sponsor">
+                                                        <div class="owl-carousel">
+                                                            @forelse($activity->sponsors as $sponsor)
+                                                                <div class="item">
+                                                                    <div class="sponsorItem">
+                                                                        <div class="sponsorLogo">
+                                                                            <img
+                                                                                src="{{image($sponsor->image)}}"
+                                                                                alt=""
+                                                                            />
+                                                                        </div>
+                                                                        <i>
+                                                                            @if($sponsor->status==1)
+                                                                                Ana Sponsor
+                                                                            @else
+                                                                                {{$sponsor->text}}
+                                                                            @endif
+                                                                        </i>
+                                                                        <a href="javascript:;">{{$sponsor->name}}</a>
                                                                     </div>
-                                                                    <i>
-                                                                        @if($sponsor->status==1)
-                                                                            Ana Sponsor
-                                                                        @else
-                                                                            {{$sponsor->text}}
-                                                                        @endif
-                                                                    </i>
-                                                                    <a href="javascript:;">{{$sponsor->name}}</a>
                                                                 </div>
-                                                            </div>
-                                                        @empty
-                                                            <div class="alert alert-warning d-flex align-items-center"
-                                                                 role="alert">
-                                                                <svg class="bi flex-shrink-0 me-2" role="img"
-                                                                     aria-label="Warning:">
-                                                                    <use xlink:href="#exclamation-triangle-fill"/>
-                                                                </svg>
-                                                                <div>
-                                                                    Etkinlik Sponsoru Bulunamadı
+                                                            @empty
+                                                                <div class="alert alert-warning d-flex align-items-center"
+                                                                     role="alert">
+                                                                    <svg class="bi flex-shrink-0 me-2" role="img"
+                                                                         aria-label="Warning:">
+                                                                        <use xlink:href="#exclamation-triangle-fill"/>
+                                                                    </svg>
+                                                                    <div>
+                                                                        Etkinlik Sponsoru Bulunamadı
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        @endforelse
+                                                            @endforelse
 
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
+
                                     <div class="eventVideos">
                                         <div class="pageSubTitle mt-5 pt-5 text-center">
                                             Video Galeri
                                         </div>
                                         <p class="pageDesc text-center mb-3">
                                         </p>
+
                                         <div class="video">
-                                            <img src="/assets/images/video.png" alt=""/>
+                                            <iframe width="100%" height="626"
+                                                    src="{!! $activity->embed !!}"
+                                                    frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    allowfullscreen>
+                                            </iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +270,7 @@
                                 @forelse($latestActivities as $activity)
                                     <a href="{{route('activity.detail', $activity->slug)}}">
                                     <span class="populerListPhoto">
-                                      <img src="{{image($activity->image)}}" alt=""/>
+                                      <img src="{{image($activity->sliders->first()->image)}}" alt=""/>
                                     </span>
                                         <span class="populerListText">
                                       <strong>{{$activity->title}}</strong>

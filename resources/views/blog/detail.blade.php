@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', $blog->getTitle())
 @section('styles')
 
 @endsection
@@ -12,10 +13,10 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
                                 <li class="breadcrumb-item">
-                                    Blog Yazıları
+                                    <a href="{{route('blog.index')}}">Blog Yazıları</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    {{$blog->title}}
+                                    {{$blog->getTitle()}}
                                 </li>
                             </ol>
                         </nav>

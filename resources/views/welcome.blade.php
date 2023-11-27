@@ -374,155 +374,162 @@
                 </div>
             </div>
         </section>
-        <section id="studiosTab">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul class="nav nav-tabs" id="studiosTabHeader" role="tablist">
-                            @forelse($featuredCategories as $fCategory)
-                                <li class="nav-item" role="presentation">
-                                <button
-                                    class="nav-link @if($loop->first) active @endif"
-                                    id="home-tab1"
-                                    data-bs-toggle="tab"
-                                    data-bs-target="#home-tab{{$fCategory->id}}-pane"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="home-tab{{$fCategory->id}}-pane"
-                                    aria-selected="true"
-                                >
-                                    {{$fCategory->category->name}}
-                                </button>
-                            </li>
-                            @empty
-                            @endforelse
+        @if($featuredCategories->count() > 0)
+            <section id="studiosTab">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="nav nav-tabs" id="studiosTabHeader" role="tablist">
+                                @forelse($featuredCategories as $fCategory)
+                                    <li class="nav-item" role="presentation">
+                                        <button
+                                            class="nav-link @if($loop->first) active @endif"
+                                            id="home-tab1"
+                                            data-bs-toggle="tab"
+                                            data-bs-target="#home-tab{{$fCategory->id}}-pane"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="home-tab{{$fCategory->id}}-pane"
+                                            aria-selected="true"
+                                        >
+                                            {{$fCategory->category->name}}
+                                        </button>
+                                    </li>
+                                @empty
+                                @endforelse
 
-                        </ul>
-                        <div class="tab-content" id="studiosTabContent">
-                            @forelse($featuredCategories as $fCategory)
-                            <div
-                                class="tab-pane fade show active"
-                                id="home-tab{{$fCategory->id}}-pane"
-                                role="tabpanel"
-                                aria-labelledby="home-tab{{$fCategory->id}}"
-                                tabindex="0"
-                            >
-                                <div class="row">
-                                    @foreach($fCategory->cities as $city)
-                                        <div class="col-sm-6 col-lg-4">
-                                            <a href="{{route('search.cityAndCategory', [$city->city->slug, $fCategory->category->slug])}}">{{$city->city->name}} {{$fCategory->category->name}}</a>
+                            </ul>
+                            <div class="tab-content" id="studiosTabContent">
+                                @forelse($featuredCategories as $fCategory)
+                                    <div
+                                        class="tab-pane fade show active"
+                                        id="home-tab{{$fCategory->id}}-pane"
+                                        role="tabpanel"
+                                        aria-labelledby="home-tab{{$fCategory->id}}"
+                                        tabindex="0"
+                                    >
+                                        <div class="row">
+                                            @foreach($fCategory->cities as $city)
+                                                <div class="col-sm-6 col-lg-4">
+                                                    <a href="{{route('search.cityAndCategory', [$city->city->slug, $fCategory->category->slug])}}">{{$city->city->name}} {{$fCategory->category->name}}</a>
+                                                </div>
+                                            @endforeach
+
                                         </div>
-                                    @endforeach
-
-                                </div>
+                                    </div>
+                                @empty
+                                @endforelse
                             </div>
-                            @empty
-                            @endforelse
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="homeEvents">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="homeEventsTitle">
-                            <strong>Etkinliklerimiz Hakkında</strong>
-                            Daha Fazla Bİlgi Edinin
+            </section>
+        @endif
+        @if($activities->count() > 0)
+            <section id="homeEvents">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="homeEventsTitle">
+                                <strong>Etkinliklerimiz Hakkında</strong>
+                                Daha Fazla Bİlgi Edinin
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="d-flex flex-column flex-lg-row">
-                    <div class="homeEventsList">
-                        @foreach($activities as $activity)
-                            <a href="{{route('activity.detail', $activity->slug)}}" class="d-flex align-items-center">
+                    <div class="d-flex flex-column flex-lg-row">
+                        <div class="homeEventsList">
+                            @foreach($activities as $activity)
+                                <a href="{{route('activity.detail', $activity->slug)}}" class="d-flex align-items-center">
                                 <span class="date">
                                   <strong>{{\Illuminate\Support\Carbon::parse($activity->start_date)->format('d')}}</strong>
                                   <span>{{\Illuminate\Support\Carbon::parse($activity->start_date)->translatedFormat('F')}}</span>
                                   <span>{{\Illuminate\Support\Carbon::parse($activity->start_date)->format('Y')}}</span>
                                 </span>
-                                <span class="text">
+                                    <span class="text">
                                     {{$activity->title}}
                                 </span>
-                            </a>
-                        @endforeach
-                    </div>
-                    <div id="eventDatePicker"></div>
-                </div>
-            </div>
-        </section>
-        <section id="homeBlog">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="homeBlogLeft">
-                            <div class="homeBlogTitle">
-                                <strong>Blog</strong>
-                                Yazılarımız
-                            </div>
-                            <p>
-                               {{main('speed_section_3_text')}}
-                            </p>
-                            <div
-                                id="customBlogSliderNav"
-                                class="owl-nav d-flex align-items-center my-5"
-                            ></div>
-                            <a href="{{route('blog.index')}}" class="btn-pink btn-rounded"
-                            >Tümünü Gör</a
-                            >
+                                </a>
+                            @endforeach
                         </div>
+                        <div id="eventDatePicker"></div>
                     </div>
-                    <div class="col-lg-9">
-                        <div class="homeBlogSlider">
-                            <div class="owl-carousel owl-theme">
-                                @foreach($blogs as $blog)
-                                    <div class="item">
-                                        <div class="blogSliderItem">
-                                            <div class="blogSliderPhoto">
-                                                <img src="{{image($blog->image)}}" alt="" />
-                                            </div>
-                                            <div class="blogSliderText">
-                                                <strong>{{$blog->getTitle()}}.</strong>
-                                                <a href="{{route('blog.detail', $blog->getSlug())}}">
-                                                    <span>Daha Fazla Bilgi</span>
-                                                    <svg
-                                                        width="12"
-                                                        height="12"
-                                                        viewBox="0 0 12 12"
-                                                        fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                    >
-                                                        <g opacity="0.5">
-                                                            <path
-                                                                d="M0.767578 5.75024L11.0266 5.75024"
-                                                                stroke="#26265C"
-                                                                stroke-width="1.09918"
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                            />
-                                                            <path
-                                                                d="M5.89746 0.620658L11.027 5.75015L5.89746 10.8796"
-                                                                stroke="#26265C"
-                                                                stroke-width="1.09918"
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                            />
-                                                        </g>
-                                                    </svg>
-                                                </a>
+                </div>
+            </section>
+        @endif
+
+        @if($blogs->count() > 0)
+            <section id="homeBlog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="homeBlogLeft">
+                                <div class="homeBlogTitle">
+                                    <strong>Blog</strong>
+                                    Yazılarımız
+                                </div>
+                                <p>
+                                    {{main('speed_section_3_text')}}
+                                </p>
+                                <div
+                                    id="customBlogSliderNav"
+                                    class="owl-nav d-flex align-items-center my-5"
+                                ></div>
+                                <a href="{{route('blog.index')}}" class="btn-pink btn-rounded"
+                                >Tümünü Gör</a
+                                >
+                            </div>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="homeBlogSlider">
+                                <div class="owl-carousel owl-theme">
+                                    @foreach($blogs as $blog)
+                                        <div class="item">
+                                            <div class="blogSliderItem">
+                                                <div class="blogSliderPhoto">
+                                                    <img src="{{image($blog->image)}}" alt="" />
+                                                </div>
+                                                <div class="blogSliderText">
+                                                    <strong>{{$blog->getTitle()}}.</strong>
+                                                    <a href="{{route('blog.detail', $blog->getSlug())}}">
+                                                        <span>Daha Fazla Bilgi</span>
+                                                        <svg
+                                                            width="12"
+                                                            height="12"
+                                                            viewBox="0 0 12 12"
+                                                            fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                        >
+                                                            <g opacity="0.5">
+                                                                <path
+                                                                    d="M0.767578 5.75024L11.0266 5.75024"
+                                                                    stroke="#26265C"
+                                                                    stroke-width="1.09918"
+                                                                    stroke-linecap="round"
+                                                                    stroke-linejoin="round"
+                                                                />
+                                                                <path
+                                                                    d="M5.89746 0.620658L11.027 5.75015L5.89746 10.8796"
+                                                                    stroke="#26265C"
+                                                                    stroke-width="1.09918"
+                                                                    stroke-linecap="round"
+                                                                    stroke-linejoin="round"
+                                                                />
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
     </article>
 @endsection
 @section('scripts')
