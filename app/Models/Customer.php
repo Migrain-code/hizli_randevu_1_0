@@ -29,7 +29,7 @@ class Customer extends Authenticatable
     }
     public function notifications()
     {
-        return $this->hasMany(CustomerNotificationMobile::class, 'customer_id', 'id')->latest('status');
+        return $this->hasMany(CustomerNotificationMobile::class, 'customer_id', 'id')->latest()->orderBy('status', 'asc');
     }
 
     public function permissions()

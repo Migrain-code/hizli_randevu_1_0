@@ -269,95 +269,37 @@
                     </div>
                 </div>
                 <div class="row featuredBox">
-                    <div class="col-lg-4">
-                        <div class="featuredBoxItem">
-                            <div class="icon">
-                                <img src="/assets/images/icons/ico-search-2.svg" alt="" />
+                    @foreach($mainPages as $section)
+                        <div class="col-lg-4">
+                            <div class="featuredBoxItem">
+                                <div class="icon">
+                                    <img src="{{image($section->image)}}" alt="" />
+                                </div>
+                                <strong>{{$section->getName()}}</strong>
+                                <span>
+                                    {{$section->getValue()}}
+                                </span>
+                                <a href="{{$section->link}}" target="_blank">
+                                    {{$section->getButtonText()}}
+                                    <svg
+                                        width="10"
+                                        height="15"
+                                        viewBox="0 0 10 17"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M1.2998 0.931641L8.7998 8.43164L1.2998 15.9316"
+                                            stroke="#43506E"
+                                            stroke-width="1.5"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                </a>
                             </div>
-                            <strong>{{main('speed_section_1_box_1_title')}}</strong>
-                            <span>
-                                {{main('speed_section_1_box_1_description')}}
-                            </span>
-                            <a href="{{main('speed_section_1_box_1_link')}}" target="_blank">
-                                {{main('speed_section_1_box_1_button_text')}}
-                                <svg
-                                    width="10"
-                                    height="15"
-                                    viewBox="0 0 10 17"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.2998 0.931641L8.7998 8.43164L1.2998 15.9316"
-                                        stroke="#43506E"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </a>
                         </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="featuredBoxItem">
-                            <div class="icon">
-                                <img src="/assets/images/icons/ico-search-2.svg" alt="" />
-                            </div>
-                            <strong>{{main('speed_section_1_box_2_title')}}</strong>
-                            <span>
-                                {{main('speed_section_1_box_2_description')}}
-                            </span>
-                            <a href="{{main('speed_section_1_box_2_link')}}" target="_blank">
-                                {{main('speed_section_1_box_2_button_text')}}
-                                <svg
-                                    width="10"
-                                    height="15"
-                                    viewBox="0 0 10 17"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.2998 0.931641L8.7998 8.43164L1.2998 15.9316"
-                                        stroke="#43506E"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="featuredBoxItem">
-                            <div class="icon">
-                                <img src="/assets/images/icons/ico-search-2.svg" alt="" />
-                            </div>
-                            <strong>{{main('speed_section_1_box_3_title')}}</strong>
-                            <span>
-                                {{main('speed_section_1_box_3_description')}}
-                            </span>
-                            <a href="{{main('speed_section_1_box_3_link')}}" target="_blank">
-                                {{main('speed_section_1_box_3_button_text')}}
-                                <svg
-                                    width="10"
-                                    height="15"
-                                    viewBox="0 0 10 17"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M1.2998 0.931641L8.7998 8.43164L1.2998 15.9316"
-                                        stroke="#43506E"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -373,11 +315,13 @@
                             <p class="my-auto">
                                 {{main('speed_section_2_text')}}
                             </p>
-                            <div class="mt-auto">
+                            {{--
+                                <div class="mt-auto">
                                 <a href="javascript:;" class="btn-pink btn-rounded">
                                     Tümünü Gör
                                 </a>
                             </div>
+                            --}}
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -386,12 +330,11 @@
                                 class="panels d-flex align-items-center justify-content-end"
                             >
 
-                                @foreach($categories as $category)
-                                    @if($loop->index < 5)
+                                @foreach($categories->take(5) as $category)
                                         <div
                                             class="panel @if($loop->first) active @endif"
                                             style="
-                                          background-image: url(/assets/images/sallontype.jpg);
+                                          background-image: url('{{image($category->icon)}}');
                                         "
                                         >
                                             <div
@@ -424,7 +367,6 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    @endif
                                 @endforeach
                             </div>
                         </div>
@@ -539,11 +481,11 @@
                                     <div class="item">
                                         <div class="blogSliderItem">
                                             <div class="blogSliderPhoto">
-                                                <img src="/assets/images/blogslider.png" alt="" />
+                                                <img src="{{image($blog->image)}}" alt="" />
                                             </div>
                                             <div class="blogSliderText">
-                                                <strong>{{$blog->title}}.</strong>
-                                                <a href="{{route('blog.detail', $blog->slug)}}">
+                                                <strong>{{$blog->getTitle()}}.</strong>
+                                                <a href="{{route('blog.detail', $blog->getSlug())}}">
                                                     <span>Daha Fazla Bilgi</span>
                                                     <svg
                                                         width="12"

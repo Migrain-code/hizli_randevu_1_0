@@ -16,11 +16,11 @@
                     @forelse($business->gallery as $gallery)
                         <div class="item">
                             <a
-                                href="/assets/images/saloonCustomerPhoto.png"
+                                href="{{image($gallery->way)}}"
                                 data-lightbox="image-1"
                                 data-title="{{$gallery->name}}"
                             >
-                                <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
+                                <img src="{{image($gallery->way)}}" alt="" />
                             </a>
                         </div>
                     @empty

@@ -80,6 +80,7 @@
                         class="form-control phone"
                         id="floatingInput"
                         placeholder="Cep Telefonu"
+                        value="5537021355"
                     />
                     <label for="floatingInput">Cep Telefonu</label>
                 </div>
@@ -90,6 +91,7 @@
                         class="form-control passwordEye"
                         id="floatingInputPassword"
                         placeholder="Şifre"
+                        value="123456"
                     />
                     <label for="floatingInputPassword">Şifre</label>
                     <a href="javascript:;" onclick="togglePasswordVisibility()">
@@ -115,7 +117,7 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn-pink w-100 p-4 text-center">
+                    <button type="submit" style="border: 0px" class="btn-pink w-100 p-4 text-center">
                         Giriş Yap
                     </button>
                 </div>

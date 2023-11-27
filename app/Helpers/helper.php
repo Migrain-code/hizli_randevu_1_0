@@ -34,7 +34,7 @@ function createVerifyCode($phone)
 {
     $generateCode=rand(100000, 999999);
     $smsConfirmation = new SmsConfirmation();
-    $smsConfirmation->action = "CUSTOMER VERIFY";
+    $smsConfirmation->action = "CUSTOMER-VERIFY";
     $smsConfirmation->phone = $phone;
     $smsConfirmation->code = $generateCode;
     $smsConfirmation->expire_at = now()->addMinute(3);

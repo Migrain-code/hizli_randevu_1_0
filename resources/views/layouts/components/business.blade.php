@@ -9,7 +9,7 @@
             @endif
             <a href="{{route('business.detail', $business->slug)}}">
                 <img
-                    src="/assets/images/saloonphoto.png"
+                    src="{{image($business->wallpaper)}}"
                     alt=""
                 />
                 @if($business->order_number > 0)

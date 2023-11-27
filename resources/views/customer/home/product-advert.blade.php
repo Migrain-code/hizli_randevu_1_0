@@ -19,17 +19,18 @@
                          aria-labelledby="pills-{{$category->id}}-tab" tabindex="0">
                         <div class="productSlider">
                             <div class="owl-carousel owl-theme">
-                                @foreach($category->products as $product)
+                                @forelse($category->products as $product)
                                     <div class="item">
                                         <a href="{{$product->link}}" target="_blank" class="productSliderItem">
                                         <span class="photo">
-                                            <img src="/assets/images/product.png" alt="">
+                                            <img src="{{image($product->image)}}" alt="">
                                         </span>
                                             <i>{{$product->getName()}}</i>
                                             <strong>{{$product->getPrice()}}</strong>
                                         </a>
                                     </div>
-                                @endforeach
+                                @empty
+                                @endforelse
                             </div>
                         </div>
                     </div>

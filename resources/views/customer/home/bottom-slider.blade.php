@@ -1,10 +1,10 @@
 @if($bottomAds->count() > 0)
-    <div class="bannerSlider">
+    <div class="bannerSlider mt-5">
         <div class="owl-carousel owl-theme">
             @foreach($bottomAds as $bottom)
                 <div class="item">
                     <a href="{{$bottom->link}}" target="_blank">
-                        <img src="/assets/images/bannerslider1.png" alt="">
+                        <img src="{{image($bottom->image)}}" alt="">
                     </a>
                 </div>
             @endforeach

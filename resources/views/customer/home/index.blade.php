@@ -31,7 +31,7 @@
                             <div class="profileContent">
                                 @include('customer.home.top-ads')
                                 @include('customer.home.summary')
-                                @include('customer.home.product-ads')
+                                @include('customer.home.product-advert')
                                 @include('customer.home.appointment')
                                 @include('customer.home.bottom-slider')
                             </div>
@@ -44,11 +44,11 @@
         </div>
         <div class="profileFooterBanner mt-5 pt-5">
             <div class="d-flex align-items-center">
-               @foreach($footerAds as $footer)
+                @foreach($footerAds as $footer)
                     <a href="{{$footer->link}}" target="_blank">
                         <img src="/assets/images/profileBanner1.png" class="w-100" alt="">
                     </a>
-               @endforeach
+                @endforeach
             </div>
 
         </div>

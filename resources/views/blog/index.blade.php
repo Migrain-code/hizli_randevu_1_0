@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Bloglar')
 @section('styles')
 
 @endsection
@@ -13,10 +14,10 @@
                                 @if(request()->routeIs('blog.category'))
                                     <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
                                     <li class="breadcrumb-item">
-                                        Blog Yazıları
+                                        <a href="{{route('blog.index')}}">Blog Yazıları</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
-                                        {{$blogCategories->first()->name}}
+                                        {{$blogCategories->first()->getName()}}
                                     </li>
                                 @else
                                     <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
@@ -37,10 +38,10 @@
                     <div class="col-12">
                         <div class="bigSliderContent">
                             <div class="owl-carousel owl-theme">
-                                @forelse($ads as $ad)
+                                @forelse($ads as $advert)
                                     <div class="item">
-                                        <a href="{{$ad->link}}" target="_blank">
-                                            <img src="{{image($ad->image)}}" alt="" />
+                                        <a href="{{$advert->link}}" target="_blank">
+                                            <img src="{{image($advert->image)}}" alt="" />
                                         </a>
                                     </div>
                                 @empty
@@ -83,7 +84,7 @@
                                             aria-controls="pills-{{$category->id}}"
                                             aria-selected="true"
                                         >
-                                            {{$category->name}}
+                                            {{$category->getName()}}
                                         </button>
                                     </li>
                                 @endforeach
@@ -99,22 +100,22 @@
                                     >
                                         <div class="blogList">
                                             <div class="row">
-                                                @forelse($category->blogs()->paginate(12) as $blog)
+                                                @forelse($category->blogs()->where('status', 1)->paginate(12) as $blog)
                                                     <div class="col-lg-3">
                                                         <div class="blogListItem">
                                                             <div class="blogLıstItemPhoto">
-                                                                <a href="{{route('blog.detail', $blog->slug)}}">
+                                                                <a href="{{route('blog.detail', $blog->getSlug())}}">
                                                                     <img src="{{image($blog->image)}}" alt="" />
                                                                 </a>
-                                                                <a href="{{route('blog.category', $category->slug)}}" class="tag">{{$category->name}}</a>
+                                                                <a href="{{route('blog.category', $category->getSlug())}}" class="tag">{{$category->getName()}}</a>
                                                             </div>
                                                             <div class="blogLıstItemText">
                                                                 <i>{{$blog->created_at->format('d.m.Y')}}</i>
-                                                                <a href="{{route('blog.detail', $blog->slug)}}">
-                                                                    {{$blog->title}}
+                                                                <a href="{{route('blog.detail', $blog->getSlug())}}">
+                                                                    {{$blog->getTitle()}}
                                                                 </a>
                                                                 <span>
-                                                                    {{\Illuminate\Support\Str::limit(strip_tags($blog->description), 100)}}
+                                                                    {{\Illuminate\Support\Str::limit(strip_tags($blog->getDescription()), 100)}}
                                                                 </span>
                                                             </div>
                                                         </div>

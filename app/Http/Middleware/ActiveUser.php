@@ -19,12 +19,13 @@ class ActiveUser
     public function handle(Request $request, Closure $next)
     {
         if (auth('customer')->check() && auth('customer')->user()->verify_phone != 1) {
+            dd("asd00");
             Session::put('phone', auth('customer')->user()->phone);
             createVerifyCode(auth('customer')->user()->phone);
             Auth::guard('customer')->logout();
-            return to_route('customer.login')->with('response', [
+            return to_route('customer.account.verify')->with('response', [
                 'status'=>"danger",
-                'message'=>"Telefon Numaranızı doğrulamadan sisteme giriş yapamazsınız doğrulamak için telefonunuza gönderilen doğrulama kodunu giriniz",
+                'message'=>"Telefon Numaranızı doğrulamanız gerekmektedir. Telefonunuza gönderilen doğrulama kodunu giriniz",
             ]);
         }
         return $next($request);

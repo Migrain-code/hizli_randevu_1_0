@@ -92,10 +92,9 @@
                             <div
                                 class="categoryListTop d-flex flex-wrap align-items-center"
                             >
-                                <a href="javascript:;">Kuaförler</a>
-                                <a href="javascript:;">Berberler</a>
-                                <a href="javascript:;">Güzellik ve Estetik Merkezleri</a>
-                                <a href="javascript:;">Spalar</a>
+                                @foreach($categories->take(4) as $category)
+                                    <a href="{{route('search.businessCategorySearch', $category->slug)}}">{{ $category->name }}</a>
+                                @endforeach
                                 <a href="javascript:;" class="moreCategoryLink"
                                 >Tümünü Gör
                                     <svg
@@ -117,23 +116,21 @@
                                 </a>
                             </div>
                             <div class="categoryListMore flex-wrap align-items-center">
-                                <a href="javascript:;">Kuaförler</a>
-                                <a href="javascript:;">Berberler</a>
-                                <a href="javascript:;">Güzellik ve Estetik Merkezleri</a>
-                                <a href="javascript:;">Spalar</a>
+                                @foreach($categories->skip(4) as $category)
+                                    <a href="{{route('search.businessCategorySearch', $category->slug)}}">{{ $category->name }}</a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="saloonBanner">
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <strong
-                                    >Salonunusun burada listelenmesini ister misiniz?
+                                    <strong>Salonunuzun burada listelenmesini ister misiniz?
                                     </strong>
-                                    <a href="javascript:;">Salonumu Listele</a>
+                                    <a href="{{env('remote_url')}}" target="_blank">Salonumu Listele</a>
                                 </div>
                             </div>
                             <div class="bannerUser">
-                                <img src="assets/images/bannerUser.png" alt="" />
+                                <img src="/assets/images/bannerUser.png" alt="" />
                             </div>
                         </div>
                     </div>

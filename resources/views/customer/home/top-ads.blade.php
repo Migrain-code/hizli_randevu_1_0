@@ -8,7 +8,7 @@
                             @foreach($topAds as $top)
                                 <div class="item">
                                     <div class="profileSliderItem"
-                                         style="background-image: url(/assets/images/profilesliderBg.png);">
+                                         style="background-image: url('{{image($top->image)}}');">
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <strong>{{$top->getTitle()}}</strong>
@@ -18,7 +18,7 @@
                                         </div>
                                     </div>
                                     <div class="profileSliderPhoto"><img
-                                            src="/assets/images/profileSliderPhoto.png" alt="">
+                                            src="{{image($top->logo)}}" alt="">
                                     </div>
                                 </div>
                             @endforeach

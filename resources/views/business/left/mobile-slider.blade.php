@@ -6,7 +6,7 @@
         @forelse($business->sliders as $slider)
             <div class="item">
                 <div class="saloonDetailSliderBigPhoto">
-                    <img src="/assets/images/sliderbig.png" alt=""/>
+                    <img src="{{image($slider->image)}}" alt=""/>
                 </div>
             </div>
         @empty
@@ -21,7 +21,7 @@
             <div class="item">
             <div class="saloonDetailSliderMiniPhoto">
                 <img
-                    src="/assets/images/slidermini.png"
+                    src="{{image($slider->image)}}"
                     class="w-100"
                     alt=""
                 />

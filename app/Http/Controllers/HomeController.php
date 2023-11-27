@@ -11,6 +11,7 @@ use App\Models\CustomerFaq;
 use App\Models\CustomerFaqCategory;
 use App\Models\DayList;
 use App\Models\FeaturedCategorie;
+use App\Models\MaingPage;
 use App\Models\Page;
 use App\Models\ServiceCategory;
 use App\Models\ServiceSubCategory;
@@ -27,8 +28,8 @@ class HomeController extends Controller
         $featuredCategories = FeaturedCategorie::where('status', 1)->get();
         $blogs = Blog::where('status', 1)->latest()->take(9)->get();
         $activities = Activity::where('status', 1)->latest()->take(4)->get();
-
-        return view('welcome', compact('ads', 'featuredServices', 'featuredCategories', 'blogs', 'activities'));
+        $mainPages = MaingPage::where('type', 0)->where('status', 1)->get();
+        return view('welcome', compact('ads', 'featuredServices', 'featuredCategories', 'blogs', 'activities', 'mainPages'));
     }
 
     public function businessId($id)
@@ -126,21 +127,6 @@ class HomeController extends Controller
     }
     public function faq()
     {
-        $category = new CustomerFaq();
-        $category->category_id = 2;
-        /*$category
-            ->setTranslation('question', 'de', 'Kategori 1 de question')
-            ->setTranslation('question', 'tr', 'Kategori 1 tr question')
-            ->setTranslation('question', 'en', 'Kategori 1 en question')
-            ->setTranslation('question', 'is', 'Kategori 1 is question')
-            ->setTranslation('question', 'it', 'Kategori 1 it question')
-            ->setTranslation('answer', 'de', 'Kategori 1 de answer')
-            ->setTranslation('answer', 'tr', 'Kategori 1 tr answer')
-            ->setTranslation('answer', 'en', 'Kategori 1 en answer')
-            ->setTranslation('answer', 'is', 'Kategori 1 is answer')
-            ->setTranslation('answer', 'it', 'Kategori 1 it answer');
-
-        $category->save();*/
         $categories = CustomerFaqCategory::where('status', 1)->latest('order_number')->get();
         return view('sss', compact('categories'));
     }

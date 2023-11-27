@@ -45,10 +45,10 @@
                                             <a href="{{route('customer.notification.detail', $notification->slug)}}" data-type="{{$notification->status}}" class="notificationItem purple unseen">
                                             <span class="row">
                                               <span class="col-8 col-lg-10">
-                                                  <span class="left">
-                                                      <span class="icon">
+                                                  <span class="left" style="color: {{$notification->icon->background}}">
+                                                      <span class="icon" style="background: {{$notification->icon->background}}">
                                                         <img
-                                                            src="/assets/images/icons/ico-calendars.svg"
+                                                            src="{{image($notification->icon->icon)}}"
                                                             alt=""
                                                         />
                                                       </span>

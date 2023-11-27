@@ -36,7 +36,7 @@
                                         @forelse($businessComments as $comment)
                                             <div class="commentListItem">
                                                 <div class="commentsPhoto">
-                                                    <img src="/assets/images/blogitem.png" alt="" />
+                                                    <img src="{{image($comment->business->logo)}}" alt="" />
                                                 </div>
                                                 <div class="commentsText">
                                                     <div class="commentsTop">

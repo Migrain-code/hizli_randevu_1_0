@@ -1,5 +1,5 @@
 <div class="saloonInfoTitle d-flex align-items-center">
-    <img src="/assets/images/saloonlogo.png" alt=""/>
+    <img src="{{image($business->logo)}}" style="border-radius: 50%" alt=""/>
     <span>{{$business->name}}</span>
 </div>
 <div

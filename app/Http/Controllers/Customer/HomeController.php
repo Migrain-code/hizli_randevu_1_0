@@ -24,21 +24,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        /*$product = new ProductAds();
-        $product->category_id = 1;
-        $product->link = "youtube.com";
-        $product
-            ->setTranslation('name', 'en', 'Product Name in English')
-            ->setTranslation('name', 'de', 'Produktname auf Deutsch')
-            ->setTranslation('name', 'tr', 'Ürün Adı Türkçe')
-            ->setTranslation('name', 'fr', 'Nom du produit en français')
-            ->setTranslation('name', 'it', 'Nome del prodotto in italiano')
-            ->setTranslation('price', 'en', '30 $')
-            ->setTranslation('price', 'de', '30 $')
-            ->setTranslation('price', 'tr', '30 $')
-            ->setTranslation('price', 'fr', '30 $')
-            ->setTranslation('price', 'it', '30 $')
-            ->save();*/
+
         $customer = auth('customer')->user();
 
         $appointments = $customer->appointments()->latest()->take(4)->get();
@@ -199,6 +185,7 @@ class HomeController extends Controller
     public function comments()
     {
         $businessComments = BusinessComment::where('customer_id', auth('customer')->id())->paginate(setting('speed_pagination_number'));
+
         return view('customer.comment.index', compact('businessComments'));
     }
 
@@ -281,6 +268,9 @@ class HomeController extends Controller
     public function notificationDetail($slug)
     {
         $notification = CustomerNotificationMobile::where('slug', $slug)->first();
+        $notification->status = 1;
+        $notification->save();
+
         return view('customer.notification.detail', compact('notification'));
     }
 

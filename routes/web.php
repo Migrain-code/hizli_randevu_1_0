@@ -35,7 +35,7 @@ Route::get('/page/{slug}', [\App\Http\Controllers\HomeController::class, 'page']
 Route::controller(BlogController::class)->prefix('blog')->as('blog.')->group(function (){
     Route::get('/', 'index')->name('index');
     Route::get('/detay/{slug}', 'detail')->name('detail');
-    Route::get('/category/{slug}', 'category')->name('category');
+    Route::get('/kategori/{slug}', 'category')->name('category');
 });
 
 Route::controller(ActivityController::class)->prefix('etkinlik')->as('activity.')->group(function (){
@@ -51,17 +51,15 @@ Route::controller(AppointmentController::class)->group(function (){
     Route::get('randevu-olusturuldu/{appointment}', 'step5Show')->name('appointment.success');
 });
 
-Route::controller(SearchController::class)->prefix('search')->as('search.')->group(function (){
-    Route::get('/hizmet/{slug}', 'service')->name('service');
+Route::controller(SearchController::class)->prefix('ara')->as('search.')->group(function () {
+    Route::get('/hizmet/{service}', 'service')->name('service');
     Route::get('/isletme-ara/{city}/{category}', 'cityAndCategory')->name('cityAndCategory');
 
-    /*----------------------------- Himzete ve şhire göre arama linkleri ------------------------------------------*/
     Route::post('/hizmet-ara', 'cityAndServiceCategory')->name('cityAndServiceCategory');
     Route::get('/sehire-gore-ara/{city}', 'citySearch')->name('citySearch');
     Route::get('/hizmete-gore-ara/{service}', 'serviceCategorySearch')->name('serviceCategorySearch');
     Route::get('/hizmete-ve-sehire-gore-ara/{city}/{service}', 'serviceCityAndCategorySearch')->name('serviceCityAndCategorySearch');
 
-    /* ------------------------------İşletme türüne ve şehire göre arama linkleri --------------------------------*/
     Route::post('/ture-gore-ara', 'businessCategoryAndCity')->name('businessCategoryAndCity');
     Route::get('/ture-gore-ara/{category}', 'businessCategorySearch')->name('businessCategorySearch');
     Route::get('/ture-ve-sehire-gore-ara/{city}/{service}', 'businessCategoryAndCitySearch')->name('businessCategoryAndCitySearch');
@@ -85,8 +83,8 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.'], function () {
     Route::get('/telefon-dogrulama', [VerifyController::class, 'phoneVerify'])->name('phone.verify');
     Route::post('/telefon-dogrulama', [VerifyController::class, 'phoneVerifyAction'])->name('phone.verify.action');
 
-    Route::get('/verify-phone', [VerifyController::class, 'index'])->name('verify');
-    Route::post('/code/test', [VerifyController::class, 'verifyCode'])->name('verify.code');
+    Route::get('/hesap-dogrulama', [VerifyController::class, 'accountVerify'])->name('account.verify');
+    Route::post('/hesap-dogrulama', [VerifyController::class, 'accountVerifyAction'])->name('account.verify.action');
 
     Route::middleware(['auth:customer', 'active', 'banned'])->group(function () {
         Route::get('/home', [HomeController::class, 'index'])->name('home');
