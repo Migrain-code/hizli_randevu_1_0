@@ -68,7 +68,7 @@
                             </a>
                             <ul>
                                 @foreach($categories as $category)
-                                    <li><a href="{{route('search.businessCategorySearch', $category->slug)}}">{{$category->name}}</a></li>
+                                    <li><a href="{{route('search.businessCategorySearch', $category->getSlug())}}">{{$category->getName()}}</a></li>
                                 @endforeach
                             </ul>
                         </li>

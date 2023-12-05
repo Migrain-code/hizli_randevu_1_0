@@ -191,9 +191,11 @@ footer {
 }
 
 .hc-nav-original li:last-child {
+    /*display: none !important;*/
+}
+.mobile-menu-logo{
     display: none !important;
 }
-
 .hc-nav-original li svg {
     display: none !important;
 }

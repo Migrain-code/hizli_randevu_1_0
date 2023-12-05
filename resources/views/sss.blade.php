@@ -183,7 +183,7 @@
                         </div>
                         <div class="col-lg-9">
                             @foreach($categories as $category)
-                                <div class="tab-content active" id="tab{{$category->id}}">
+                                <div class="tab-content @if($loop->first) active @endif" id="tab{{$category->id}}">
                                 <div class="sss-tab1">
                                     <div class="sss-content">
                                         <div class="faq-items">

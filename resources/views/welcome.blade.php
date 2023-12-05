@@ -341,7 +341,7 @@
                                                 class="text d-flex align-items-center justify-content-between"
                                             >
                                                 <strong>{{$category->name}}</strong>
-                                                <a href="{{route('search.businessCategorySearch', $category->slug)}}"
+                                                <a href="{{route('search.businessCategorySearch', $category->getSlug())}}"
                                                 ><svg
                                                         width="20"
                                                         height="15"
@@ -381,20 +381,22 @@
                         <div class="col-lg-12">
                             <ul class="nav nav-tabs" id="studiosTabHeader" role="tablist">
                                 @forelse($featuredCategories as $fCategory)
-                                    <li class="nav-item" role="presentation">
-                                        <button
-                                            class="nav-link @if($loop->first) active @endif"
-                                            id="home-tab1"
-                                            data-bs-toggle="tab"
-                                            data-bs-target="#home-tab{{$fCategory->id}}-pane"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="home-tab{{$fCategory->id}}-pane"
-                                            aria-selected="true"
-                                        >
-                                            {{$fCategory->category->name}}
-                                        </button>
-                                    </li>
+                                    @if($fCategory->category)
+                                        <li class="nav-item" role="presentation">
+                                            <button
+                                                class="nav-link @if($loop->first) active @endif"
+                                                id="home-tab1"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#home-tab{{$fCategory->id}}-pane"
+                                                type="button"
+                                                role="tab"
+                                                aria-controls="home-tab{{$fCategory->id}}-pane"
+                                                aria-selected="true"
+                                            >
+                                                {{$fCategory->category->getName()}}
+                                            </button>
+                                        </li>
+                                    @endif
                                 @empty
                                 @endforelse
 
@@ -410,9 +412,11 @@
                                     >
                                         <div class="row">
                                             @foreach($fCategory->cities as $city)
-                                                <div class="col-sm-6 col-lg-4">
-                                                    <a href="{{route('search.cityAndCategory', [$city->city->slug, $fCategory->category->slug])}}">{{$city->city->name}} {{$fCategory->category->name}}</a>
-                                                </div>
+                                                @if($fCategory->category)
+                                                    <div class="col-sm-6 col-lg-4">
+                                                        <a href="{{route('search.cityAndCategory', [$city->city->slug, $fCategory->category->getSlug()])}}">{{$city->city->name}} {{$fCategory->category->getName()}}</a>
+                                                    </div>
+                                                @endif
                                             @endforeach
 
                                         </div>

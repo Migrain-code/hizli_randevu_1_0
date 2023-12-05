@@ -9,6 +9,7 @@ use App\Models\City;
 use App\Models\ServiceCategory;
 use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class SearchController extends Controller
 {
@@ -23,7 +24,7 @@ class SearchController extends Controller
 
     public function cityAndCategory($city, $category)
     {
-        $category = BusinessCategory::where('slug', $category)->first();
+        $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
         $city = City::where('slug', $city)->first();
         $businesses = Business::where('city', $city)->where('category_id', $category)->latest('order_number')->paginate(12);
         return view('search.service', compact('businesses'));
@@ -90,9 +91,9 @@ class SearchController extends Controller
     {
         if ($request->filled('city_id') && $request->filled('category_id')){
             $city = City::find($request->input('city_id'));
-            $category = BusinessCategory::find($request->input('service_id'));
+            $category = BusinessCategory::find($request->input('category_id'));
 
-            return to_route('search.businessCategoryAndCitySearch', [$city->slug, $category->slug]);
+            return to_route('search.businessCategoryAndCitySearch', [$city->slug, $category->getSlug()]);
         }
         else if ($request->filled('city_id')){
             $city = City::find($request->input('city_id'));
@@ -100,7 +101,7 @@ class SearchController extends Controller
         }
         else if ($request->filled('category_id')){
             $category = BusinessCategory::find($request->input('category_id'));
-            return to_route('search.businessCategorySearch', $category->slug);
+            return to_route('search.businessCategorySearch', $category->getSlug());
         }
         else{
             return back()->with('response', [
@@ -112,22 +113,21 @@ class SearchController extends Controller
 
     public function businessCategorySearch($category)
     {
-        $category = BusinessCategory::where('slug', $category)->first();
+        $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
         $businesses = Business::where('category_id', $category->id)->paginate(12);
         return view('search.service', compact('businesses'));
     }
 
     public function businessCategoryAndCitySearch($city, $category)
     {
-        $category = BusinessCategory::where('slug', $category)->first();
+        $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
         $city = City::where('slug', $city)->first();
 
-        $businesses = Business::query()
-            ->where('city', $city->id)
-            ->where('category_id', $category->id);
+        $businesses = Business::where('city', $city->id)
+            ->where('category_id', $category->id)
+            ->paginate(12);
 
         return view('search.service', compact('businesses'));
-
     }
 
     public function salonName(Request $request)

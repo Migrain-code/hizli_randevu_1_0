@@ -19,7 +19,6 @@ class BlogController extends Controller
 
     public function detail($slug)
     {
-
         $blog = Blog::whereJsonContains('slug->' . App::getLocale(), $slug)->first();
         if ($blog) {
             $heads = $this->headers($blog->descriptions);

@@ -49,7 +49,7 @@ class HomeController extends Controller
         $topAds = Ads::where('type', 1)->get();
         $bottomAds = Ads::where('type', 2)->get();
         $footerAds = Ads::where('type', 3)->get();
-        $productCategories = ProductCategory::where('status', 1)->get();
+        $productCategories = ProductCategory::where('status', 1)->has('products')->get();
 
         return view('customer.home.index', compact('customer', 'appointments', 'appointmentTotals', 'payments', 'topAds', 'bottomAds', 'productCategories', 'footerAds'));
     }
