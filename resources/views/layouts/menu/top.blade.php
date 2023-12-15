@@ -102,8 +102,8 @@
                                     <li>
                                         <a href="#">{{$fCategory->name}}</a>
                                         <ul>
-                                            @foreach($fCategory->subCategories()->where('featured', '>', 0)->orderBy('featured', 'asc')->take(6)->get() as $subCategory)
-                                                <li><a href="{{route('search.service', $subCategory->slug)}}">{{$subCategory->getName()}}</a></li>
+                                            @foreach($fCategory->subCategories()->whereNotNull('order_number')->orderBy('order_number', 'asc')->take(6)->get() as $subCategory)
+                                                <li><a href="{{route('search.service', $subCategory->getSlug())}}">{{$subCategory->getName()}}</a></li>
                                             @endforeach
 
                                         </ul>

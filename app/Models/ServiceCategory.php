@@ -15,6 +15,10 @@ class ServiceCategory extends Model
     {
         return $this->translate('name');
     }
+    public function getSlug()
+    {
+        return $this->translate('slug');
+    }
     public function subCategories()
     {
         return $this->hasMany(ServiceSubCategory::class,'category_id', 'id');

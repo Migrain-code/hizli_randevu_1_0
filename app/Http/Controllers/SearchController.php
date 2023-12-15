@@ -15,7 +15,7 @@ class SearchController extends Controller
 {
     public function service($slug)
     {
-        $subCategory = ServiceSubCategory::where('slug', $slug)->firstOrFail();/*hizmet kategorisini bul*/
+        $subCategory = ServiceSubCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->firstOrFail();/*hizmet kategorisini bul*/
         $businessIds = BusinessService::where('sub_category', $subCategory->id)->pluck('business_id');
         $businesses = Business::whereIn('id', $businessIds)->latest('order_number')->paginate(12);
 
@@ -36,7 +36,7 @@ class SearchController extends Controller
             $city = City::find($request->input('city_id'));
             $category = ServiceCategory::find($request->input('service_id'));
 
-            return to_route('search.serviceCityAndCategorySearch', [$city->slug, $category->slug]);
+            return to_route('search.serviceCityAndCategorySearch', [$city->slug, $category->getSlug()]);
         }
         else if ($request->filled('city_id')){
             $city = City::find($request->input('city_id'));
@@ -44,7 +44,7 @@ class SearchController extends Controller
         }
         else if ($request->filled('service_id')){
             $category = ServiceCategory::find($request->input('service_id'));
-            return to_route('search.serviceCategorySearch', $category->slug);
+            return to_route('search.serviceCategorySearch', $category->getSlug());
         }
         else{
             return back()->with('response', [
@@ -63,7 +63,7 @@ class SearchController extends Controller
 
     public function serviceCategorySearch($slug)
     {
-        $category = ServiceCategory::where('slug', $slug)->first();
+        $category = ServiceCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->first();
         $businesses = Business::query()
             ->whereHas('services', function ($query) use ($category) {
                 $query->where('category', $category->id);
@@ -75,7 +75,7 @@ class SearchController extends Controller
     public function serviceCityAndCategorySearch($city, $slug)
     {
         $city = City::where('slug', $city)->first();
-        $category = ServiceCategory::where('slug', $slug)->first();
+        $category = ServiceCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->first();
 
         $businesses = Business::query()
             ->where('city', $city->id)
