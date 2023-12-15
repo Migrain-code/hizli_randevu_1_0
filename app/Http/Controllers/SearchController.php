@@ -66,7 +66,7 @@ class SearchController extends Controller
         $category = ServiceCategory::where('slug', $slug)->first();
         $businesses = Business::query()
             ->whereHas('services', function ($query) use ($category) {
-                $query->where('categorys', $category->id);
+                $query->where('category', $category->id);
             })
             ->paginate(12);
         return view('search.service', compact('businesses'));
@@ -80,7 +80,7 @@ class SearchController extends Controller
         $businesses = Business::query()
             ->where('city', $city->id)
             ->whereHas('services', function ($query) use ($category) {
-                $query->where('categorys', $category->id);
+                $query->where('category', $category->id);
             })
             ->paginate(12);
 
