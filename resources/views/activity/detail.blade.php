@@ -305,7 +305,7 @@
                             @forelse($activity->images as $gallery)
                                 <div class="item">
                                     <a
-                                        href="/assets/images/saloonCustomerPhoto.png"
+                                        href="{{image($gallery->image)}}"
                                         data-lightbox="image-1"
                                         data-title="My caption"
                                     >
