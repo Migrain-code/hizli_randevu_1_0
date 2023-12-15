@@ -7,7 +7,7 @@
         </div>
         <div class="right">
             <div class="userInfo">
-                <strong>Canan K</strong>
+                <strong>{{auth('customer')->user()->name}}</strong>
                 <div class="location"><img src="/assets/images/icons/ico-menu-location.svg"
                                            alt="">{{auth('customer')->user()->city->name}}</div>
                 @if(auth('customer')->user()->birthday)
