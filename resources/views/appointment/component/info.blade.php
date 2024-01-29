@@ -7,7 +7,11 @@
     @foreach($selectedPersonelIds as $personel_id)
         <input type="hidden" name="personels[]" value="{{$personel_id}}">
     @endforeach
-        <input type="hidden" name="business_id" value="{{$business->id}}">
+    <input type="hidden" name="business_id" value="{{$business->id}}">
+
+    <div id="times">
+
+    </div>
 
     <input type="hidden" name="appointment_date" id="appointment_date" value="">
 

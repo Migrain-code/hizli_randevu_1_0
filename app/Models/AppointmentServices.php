@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class AppointmentServices extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+    ];
+
     public function service()
     {
         return $this->hasOne(BusinessService::class, 'id', 'service_id');

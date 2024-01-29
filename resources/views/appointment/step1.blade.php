@@ -119,6 +119,19 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
+        $(document).on('change','.active-time',function() {
+            console.log('sa')
+            $('#times').html('');
+
+            $('.active-time:checked').each(function() {
+                var selectedValue = $(this).val();
+                var name = $(this).attr('name');
+
+                $('#times').append('<input type="hidden" name="' + name + '" value="' + selectedValue + '">');
+            });
+        });
+
+
         document.addEventListener("DOMContentLoaded", function () {
             var mySwiper = new Swiper('.mySwiper', {
                 slidesPerView: 1, // Sadece bir slide görünür
@@ -188,7 +201,8 @@
                                 <input
                                     class="form-check-input"
                                     type="radio"
-                                    name="appointment_time${row.personel.id}"
+                                    name="appointment_time[${row.personel.id}]"
+                                    value="${clock.saat}"
                                     id="flexRadioDefault1"
 
                                 />
@@ -200,16 +214,16 @@
                             }
                             else {
                                 var newHtml = `
-                            <div class="timePickerRadio">
+                            <label class="timePickerRadio">
                                 <input
                                     class="form-check-input active-time"
                                     type="radio"
-                                    name="appointment_time${row.personel.id}"
-                                    id="flexRadioDefault1"
+                                    name="appointment_time[${row.personel.id}]"
+                                    value="${clock.saat}"
 
                                 />
                                 <span>${clock.saat}</span>
-                            </div>
+                            </label>
                         `;
                                 docTimesHtml += newHtml;
                             }

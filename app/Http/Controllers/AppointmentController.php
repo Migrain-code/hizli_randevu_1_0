@@ -94,6 +94,7 @@ class AppointmentController extends Controller
 
     public function appointmentCreate(Request $request)
     {
+        $request->dd();
         $business = Business::find($request->business_id);
         if (Auth::guard('customer')->check()) {
             $appointment = new Appointment();
@@ -127,23 +128,41 @@ class AppointmentController extends Controller
         $appointment->save();
 
         $loop = 0;
-        $clock = Carbon::parse($request->input('appointment_date'));
         $sumTime = 0;
-        //dd($request->all());
+
+        $start = 9999999999999;
+        $end = 0;
+
         foreach ($request->services as $service) {
             $appointmentService = new AppointmentServices();
             $appointmentService->appointment_id = $appointment->id;
             $appointmentService->personel_id = $request->personels[$loop];
             $appointmentService->service_id = $service;
+
             $findService = BusinessService::find($service);
-            $appointmentService->start_time = $clock->format('d.m.Y H:i');
-            $appointmentService->end_time = $clock->addMinute($findService->time)->format('d.m.Y H:i');
+            $appointmentService->start_time = Carbon::parse($request->input('appointment_date') . ' ' . $request->input('appointment_time.' . $appointmentService->personel_id));
+            $appointmentService->end_time = Carbon::parse($appointmentService->start_time)->addMinutes($findService->time);
             $sumTime += $findService->time;
             $appointmentService->save();
             $loop++;
+
+            if (str_replace(':', '', $start) > str_replace(':', '', $request->input('appointment_time.' . $appointmentService->personel_id))) {
+                $start = $request->input('appointment_time.' . $appointmentService->personel_id);
+            }
+
+            if (str_replace(':', '', $end) < str_replace(':', '', $request->input('appointment_time.' . $appointmentService->personel_id))) {
+                $end = $request->input('appointment_time.' . $appointmentService->personel_id);
+            }
         }
-        $appointment->start_time = Carbon::parse($request->input('appointment_date'))->format('d.m.Y H:i');
-        $appointment->end_time = Carbon::parse($request->input('appointment_date'))->addMinute($sumTime)->format('d.m.Y H:i');
+
+        $appointment->start_time = Carbon::parse($request->input('appointment_date') . ' ' . $start)->format('d.m.Y H:i');
+
+        if ($loop > 1){
+            $appointment->end_time = Carbon::parse($request->input('appointment_date') . ' ' . $end)->format('d.m.Y H:i');
+        }else {
+            $appointment->end_time = Carbon::parse($request->input('appointment_date') . ' ' . $start)->addMinutes($sumTime)->format('d.m.Y H:i');
+        }
+
         $appointment->save();
         return to_route('appointment.success', $appointment->id);
     }
@@ -179,7 +198,7 @@ class AppointmentController extends Controller
         $business = Business::find($request->business_id);
         $filledTime = $this->findTimes($business);
 
-        if(in_array($request->time,$filledTime)){
+        if (in_array($request->time, $filledTime)) {
             return response()->json([
                 'title' => "Hata",
                 'icon' => "error",
