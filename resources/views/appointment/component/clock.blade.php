@@ -12,24 +12,9 @@
     <div class="servicesBoxContent">
         <form id="step-3-form" method="post" action="">
             @csrf
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="timePickers">
-
-                        <div id="personelTimes">
-
-                        </div>
+                    <div class="timePickers" id="timeContainer">
 
                     </div>
-
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-
         </form>
 
     </div>

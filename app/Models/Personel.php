@@ -34,4 +34,25 @@ class Personel extends Model
     {
         return $this->hasMany(AppointmentServices::class, 'personel_id', 'id');
     }
+
+    public function stayOffDays()
+    {
+        return $this->hasOne(PersonelStayOffDay::class, 'personel_id', 'id');
+    }
+
+    public function checkDateIsOff($getDate)
+    {
+        // stayOffDays ilişkisini kullanarak izin tarihlerini alıyoruz.
+        $offDays = $this->stayOffDays;
+
+        if ($getDate >= $offDays->start_time && $getDate <= $offDays->end_time) {
+            return true;
+        }
+        // Eğer tarih izin tarihleri arasında değilse,false döndürüyoruz.
+        return false;
+    }
+    public function restDays()
+    {
+        return $this->hasMany(PersonelRestDay::class, 'personel_id', 'id');
+    }
 }

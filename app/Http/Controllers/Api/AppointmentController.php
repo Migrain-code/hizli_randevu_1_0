@@ -25,61 +25,145 @@ class AppointmentController extends Controller
     {
         $getDate = Carbon::parse($request->date);
         $business = Business::find($request->business_id);
-        $uniqueArray = array_unique($request->personals);
+        $uniquePersonals = array_unique($request->personals);
+
+        // personelleri gelen id lere göre db den collection olarak al
         $personels = [];
-        foreach ($uniqueArray as $id) {
+        foreach ($uniquePersonals as $id) {
             $personels[] = Personel::find($id);
         }
-        $newClocks = [];
-        foreach ($personels as $personel) {
-            $clocks = [];
-            $loop = 0;
-            $disabledDays = [];
-            $disabledDays[] = $this->findTimes($personel);
-            for ($i = \Illuminate\Support\Carbon::parse($personel->start_time); $i < \Illuminate\Support\Carbon::parse($personel->end_time); $i->addMinute($personel->range)) {
-                if (Carbon::parse($getDate->format('d.m.Y '))->dayOfWeek == $business->off_day) {
-                    $clock = [
-                        'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+        $clocks = [];
+        if (count($uniquePersonals) == 1) {
+            foreach ($personels as $personel) {
+
+                $disabledDays[] = $this->findTimes($personel);
+                if (Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek == $business->off_day) {
+                    $clocks[] = [
+                        'id' => $getDate->format('d_m_Y_'),
                         'saat' => 'İşletme bu tarihte hizmet vermemektedir',
-                        'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                        'value' => $getDate->format('d.m.Y '),
                         'durum' => false,
                     ];
-                    if ($loop == 0) {
-                        $clocks[] = $clock;
-                    }
-
-                    $loop++;
-
                 } else {
-                    if (Carbon::parse($getDate->format('d.m.Y ') . $i->format('H:i')) < Carbon::now()) {
-                        $clock = [
-                            'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
-                            'saat' => $i->format('H:i'),
-                            'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                    if (in_array(Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek, $personel->restDays()->pluck('day_id')->toArray())) {
+                        $clocks[] = [
+                            'id' => $getDate->format('d_m_Y_'),
+                            'saat' => 'Personel bu tarihte hizmet vermemektedir',
+                            'value' => $getDate->format('d.m.Y '),
                             'durum' => false,
                         ];
-                        $clocks[] = $clock;
                     } else {
-                        $clock = [
-                            'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
-                            'saat' => $i->format('H:i'),
-                            'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
-                            'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays) ? false : true,
-                        ];
-                        $clocks[] = $clock;
+                        if ($personel->checkDateIsOff($getDate)) {
+                            $clocks[] = [
+                                'id' => $getDate->format('d_m_Y_'),
+                                'saat' => 'Personel ' . Carbon::parse($personel->stayOffDays->start_time)->format('d.m.Y H:i') . " tarihinden " . Carbon::parse($personel->stayOffDays->end_time)->format('d.m.Y H:i') . " Tarihine Kadar İzinlidir",
+                                'value' => $getDate->format('d.m.Y '),
+                                'durum' => false,
+                            ];
+                        } else {
+                            for ($i = \Illuminate\Support\Carbon::parse($personel->start_time); $i < \Illuminate\Support\Carbon::parse($personel->end_time); $i->addMinute($personel->range)) {
+                                $clocks[] = [
+                                    'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+                                    'saat' => $i->format('H:i'),
+                                    'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                                    'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays) ? false : true,
+                                ];
+                            }
+
+
+                        }
+
                     }
                 }
+
+
             }
-            $newClocks[] = [
-                'personel' => PersonelResource::make($personel),
-                'clocks' => $clocks,
-            ];
 
+        } else { // birden fazla ve farklı personel seçilmişse
+
+            if (Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek == $business->off_day) {
+                $clocks[] = [
+                    'id' => $getDate->format('d_m_Y_'),
+                    'saat' => 'İşletme bu tarihte hizmet vermemektedir',
+                    'value' => $getDate->format('d.m.Y '),
+                    'durum' => false,
+                ];
+            } else {
+                // işletme çalışma saatlerine randevu aralığına göre diziye ekle
+                $businessClocks = [];
+                for ($i = \Illuminate\Support\Carbon::parse($business->start_time); $i < \Illuminate\Support\Carbon::parse($business->end_time); $i->addMinute($business->appoinment_range)) {
+                    $businessClocks[] = $getDate->format('d.m.Y ' . $i->format('H:i'));
+                }
+                // personellerin dolu saatlerini bul
+                $disabledClocks = [];
+                foreach ($personels as $personel) {
+                    $disabledClocks[] = $this->findTimes($personel);
+                }
+                // diziyi tek boyuta düşür
+                $flattenedArray = [];
+                foreach ($disabledClocks as $subArray) {
+                    $flattenedArray = array_merge($flattenedArray, $subArray);
+                }
+                // dizi deki aynı olan verileri kaldır
+                $disabledTimes = array_unique($flattenedArray);
+
+                // hizmetlerin sürelerini al ve toplam süreye ekle
+                $totalMinute = 0;
+                foreach ($request->services as $serviceId) {
+                    $service = BusinessService::find($serviceId);
+                    $totalMinute += $service->time;
+                }
+                $totalMinutes = $totalMinute;
+
+                foreach ($businessClocks as $index => $clock) {
+
+                    $i = Carbon::parse($clock);
+                    $clocks[] = array(
+                        'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+                        'saat' => $i->format('H:i'),
+                        'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                        // işletmenin çalışma saatleri ile personelin çalışma saatlerini karşılaştır aynı olanları false yap
+                        'durum' => !in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledTimes),
+                    );
+                }
+                $found = false;
+                $startTime = null;
+                $currentTime = null;
+                $totalTime =  0;
+                foreach ($clocks as $clock) {
+                    if ($clock['durum']) {
+                        if ($currentTime === null) {
+                            $currentTime = Carbon::parse($clock['value']);
+                            $startTime = $currentTime;
+                        } else {
+                            $nextTime = Carbon::parse($clock['value']);
+                            $timeDifference = $nextTime->diffInMinutes($currentTime);
+                            $totalTime += $timeDifference;
+
+                            // Eğer toplam süre  60 dakika veya daha fazla ise, durumu false olarak ayarla
+                            if ($totalTime >= $totalMinutes) {
+                                $found = true;
+                                break;
+                            }
+
+                            $currentTime = $nextTime;
+                        }
+                    } else {
+                        $currentTime = null;
+                        $totalTime =  0; // Boş alan başladığında toplam süreyi sıfırlayın
+                    }
+                }
+
+                if (!$found) {
+                    return response()->json([
+                        "status" => "error",
+                        "message" => "Seçtiğiniz Hizmetler için uygun randevu aralığı bulunmamaktadır. Personeli veya Hizmeti Değiştirerek Yeniden Saat Arayabilirsiniz."
+                    ]);
+                }
+            }
         }
+        return response()->json($clocks);
 
-        return response()->json([
-            'personel_clocks' => $newClocks,
-        ]);
 
     }
 

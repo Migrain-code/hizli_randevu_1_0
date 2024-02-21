@@ -37,36 +37,11 @@
         .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
             border-radius: 23px !important;
         }
-        .swiper-buttons {
-            position: absolute;
-            top: 2%;
-            transform: translateY(-50%);
-            right: 12%;
-            z-index: 10;
-        }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-family: swiper-icons;
-            font-size: 15px;
-            text-transform: none!important;
-            letter-spacing: 0;
-            font-variant: inherit;
-            line-height: 1;
-        }
-        .swiper-button-next, .swiper-button-prev {
-            position: absolute;
-            top: 25px;
-            width: 24px;
-            height: 24px;
-            margin-top: -15px;
-            z-index: 10;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            background-color: #f22969;
-            padding: 20px;
-            border-radius: 50%;
+
+        .timePickers .timePickerRadio input:disabled + span:hover {
+            background: rgba(242, 41, 105, 0.1);
+            color: #f22969;
+            border: 1px solid #f22969;
         }
     </style>
 
@@ -112,6 +87,13 @@
             </div>
         </div>
     </article>
+    @php
+        $serviceArray = [];
+        foreach ($selectedServices as $service){
+            $serviceArray[] = $service->id;
+        }
+
+    @endphp
 @endsection
 
 @section('scripts')
@@ -131,118 +113,58 @@
             });
         });
 
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var mySwiper = new Swiper('.mySwiper', {
-                slidesPerView: 1, // Sadece bir slide görünür
-                spaceBetween: 10, // Slide'lar arasındaki boşluk
-                loop: false, // Sonsuz döngü
-                navigation: {
-                    nextEl: '.swiper-button-next', // nextEl'i özel div içindeki düğme ile ilişkilendir
-                    prevEl: '.swiper-button-prev'  // prevEl'i özel div içindeki düğme ile ilişkilendir
-                }
-            });
-        });
     </script>
     <script>
         var appUrl = "{{env('APP_URL')}}";
         var offDay = "{{$business->off_day}}";
         var businessId = "{{$business->id}}";
+        var selectedServices = @json($serviceArray);
         var personels = {!! isset(request()->query()['request']['personels']) ? json_encode(request()->query()['request']['personels']) : "" !!};
 
+        window.onload = function (){
+           clickedDate('{{now()->format('d.m.Y')}}')
+        };
         function clickedDate(clickedTime){
             var appointmentInput = document.querySelector('input[name="appointment_date"]');
             appointmentInput.value= clickedTime;
 
-            var apiUrl = "/api/appointment/clock/get";
+            var apiUrl = appUrl + "/api/appointment/clock/get";
 
             var postData = {
                 business_id: businessId,
                 date: clickedTime,
                 personals: personels,
+                services: selectedServices
             };
 
-            fetch(apiUrl, {
+            $.ajax({
+                url: apiUrl,
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(postData)
-            })
-                .then(function (response) {
-                    if (!response.ok) {
-                        throw new Error("API isteği başarısız!");
-                    }
-                    return response.json();
-                })
-                .then(function (data) {
+                data: JSON.stringify(postData),
+                contentType: "application/json",
+                success: function (data) {
+                    console.log(data);
                     // API'den gelen verileri işleyin ve HTML öğelerini oluşturun
-                    var swiperSlides = document.querySelectorAll('.swiper-wrapper .swiper-slide');
+                    var container = document.getElementById("timeContainer");
+                    container.innerHTML = ""; // Önceki içeriği temizle
 
-                    swiperSlides.forEach(function(slide) {
-                        slide.remove();
+                    data.forEach(function (clock) {
+                        var newHtml = `
+                        <label class="timePickerRadio">
+                            <input
+                                class="form-check-input ${clock.durum ? 'active-time' : ''}"
+                                ${clock.durum ? '' : 'disabled'}
+                                type="radio"
+                                name="appointment_time[]"
+                                value="${clock["saat"]}"
+                            />
+                            <span>${clock["saat"]}</span>
+                        </label>
+                    `;
+                        container.innerHTML += newHtml; // HTML içeriğini güncelle
                     });
-                    var personelTimesDiv = document.getElementById('personelTimes');
-                    personelTimesDiv.innerHTML="";
-                    data.personel_clocks.forEach(function (row) {
-                        var newTimeInput = document.createElement('input');
-                        newTimeInput.type = "hidden";
-                        newTimeInput.checked = "true";
-                        newTimeInput.id =`appointment_time${row.personel.id}`;
-                        newTimeInput.name ="times[]";
-
-                        personelTimesDiv.appendChild(newTimeInput);
-                        var docTimesHtml = "";
-                        row.clocks.forEach(function (clock){
-                            if (clock.durum == false){
-                                var newHtml = `
-
-                            <div class="timePickerRadio">
-                                <input
-                                    class="form-check-input"
-                                    type="radio"
-                                    name="appointment_time[${row.personel.id}]"
-                                    value="${clock.saat}"
-                                    id="flexRadioDefault1"
-
-                                />
-                                <span>${clock.saat}</span>
-                            </div>
-                        `;
-
-                                docTimesHtml += newHtml;
-                            }
-                            else {
-                                var newHtml = `
-                            <label class="timePickerRadio">
-                                <input
-                                    class="form-check-input active-time"
-                                    type="radio"
-                                    name="appointment_time[${row.personel.id}]"
-                                    value="${clock.saat}"
-
-                                />
-                                <span>${clock.saat}</span>
-                            </label>
-                        `;
-                                docTimesHtml += newHtml;
-                            }
-                        })
-
-                        var newSlide = document.createElement('div');
-                        newSlide.classList.add('swiper-slide');
-                        var newTimePicker = document.createElement('div');
-                        newTimePicker.classList.add('timePickers');
-                        newTimePicker.innerHTML = docTimesHtml;
-                        newSlide.innerHTML =`<div class="w-100 text-center" style="padding: 15px"><h4>${row.personel.name} İçin Saat Seçin</h4></div>` + newTimePicker.outerHTML;
-
-                        var swiperWrapper = document.querySelector('.swiper-wrapper');
-                        swiperWrapper.appendChild(newSlide);
-                    });
-                })
-                .catch(function (error) {
-                    console.error("API hatası:", error);
-                });
+                },
+            });
         }
     </script>
 
