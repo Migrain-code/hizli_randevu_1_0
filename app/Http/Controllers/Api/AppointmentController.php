@@ -23,6 +23,7 @@ class AppointmentController extends Controller
 {
     public function getClock(Request $request)
     {
+        header("Access-Control-Allow-Origin: *");
         $getDate = Carbon::parse($request->date);
         $business = Business::find($request->business_id);
         $uniquePersonals = array_unique($request->personals);

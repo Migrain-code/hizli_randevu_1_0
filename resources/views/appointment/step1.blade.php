@@ -121,14 +121,12 @@
         var selectedServices = @json($serviceArray);
         var personels = {!! isset(request()->query()['request']['personels']) ? json_encode(request()->query()['request']['personels']) : "" !!};
 
-        window.onload = function (){
-           clickedDate('{{now()->format('d.m.Y')}}')
-        };
+
         function clickedDate(clickedTime){
             var appointmentInput = document.querySelector('input[name="appointment_date"]');
             appointmentInput.value= clickedTime;
 
-            var apiUrl = appUrl + "/api/appointment/clock/get";
+            var apiUrl = appUrl + "/api/appointment/clock/get-2";
 
             var postData = {
                 business_id: businessId,
