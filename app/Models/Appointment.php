@@ -58,9 +58,8 @@ class Appointment extends Model
     }
     public function services()
     {
-        return $this->hasMany(AppointmentServices::class, 'appointment_id', 'id');
+        return $this->hasMany(AppointmentServices::class, 'appointment_id', 'id')->orderByRaw("STR_TO_DATE(start_time, '%d.%m.%Y %H:%i') ASC");
     }
-
     public function business()
     {
         return $this->hasOne(Business::class, 'id', 'business_id');

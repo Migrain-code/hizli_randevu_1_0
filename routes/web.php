@@ -49,6 +49,9 @@ Route::controller(AppointmentController::class)->group(function (){
     Route::get('randevu-olustur/adim-1/save', 'step1Store')->name('step1.store');
     Route::post('randevu-olustur', 'appointmentCreate')->name('appointment.create');
     Route::get('randevu-olusturuldu/{appointment}', 'step5Show')->name('appointment.success');
+    Route::post('/clock/get', 'getClock')->name('appointment.clocks');
+    Route::get('/phone/control', 'phoneControl')->name('appointment.phoneControl');
+    Route::get('/phone/verify', 'phoneVerify')->name('appointment.phoneVerify');
 });
 
 Route::controller(SearchController::class)->prefix('ara')->as('search.')->group(function () {

@@ -10,11 +10,12 @@
         </div>
     </div>
     <div class="servicesBoxContent">
+
         <form id="step-3-form" method="post" action="">
             @csrf
-                    <div class="timePickers" id="timeContainer">
-
-                    </div>
+                <div class="timePickers" id="timeContainer">
+                    <div id="loader" style="display: none"></div>
+                </div>
         </form>
 
     </div>

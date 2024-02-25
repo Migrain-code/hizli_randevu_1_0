@@ -21,6 +21,13 @@
     <div class="servicesBox">
         @if(auth('customer')->check())
             <div class="alert alert-info"> Giriş Yaptığınız için kullanıcı bilgileriniz istenmeyecektir.</div>
+
+            <div
+                class="buttonGroups d-flex align-items-center justify-content-end"
+            >
+                <a href="{{route('business.detail', $business->slug)}}" class="btn-gray">İptal</a>
+                <a href="javascript:;" onclick="$('#step-4-form').submit()" class="btn-pink">Gönder</a>
+            </div>
         @else
             <div
                 class="d-flex align-items-center justify-content-between"
@@ -38,32 +45,31 @@
                     <input
                         type="text"
                         class="form-control phone"
-                        id="floatingInput"
+                        id="phone"
                         name="phone"
                         placeholder="Telefon"
                     />
-                    <label for="floatingInput">Telefon</label>
+                    <label for="phone">Telefon</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input
                         type="text"
                         class="form-control"
                         name="name"
-                        id="floatingInput"
+                        id="name"
                         placeholder="Adınız Soyadınız"
                     />
-                    <label for="floatingInput">Adınız Soyadınız</label>
+                    <label for="name">Adınız Soyadınız</label>
                 </div>
 
 
             </div>
-        @endif
-            <div
-                class="buttonGroups d-flex align-items-center justify-content-end"
-            >
+            <div class="buttonGroups d-flex align-items-center justify-content-end">
                 <a href="{{route('business.detail', $business->slug)}}" class="btn-gray">İptal</a>
-                <a href="javascript:;" onclick="$('#step-4-form').submit()" class="btn-pink">Gönder</a>
+                <a href="javascript:;" onclick="phoneControl()" class="btn-pink">Gönder</a>
             </div>
+        @endif
+
     </div>
     </form>
 @endif
