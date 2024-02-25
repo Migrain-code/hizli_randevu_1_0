@@ -118,7 +118,7 @@
                                                                                 <div class="accordionListItem">
                                                                                     <div class="row">
                                                                                         @forelse($manCategories as $service)
-                                                                                            <div class="col-lg-3">
+                                                                                            <div class="col-lg-2">
                                                                                                 <div class="servicesItem checkServicesItem">
                                                                                                     <input type="checkbox" value="{{$service->id}}" @checked(in_array($service->id, $serviceIds)) name="services[]"/>
                                                                                                     <div class="checkServicesItemContent">
@@ -192,7 +192,7 @@
                                                                                 <div class="accordionListItem">
                                                                                     <div class="row">
                                                                                         @forelse($womanCategories as $service)
-                                                                                            <div class="col-lg-3">
+                                                                                            <div class="col-lg-2">
                                                                                                 <div class="servicesItem checkServicesItem">
                                                                                                     <input type="checkbox" value="{{$service->id}}" @checked(in_array($service->id, $serviceIds)) name="services[]"/>
                                                                                                     <div class="checkServicesItemContent">
