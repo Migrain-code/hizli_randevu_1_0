@@ -9,8 +9,8 @@
             @endif
             <a href="{{route('business.detail', $business->slug)}}">
                 <img
-                    src="{{image($business->wallpaper)}}"
-                    alt=""
+                    src="{{image($business->gallery()->first()->way)}}"
+                    alt="{{$business->gallery()->first()->name}}"
                 />
                 @if($business->order_number > 0)
                     <span class="featured"><i>Öne Çıkan</i></span>
