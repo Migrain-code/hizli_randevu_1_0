@@ -129,7 +129,7 @@ class AppointmentController extends Controller
             $appointment->customer_id = $customer->id;
         }
 
-        if ($business->approve_type == 1) { //otomatik onay
+        if ($business->approve_type == 0) { //otomatik onay
             $appointment->status = 1;
         } else {
             $appointment->status = 0;
