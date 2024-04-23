@@ -240,10 +240,10 @@
                                 @endforeach
                             </div>
                             <a href="javascript:;" class="sliderPrev">
-                                <img src="assets/images/icons/ico-slider-left.svg" />
+                                <img src="/assets/images/icons/ico-slider-left.svg" />
                             </a>
                             <a href="javascript:;" class="sliderNext">
-                                <img src="assets/images/icons/ico-slider-right.svg" />
+                                <img src="/assets/images/icons/ico-slider-right.svg" />
                             </a>
                         </div>
                     </div>
@@ -261,7 +261,7 @@
                     <div class="featuredLinks d-flex align-items-center flex-wrap">
                         @foreach($featuredServices as $service)
                             <a href="{{route('search.service', $service->slug)}}">
-                                <img src="assets/images/icons/ico-links-1.svg" alt="" />
+                                <img src="/assets/images/icons/ico-links-1.svg" alt="" />
                                 <span>{{$service->name}}</span>
                             </a>
                         @endforeach

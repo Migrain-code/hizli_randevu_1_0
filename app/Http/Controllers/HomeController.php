@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
         $ads = Ads::where('type', 0)->get(); //Anasayfa reklamları
-        $featuredServices = ServiceSubCategory::whereNotNull('order_number')->orderBy('order_number', 'asc')->get();//öne çıkan hizmetler
+        $featuredServices = ServiceSubCategory::where('is_featured', 1)->orderBy('order_number', 'asc')->get();//öne çıkan hizmetler
         $featuredCategories = FeaturedCategorie::where('status', 1)->get();
         $blogs = Blog::where('status', 1)->latest()->take(9)->get();
         $activities = Activity::where('status', 1)->latest()->take(4)->get();
