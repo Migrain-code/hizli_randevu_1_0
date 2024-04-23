@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    @if($business->approve_type == 1)
+                    @if($business->approve_type == 0)
                         <a href="javascript:;">Hızlı Onay</a>
                     @else
                         <a href="javascript:;">Hızlı Yanıt</a>
