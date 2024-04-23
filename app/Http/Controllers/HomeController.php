@@ -45,8 +45,10 @@ class HomeController extends Controller
             $dayList = DayList::all();
             $womanServices = $business->services()->where('type', 1)->get();
             $manServices = $business->services()->where('type', 2)->get();
+            $unisexServices = $business->services()->where('type', 3)->get();
             $womanServiceCategories = $womanServices->groupBy('category');
             $manServiceCategories = $manServices->groupBy('category');
+            $unisexServiceCategories = $unisexServices->groupBy('category');
             $manCategories = [];
             $womanCategories = [];
             foreach ($manServiceCategories as $key => $value) {
@@ -56,7 +58,7 @@ class HomeController extends Controller
                 $womanCategories[] = ServiceCategory::find($key);
             }
 
-            return view('business.detail', compact('business', 'dayList', 'manServices', 'womanServiceCategories', 'manCategories', 'womanCategories', 'manServiceCategories'));
+            return view('business.detail', compact('business', 'dayList', 'manServices', 'womanServiceCategories', 'manCategories', 'womanCategories', 'manServiceCategories', 'unisexServices', 'unisexServiceCategories'));
 
         }
         else{
