@@ -20,7 +20,7 @@
 
         <div class="saloonItemHeader">
             <a href="{{route('business.detail', $business->slug)}}">{{$business->name}}</a>
-            <p>{{$business->cities->name}}/{{$business->districts->name}}</p>
+            <p>{{$business->cities?->name}}/{{$business->districts?->name}}</p>
             @php
                 $averageRating = $business->comments->count() > 0 ? number_format($business->comments()->sum('point') / $business->comments->count(), 1) : 0
             @endphp
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    @if($business->approve_type == 0)
+                    @if($business->approve_type == 1)
                         <a href="javascript:;">Hızlı Onay</a>
                     @else
                         <a href="javascript:;">Hızlı Yanıt</a>
