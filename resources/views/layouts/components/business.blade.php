@@ -10,7 +10,7 @@
             <a href="{{route('business.detail', $business->slug)}}">
                 <img
                     src="{{image($business->gallery()->first()->way)}}"
-                    alt="{{$business->gallery()->first()->name}}"
+                    alt="{{$business->gallery->count > 0 ? $business->gallery()->first()->name : "storage/default/business"}}"
                 />
                 @if($business->order_number > 0)
                     <span class="featured"><i>Öne Çıkan</i></span>
