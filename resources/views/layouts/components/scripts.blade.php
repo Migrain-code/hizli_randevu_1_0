@@ -1,7 +1,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
 <script>
-    $(".phone").inputmask({"mask": "(999)-999-9999"});
+    $(".phone").inputmask({"mask": "0(999)-999-9999"});
     function toggleHeart(element) {
         var heartIcon = element.getElementsByTagName('i')[0];
         var businessId = element.dataset.business;
