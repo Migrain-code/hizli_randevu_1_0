@@ -50,7 +50,7 @@
                                 <div class="saloonDetailBox mb-4">
                                     <div class="detailTitle">Hakkında</div>
                                     <div class="detailBoxContent">
-                                        {{$business->about}}
+                                        {!! $business->about !!}
                                     </div>
                                 </div>
                                 <div class="saloonDetailBox mb-4" id="address">

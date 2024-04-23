@@ -1,10 +1,6 @@
 <div class="pageTab mt-5 salloonsTab" id="servicesTab">
-    <ul
-        class="nav nav-pills mb-3"
-        id="pills-tab"
-        role="tablist"
-    >
-        @if($business->type->id == 1)
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        @if($business->type_id == 1)
             <li class="nav-item" role="presentation">
                 <button
                     class="nav-link active"
@@ -19,7 +15,7 @@
                     Kadın
                 </button>
             </li>
-        @elseif($business->type->id == 2)
+        @elseif($business->type_id == 2)
             <li class="nav-item" role="presentation">
                 <button
                     class="nav-link"

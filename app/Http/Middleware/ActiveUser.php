@@ -18,8 +18,8 @@ class ActiveUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth('customer')->check() && auth('customer')->user()->verify_phone != 1) {
-            dd("asd00");
+        /*if (auth('customer')->check() && auth('customer')->user()->verify_phone != 1) {
+
             Session::put('phone', auth('customer')->user()->phone);
             createVerifyCode(auth('customer')->user()->phone);
             Auth::guard('customer')->logout();
@@ -27,7 +27,7 @@ class ActiveUser
                 'status'=>"danger",
                 'message'=>"Telefon Numaranızı doğrulamanız gerekmektedir. Telefonunuza gönderilen doğrulama kodunu giriniz",
             ]);
-        }
+        }*/
         return $next($request);
     }
 }
