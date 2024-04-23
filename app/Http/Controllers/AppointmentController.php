@@ -129,7 +129,7 @@ class AppointmentController extends Controller
             $appointment->customer_id = $customer->id;
         }
 
-        if ($business->approve_type == 1) {
+        if ($business->approve_type == 1) { //otomatik onay
             $appointment->status = 1;
         } else {
             $appointment->status = 0;
@@ -141,8 +141,8 @@ class AppointmentController extends Controller
             $appointmentService = new AppointmentServices();
             $appointmentService->personel_id = $request->personels[$index];
             $appointmentService->service_id = $serviceId;
-            $appointmentService->start_time = $appointmentStartTime->format('d.m.Y H:i');
-            $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time)->format('d.m.Y H:i');
+            $appointmentService->start_time = $appointmentStartTime;
+            $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
             $appointmentService->appointment_id = $appointment->id;
             $appointmentService->save();
         }
@@ -182,7 +182,7 @@ class AppointmentController extends Controller
             $currentDateTime = $startDateTime->copy();
             while ($currentDateTime <= $endDateTime) {
                 $disableds[] = $currentDateTime->format('d.m.Y H:i');
-                $currentDateTime->addMinutes($business->appoinment_range);
+                $currentDateTime->addMinutes($business->range->time);
             }
         }
 
@@ -261,7 +261,7 @@ class AppointmentController extends Controller
 
                             ]);
                         } else {
-                            for ($i = \Illuminate\Support\Carbon::parse($personel->start_time); $i < \Illuminate\Support\Carbon::parse($personel->end_time); $i->addMinute($personel->range)) {
+                            for ($i = \Illuminate\Support\Carbon::parse($personel->start_time); $i < \Illuminate\Support\Carbon::parse($personel->end_time); $i->addMinute($personel->appointmentRange->time)) {
                                 $clocks[] = [
                                     'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
                                     'saat' => $i->format('H:i'),
@@ -297,7 +297,7 @@ class AppointmentController extends Controller
             } else {
                 // işletme çalışma saatlerine randevu aralığına göre diziye ekle
                 $businessClocks = [];
-                for ($i = \Illuminate\Support\Carbon::parse($business->start_time); $i < \Illuminate\Support\Carbon::parse($business->end_time); $i->addMinute($business->appoinment_range)) {
+                for ($i = \Illuminate\Support\Carbon::parse($business->start_time); $i < \Illuminate\Support\Carbon::parse($business->end_time); $i->addMinute($business->range->time)) {
                     $businessClocks[] = $getDate->format('d.m.Y ' . $i->format('H:i'));
                 }
                 // personellerin dolu saatlerini bul
@@ -389,7 +389,7 @@ class AppointmentController extends Controller
 
                 $disableds[] = $currentDateTime->format('d.m.Y H:i');
 
-                $currentDateTime->addMinutes(intval($personel->range));
+                $currentDateTime->addMinutes(intval($personel->appointmentRange->time));
             }
         }
 

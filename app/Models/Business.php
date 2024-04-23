@@ -92,7 +92,10 @@ class Business extends Authenticatable
     {
         return $this->hasMany(PackageSale::class, 'business_id', 'id');
     }
-
+    public function range()
+    {
+        return $this->hasOne(AppointmentRange::class, 'id', 'appoinment_range');
+    }
     public function customers()
     {
         return $this->hasMany(BusinessCustomer::class, 'business_id', 'id');

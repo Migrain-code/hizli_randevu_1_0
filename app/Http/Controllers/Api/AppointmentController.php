@@ -62,10 +62,10 @@ class AppointmentController extends Controller
                                 'durum' => false,
                             ];
                         } else {
-                            for ($i = \Illuminate\Support\Carbon::parse($personel->start_time); $i < \Illuminate\Support\Carbon::parse($personel->end_time); $i->addMinute($personel->range)) {
+                            for ($i = \Illuminate\Support\Carbon::parse($personel->start_time); $i < \Illuminate\Support\Carbon::parse($personel->end_time); $i->addMinute($personel->appointmentRange->time)) {
                                 $clocks[] = [
                                     'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
-                                    'saat' => $i->format('H:i'),
+                                    'saat' => "ad",
                                     'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
                                     'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays) ? false : true,
                                 ];
@@ -92,7 +92,7 @@ class AppointmentController extends Controller
             } else {
                 // işletme çalışma saatlerine randevu aralığına göre diziye ekle
                 $businessClocks = [];
-                for ($i = \Illuminate\Support\Carbon::parse($business->start_time); $i < \Illuminate\Support\Carbon::parse($business->end_time); $i->addMinute($business->appoinment_range)) {
+                for ($i = \Illuminate\Support\Carbon::parse($business->start_time); $i < \Illuminate\Support\Carbon::parse($business->end_time); $i->addMinute($business->range->time)) {
                     $businessClocks[] = $getDate->format('d.m.Y ' . $i->format('H:i'));
                 }
                 // personellerin dolu saatlerini bul
@@ -121,7 +121,7 @@ class AppointmentController extends Controller
                     $i = Carbon::parse($clock);
                     $clocks[] = array(
                         'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
-                        'saat' => $i->format('H:i'),
+                        'saat' => "asd",
                         'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
                         // işletmenin çalışma saatleri ile personelin çalışma saatlerini karşılaştır aynı olanları false yap
                         'durum' => !in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledTimes),
@@ -183,7 +183,7 @@ class AppointmentController extends Controller
 
                 $disableds[] = $currentDateTime->format('d.m.Y H:i');
 
-                $currentDateTime->addMinutes(intval($personel->range));
+                $currentDateTime->addMinutes(intval($personel->appointmentRange->time));
             }
         }
 

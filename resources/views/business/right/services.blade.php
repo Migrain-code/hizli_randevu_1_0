@@ -1,6 +1,6 @@
 <div class="pageTab mt-5 salloonsTab" id="servicesTab">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        @if($business->type_id == 1)
+
             <li class="nav-item" role="presentation">
                 <button
                     class="nav-link active"
@@ -15,7 +15,7 @@
                     Kadın
                 </button>
             </li>
-        @elseif($business->type_id == 2)
+
             <li class="nav-item" role="presentation">
                 <button
                     class="nav-link"
@@ -30,36 +30,36 @@
                     Erkek
                 </button>
             </li>
-        @else
+
             <li class="nav-item" role="presentation">
                 <button
-                    class="nav-link active"
-                    id="pills-1-tab"
+                    class="nav-link"
+                    id="pills-3-tab"
                     data-bs-toggle="pill"
-                    data-bs-target="#pills-1"
+                    data-bs-target="#pills-3"
                     type="button"
                     role="tab"
-                    aria-controls="pills-1"
+                    aria-controls="pills-3"
                     aria-selected="true"
                 >
                     Unisex
                 </button>
             </li>
 
-        @endif
+
     </ul>
 
     <div class="tab-content" id="pills-tabContent">
 
         <div
-            class="tab-pane fade @if($business->type_id == 1) show active @endif"
+            class="tab-pane fade show active"
             id="pills-1"
             role="tabpanel"
             aria-labelledby="pills-home-tab"
             tabindex="0"
         >
             <div class="accordion accordion-flush" id="accordionFlushExampleWoman">
-                @forelse($womanServiceCategories as $womanCategories)
+                @forelse($womanServices as $womanService)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button
@@ -70,7 +70,7 @@
                                     aria-expanded="false"
                                     aria-controls="flush-collapse-woman-{{$loop->index}}"
                                 >
-                                    {{$womanCategories->first()->categorys->name}}
+                                    {{$womanService['name']}}
                                 </button>
                             </h2>
                             <div
@@ -80,19 +80,19 @@
                             >
                                 <div class="accordion-body">
                                     <div class="accordionList">
-                                        @forelse($womanCategories as $service)
+                                        @forelse($womanService["services"] as $service)
                                         <div class="accordionListItem">
                                             <div class="row">
                                                 <div
                                                     class="col-xl-5 col-lg-6 d-flex align-items-center"
                                                 >
-                                                    <span>{{$service->subCategory->name}}</span>
+                                                    <span>{{$service["name"]}}</span>
                                                 </div>
                                                 <div
                                                     class="col-xl-6 d-flex align-items-center justify-content-between justify-content-xl-end"
                                                 >
-                                                    <span>{{$service->price}} TL</span>
-                                                    <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service->id))])}}">Randevu Al</a>
+                                                    <span>{{$service["price"]}} TL</span>
+                                                    <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service["id"]))])}}">Randevu Al</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,19 +106,20 @@
 
 
                 @empty
+                    <div class="alert alert-warning">Bu türde hizmet bulunamadı</div>
                 @endforelse
             </div>
         </div>
 
         <div
-            class="tab-pane fade @if($business->type_id == 2) show active @endif"
+            class="tab-pane fade"
             id="pills-2"
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
             tabindex="0"
         >
             <div class="accordion accordion-flush" id="accordionFlushExampleMan">
-                @forelse($manServiceCategories as $manCategories)
+                @forelse($manServices as $manService)
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button
@@ -129,7 +130,7 @@
                                 aria-expanded="false"
                                 aria-controls="flush-collapse-man-{{$loop->index}}"
                             >
-                                {{$manCategories->first()->categorys->name}}
+                                {{$manService["name"]}}
                             </button>
                         </h2>
                         <div
@@ -139,19 +140,19 @@
                         >
                             <div class="accordion-body">
                                 <div class="accordionList">
-                                    @forelse($manCategories as $service)
+                                    @forelse($manService["services"] as $service)
                                         <div class="accordionListItem">
                                             <div class="row">
                                                 <div
                                                     class="col-xl-5 col-lg-6 d-flex align-items-center"
                                                 >
-                                                    <span>{{$service->subCategory->name}}</span>
+                                                    <span>{{$service["name"]}}</span>
                                                 </div>
                                                 <div
                                                     class="col-xl-6 d-flex align-items-center justify-content-between justify-content-xl-end"
                                                 >
-                                                    <span>{{$service->price}} TL</span>
-                                                    <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service->id))])}}">Randevu Al</a>
+                                                    <span>{{$service["price"]}} TL</span>
+                                                    <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service["id"]))])}}">Randevu Al</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -165,19 +166,20 @@
 
 
                 @empty
+                    <div class="alert alert-warning">Bu türde hizmet bulunamadı</div>
                 @endforelse
             </div>
         </div>
 
         <div
-            class="tab-pane fade @if($business->type_id == 3) show active @endif"
-            id="pills-2"
+            class="tab-pane fade "
+            id="pills-3"
             role="tabpanel"
             aria-labelledby="pills-profile-tab"
             tabindex="0"
         >
             <div class="accordion accordion-flush" id="accordionFlushExampleUnisex">
-                @forelse($unisexServiceCategories as $unisexCategories)
+                @forelse($unisexServices as $unisexService)
                     <div class="accordion-item">
                         <h2 class="accordion-header">
                             <button
@@ -188,7 +190,7 @@
                                 aria-expanded="false"
                                 aria-controls="flush-collapse-unisex-{{$loop->index}}"
                             >
-                                {{$unisexCategories->first()->categorys->name}}
+                                {{$unisexService["name"]}}
                             </button>
                         </h2>
                         <div
@@ -198,19 +200,19 @@
                         >
                             <div class="accordion-body">
                                 <div class="accordionList">
-                                    @forelse($unisexCategories as $service)
+                                    @forelse($unisexService["services"] as $service)
                                         <div class="accordionListItem">
                                             <div class="row">
                                                 <div
                                                     class="col-xl-5 col-lg-6 d-flex align-items-center"
                                                 >
-                                                    <span>{{$service->subCategory->name}}</span>
+                                                    <span>{{$service["name"]}}</span>
                                                 </div>
                                                 <div
                                                     class="col-xl-6 d-flex align-items-center justify-content-between justify-content-xl-end"
                                                 >
-                                                    <span>{{$service->price}} TL</span>
-                                                    <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service->id))])}}">Randevu Al</a>
+                                                    <span>{{$service["price"]}} TL</span>
+                                                    <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service["id"]))])}}">Randevu Al</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -224,9 +226,11 @@
 
 
                 @empty
+                    <div class="alert alert-warning">Bu türde hizmet bulunamadı</div>
                 @endforelse
             </div>
         </div>
+
     </div>
 </div>
 
