@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Personel extends Model
 {
@@ -37,16 +38,23 @@ class Personel extends Model
 
     public function stayOffDays()
     {
-        return $this->hasOne(PersonelStayOffDay::class, 'personel_id', 'id');
+        return $this->hasMany(PersonelStayOffDay::class, 'personel_id', 'id');
     }
 
     public function checkDateIsOff($getDate)
     {
         // stayOffDays ilişkisini kullanarak izin tarihlerini alıyoruz.
+        $getDate = Carbon::parse($getDate);
         $offDays = $this->stayOffDays;
 
-        if ($getDate >= $offDays->start_time && $getDate <= $offDays->end_time) {
-            return true;
+        if ($offDays->count() > 0) {
+            foreach ($offDays as $day) {
+                $startTime = Carbon::parse($day->start_time);
+                $endTime = Carbon::parse($day->end_time);
+                if ($getDate >= $startTime && $getDate <= $endTime) {
+                    return true;
+                }
+            }
         }
         // Eğer tarih izin tarihleri arasında değilse,false döndürüyoruz.
         return false;
