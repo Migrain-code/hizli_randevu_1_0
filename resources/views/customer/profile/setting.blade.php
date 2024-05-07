@@ -109,7 +109,6 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            @dd($allCities->count())
                                             <div class="mb-3">
                                                 <div class="customSelect customTomSelect">
                                                     <select class="tomSelect" name="city_id" id="city_select">
