@@ -80,7 +80,7 @@
                         class="form-control phone"
                         id="floatingInput"
                         placeholder="Cep Telefonu"
-                        value="5537021355"
+                        value=""
                     />
                     <label for="floatingInput">Cep Telefonu</label>
                 </div>
@@ -91,7 +91,7 @@
                         class="form-control passwordEye"
                         id="floatingInputPassword"
                         placeholder="Şifre"
-                        value="123456"
+                        value=""
                     />
                     <label for="floatingInputPassword">Şifre</label>
                     <a href="javascript:;" onclick="togglePasswordVisibility()">
@@ -103,7 +103,7 @@
                         <div class="mb-3">
                             <div class="customCheck">
                                 <div class="customCheckInput">
-                                    <input type="checkbox" />
+                                    <input type="checkbox" name="remember"/>
                                     <span></span>
                                 </div>
                                 <span> Beni Hatırla </span>

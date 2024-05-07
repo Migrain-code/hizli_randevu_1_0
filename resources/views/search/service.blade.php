@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Anasayfa')
+@section('title', isset($category) ? $category->getName() : "Salon Ara")
 @section('description', 'Description')
 @section('content')
     <article id="page">
@@ -121,18 +121,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="saloonBanner">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <strong>Salonunuzun burada listelenmesini ister misiniz?
-                                    </strong>
-                                    <a href="{{env('remote_url')}}" target="_blank">Salonumu Listele</a>
-                                </div>
-                            </div>
-                            <div class="bannerUser">
-                                <img src="/assets/images/bannerUser.png" alt="" />
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="row">
@@ -199,6 +188,18 @@
                                     tabindex="0"
                                 >
                                     ...
+                                </div>
+                                <div class="saloonBanner">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <strong>Salonunuzun burada listelenmesini ister misiniz?
+                                            </strong>
+                                            <a href="{{env('remote_url')}}" target="_blank">Salonumu Listele</a>
+                                        </div>
+                                    </div>
+                                    <div class="bannerUser">
+                                        <img src="/assets/images/bannerUser.png" alt="" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

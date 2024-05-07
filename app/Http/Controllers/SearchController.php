@@ -115,7 +115,7 @@ class SearchController extends Controller
     {
         $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
         $businesses = Business::where('category_id', $category->id)->paginate(12);
-        return view('search.service', compact('businesses'));
+        return view('search.service', compact('businesses', 'category'));
     }
 
     public function businessCategoryAndCitySearch($city, $category)
