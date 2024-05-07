@@ -79,8 +79,12 @@
                                         @endforelse
 
                                     </div>
+                                    <div class="my-2 d-flex justify-content-center">
+                                        {!! $businessComments->links() !!}
+                                    </div>
 
                                 </div>
+
                             </div>
                         </div>
                     </section>
