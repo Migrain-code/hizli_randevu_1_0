@@ -62,8 +62,8 @@
         @endforeach
 
         Swal.fire({
-            title: 'Eksik Alanlar Var',
-            icon: 'error',
+            title: 'Uyarı',
+            icon: 'warning',
             html: errors.join("<br>"),
             confirmButtonText: "Tamam"
         });

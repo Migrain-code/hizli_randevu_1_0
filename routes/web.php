@@ -73,19 +73,23 @@ Route::group(['prefix' => 'customer', 'as' => 'customer.'], function () {
     Route::post('/login', [LoginController::class, 'login']);
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
+    /*----------------------------- ilk kayıt ---------------------------------------------------*/
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
 
-    Route::get('/sifremi-unuttum', [ResetPasswordController::class, 'showForgotView'])->name('showForgotView');
-    Route::post('/sifremi-unuttum', [ResetPasswordController::class, 'forgotPasswordPhone'])->name('forgotPasswordPhone');
-    Route::get('/sifremi-unuttum/kod-dogrula', [ResetPasswordController::class, 'forgotPasswordVerifyShow'])->name('forgotPasswordVerifyShow');
-    Route::post('/verify_code', [ResetPasswordController::class, 'forgotPasswordVerify'])->name('forgotPasswordVerify');
-
-    /* ilk kayıtta yapılan doğrulama işlemi burada yapılır /telefon-dogrulama rotalarında*/
+    /*----------------------------- ilk kayıtta yapılan doğrulama işlemi burada yapılır /telefon-dogrulama rotalarında ---------------------------------------------------*/
     Route::get('/telefon-dogrulama', [VerifyController::class, 'phoneVerify'])->name('phone.verify');
     Route::post('/telefon-dogrulama', [VerifyController::class, 'phoneVerifyAction'])->name('phone.verify.action');
 
+    /*----------------------------- Şifremi unuttum görünüm ve post ---------------------------------------------------*/
+    Route::get('/sifremi-unuttum', [ResetPasswordController::class, 'showForgotView'])->name('showForgotView');
+    Route::post('/sifremi-unuttum', [ResetPasswordController::class, 'forgotPasswordPhone'])->name('forgotPasswordPhone');
+
+    /*----------------------------- Şifremi unuttumdan sonraki telefon doğrulama ve post ve post ---------------------------------------------------*/
+    Route::get('/sifremi-unuttum/kod-dogrula', [ResetPasswordController::class, 'forgotPasswordVerifyShow'])->name('forgotPasswordVerifyShow');
+    Route::post('/verify_code', [ResetPasswordController::class, 'forgotPasswordVerify'])->name('forgotPasswordVerify');
+
+    /*----------------------------- Telefon henüz doğrulanmamışsa middlewaredan geri dönen routes ---------------------------------------------------*/
     Route::get('/hesap-dogrulama', [VerifyController::class, 'accountVerify'])->name('account.verify');
     Route::post('/hesap-dogrulama', [VerifyController::class, 'accountVerifyAction'])->name('account.verify.action');
 

@@ -108,7 +108,7 @@ class RegisterController extends Controller
 
     public function registered()
     {
-        return to_route('customer.account.verify')->with('response', [
+        return to_route('customer.phone.verify')->with('response', [
             'status' => "success",
             'message' => "Telefon Numaranıza Bir Doğrulama Kodu Gönderdik"
         ]);

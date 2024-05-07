@@ -23,8 +23,8 @@ class VerifyController extends Controller
 
     public function phoneVerify()
     {
-        $phone = Session::get('phone');
-        return view('customer.auth.phone-verify', compact('phone'));
+        $phone = Session::get('customer')["phone"];
+        return view('customer.auth.verify', compact('phone'));
     }
 
     public function phoneVerifyAction(Request $request)
@@ -57,7 +57,7 @@ class VerifyController extends Controller
                         'message'=>"Numaranız Doğrulandı Yeni Şifreniz Sms Olarak Gönderildi"
                     ]);
                 }
-                //Sms::send('');
+
             }
         }
         else{
@@ -71,7 +71,6 @@ class VerifyController extends Controller
 
     function createVerifyCode($phone)
     {
-        SmsConfirmation::wherePhone(clearPhone($phone))->delete();
         $generateCode = rand(100000, 999999);
         $smsConfirmation = new SmsConfirmation();
         $smsConfirmation->phone = clearPhone($phone);
@@ -93,7 +92,8 @@ class VerifyController extends Controller
 
     public function accountVerifyAction(Request $request)
     {
-        $phone = Session::get('customer')["phone"];
+        $phone = Session::get('phone');
+
         $smsConfirmation = SmsConfirmation::where('code', $request->input('code'))
             ->where('phone', clearPhone($phone))
             ->first();
@@ -107,18 +107,12 @@ class VerifyController extends Controller
                     'message'=>"Doğrulama Kodunun Süresi Dolmuş. Doğrulama Kodu Tekrar Gönderildi"
                 ]);
             } else{
-                $generatePassword = rand(100000, 999999);
-                $customer = Session::get('customer');
-                $customer->save();
-                $customer->verify_phone = 1;
-                $customer->password = Hash::make($generatePassword);
-
-                if ($customer->save()){
-                    Sms::send($customer->phone, setting('speed_site_title') . " Sistemine Giriş Yapmak için şifreniz:  " . $generatePassword);
-
+                $verifierCustomer = Customer::where('phone', $phone)->first();
+                $verifierCustomer->verify_phone = 1;
+                if ($verifierCustomer->save()){
                     return to_route('customer.login')->with('response', [
                         'status'=>"success",
-                        'message'=>"Numaranız Doğrulandı. Şifreniz telefon numaranıza gönderildi. Gönderilen şifre ile sisteme giriş yapabilirsiniz"
+                        'message'=>"Numaranız Doğrulandı Sisteme Giriş Yapabilirsiniz"
                     ]);
                 }
             }
