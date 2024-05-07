@@ -114,7 +114,7 @@ class VerifyController extends Controller
                 $customer->password = Hash::make($generatePassword);
 
                 if ($customer->save()){
-                    Sms::send($customer->phone, setting('speed_site_title') . " Giriş Yapmak için şifreniz:  " . $generatePassword);
+                    Sms::send($customer->phone, setting('speed_site_title') . " Sistemine Giriş Yapmak için şifreniz:  " . $generatePassword);
 
                     return to_route('customer.login')->with('response', [
                         'status'=>"success",
