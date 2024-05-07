@@ -12,6 +12,7 @@ use App\Models\CustomerFavorite;
 use App\Models\CustomerNotificationMobile;
 use App\Models\District;
 use App\Models\PackageSale;
+use App\Models\Page;
 use App\Models\ProductAds;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
@@ -64,8 +65,9 @@ class HomeController extends Controller
     public function appointmentDetail($id)
     {
         $appointment = Appointment::find($id);
+        $terms = Page::whereId(6)->first();
         if ($appointment) {
-            return view('customer.appointment.detail', compact('appointment'));
+            return view('customer.appointment.detail', compact('appointment', 'terms'));
         }
     }
 

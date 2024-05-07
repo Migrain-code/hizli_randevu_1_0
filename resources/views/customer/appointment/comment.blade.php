@@ -48,9 +48,9 @@
                                     <span></span>
                                 </div>
                                 <span>
-                  <a href="{{route('page.detail', $use_pages->first()->skip(1)->slug)}}" target="_blank">Şartlar ve Koşulları</a>
-                  okudum ve kabul ediyorum
-                  </span>
+                                  <a href="{{route('page.detail', $terms->slug)}}" target="_blank">Şartlar ve Koşulları</a>
+                                  okudum ve kabul ediyorum
+                                </span>
                             </div>
                         </div>
                         <div class="col-lg-2 d-flex justify-content-end">
