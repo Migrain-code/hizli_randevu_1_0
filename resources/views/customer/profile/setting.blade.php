@@ -2,6 +2,7 @@
 @section('title', "Ayarlarım")
 @section('meta_description', "Kullanıcı Profilim")
 @section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 @endsection
 @section('content')
@@ -122,13 +123,13 @@
                                             <div class="mb-3">
                                                 <div class="customSelect customTomSelect">
                                                     @if(auth('customer')->user()->city_id)
-                                                        <select class="tomSelect" name="district_id" id="district_select">
+                                                        <select name="district_id" id="district_select">
                                                             @foreach(auth('customer')->user()->city->districts as $district)
                                                                 <option value="{{$district->id}}" @selected(auth('customer')->user()->district_id==$district->id)>{{$district->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     @else
-                                                        <select class="tomSelect" name="district_id" id="district_select">
+                                                        <select name="district_id" id="district_select">
                                                             <option value="">İlçe Seçiniz</option>
                                                         </select>
                                                     @endif
@@ -164,6 +165,16 @@
 
 @endsection
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#district_select').select2({
+                // Ayarlar
+                placeholder: "Bir İlçe seçin",
+                allowClear: true // Kullanıcı seçeneği temizleyebilsin
+            });
+        });
+    </script>
     <script>
         $('#city_select').on('change', function (){
             $('#district_select').empty();
@@ -180,7 +191,7 @@
                     $.each(data, function (index, value){
                         $('#district_select').append('<option value="'+value.id + '">'+ value.name+'</option>');
                     });
-                    $('#district_select').tomSelect('update');
+
                 }
             });
         });
