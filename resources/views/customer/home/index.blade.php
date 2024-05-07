@@ -46,7 +46,7 @@
             <div class="d-flex align-items-center">
                 @foreach($footerAds as $footer)
                     <a href="{{$footer->link}}" target="_blank">
-                        <img src="/assets/images/profileBanner1.png" class="w-100" alt="">
+                        <img src="{{image($footer->image)}}" class="w-100" alt="">
                     </a>
                 @endforeach
             </div>
