@@ -48,7 +48,7 @@ class ProfileController extends Controller
     }
     public function edit()
     {
-        $allCities = City::all();
+        $allCities = City::orderBy('name')->get();
 
         $customer=auth('customer')->user();
         return view('customer.profile.setting', compact('customer', 'allCities'));

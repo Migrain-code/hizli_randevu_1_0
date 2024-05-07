@@ -6,7 +6,7 @@ $(document).ready(function () {
         $("header").toggleClass("openMegaMenu");
     });
     document.querySelectorAll(".tomSelect").forEach((el) => {
-        let settings = {};
+        let settings = {maxOptions: 150};
         new TomSelect(el, settings);
     });
     $("#sallonTypeSlider .panel").hover(function () {
