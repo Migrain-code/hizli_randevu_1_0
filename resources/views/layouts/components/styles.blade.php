@@ -19,7 +19,6 @@
 <link rel="stylesheet" href="/assets/css/style.css" />
 <link rel="stylesheet" href="/assets/css/responsive.css" />
 <link rel="stylesheet" href="/assets/css/custom.css" />
-<link rel="stylesheet" href="/assets/css/custom.css" />
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/js/owl.carousel.min.js"></script>
