@@ -4068,6 +4068,7 @@ footer .footerBottom .bottom .social a + a {
     padding: 14px 25px;
   }
   .btn-white {
+    display: none !important;
     font-size: 15px;
     padding: 14px 25px;
   }
