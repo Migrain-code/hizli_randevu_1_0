@@ -48,7 +48,7 @@
                                     <span></span>
                                 </div>
                                 <span>
-                  <a href="javascript:;">Şartlar ve Koşulları</a>
+                  <a href="{{route('page.detail', $use_pages->first()->skip(1)->slug)}}" target="_blank">Şartlar ve Koşulları</a>
                   okudum ve kabul ediyorum
                   </span>
                             </div>

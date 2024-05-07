@@ -71,6 +71,7 @@ class HomeController extends Controller
 
     public function addComment(Request $request)
     {
+        $request->dd();
         $request->validate([
             'rating' => "required|min:1",
             'content' => "required",
