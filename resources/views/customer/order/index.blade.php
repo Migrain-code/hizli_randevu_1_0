@@ -123,6 +123,13 @@
                                             </table>
                                         </div>
                                     </div>
+                                    @if($orders->count() == 0)
+                                        <div class="d-flex justify-content-center">
+                                            <div class="alert alert-warning w-100">
+                                                Sipariş Kaydınız Bulunamadı
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="d-flex justify-content-center">
                                             {!! $orders->links() !!}
                                     </div>

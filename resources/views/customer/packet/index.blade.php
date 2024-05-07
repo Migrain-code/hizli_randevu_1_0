@@ -116,19 +116,20 @@
                                                         </td>
                                                     </tr>
                                                 @empty
-                                                    <tr>
-                                                        <td colspan="8">
-                                                            <div class="alert alert-warning">
-                                                                Paket Kaydınız Bulunamadı
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+
                                                 @endforelse
                                                 </tbody>
 
                                             </table>
                                         </div>
                                     </div>
+                                    @if($packets->count() == 0)
+                                        <div class="d-flex justify-content-center">
+                                            <div class="alert alert-warning w-100">
+                                                Paket Kaydınız Bulunamadı
+                                            </div>
+                                        </div>
+                                    @endif
                                     <div class="d-flex justify-content-center my-2">
                                         {{$packets->links()}}
                                     </div>
