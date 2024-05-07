@@ -80,16 +80,13 @@
 @endsection
 @section('scripts')
     <script>
-        document.getElementById('comment-form').addEventListener('submit', function(e) {
-            // Form gönderilmeden önce varsayılan eylemi engelleyin
-            e.preventDefault();
-
-            // Seçili yıldızın değerini form verisine ekleyin
-            var selectedValue = document.querySelector('input[name="rating"]:checked').value;
-            this.elements.rating.value = selectedValue;
-
-            // Formu manuel olarak gönderin
-            this.submit();
+        $('.star').click(function() {
+            // 'for' özelliğine karşılık gelen radyo butonunu bul
+            var radioValue = $(this).attr('for');
+            // Radyo butonunun değerini al
+            var selectedValue = $('#' + radioValue).val();
+            // Değerini konsola yazdır
+            console.log(selectedValue);
         });
     </script>
 @endsection
