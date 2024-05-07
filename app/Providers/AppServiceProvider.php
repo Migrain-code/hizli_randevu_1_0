@@ -60,7 +60,7 @@ class AppServiceProvider extends ServiceProvider
         $cities = City::orderBy('name')->get();
         View::share('cities', $cities);
 
-        $services = ServiceCategory::where('order_number', '<>', null)->orderBy('order_number', 'asc')->get();
+        $services =  ServiceCategory::orderBy('order_number', 'asc')->take(6)->get();
         View::share('services', $services);
 
         $categories = BusinessCategory::all();
