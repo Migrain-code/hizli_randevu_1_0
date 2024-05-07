@@ -47,7 +47,7 @@
                                                 <div class="row">
                                                     @forelse($heads as $head)
                                                         <div class="col-lg-4">
-                                                            <a href="#head-{{$loop->index}}">{{$head}} </a>
+                                                            <a href="#head-{{$loop->index}}">{!! $head !!} </a>
                                                         </div>
                                                     @empty
                                                     @endforelse
