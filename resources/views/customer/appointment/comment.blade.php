@@ -15,16 +15,16 @@
                         class="col-lg-6 d-flex align-items-center justify-content-md-end"
                     >
                         <div class="stars">
-                            <input type="checkbox" id="st1" name="rating" value="1"/>
-                            <label for="st1" class="starLabel"></label>
-                            <input type="checkbox" id="st2" name="rating" value="2"/>
-                            <label for="st2" class="starLabel"></label>
-                            <input type="checkbox" id="st3" name="rating" value="3"/>
-                            <label for="st3" class="starLabel"></label>
-                            <input type="checkbox" id="st4" name="rating" value="4"/>
-                            <label for="st4" class="starLabel"></label>
                             <input type="checkbox" id="st5" name="rating" value="5"/>
                             <label for="st5" class="starLabel"></label>
+                            <input type="checkbox" id="st4" name="rating" value="4"/>
+                            <label for="st4" class="starLabel"></label>
+                            <input type="checkbox" id="st3" name="rating" value="3"/>
+                            <label for="st3" class="starLabel"></label>
+                            <input type="checkbox" id="st2" name="rating" value="2"/>
+                            <label for="st2" class="starLabel"></label>
+                            <input type="checkbox" id="st1" name="rating" value="1"/>
+                            <label for="st1" class="starLabel"></label>
                         </div>
                     </div>
                 </div>
