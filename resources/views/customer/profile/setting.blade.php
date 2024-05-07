@@ -122,7 +122,7 @@
                                             <div class="mb-3">
                                                 <div class="customSelect customTomSelect">
                                                     @if(auth('customer')->user()->city_id)
-                                                        <select class="tomSelect">
+                                                        <select class="tomSelect" id="district_select">
                                                             @foreach(auth('customer')->user()->city->districts as $district)
                                                                 <option value="{{$district->id}}" @selected(auth('customer')->user()->district_id==$district->id)>{{$district->name}}</option>
                                                             @endforeach
