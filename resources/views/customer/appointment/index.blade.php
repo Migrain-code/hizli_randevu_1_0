@@ -34,10 +34,10 @@
                 align-items: center;
                 border-bottom: 1px solid #dee2e6;
                 padding: 0.75rem;
-                min-height: 50px;
+                min-height: 50px; /* min-height ayarını düşürerek veya kaldırarak deneyin */
                 word-wrap: break-word;
                 white-space: normal;
-                line-height: 0px !important;
+                line-height: 1.5; /* line-height değerini ayarlayın */
             }
 
             .table th {
@@ -53,6 +53,9 @@
                 text-align: left;
             }
         }
+    </style>
+    <style>
+
        .appointmentStatus{
             font-size: 12px !important;
             line-height: 10px !important;
