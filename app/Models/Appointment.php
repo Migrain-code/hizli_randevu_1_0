@@ -66,37 +66,37 @@ class Appointment extends Model
     protected $fillable = ["comment_status"];
     const STATUS_LIST = [
         0 => [
-            'html' => '<span class="alert bg-warning text-white fw-bolder px-2 py-2" style="color:#fff04f">Onay Bekliyor</span>',
+            'html' => '<span class="badge bg-warning text-white fw-bolder px-2 py-2" style="color:#fff04f">Onay Bekliyor</span>',
             'text' => 'Onay Bekliyor',
             "color" => "#fff04f"
         ],
         1 => [
-            'html' => '<span class="alert bg-success text-white fw-bolder px-2 py-2">Onaylandı</span>',
+            'html' => '<span class="badge bg-success text-white fw-bolder px-2 py-2">Onaylandı</span>',
             'text' => 'Onaylandı',
             "color" => "#6aab73"
         ],
         2 => [
-            'html' => '<span class="alert bg-success text-white fw-bolder px-2 py-2">Tamamlandı</span>',
+            'html' => '<span class="badge bg-success text-white fw-bolder px-2 py-2">Tamamlandı</span>',
             'text' => 'Tamamlandı',
             "color" => "#4a7750"
         ],
         3 => [
-            'html' => '<span class="alert bg-danger text-white fw-bolder px-2 py-2">İptal Edildi</span>',
+            'html' => '<span class="badge bg-danger text-white fw-bolder px-2 py-2">İptal Edildi</span>',
             'text' => 'İptal Edildi',
             "color" => "#bf0d36"
         ],
         4 => [
-            'html' => '<span class="alert bg-info text-white fw-bolder px-2 py-2">Gelmedi</span>',
+            'html' => '<span class="badge bg-info text-white fw-bolder px-2 py-2">Gelmedi</span>',
             'text' => 'Gelmedi',
             "color" => "#bf0d36"
         ],
         5 => [
-            'html' => '<span class="alert bg-success text-white fw-bolder px-2 py-2">Geldi</span>',
+            'html' => '<span class="badge bg-success text-white fw-bolder px-2 py-2">Geldi</span>',
             'text' => 'Geldi',
             "color" => "#4a7750"
         ],
         6 => [
-            'html' => '<span class="alert bg-warning text-white fw-bolder px-2 py-2">Tahsilatsız Kapatıldı</span>',
+            'html' => '<span class="badge bg-warning text-white fw-bolder px-2 py-2">Tahsilatsız Kapatıldı</span>',
             'text' => 'Tahsilatsız Kapatıldı',
             "color" => "#2f4aaf"
         ],
