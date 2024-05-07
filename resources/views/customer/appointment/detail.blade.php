@@ -38,7 +38,7 @@
                                         <div class="profileTitle">
                                             Randevu Özeti
                                             @if($appointment->status == 0 || $appointment->status == 1)
-                                                <button class="btn btn-pink cancelButton">İptal Et</button>
+                                                <button class="btn btn-pink cancelButton" style="float: right;margin-top: -15px;">İptal Et</button>
                                             @endif
                                         </div>
                                         <div
