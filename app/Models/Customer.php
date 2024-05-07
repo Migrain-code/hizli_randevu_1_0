@@ -70,5 +70,21 @@ class Customer extends Authenticatable
         Sms::send(clearPhone($this->phone), $message);
         return true;
     }
+    public function getMonthlyPackageSales()
+    {
+        $sales = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $sales[] = $this->packets()->whereMonth('seller_date', $i)->count();
+        }
+        return $sales;
+    }
 
+    public function getMonthlyProductSales()
+    {
+        $sales = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $sales[] = $this->orders()->whereMonth('created_at', $i)->sum('piece');
+        }
+        return $sales;
+    }
 }

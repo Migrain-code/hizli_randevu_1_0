@@ -2,8 +2,57 @@
 @section('title', 'Hesabım')
 @section('styles')
     <style>
-
+        .card {
+            border: 0;
+            box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);;
+            background-color: #ffffff;
+        }
+        .card.card-flush > .card-header {
+            border-bottom: 0 !important;
+        }
+        .card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            flex-wrap: wrap;
+            min-height: 70px;
+            padding: 0 2.25rem;
+            color: black;
+            background-color: transparent;
+            border-bottom: 1px solid #eff2f5;
+        }
+        .bullet {
+            display: inline-block;
+            background-color: #B5B5C3;
+            border-radius: 6px;
+            width: 8px;
+            height: 4px;
+            flex-shrink: 0;
+        }
+        .card .card-header .card-title, .card .card-header .card-title .card-label {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #434658;
+        }
+        .border-dashed {
+            border-style: dashed !important;
+            border-color: #E4E6EF;
+        }
+        .bg-light-primary {
+            background-color: #f1faff !important;
+        }
+        .rounded {
+            border-radius: 0.475rem !important;
+        }
+        .p-6 {
+            padding: 1.5rem !important;
+        }
+        .border-primary {
+            --bs-border-opacity: 1;
+            border-color: rgba(0, 158, 247, var(--bs-border-opacity)) !important;
+        }
     </style>
+    <link rel="stylesheet" href="/assets/css/apexcharts.css">
 @endsection
 @section('content')
     <article id="page">
@@ -31,6 +80,8 @@
                             <div class="profileContent">
                                 @include('customer.home.top-ads')
                                 @include('customer.home.summary')
+                                @include('customer.home.charts')
+
                                 @include('customer.home.product-advert')
                                 @include('customer.home.appointment')
                                 @include('customer.home.bottom-slider')
@@ -57,5 +108,205 @@
 
 @endsection
 @section('scripts')
+    <script src="/assets/js/apexcharts.min.js"></script>
 
+    <script>
+        var appointmentData = [
+            {!! $customer->appointments->whereIn('status', [1])->count() !!},
+            {!! $customer->appointments->whereIn('status', [2])->count() !!},
+            {!! $customer->appointments->whereIn('status', [6])->count() !!},
+            {!! $customer->appointments->whereIn('status', [3, 4])->count() !!},
+            {!! $customer->appointments->whereIn('status', [0])->count() !!}
+        ];
+        var allZeroes = appointmentData.every(function(value) {
+            return value === 0;
+        });
+        @if($customer->appointments->count() > 0)
+            var options = {
+            series: appointmentData,
+            labels: ["Onaylanmış", "Tamamlanmış", "Tahsilatsız Kapatılmış", "İptal Edilmiş", "Onaylanmamış"],
+            chart: {
+                type: 'donut',
+                width: 500, // Grafiğin genişliğini arttırdık, istediğiniz değeri verebilirsiniz
+            },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        labels: {
+                            show: true,
+                            total: {
+                                showAlways: true,
+                                show: true,
+                                label: 'Toplam',
+                                fontSize: '22px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 600,
+                                color: '#373d3f',
+                                formatter: function (w) {
+                                    var total= w.globals.seriesTotals.reduce((a, b) => {
+                                        return (a + b);
+                                    }, 0);
+                                    return total + " Randevu";
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                position: 'bottom'
+            },
+            responsive: [{
+                breakpoint: 1400,
+                options: {
+                    chart: {
+                        width: '400', // Genişlik 100% olarak ayarlandı, böylece cihaz boyutuna göre otomatik olarak ayarlanır
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }],
+
+        };
+        @else
+            var options = {
+            series: [1],
+            labels: ["Randevu Yok"],
+            colors: ["#777777"],
+            chart: {
+                type: 'donut',
+                width: 500, // Grafiğin genişliğini arttırdık, istediğiniz değeri verebilirsiniz
+            },
+            plotOptions: {
+                pie: {
+                    donut: {
+                        labels: {
+                            show: true,
+                            total: {
+                                showAlways: true,
+                                show: true,
+                                label: 'Toplam',
+                                fontSize: '22px',
+                                fontFamily: 'Helvetica, Arial, sans-serif',
+                                fontWeight: 600,
+                                color: '#373d3f',
+                                formatter: function (w) {
+                                    var total= w.globals.seriesTotals.reduce((a, b) => {
+                                        return (a + b);
+                                    }, 0);
+                                    return total-1 + " Randevu";
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                position: 'bottom'
+            },
+            responsive: [{
+                breakpoint: 1400,
+                options: {
+                    chart: {
+                        width: '400', // Genişlik 100% olarak ayarlandı, böylece cihaz boyutuna göre otomatik olarak ayarlanır
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }],
+
+        };
+        @endif
+
+
+        var chart = new ApexCharts(document.querySelector("#kt_docs_google_chart_pie"), options);
+    </script>
+    @php
+        use Illuminate\Support\Carbon;
+        $year = now()->year;
+        $months = [];
+        for ($i = 1; $i <= 12; $i++){
+            $month = $year."-".$i. "-01";
+            $months[] = Carbon::parse($month)->translatedFormat('F');
+        }
+
+    @endphp
+    <script>
+        var months = @json($months);
+        var packageSales = @json($customer->getMonthlyPackageSales());
+        var productSales = @json($customer->getMonthlyProductSales());
+    </script>
+    <script>
+        var optionsLine = {
+            series: [{
+                name: 'Siparişler',
+                type: 'area',
+                data: productSales
+            }, {
+                name: 'Paketler',
+                type: 'line',// or area
+                data: packageSales
+            }],
+            chart: {
+                height: 350,
+                width: 500,
+                type: 'line',
+            },
+            responsive: [{
+                breakpoint: 1400,
+                options: {
+                    chart: {
+                        width: '350',
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }],
+            stroke: {
+                curve: 'smooth'
+            },
+            fill: {
+                type:'solid',
+                opacity: [0.35, 1],
+            },
+            labels: months,
+            markers: {
+                size: 0
+            },
+            yaxis: [
+                {
+                    title: {
+                        text: 'Ürün Satışları',
+                    },
+                },
+                {
+                    opposite: true,
+                    title: {
+                        text: 'Paket Satışları',
+                    },
+                },
+            ],
+            tooltip: {
+                shared: true,
+                intersect: false,
+                y: {
+                    formatter: function (y) {
+                        if(typeof y !== "undefined") {
+                            return  y.toFixed(0) + " Adet";
+                        }
+                        return y;
+                    }
+                }
+            }
+        };
+
+        var chartLine = new ApexCharts(document.querySelector("#kt_project_overview_graph"), optionsLine);
+        $(function (){
+            chart.render();
+            chartLine.render();
+        });
+    </script>
 @endsection
