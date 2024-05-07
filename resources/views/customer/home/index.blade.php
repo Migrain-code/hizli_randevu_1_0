@@ -114,9 +114,9 @@
         var appointmentData = [
             {!! $customer->appointments->whereIn('status', [1])->count() !!},
             {!! $customer->appointments->whereIn('status', [2])->count() !!},
-            {!! $customer->appointments->whereIn('status', [6])->count() !!},
-            {!! $customer->appointments->whereIn('status', [3, 4])->count() !!},
             {!! $customer->appointments->whereIn('status', [0])->count() !!}
+            {!! $customer->appointments->whereIn('status', [3, 4])->count() !!},
+            {!! $customer->appointments->whereIn('status', [6])->count() !!},
         ];
         var allZeroes = appointmentData.every(function(value) {
             return value === 0;
@@ -124,7 +124,7 @@
         @if($customer->appointments->count() > 0)
             var options = {
             series: appointmentData,
-            labels: ["Onaylanmış", "Tamamlanmış", "Tahsilatsız Kapatılmış", "İptal Edilmiş", "Onaylanmamış"],
+            labels: ["Onaylanmış", "Tamamlanmış", "Onaylanmamış", "İptal Edilmiş", "Tahsilatsız Kapatılmış"],
             chart: {
                 type: 'donut',
                 width: 500, // Grafiğin genişliğini arttırdık, istediğiniz değeri verebilirsiniz
