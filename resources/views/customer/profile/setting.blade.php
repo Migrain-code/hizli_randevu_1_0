@@ -32,7 +32,7 @@
         .select2-container--default .select2-selection--single .select2-selection__arrow {
             height: 26px;
             position: absolute;
-            top: 20px;
+            top: 15px;
             right: 30px;
             width: 20px;
         }
