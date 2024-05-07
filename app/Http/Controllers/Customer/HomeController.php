@@ -68,12 +68,16 @@ class HomeController extends Controller
         $terms = Page::whereId(6)->first();
         if ($appointment) {
             return view('customer.appointment.detail', compact('appointment', 'terms'));
+        } else{
+            return to_route('customer.appointment.index')->with('response', [
+               'status' => "warning",
+               'message' => "Randevu Bulunamadı"
+            ]);
         }
     }
 
     public function addComment(Request $request)
     {
-        $request->dd();
         $request->validate([
             'rating' => "required|min:1",
             'content' => "required",

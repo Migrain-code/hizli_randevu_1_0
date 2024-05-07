@@ -86,8 +86,6 @@
             var radioValue = $(this).attr('for');
             // Radyo butonunun değerini al
             var isChecked = $('#' + radioValue).is(':checked');
-            var selectedValue = $('#' + radioValue).val();
-
         });
     </script>
 @endsection
