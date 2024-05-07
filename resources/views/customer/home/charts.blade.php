@@ -55,7 +55,7 @@
             <!--begin::Card body-->
             <div class="card-body p-9 pt-5">
                 <!--begin::Chart-->
-                <div class="position-relative d-flex justify-content-center align-items-center me-15 mb-3">
+                <div class="position-relative d-flex justify-content-center align-items-center me-15">
                     <div id="kt_project_overview_graph"></div>
                 </div>
                 <!--end::Chart-->
