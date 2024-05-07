@@ -79,5 +79,24 @@
     </article>
 @endsection
 @section('scripts')
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function(e) {
+            // Form gönderilmeden önce varsayılan eylemi engelleyin
+            e.preventDefault();
 
+            // Seçili checkbox değerlerini bir diziye ekleyin
+            var selectedValues = [];
+            for (var i = 1; i <= 5; i++) {
+                if (document.getElementById('st' + i).checked) {
+                    selectedValues.push(document.getElementById('st' + i).value);
+                }
+            }
+
+            // Seçili değerleri form verisine ekleyin
+            this.elements.rating.value = selectedValues.join(',');
+
+            // Formu manuel olarak gönderin
+            this.submit();
+        });
+    </script>
 @endsection
