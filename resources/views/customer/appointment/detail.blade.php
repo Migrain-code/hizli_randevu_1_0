@@ -84,9 +84,9 @@
             // 'for' özelliğine karşılık gelen radyo butonunu bul
             var radioValue = $(this).attr('for');
             // Radyo butonunun değerini al
+            var isChecked = $('#' + radioValue).is(':checked');
             var selectedValue = $('#' + radioValue).val();
-            // Değerini konsola yazdır
-            console.log(selectedValue);
+
         });
     </script>
 @endsection
