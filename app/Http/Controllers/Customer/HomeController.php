@@ -191,7 +191,7 @@ class HomeController extends Controller
 
     public function comments()
     {
-        $businessComments = BusinessComment::where('customer_id', auth('customer')->id())->paginate(setting('speed_pagination_number'));
+        $businessComments = BusinessComment::where('customer_id', auth('customer')->id())->latest()->paginate(setting('speed_pagination_number'));
 
         return view('customer.comment.index', compact('businessComments'));
     }
