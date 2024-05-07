@@ -133,7 +133,7 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <div class="customSelect customTomSelect">
+                                                <div class="">
                                                     @if(auth('customer')->user()->city_id)
                                                         <select name="district_id" id="district_select">
                                                             @foreach(auth('customer')->user()->city->districts as $district)
