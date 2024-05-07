@@ -81,6 +81,7 @@
 @section('scripts')
     <script>
         $('.starLabel').click(function() {
+            $('.ratingStar').prop('checked', false);
             // 'for' özelliğine karşılık gelen radyo butonunu bul
             var radioValue = $(this).attr('for');
             // Radyo butonunun değerini al
