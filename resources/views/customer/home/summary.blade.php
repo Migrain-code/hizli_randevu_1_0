@@ -7,7 +7,7 @@
                 </div>
                 <div class="text">
                     <strong>Randevu Ödemeleriniz</strong>
-                    <span>₺{{number_format($payments['appointment'], 2)}}</span>
+                    <span>{{number_format($payments['appointment'], 2)}} TL</span>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="text">
                     <strong>Paket Ödemeleriniz</strong>
-                    <span>₺{{number_format($payments['packetPayment'], 2)}}</span>
+                    <span>{{number_format($payments['packetPayment'], 2)}} TL</span>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="text">
                     <strong>Ürün Ödemeleriniz</strong>
-                    <span>₺{{number_format($payments['orderTotal'], 2)}}</span>
+                    <span>{{number_format($payments['orderTotal'], 2)}} TL</span>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="text">
                     <strong> Toplam Harcamanız</strong>
-                    <span>₺{{number_format($payments['total'], 2)}}</span>
+                    <span>{{number_format($payments['total'], 2)}} TL</span>
                 </div>
             </div>
         </div>
