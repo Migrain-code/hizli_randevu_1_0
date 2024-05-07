@@ -31,9 +31,13 @@
                             <div class="profileContent">
                                 <div class="saloonList">
                                     <div class="row">
-                                        @foreach($businesses as $business)
+                                        @forelse($businesses as $business)
                                             @include('layouts.components.business')
-                                        @endforeach
+                                        @empty
+                                            <div class="alert alert-warning my-2">
+                                                Favori İşletme Kaydınız Bulunamadı
+                                            </div>
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Services\UploadFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -47,6 +48,8 @@ class ProfileController extends Controller
     }
     public function edit()
     {
+        $allCities = City::all()->orderBy('name')->get();
+        dd($allCities->count());
         $customer=auth('customer')->user();
         return view('customer.profile.setting', compact('customer'));
     }

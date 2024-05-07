@@ -71,7 +71,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="8">
-                                                    <div class="alert alert-warning">
+                                                    <div class="alert alert-warning my-2">
                                                         Yorum Kaydınız Bulunamadı
                                                     </div>
                                                 </td>

@@ -81,6 +81,9 @@
                                                 </div>
                                             </div>
                                         @empty
+                                            <div class="alert alert-warning my-2">
+                                                Kampanya Kaydınız Bulunamadı
+                                            </div>
                                         @endforelse
 
                                     </div>
