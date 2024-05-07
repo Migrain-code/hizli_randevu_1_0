@@ -21,7 +21,7 @@ class BlogController extends Controller
     {
         $blog = Blog::whereJsonContains('slug->' . App::getLocale(), $slug)->first();
         if ($blog) {
-            $heads = $this->headers($blog->descriptions);
+            $heads = $this->headers($blog->getDescription());
             $blogCategories = Category::all();
             $latestBlog = Blog::latest()->get();
             return view('blog.detail', compact('blog', 'heads', 'blogCategories', 'latestBlog'));

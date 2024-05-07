@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', $blog->getTitle())
+@section('title', $blog->getMetaTitle())
 @section('styles')
 
 @endsection
@@ -173,7 +173,7 @@
                             <div class="widgetTitle">En Çok Okunanlar</div>
                             <div class="populerList">
                                 @forelse($blog->category->blogs()->latest()->take(5)->get() as $blogRow)
-                                    <a href="javascript:;">
+                                    <a href="{{route('blog.detail', $blogRow->getSlug())}}">
                                     <span class="populerListPhoto">
                                       <img src="{{image($blogRow->image)}}" alt="" />
                                     </span>
