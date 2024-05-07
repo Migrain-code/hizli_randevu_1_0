@@ -6,6 +6,7 @@ use App\Models\Activity;
 use App\Models\Ads;
 use App\Models\Blog;
 use App\Models\Business;
+use App\Models\BusinessCategory;
 use App\Models\CustomerContact;
 use App\Models\CustomerFaq;
 use App\Models\CustomerFaqCategory;
@@ -25,7 +26,8 @@ class HomeController extends Controller
     {
         $ads = Ads::where('type', 0)->get(); //Anasayfa reklamları
         $featuredServices = ServiceSubCategory::where('is_featured', 1)->orderBy('order_number', 'asc')->get();//öne çıkan hizmetler
-        $featuredCategories = FeaturedCategorie::where('status', 1)->get();
+        $featuredCategories = BusinessCategory::where('is_featured', 1)->where('status', 1)->take(6)->get();
+
         $blogs = Blog::where('status', 1)->latest()->take(9)->get();
         $activities = Activity::where('status', 1)->latest()->take(4)->get();
         $mainPages = MaingPage::where('type', 0)->where('status', 1)->get();

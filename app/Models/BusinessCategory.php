@@ -36,4 +36,8 @@ class BusinessCategory extends Model
     {
         return $this->hasMany(Business::class, 'category_id', 'id');
     }
+    public function cities()
+    {
+        return $this->hasMany(FeaturedCategoryCity::class, 'featured_id', 'id');
+    }
 }

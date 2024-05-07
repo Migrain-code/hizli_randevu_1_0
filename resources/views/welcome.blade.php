@@ -375,13 +375,13 @@
             </div>
         </section>
         @if($featuredCategories->count() > 0)
+
             <section id="studiosTab">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="nav nav-tabs" id="studiosTabHeader" role="tablist">
                                 @forelse($featuredCategories as $fCategory)
-                                    @if($fCategory->category)
                                         <li class="nav-item" role="presentation">
                                             <button
                                                 class="nav-link @if($loop->first) active @endif"
@@ -393,10 +393,10 @@
                                                 aria-controls="home-tab{{$fCategory->id}}-pane"
                                                 aria-selected="true"
                                             >
-                                                {{$fCategory->category->getName()}}
+                                                {{$fCategory->getName()}}
                                             </button>
                                         </li>
-                                    @endif
+
                                 @empty
                                 @endforelse
 
@@ -412,9 +412,9 @@
                                     >
                                         <div class="row">
                                             @foreach($fCategory->cities as $city)
-                                                @if($fCategory->category)
+                                                @if($fCategory)
                                                     <div class="col-sm-6 col-lg-4">
-                                                        <a href="{{route('search.cityAndCategory', [$city->city->slug, $fCategory->category->getSlug()])}}">{{$city->city->name}} {{$fCategory->category->getName()}}</a>
+                                                        <a href="{{route('search.cityAndCategory', [$city->city->slug, $fCategory->getSlug()])}}">{{$city->city->name}} {{$fCategory->getName()}}</a>
                                                     </div>
                                                 @endif
                                             @endforeach
