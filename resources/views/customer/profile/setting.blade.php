@@ -160,7 +160,7 @@
                                         <div class="col-lg-6">
                                             <div class="mb-3">
                                                 <div class="customSelect customTomSelect">
-                                                    <select class="tomSelect" name="city_id" id="city_select">
+                                                    <select class="select2Select" name="city_id" id="city_select">
                                                         <option selected>İl</option>
                                                         @foreach($allCities as $city)
                                                             <option value="{{$city->id}}" @selected(auth('customer')->user()->city_id==$city->id)>{{$city->name}}</option>
@@ -171,13 +171,13 @@
                                             <div class="mb-3">
                                                 <div class="">
                                                     @if(auth('customer')->user()->city_id)
-                                                        <select name="district_id" id="district_select">
+                                                        <select class="select2Select" name="district_id" id="district_select">
                                                             @foreach(auth('customer')->user()->city->districts as $district)
                                                                 <option value="{{$district->id}}" @selected(auth('customer')->user()->district_id==$district->id)>{{$district->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     @else
-                                                        <select name="district_id" id="district_select">
+                                                        <select class="select2Select" name="district_id" id="district_select">
                                                             <option value="">İlçe Seçiniz</option>
                                                         </select>
                                                     @endif
@@ -216,10 +216,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#district_select').select2({
-                // Ayarlar
-                placeholder: "Bir İlçe seçin",
-                allowClear: true // Kullanıcı seçeneği temizleyebilsin
+            $('.select2Select').select2({
             });
         });
     </script>
