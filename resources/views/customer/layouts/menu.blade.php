@@ -77,7 +77,7 @@
                 </div>
             </span>
                 <span class="right">
-                <span class="text">Geçmiş Randevular</span>
+                <span class="text">Randevularım</span>
             </span>
             </a>
         </div>
