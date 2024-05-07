@@ -226,7 +226,7 @@ class HomeController extends Controller
         $appointment->customer->sendSms($appointment->business->name . ' İşletmesine ' . $appointment->start_time->format('d.m.Y H:i') . ' tarihindeki randevunuz iptal edildi.');
         return response()->json([
             'status' => "success",
-            'message' => $appointment->start_time->format('d.m.Y H:i') . "Tarihindeki Randevunuz Başarılı Bir Şekilde İptal Edildi",
+            'message' => $appointment->start_time->format('d.m.Y H:i') . " Tarihindeki Randevunuz Başarılı Bir Şekilde İptal Edildi",
         ]);
     }
 

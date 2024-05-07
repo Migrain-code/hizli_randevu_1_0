@@ -11,8 +11,10 @@
                 <div class="location"><img src="/assets/images/icons/ico-menu-location.svg"
                                            alt="">{{auth('customer')->user()->city->name}}</div>
                 @if(auth('customer')->user()->birthday)
-                    <div class="birthday"><img src="/assets/images/icons/ico-menu-birthday.svg"
-                                               alt="">{{auth('customer')->user()->birthday}}</div>
+                    <div class="birthday">
+                        <img src="/assets/images/icons/ico-menu-birthday.svg" alt="">
+                        {{isset(auth('customer')->user()->birthday) ? \Illuminate\Support\Carbon::parse(auth('customer')->user()->birthday)->format('d.m.Y') : ""}}
+                    </div>
                 @endif
 
             </div>
