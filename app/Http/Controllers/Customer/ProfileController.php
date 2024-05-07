@@ -49,9 +49,9 @@ class ProfileController extends Controller
     public function edit()
     {
         $allCities = City::all();
-        dd($allCities->count());
+
         $customer=auth('customer')->user();
-        return view('customer.profile.setting', compact('customer'));
+        return view('customer.profile.setting', compact('customer', 'allCities'));
     }
     public function changePassword(Request $request)
     {

@@ -113,7 +113,7 @@
                                                 <div class="customSelect customTomSelect">
                                                     <select class="tomSelect" name="city_id" id="city_select">
                                                         <option selected>İl</option>
-                                                        @foreach($cities as $city)
+                                                        @foreach($allCities as $city)
                                                             <option value="{{$city->id}}" @selected(auth('customer')->user()->city_id==$city->id)>{{$city->name}}</option>
                                                         @endforeach
                                                     </select>
