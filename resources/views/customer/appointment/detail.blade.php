@@ -37,7 +37,7 @@
                                     <div class="profileBox mb-3 packageSummary">
                                         <div class="profileTitle">
                                             Randevu Özeti
-                                            @if($appointment->status == 0 && $appointment->status == 1)
+                                            @if($appointment->status == 0 || $appointment->status == 1)
                                                 <button class="btn btn-pink cancelButton">İptal Et</button>
                                             @endif
                                         </div>
