@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
         $categories = BusinessCategory::all();
         View::share('categories', $categories);
 
-        $featuredCategory = ServiceCategory::whereNotNull('order_number')->orderBy('order_number', 'asc')->take(6)->get();
+        $featuredCategory = ServiceCategory::where('is_menu', 1)->orderBy('order_number', 'asc')->take(6)->get();
         View::share('featuredCategory', $featuredCategory);
 
         $recommendedLinks = RecommendedLink::select('title', 'url')->get();

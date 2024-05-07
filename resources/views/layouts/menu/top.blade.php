@@ -102,7 +102,7 @@
                                     <li>
                                         <a href="#">{{$fCategory->name}}</a>
                                         <ul>
-                                            @foreach($fCategory->subCategories()->whereNotNull('order_number')->orderBy('order_number', 'asc')->take(6)->get() as $subCategory)
+                                            @foreach($fCategory->subCategories()->where('is_menu', 1)->orderBy('order_number', 'asc')->take(6)->get() as $subCategory)
                                                 <li><a href="{{route('search.service', $subCategory->getSlug())}}">{{$subCategory->getName()}}</a></li>
                                             @endforeach
 
