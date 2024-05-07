@@ -47,9 +47,9 @@ class HomeController extends Controller
         $sum_total += $packetPayment;
         $payments = ['appointment' => $appointmentTotal, 'total' => $sum_total, 'orderTotal' => $orderTotal, 'packetPayment' => $packetPayment];
 
-        $topAds = Ads::where('type', 1)->get();
-        $bottomAds = Ads::where('type', 2)->get();
-        $footerAds = Ads::where('type', 3)->get();
+        $topAds = Ads::where('type', 1)->whereStatus(1)->get();
+        $bottomAds = Ads::where('type', 2)->whereStatus(1)->get();
+        $footerAds = Ads::where('type', 3)->whereStatus(1)->get();
         $productCategories = ProductCategory::where('status', 1)->has('products')->get();
 
         return view('customer.home.index', compact('customer', 'appointments', 'appointmentTotals', 'payments', 'topAds', 'bottomAds', 'productCategories', 'footerAds'));
