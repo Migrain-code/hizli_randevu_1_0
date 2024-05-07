@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\BasicMail;
+use App\Models\Ads;
 use App\Models\Customer;
 use App\Models\Email;
 use App\Models\Image;
@@ -55,8 +56,8 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-
-        return view('customer.auth.register');
+        $loginImages = Ads::whereStatus(1)->where('type', 7)->get();
+        return view('customer.auth.register', compact('loginImages'));
     }
 
     /**

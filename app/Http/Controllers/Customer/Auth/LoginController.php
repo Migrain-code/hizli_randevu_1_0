@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ads;
 use App\Models\Customer;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -44,7 +45,8 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('customer.auth.login');
+        $loginImages = Ads::whereStatus(1)->where('type', 7)->get();
+        return view('customer.auth.login', compact('loginImages'));
     }
 
     public function guard()
