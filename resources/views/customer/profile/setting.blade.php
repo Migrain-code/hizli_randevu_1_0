@@ -180,6 +180,7 @@
                     $.each(data, function (index, value){
                         $('#district_select').append('<option value="'+value.id + '">'+ value.name+'</option>');
                     });
+                    $('#district_select').tomSelect('update');
                 }
             });
         });
