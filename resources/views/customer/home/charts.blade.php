@@ -24,7 +24,7 @@
             <!--begin::Card body-->
             <div class="card-body p-9 pt-5">
                 <!--begin::Chart-->
-                <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
+                <div class="position-relative d-flex justify-content-center me-15 mb-7">
                     <div id="kt_docs_google_chart_pie"></div>
                 </div>
                 <!--end::Chart-->
