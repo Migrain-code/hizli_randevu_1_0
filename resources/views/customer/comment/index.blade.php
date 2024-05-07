@@ -1,8 +1,12 @@
 @extends('layouts.master')
 @section('title', "Yorumlarım")
-@section('meta_description', "Paket Alımlarım")
+@section('meta_description', "Yapılan Tüm Yorumlar")
 @section('styles')
-
+    <style>
+        .starActive{
+            color: #ffdb70;
+        }
+    </style>
 @endsection
 @section('content')
     <article id="page">
@@ -51,11 +55,9 @@
                                                                 <div
                                                                     class="commentRating d-flex align-items-center"
                                                                 >
-                                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    @for($i = 0;$i < 4; $i++)
+                                                                        <i class="fa fa-star @if($i < $comment->point) starActive @endif" aria-hidden="true"></i>
+                                                                    @endfor
                                                                     <span>{{number_format($comment->point,1)}}</span>
                                                                 </div>
                                                             </div>
