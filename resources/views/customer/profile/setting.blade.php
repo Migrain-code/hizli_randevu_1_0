@@ -109,9 +109,10 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
+                                            @dd($allCities->count())
                                             <div class="mb-3">
-                                                <div class="row">
-                                                    <select class="" name="city_id" id="city_select">
+                                                <div class="customSelect customTomSelect">
+                                                    <select class="tomSelect" name="city_id" id="city_select">
                                                         <option selected>İl</option>
                                                         @foreach($allCities as $city)
                                                             <option value="{{$city->id}}" @selected(auth('customer')->user()->city_id==$city->id)>{{$city->name}}</option>
