@@ -1,4 +1,4 @@
-@if($appointment->status == 6 or $appointment->status = 5)
+@if($appointment->status == 6 or $appointment->status == 5)
     @if($appointment->comment_status == 0)
         <form class="col-lg-6" id="comment-form" method="post" action="{{route('customer.appointment.comment.store')}}">
             @csrf
