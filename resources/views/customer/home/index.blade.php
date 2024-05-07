@@ -51,6 +51,14 @@
             --bs-border-opacity: 1;
             border-color: rgba(0, 158, 247, var(--bs-border-opacity)) !important;
         }
+        .apexcharts-legend.apx-legend-position-bottom .apexcharts-legend-series, .apexcharts-legend.apx-legend-position-top .apexcharts-legend-series {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* margin: 0px 15px !important; */
+            padding-right: 14px;
+            padding-left: 15px;
+        }
     </style>
     <link rel="stylesheet" href="/assets/css/apexcharts.css">
 @endsection
@@ -114,7 +122,7 @@
         var appointmentData = [
             {!! $customer->appointments->whereIn('status', [1])->count() !!},
             {!! $customer->appointments->whereIn('status', [2])->count() !!},
-            {!! $customer->appointments->whereIn('status', [0])->count() !!}
+            {!! $customer->appointments->whereIn('status', [0])->count() !!},
             {!! $customer->appointments->whereIn('status', [3, 4])->count() !!},
             {!! $customer->appointments->whereIn('status', [6])->count() !!},
         ];
