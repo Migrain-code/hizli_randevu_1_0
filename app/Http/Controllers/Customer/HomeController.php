@@ -221,12 +221,12 @@ class HomeController extends Controller
     public function cancelAppointment(Request $request)
     {
         $appointment = Appointment::find($request->id);
-        $appointment->status = 8;
+        $appointment->status = 3;
         $appointment->save();
-        $appointment->customer->sendSms($appointment->business->name . ' İşletmesine ' . $appointment->start_time . ' tarihindeki randevunuz iptal edildi.');
+        $appointment->customer->sendSms($appointment->business->name . ' İşletmesine ' . $appointment->start_time->format('d.m.Y H:i') . ' tarihindeki randevunuz iptal edildi.');
         return response()->json([
             'status' => "success",
-            'message' => $appointment->start_date . "Tarihindeki Randevunuz Başarılı Bir Şekilde İptal Edildi",
+            'message' => $appointment->start_time->format('d.m.Y H:i') . "Tarihindeki Randevunuz Başarılı Bir Şekilde İptal Edildi",
         ]);
     }
 

@@ -35,7 +35,12 @@
                             <div class="profileContent">
                                 <div id="packageDetail">
                                     <div class="profileBox mb-3 packageSummary">
-                                        <div class="profileTitle">Randevu Özeti</div>
+                                        <div class="profileTitle">
+                                            Randevu Özeti
+                                            @if($appointment->status == 0 && $appointment->status == 1)
+                                                <button class="btn btn-pink cancelButton">İptal Et</button>
+                                            @endif
+                                        </div>
                                         <div
                                             class="packageSummaryItem d-flex align-items-center justify-content-between"
                                         >
@@ -86,6 +91,55 @@
             var radioValue = $(this).attr('for');
             // Radyo butonunun değerini al
             var isChecked = $('#' + radioValue).is(':checked');
+        });
+    </script>
+    <script>
+        $('.cancelButton').on('click', function (){
+            Swal.fire({
+                title: 'Bu Randevuyu İptal Etmek İstediğine Eminmisin',
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Hayır, İptal Etme",
+                confirmButtonText: "Evet, İptal Et!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    $.ajax({
+                        url: '{{route('customer.appointment.cancel')}}',
+                        type: "POST",
+                        data: {
+                            "_token": '{{csrf_token()}}',
+                            'id': '{{$appointment->id}}',
+                        },
+                        dataType: "JSON",
+                        success: function (res) {
+                            if (res.status == "success"){
+                                Swal.fire({
+                                    title: "İşlem Başarılı",
+                                    icon: res.status,
+                                    text: res.message,
+                                    confirmButtonText: 'Tamam'
+                                })
+
+                                setTimeout(function (){
+                                    location.reload();
+                                }, 700);
+                            }
+                            else {
+                                Swal.fire({
+                                    title: "Uyarı",
+                                    icon: res.status,
+                                    text: res.message,
+                                    confirmButtonText: 'Tamam'
+                                })
+                            }
+
+                        }
+                    });
+                }
+            });
         });
     </script>
 @endsection
