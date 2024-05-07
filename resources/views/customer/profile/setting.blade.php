@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-3">
-                                                <div class="customSelect customTomSelect">
+                                                <div class="row">
                                                     <select class="form-select" name="city_id" id="city_select">
                                                         <option selected>İl</option>
                                                         @foreach($allCities as $city)
