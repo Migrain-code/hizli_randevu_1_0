@@ -7,8 +7,6 @@
         .select2-container--default .select2-selection--single {
             background-color: #fff;
             border: 1px solid #aaa;
-            border-radius: 4px;
-            margin-top: 6px;
             height: 57px;
             padding-left: 15px;
             padding-top: 5px;
