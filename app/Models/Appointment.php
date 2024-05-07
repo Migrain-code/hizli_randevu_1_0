@@ -63,7 +63,7 @@ class Appointment extends Model
     use HasFactory;
 
     protected $casts = ['start_time' => "datetime", 'end_time' => "datetime"];
-
+    protected $fillable = ["comment_status"];
     const STATUS_LIST = [
         0 => [
             'html' => '<span class="alert bg-warning text-white fw-bolder px-2 py-2" style="color:#fff04f">Onay Bekliyor</span>',
