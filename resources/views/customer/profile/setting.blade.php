@@ -15,6 +15,29 @@
             border-radius: 15px;
             border: 1px solid rgba(67, 80, 110, 0.2) !important;
         }
+        .select2-container {
+            width: 100% !important;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 0;
+            position: relative;
+            vertical-align: middle;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            padding: 8px;
+            color: rgba(67, 80, 110, 0.5);
+            line-height: 28px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__clear {
+            display: none !important;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 26px;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 20px;
+        }
     </style>
 @endsection
 @section('content')
