@@ -123,88 +123,85 @@
             {!! $customer->appointments->whereIn('status', [1])->count() !!},
             {!! $customer->appointments->whereIn('status', [2])->count() !!},
             {!! $customer->appointments->whereIn('status', [0])->count() !!},
-            {!! $customer->appointments->whereIn('status', [3, 4])->count() !!},
-            {!! $customer->appointments->whereIn('status', [6])->count() !!},
+            {!! $customer->appointments->whereIn('status', [3])->count() !!},
+            {!! $customer->appointments->whereIn('status', [4])->count() !!},
         ];
         var allZeroes = appointmentData.every(function(value) {
             return value === 0;
         });
-        @if($customer->appointments->count() > 0)
-            var options = {
-            series: appointmentData,
-            labels: ["Onaylanmış", "Tamamlanmış", "Onaylanmamış", "İptal Edilmiş", "Tahsilatsız Kapatılmış"],
-            chart: {
-                type: 'donut',
-                height: 500,
-                width: 500, // Grafiğin genişliğini arttırdık, istediğiniz değeri verebilirsiniz
-            },
 
+        var colors = ['#008ffb', '#00e396', '#feb019', '#ff4560', '#775dd0'];
+        var options = {
+            series: [{
+                data: appointmentData
+            }],
+            chart: {
+                height: 350,
+                width: 550,
+                type: 'bar',
+                events: {
+                    click: function(chart, w, e) {
+                        // console.log(chart, w, e)
+                    }
+                }
+            },
+            colors: colors,
+            plotOptions: {
+                bar: {
+                    columnWidth: '35%',
+                    distributed: true,
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
             legend: {
-                position: 'bottom'
+                show: false
             },
             responsive: [{
                 breakpoint: 1400,
                 options: {
                     chart: {
-                        width: '300', // Genişlik 100% olarak ayarlandı, böylece cihaz boyutuna göre otomatik olarak ayarlanır
+                        width: '270',
                     },
                     legend: {
                         position: 'bottom'
                     }
-                }
-            }],
-
-            };
-        @else
-            var options = {
-            series: [1],
-            labels: ["Randevu Yok"],
-            colors: ["#777777"],
-            chart: {
-                type: 'donut',
-                width: 500, // Grafiğin genişliğini arttırdık, istediğiniz değeri verebilirsiniz
-            },
-            plotOptions: {
-                pie: {
-                    donut: {
-                        labels: {
-                            show: true,
-                            total: {
-                                showAlways: true,
-                                show: true,
-                                label: 'Toplam',
-                                fontSize: '22px',
-                                fontFamily: 'Helvetica, Arial, sans-serif',
-                                fontWeight: 600,
-                                color: '#373d3f',
-                                formatter: function (w) {
-                                    var total= w.globals.seriesTotals.reduce((a, b) => {
-                                        return (a + b);
-                                    }, 0);
-                                    return total-1 + " Randevu";
-                                }
-                            }
+                },
+                xaxis: {
+                    categories: [
+                        ['Onaylandı'],
+                        ['Tamamlandı'],
+                        ['Onaylanmadı'],
+                        ['İptal Edildi'],
+                        ['Gelmedi'],
+                    ],
+                    labels: {
+                        style: {
+                            colors: colors,
+                            fontSize: '11px',
+                            fontWeight: 'bold',
                         }
                     }
                 }
-            },
-            legend: {
-                position: 'bottom'
-            },
-            responsive: [{
-                breakpoint: 1400,
-                options: {
-                    chart: {
-                        width: '400', // Genişlik 100% olarak ayarlandı, böylece cihaz boyutuna göre otomatik olarak ayarlanır
-                    },
-                    legend: {
-                        position: 'bottom'
+            }],
+            xaxis: {
+                categories: [
+                    ['Onaylandı'],
+                    ['Tamamlandı'],
+                    ['Onaylanmadı'],
+                    ['İptal Edildi'],
+                    ['Gelmedi'],
+                ],
+                labels: {
+                    style: {
+                        colors: colors,
+                        fontSize: '14px',
+                        fontWeight: 'bold',
                     }
                 }
-            }],
-
+            }
         };
-        @endif
 
 
         var chartPie = new ApexCharts(document.querySelector("#kt_docs_google_chart_pie"), options);
