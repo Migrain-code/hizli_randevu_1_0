@@ -135,32 +135,10 @@
             labels: ["Onaylanmış", "Tamamlanmış", "Onaylanmamış", "İptal Edilmiş", "Tahsilatsız Kapatılmış"],
             chart: {
                 type: 'donut',
+                height: 500,
                 width: 500, // Grafiğin genişliğini arttırdık, istediğiniz değeri verebilirsiniz
             },
-            plotOptions: {
-                pie: {
-                    donut: {
-                        labels: {
-                            show: true,
-                            total: {
-                                showAlways: true,
-                                show: true,
-                                label: 'Toplam',
-                                fontSize: '22px',
-                                fontFamily: 'Helvetica, Arial, sans-serif',
-                                fontWeight: 600,
-                                color: '#373d3f',
-                                formatter: function (w) {
-                                    var total= w.globals.seriesTotals.reduce((a, b) => {
-                                        return (a + b);
-                                    }, 0);
-                                    return total + " Randevu";
-                                }
-                            }
-                        }
-                    }
-                }
-            },
+
             legend: {
                 position: 'bottom'
             },
@@ -168,7 +146,7 @@
                 breakpoint: 1400,
                 options: {
                     chart: {
-                        width: '400', // Genişlik 100% olarak ayarlandı, böylece cihaz boyutuna göre otomatik olarak ayarlanır
+                        width: '300', // Genişlik 100% olarak ayarlandı, böylece cihaz boyutuna göre otomatik olarak ayarlanır
                     },
                     legend: {
                         position: 'bottom'
@@ -229,8 +207,9 @@
         @endif
 
 
-        var chart = new ApexCharts(document.querySelector("#kt_docs_google_chart_pie"), options);
+        var chartPie = new ApexCharts(document.querySelector("#kt_docs_google_chart_pie"), options);
     </script>
+
     @php
         use Illuminate\Support\Carbon;
         $year = now()->year;
@@ -266,7 +245,7 @@
                 breakpoint: 1400,
                 options: {
                     chart: {
-                        width: '350',
+                        width: '300',
                     },
                     legend: {
                         position: 'bottom'
@@ -312,9 +291,18 @@
         };
 
         var chartLine = new ApexCharts(document.querySelector("#kt_project_overview_graph"), optionsLine);
+
+        var isChartRendered = false;
+
+
         $(function (){
-            chart.render();
-            chartLine.render();
+            // Grafik render edilmediyse render et
+            if (!isChartRendered) {
+                chartPie.render();
+                chartLine.render();
+                isChartRendered = true;
+            }
+
         });
     </script>
 @endsection
