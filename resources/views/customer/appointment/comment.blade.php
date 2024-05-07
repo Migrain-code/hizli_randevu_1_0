@@ -14,32 +14,17 @@
                     <div
                         class="col-lg-6 d-flex align-items-center justify-content-md-end"
                     >
-                        <style>
-                            .star {
-                                cursor: pointer;
-                                font-size: 24px;
-                            }
-                        </style>
                         <div class="stars">
-
-                            <label for="star1" class="star">
-                                <input type="radio" id="star1" name="rating" value="1">
-                            </label>
-
-                            <label for="star2" class="star">
-                                <input type="radio" id="star2" name="rating" value="2">
-                            </label>
-
-                            <label for="star3" class="star">
-                                <input type="radio" id="star3" name="rating" value="3">
-                            </label>
-                            <label for="star4" class="star">
-                                <input type="radio" id="star4" name="rating" value="4">
-
-                            </label>
-                            <label for="star5" class="star">
-                                <input type="radio" id="star5" name="rating" value="5">
-                            </label>
+                            <input type="checkbox" id="st1" name="rating" value="1"/>
+                            <label for="st1" class="starLabel"></label>
+                            <input type="checkbox" id="st2" name="rating" value="2"/>
+                            <label for="st2" class="starLabel"></label>
+                            <input type="checkbox" id="st3" name="rating" value="3"/>
+                            <label for="st3" class="starLabel"></label>
+                            <input type="checkbox" id="st4" name="rating" value="4"/>
+                            <label for="st4" class="starLabel"></label>
+                            <input type="checkbox" id="st5" name="rating" value="5"/>
+                            <label for="st5" class="starLabel"></label>
                         </div>
                     </div>
                 </div>

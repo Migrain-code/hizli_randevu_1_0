@@ -80,7 +80,7 @@
 @endsection
 @section('scripts')
     <script>
-        $('.star').click(function() {
+        $('.starLabel').click(function() {
             // 'for' özelliğine karşılık gelen radyo butonunu bul
             var radioValue = $(this).attr('for');
             // Radyo butonunun değerini al
