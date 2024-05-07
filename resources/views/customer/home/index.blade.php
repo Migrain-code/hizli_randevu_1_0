@@ -116,6 +116,7 @@
 
 @endsection
 @section('scripts')
+    <script src="/assets/js/apexcharts.js"></script>
     <script src="/assets/js/apexcharts.min.js"></script>
 
     <script>
@@ -154,7 +155,7 @@
                 }
             }],
 
-        };
+            };
         @else
             var options = {
             series: [1],
