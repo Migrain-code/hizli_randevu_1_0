@@ -38,6 +38,19 @@
             right: 30px;
             width: 20px;
         }
+        .select2-search--dropdown .select2-search__field {
+            padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgba(67, 80, 110, 0.2) !important;
+            border-radius: 11px;
+            height: 40px;
+            outline: 0px;
+            /* margin: 5px; */
+        }
+        .select2-container--default .select2-results>.select2-results__options::-webkit-scrollbar {
+            border-radius: 10px;
+        }
     </style>
 @endsection
 @section('content')
