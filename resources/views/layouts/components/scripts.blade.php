@@ -47,10 +47,11 @@
     $('.appAlert').on('click', function (){
         Swal.fire({
             position: 'center',
-            icon: info,
-            title: "Mobil Uygulamalarımız Çok Yakında Marketlerde Yayında Olacak",
+            icon: 'info',
+            title: "Hey, Beklemede Kal!",
+            text: "Mobil Uygulamamız Çok Yakında Seninle Olacak. İlgin İçin Teşekkürler!",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 5000,
             background: '#fff',
             customClass: {
                 title: 'text-primary fs-6',

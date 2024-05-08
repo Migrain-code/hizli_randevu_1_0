@@ -13,7 +13,7 @@
               <strong>Uygulamamızı</strong>
               İndirdiniz mi?
             </span>
-                <a href="{{setting('speed_mobile_app_store_link')}}" class="appAlert" target="_blank">
+                <a href="{{setting('speed_mobile_app_store_link') ?? "javascript:void(0)"}}" class="appAlert">
               <span class="icon">
                 <svg
                     width="51"
@@ -32,7 +32,7 @@
               </span>
                     <span><i>Download On The</i> <strong>App Store</strong></span>
                 </a>
-                <a href="{{setting('speed_mobile_play_store_link')}}" class="appAlert" target="_blank">
+                <a href="{{setting('speed_mobile_play_store_link') ?? "javascript:void(0)"}}" class="appAlert">
               <span class="icon">
                 <svg
                     width="36"
@@ -49,7 +49,7 @@
               </span>
                     <span><i>Get It On</i> <strong>Play Store</strong></span>
                 </a>
-                <a href="{{setting('speed_mobile_huawei_store_link')}}" class="appAlert" >
+                <a href="{{setting('speed_mobile_huawei_store_link') ?? "javascript:void(0)"}} " class="appAlert" >
               <span class="icon">
                 <svg
                     width="51"
