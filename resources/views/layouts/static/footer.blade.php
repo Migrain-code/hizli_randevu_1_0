@@ -130,7 +130,7 @@
                                     <a href="{{route('customer.register')}}">Kayıt Ol</a>
                                 </li>
                                 <li>
-                                    <a href="{{env('remote_url')}}" target="_blank">İşletmeler İçin</a>
+                                    <a href="{{env('REMOTE_URL')}}" target="_blank">İşletmeler İçin</a>
                                 </li>
                                 <li>
                                     <a href="{{route('about')}}">Hakkımızda</a>
