@@ -25,7 +25,6 @@ class ActivityController extends Controller
         $latestActivities = Activity::latest()->take(5)->get();
         $gallery = $activity->images;
         $personels = $activity->personels;
-        dd($personels);
         return view('activity.detail', compact('activity', 'latestActivities', 'gallery', 'personels'));
     }
 
