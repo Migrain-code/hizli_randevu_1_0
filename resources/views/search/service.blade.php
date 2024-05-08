@@ -1,6 +1,14 @@
 @extends('layouts.master')
-@section('title', isset($category) ? $category->getName() : "Salon Ara")
-@section('description', 'Description')
+@php
+    $title = "Salon Ara";
+    $description = "Salon Ara";
+    if (request()->routeIs('search.businessCategorySearch')){
+        $title = $category->getName();
+        $description = $category->getMetaDescription();
+    }
+@endphp
+@section('title', $title)
+@section('description', $description)
 @section('content')
     <article id="page">
         <section id="breadcrumbs" class="my-5 py-2">
