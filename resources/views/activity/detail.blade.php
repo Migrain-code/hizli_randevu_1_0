@@ -97,6 +97,7 @@
                                             <div class="js-photo-gallery">
                                                 <div class="owl-carousel">
                                                     @foreach($personels as $personel)
+                                                        @dd($personel)
                                                         <div class="item">
                                                             <div class="eventUserItem">
                                                                 <div class="photo">
