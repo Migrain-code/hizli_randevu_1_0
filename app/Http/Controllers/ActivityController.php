@@ -23,8 +23,8 @@ class ActivityController extends Controller
         $activity = Activity::where('slug', $slug)->first();
 
         $latestActivities = Activity::latest()->take(5)->get();
-
-        return view('activity.detail', compact('activity', 'latestActivities'));
+        $gallery = $activity->images;
+        return view('activity.detail', compact('activity', 'latestActivities', 'gallery'));
     }
 
     public function personelControl(Request $request)

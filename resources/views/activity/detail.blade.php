@@ -289,7 +289,7 @@
                 </div>
             </div>
         </div>
-        @if($activity->images->count() > 0)
+        @if($gallery->count() > 0)
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -305,14 +305,14 @@
                 <div class="col-12">
                     <div class="js-photo-gallery">
                         <div class="owl-carousel">
-                            @foreach($activity->images as $gallery)
+                            @foreach($gallery as $row)
                             <div class="item">
                                 <a
-                                    href="{{image($gallery->image)}}"
-                                    data-lightbox="image-{{$loop->index}}"
+                                    href="{{image($row->image)}}"
+                                    data-lightbox="image-1"
                                     data-title="Etkinlik Görseli - {{$loop->index}}"
                                 >
-                                    <img src="{{image($gallery->image)}}" alt="" />
+                                    <img src="{{image($row->image)}}" alt="" />
                                 </a>
                             </div>
                             @endforeach
