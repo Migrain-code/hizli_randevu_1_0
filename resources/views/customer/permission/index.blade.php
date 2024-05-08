@@ -57,8 +57,8 @@
                                         <div class="notificationSettingsItem">
                                             <div class="row">
                                                 <div class="col-8 col-lg-10">
-                                                    <strong>E-posta</strong>
-                                                    <p>Size e-posta göndermemize izin verin</p>
+                                                    <strong>Kampanya İzinleri</strong>
+                                                    <p>Kampanya Bildirimleri Göndermemize izin verin</p>
                                                 </div>
                                                 <div
                                                     class="col-4 col-lg-2 d-flex align-items-center justify-content-end"
@@ -76,7 +76,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="notificationSettingsItem">
+                                        {{--
+                                            <div class="notificationSettingsItem">
                                             <div class="row">
                                                 <div class="col-8 col-lg-10">
                                                     <strong>Sms</strong>
@@ -120,6 +121,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        --}}
                                     </div>
 
                                 </div>
