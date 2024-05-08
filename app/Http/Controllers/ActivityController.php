@@ -21,7 +21,7 @@ class ActivityController extends Controller
     public function detail($slug)
     {
         $activity = Activity::where('slug', $slug)->first();
-
+        dd($activity->images);
         $latestActivities = Activity::latest()->take(5)->get();
 
         return view('activity.detail', compact('activity', 'latestActivities'));
