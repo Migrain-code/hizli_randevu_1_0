@@ -91,8 +91,7 @@
         href="#https://instagram.com/{{$business->phone}}"
         class="d-flex align-items-center justify-content-center"
     >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram"><g fill="none" stroke="#303c42" stroke-linecap="round" stroke-linejoin="round"><rect width="21" height="21" x="1.5" y="1.5" rx="5.48" ry="5.48"/><circle cx="12" cy="12" r="5.5"/><circle cx="18" cy="5" r=".5"/></g></svg>
-
+        <img src="/assets/images/instagram.png">
         <span>Instagram</span>
     </a>
 </div>
