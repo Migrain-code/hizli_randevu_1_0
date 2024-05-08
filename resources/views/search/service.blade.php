@@ -64,11 +64,16 @@
                                     >
                                         <select class="tomSelect" name="city_id">
                                             <option value="">Şehir seçiniz</option>
-                                            @forelse($cities as $city)
-                                                <option value="{{$city->id}}">{{$city->name}}</option>
-                                            @empty
-
-                                            @endforelse
+                                            @foreach($cities as $city)
+                                                @if($city->featuredDistricts->count() > 0)
+                                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                                    @foreach($city->featuredDistricts as $district)
+                                                        <option value="{{$city->id. "-". $district->id}}">{{$city->name. ", ". $district->name}}</option>
+                                                    @endforeach
+                                                @else
+                                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                                @endif
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
