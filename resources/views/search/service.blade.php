@@ -3,7 +3,7 @@
     $title = "Salon Ara";
     $description = "Salon Ara";
     if (request()->routeIs('search.businessCategorySearch')){
-        $title = $category->getName();
+        $title = $category->getMetaTitle();
         $description = $category->getMetaDescription();
     }
 @endphp
