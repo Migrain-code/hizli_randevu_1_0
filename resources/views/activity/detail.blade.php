@@ -304,24 +304,90 @@
                 <div class="col-12">
                     <div class="js-photo-gallery">
                         <div class="owl-carousel">
-                            @forelse($activity->images as $gallery)
-                                <div class="item">
-                                    <a
-                                        href="{{image($gallery->image)}}"
-                                        data-lightbox="image-1"
-                                        data-title="My caption"
-                                    >
-                                        <img src="{{image($gallery->image)}}" alt=""/>
-                                    </a>
-                                </div>
-                            @empty
-                            @endforelse
-
+                            <div class="item">
+                                <a
+                                    href="/assets/images/saloonCustomerPhoto.png"
+                                    data-lightbox="image-1"
+                                    data-title="My caption"
+                                >
+                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a
+                                    href="/assets/images/saloonCustomerPhoto.png"
+                                    data-lightbox="image-1"
+                                    data-title="My caption"
+                                >
+                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a
+                                    href="/assets/images/saloonCustomerPhoto.png"
+                                    data-lightbox="image-1"
+                                    data-title="My caption"
+                                >
+                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a
+                                    href="/assets/images/saloonCustomerPhoto.png"
+                                    data-lightbox="image-1"
+                                    data-title="My caption"
+                                >
+                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <!-- <div class="row">
+              <div class="col-12">
+                <div class="customerGallery">
+                  <div class="owl-carousel">
+                    <div class="item">
+                      <a
+                        href="assets/images/saloonCustomerPhoto.png"
+                        data-lightbox="image-1"
+                        data-title="My caption"
+                      >
+                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
+                      </a>
+                    </div>
+                    <div class="item">
+                      <a
+                        href="assets/images/saloonCustomerPhoto.png"
+                        data-lightbox="image-1"
+                        data-title="My caption"
+                      >
+                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
+                      </a>
+                    </div>
+                    <div class="item">
+                      <a
+                        href="assets/images/saloonCustomerPhoto.png"
+                        data-lightbox="image-1"
+                        data-title="My caption"
+                      >
+                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
+                      </a>
+                    </div>
+                    <div class="item">
+                      <a
+                        href="assets/images/saloonCustomerPhoto.png"
+                        data-lightbox="image-1"
+                        data-title="My caption"
+                      >
+                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
         </div>
     </article>
     <div class="modal fade custom-modal" id="account_modal" role="dialog" style="display: none;" aria-hidden="true">
