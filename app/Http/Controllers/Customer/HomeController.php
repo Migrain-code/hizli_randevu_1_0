@@ -92,6 +92,7 @@ class HomeController extends Controller
             if($appointment->comment_status == 0){
                 $businessComment = new BusinessComment();
                 $businessComment->business_id = $request->input('business_id');
+                $businessComment->appointment_id = $request->input('appointment_id');
                 $businessComment->customer_id = auth('customer')->id();
                 $businessComment->point = $request->input('rating');
                 $businessComment->content = $request->input('content');
@@ -208,7 +209,8 @@ class HomeController extends Controller
 
     public function comments()
     {
-        $businessComments = BusinessComment::where('customer_id', auth('customer')->id())->latest()->paginate(setting('speed_pagination_number'));
+        $customer = auth('customer')->user();
+        $businessComments = $customer->comments()->latest()->paginate(setting('speed_pagination_number'));
 
         return view('customer.comment.index', compact('businessComments'));
     }

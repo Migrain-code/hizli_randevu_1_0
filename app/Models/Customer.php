@@ -45,7 +45,10 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(ProductSales::class, 'customer_id', 'id');
     }
-
+    public function comments()
+    {
+        return $this->hasMany(BusinessComment::class, 'customer_id', 'id');
+    }
     public function packets()
     {
         return $this->hasMany(PackageSale::class, 'customer_id', 'id');

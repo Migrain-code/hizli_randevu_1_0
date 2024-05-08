@@ -22,4 +22,10 @@ class BusinessComment extends Model
         return $this->hasOne(Business::class, 'id', 'business_id');
 
     }
+
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class, 'id', 'appointment_id');
+
+    }
 }
