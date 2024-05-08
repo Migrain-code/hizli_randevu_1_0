@@ -36,8 +36,11 @@
                                             <div class="col-lg-6 col-xl-3">
                                                 <div class="campaignItem">
                                                     <div class="campaignPhoto">
-                                                        <a href="javacript:;">
-                                                            <img src="/assets/images/saloonphoto.png" alt="" />
+                                                        <a href="{{route('business.detail', $campaign->campaign->business->slug)}}">
+                                                            <img
+                                                                src="{{$campaign->campaign->business->gallery->count() > 0 ? image($campaign->campaign->business->gallery()->first()->way) : image("storage/default/business.png") }}"
+                                                                alt="{{$campaign->campaign->business->gallery->count() > 0 ? $campaign->campaign->business->gallery()->first()->name : "default_image.png"}}"
+                                                            />
                                                             <span class="featured"><i>Kampanya</i></span>
                                                         </a>
                                                     </div>

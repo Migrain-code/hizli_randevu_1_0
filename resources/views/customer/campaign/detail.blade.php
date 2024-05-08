@@ -32,7 +32,7 @@
                                 <div class="pe-md-4">
                                     <div class="pageBanner mb-5">
                                         <img
-                                            src="/assets/images/pageBanner.png"
+                                            src="{{image($campaign->image)}}"
                                             class="w-100"
                                             alt=""
                                         />
