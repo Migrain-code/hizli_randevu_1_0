@@ -1,4 +1,4 @@
-<title>{{setting('speed_site_title')}} | @yield('title')</title>
+<title>@yield('title')</title>
 <meta name="description" content="@yield('description', setting('speed_meta_descriptions'))">
 <link rel="canonical" href="https://www.customer.hizlirandevu.com.tr" />
 <meta name="robots" content="index, follow">
