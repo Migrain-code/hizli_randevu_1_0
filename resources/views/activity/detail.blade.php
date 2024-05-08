@@ -166,7 +166,7 @@
                                         </a>
                                     </div>
                                     --}}
-                                    @if($activity->personels->count() > 0)
+                                    @if($personels->count() > 0)
                                         <div class="eventsUsers">
                                             <div
                                                 class="pageSubTitle mt-5 pt-5 pb-3 mb-4 border-bottom"
@@ -175,7 +175,7 @@
                                             </div>
                                             <div class="js-photo-gallery">
                                                 <div class="owl-carousel">
-                                                    @forelse($activity->personels as $personel)
+                                                    @foreach($personels as $personel)
                                                         <div class="item">
                                                             <div class="eventUserItem">
                                                                 <div class="photo">
@@ -184,9 +184,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    @empty
-
-                                                    @endforelse
+                                                    @endforeach
 
                                                 </div>
                                             </div>
