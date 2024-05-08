@@ -37,6 +37,14 @@ class Customer extends Authenticatable
         return $this->hasOne(CustomerNotificationPermission::class, 'customer_id', 'id');
     }
 
+    public function checkPermissions()
+    {
+        if (!isset($this->permissions)){
+            $permission = new CustomerNotificationPermission();
+            $permission->customer_id = $this->id;
+            $permission->save();
+        }
+    }
     public function favorites()
     {
         return $this->hasMany(CustomerFavorite::class, 'customer_id', 'id');

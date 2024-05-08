@@ -27,7 +27,6 @@ class HomeController extends Controller
     {
 
         $customer = auth('customer')->user();
-
         $appointments = $customer->appointments()->latest()->take(4)->get();
         $sum_total = 0;/*total system payout*/
         $appointmentTotal = 0;/*appointment payment*/

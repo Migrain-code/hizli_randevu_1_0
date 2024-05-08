@@ -63,6 +63,7 @@ class LoginController extends Controller
         $user = Customer::where('phone', clearPhone($request->input('phone')))->first();
 
         if ($user && Hash::check($request->input('password'), $user->password)) {
+            $user->checkPermissions();
             Auth::loginUsingId($user->id);
             return to_route('customer.home');
         } else {
