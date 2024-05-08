@@ -135,7 +135,7 @@
                                     <path d="M18 15v2a1 1 0 0 0 1 1h1"></path>
                                     <path d="M21 15v6"></path>
                                 </svg>
-                                Destek
+                                S.S.S
                             </a>
                         </li>
                         <li>
