@@ -26,15 +26,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-        foreach (District::all() as $dist){
-            $dist->name = ucfirst(strtolower($dist->name));
-            $dist->save();
-        }
-        foreach (City::all() as $dist){
-            $dist->name = ucfirst(strtolower($dist->name));
-            $dist->save();
-        }
         $brandList = Ads::where('type', 8)->get(); //Anasayfa marka reklamları
         $ads = Ads::where('type', 0)->get(); //Anasayfa reklamları
         $featuredServices = ServiceSubCategory::where('is_featured', 1)->orderBy('order_number', 'asc')->get();//öne çıkan hizmetler
