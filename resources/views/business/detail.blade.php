@@ -46,7 +46,7 @@
                         <div class="row mb-5">
                             <div class="col-lg-6 order-2 order-lg-1">
                                 @include('business.left.slider')
-                                @include('business.left.contact')
+                                <!-- iletişim alanı -->
                                 <div class="saloonDetailBox mb-4">
                                     <div class="detailTitle">Hakkında</div>
                                     <div class="detailBoxContent">
