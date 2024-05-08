@@ -23,6 +23,9 @@
     }elseif(request()->routeIs('search.serviceCategorySearch')){
       $title = $category->getName(). " Hizmetlerinde Fiyatlar , Müşteri Deneyimleri, Kampanyalar ve İndirimler - Hemen Randevunuzu Alın!";
       $description = $category->getName(). " Hizmeti Sunan Tüm İşletmelerde: Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - En İyi Seçimi Yapmak İçin Her Şey Burada!";
+    }elseif(request()->routeIs('search.cityAndCategory')){
+      $title = $category->getName(). ": Fiyatlar, Yorumlar, Kampanyalar ve İndirimler - Randevu Al!";
+      $description = $category->getName(). "Tüm Berberler : Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - Herkes için En İyi Berberi Bulun!";
     }
 @endphp
 @section('title', $title)
