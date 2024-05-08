@@ -54,10 +54,12 @@ class Business extends Authenticatable
 
     public function services()
     {
-        return $this->hasMany(BusinessService::class, 'business_id', 'id');
-
+        return $this->allServices()->where('is_delete', 0);
     }
-
+    public function allServices()
+    {
+        return $this->hasMany(BusinessService::class, 'business_id', 'id');
+    }
     public function personel()
     {
         return $this->hasMany(Personel::class, 'business_id', 'id');
