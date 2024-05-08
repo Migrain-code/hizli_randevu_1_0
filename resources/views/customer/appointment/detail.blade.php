@@ -2,7 +2,15 @@
 @section('title', 'Randevu Detayı')
 @section('meta_description', config('settings.meta_description'))
 @section('styles')
-
+    <style>
+        @media screen and (max-width: 600px) {
+            .btn-pink {
+                height: 45px;
+                font-size: 12px;
+                padding: 10px 10px;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <article id="page">
