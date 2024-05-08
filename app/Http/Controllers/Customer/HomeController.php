@@ -87,20 +87,37 @@ class HomeController extends Controller
             'content' => "Yorum Metni",
             'terms' => "Şartlar ve Koşullar"
         ]);
-        $businessComment = new BusinessComment();
-        $businessComment->business_id = $request->input('business_id');
-        $businessComment->customer_id = auth('customer')->id();
-        $businessComment->point = $request->input('rating');
-        $businessComment->content = $request->input('content');
-        if ($businessComment->save()) {
-            Appointment::find($request->input('appointment_id'))->update([
-                'comment_status' => 1,
-            ]);
+        $appointment = Appointment::find($request->input('appointment_id'));
+        if($appointment->status == 6 or $appointment->status == 5){
+            if($appointment->comment_status == 0){
+                $businessComment = new BusinessComment();
+                $businessComment->business_id = $request->input('business_id');
+                $businessComment->customer_id = auth('customer')->id();
+                $businessComment->point = $request->input('rating');
+                $businessComment->content = $request->input('content');
+                if ($businessComment->save()) {
+                    Appointment::find($request->input('appointment_id'))->update([
+                        'comment_status' => 1,
+                    ]);
+                    return back()->with('response', [
+                        'status' => "success",
+                        'message' => "Yorumunuz Başarılı Bir Şekilde İletildi"
+                    ]);
+                }
+            } else{
+                return back()->with('response', [
+                    'status' => "warning",
+                    'message' => "Bu randevuya yorum gönderdiniz başka yorum gönderemezsiniz."
+                ]);
+            }
+        } else{
             return back()->with('response', [
-                'status' => "success",
-                'message' => "Yorumunuz Başarılı Bir Şekilde İletildi"
+                'status' => "warning",
+                'message' => "Bu randevuya yorum yapabilmek için randevunun tamamlanmasını beklemeniz gerekmektedir."
             ]);
         }
+
+
     }
 
     public function packets()
