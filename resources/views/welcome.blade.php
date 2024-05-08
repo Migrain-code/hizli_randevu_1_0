@@ -252,59 +252,66 @@
             </section>
         @endif
 
-        <section id="featuredServices">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="featuredTitle">{{main('speed_section_1_main_title')}}</div>
+            <section id="featuredServices">
+                <div class="container">
+                    @if($featuredServices->count() > 0)
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="featuredTitle">{{main('speed_section_1_main_title')}}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="featuredLinks d-flex align-items-center flex-wrap">
-                        @foreach($featuredServices as $service)
-                            <a href="{{route('search.service', $service->slug)}}">
-                                <img src="/assets/images/icons/ico-links-1.svg" alt="" />
-                                <span>{{$service->name}}</span>
-                            </a>
-                        @endforeach
+                    <div class="row">
+                        <div class="featuredLinks d-flex align-items-center flex-wrap">
+                            @foreach($featuredServices as $service)
+                                <a href="{{route('search.service', $service->slug)}}">
+                                    <img src="/assets/images/icons/ico-links-1.svg" alt="" />
+                                    <span>{{$service->name}}</span>
+                                </a>
+                            @endforeach
 
+                        </div>
                     </div>
-                </div>
-                <div class="row featuredBox">
-                    @foreach($mainPages as $section)
-                        <div class="col-lg-4">
-                            <div class="featuredBoxItem">
-                                <div class="icon">
-                                    <img src="{{image($section->image)}}" alt="" />
-                                </div>
-                                <strong>{{$section->getName()}}</strong>
-                                <span>
+                    @endif
+                    @if($mainPages->count() > 0)
+                            <div class="row featuredBox">
+                                @foreach($mainPages as $section)
+                                    <div class="col-lg-4">
+                                        <div class="featuredBoxItem">
+                                            <div class="icon">
+                                                <img src="{{image($section->image)}}" alt="" />
+                                            </div>
+                                            <strong>{{$section->getName()}}</strong>
+                                            <span>
                                     {{$section->getValue()}}
                                 </span>
-                                <a href="{{$section->link}}" target="_blank">
-                                    {{$section->getButtonText()}}
-                                    <svg
-                                        width="10"
-                                        height="15"
-                                        viewBox="0 0 10 17"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            d="M1.2998 0.931641L8.7998 8.43164L1.2998 15.9316"
-                                            stroke="#43506E"
-                                            stroke-width="1.5"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                        />
-                                    </svg>
-                                </a>
+                                            <a href="{{$section->link}}" target="_blank">
+                                                {{$section->getButtonText()}}
+                                                <svg
+                                                    width="10"
+                                                    height="15"
+                                                    viewBox="0 0 10 17"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        d="M1.2998 0.931641L8.7998 8.43164L1.2998 15.9316"
+                                                        stroke="#43506E"
+                                                        stroke-width="1.5"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                    />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
-                        </div>
-                    @endforeach
+                    @endif
+
                 </div>
-            </div>
-        </section>
+            </section>
+
+
         <section id="sallonType">
             <div class="container">
                 <div class="row">
