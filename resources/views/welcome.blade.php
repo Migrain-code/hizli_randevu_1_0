@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('title', 'Anasayfa')
-@section('description', 'Description')
 @section('content')
     <article>
         <section id="homeBanner">
