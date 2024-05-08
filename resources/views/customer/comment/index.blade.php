@@ -45,7 +45,9 @@
                                                 <div class="commentsText">
                                                     <div class="commentsTop">
                                                         <a href="{{route('business.detail', $comment->business->slug)}}">{{$comment->business->name}}</a>
-                                                        <a href="{{route('customer.appointment.detail', $comment->appointment_id)}}">{{$comment->appointment_id}}</a>
+                                                        @if(isset($comment->appointment_id))
+                                                            <a href="{{route('customer.appointment.detail', $comment->appointment_id)}}">{{$comment->appointment_id}}</a>
+                                                        @endif
                                                     </div>
                                                     <p>
                                                         {{$comment->content}}
