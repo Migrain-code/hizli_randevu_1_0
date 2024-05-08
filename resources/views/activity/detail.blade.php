@@ -97,12 +97,11 @@
                                             <div class="js-photo-gallery">
                                                 <div class="owl-carousel">
                                                     @foreach($personels as $personel)
-                                                        @dd($personel)
                                                         <div class="item">
                                                             <div class="eventUserItem">
                                                                 <div class="photo">
-                                                                    <img src="{{image($personel->image)}}" alt=""/>
-                                                                    <span>{{$personel->name}}</span>
+                                                                    <img src="{{image($personel->personel->image)}}" alt=""/>
+                                                                    <span>{{$personel->personel->name}}</span>
                                                                 </div>
                                                             </div>
                                                         </div>
