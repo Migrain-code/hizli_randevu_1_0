@@ -91,7 +91,7 @@
         href="#https://instagram.com/{{$business->phone}}"
         class="d-flex align-items-center justify-content-center"
     >
-        <img src="/assets/images/instagram.png">
+        <img src="/assets/images/instagram.png" style="margin-right: 10px;width: 25px;height: 25px;">
         <span>Instagram</span>
     </a>
 </div>
