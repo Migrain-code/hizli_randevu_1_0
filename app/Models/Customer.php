@@ -73,6 +73,17 @@ class Customer extends Authenticatable
         Sms::send(clearPhone($this->phone), $message);
         return true;
     }
+    public function sendNotification($title, $message, $iconId = 1)
+    {
+        $notification = new CustomerNotificationMobile();
+        $notification->notification_id = $iconId;
+        $notification->title = $title;
+        $notification->content = $message;
+        $notification->status = 0;
+        $notification->slug = uniqid();
+        $notification->save();
+        return true;
+    }
     public function getMonthlyPackageSales()
     {
         $sales = [];
