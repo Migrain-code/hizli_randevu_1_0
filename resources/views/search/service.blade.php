@@ -5,6 +5,9 @@
     if (request()->routeIs('search.businessCategorySearch')){
         $title = $category->getMetaTitle();
         $description = $category->getMetaDescription();
+    } elseif (request()->routeIs('search.service')){
+        $title = $subCategory->getName(). " Hizmetlerinde Fiyatlar , Müşteri Deneyimleri, Kampanyalar ve İndirimler - Hemen Randevunuzu Alın!";
+        $description = $subCategory->getName(). " Hizmeti Sunan Tüm İşletmelerde: Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - En İyi Seçimi Yapmak İçin Her Şey Burada!";
     }
 @endphp
 @section('title', $title)

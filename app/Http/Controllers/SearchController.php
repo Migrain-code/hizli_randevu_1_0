@@ -19,7 +19,7 @@ class SearchController extends Controller
         $businessIds = BusinessService::where('sub_category', $subCategory->id)->pluck('business_id');
         $businesses = Business::whereIn('id', $businessIds)->latest('order_number')->paginate(12);
 
-        return view('search.service', compact('businesses'));
+        return view('search.service', compact('businesses', 'subCategory'));
     }
 
     public function cityAndCategory($city, $category)
