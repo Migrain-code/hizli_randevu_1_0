@@ -177,7 +177,7 @@
                                 <div
                                     class="copyRight d-flex align-items-center justify-content-center"
                                 >
-                                   {{now()->year}} © {{setting('speed_site_title')}}. Tüm hakları saklıdır.
+                                   {{now()->year}} © {{setting('speed_message_title')}}. Tüm hakları saklıdır.
                                 </div>
                             </div>
                             <div class="col-lg-4">
