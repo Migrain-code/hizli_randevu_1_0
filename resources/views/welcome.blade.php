@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Anasayfa')
+@section('title', setting('speed_site_title'))
 @section('content')
     <article>
         <section id="homeBanner">
