@@ -86,7 +86,8 @@
                                     <div class="pageText">
                                         {!! $activity->getDescription() !!}
                                     </div>
-                                    <div class="socialShare d-flex align-items-center my-4">
+                                    {{--
+                                        <div class="socialShare d-flex align-items-center my-4">
                                         <a href="javascript:;">
                                             <svg
                                                 width="14"
@@ -164,6 +165,7 @@
                                             </svg>
                                         </a>
                                     </div>
+                                    --}}
                                     @if($activity->personels->count() > 0)
                                         <div class="eventsUsers">
                                             <div
