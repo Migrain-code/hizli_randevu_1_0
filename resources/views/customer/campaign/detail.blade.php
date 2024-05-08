@@ -32,6 +32,7 @@
                                 <div class="pe-md-4">
                                     <div class="pageBanner mb-5">
                                         <img
+                                            style="max-height: 550px;object-fit: cover;"
                                             src="{{image($campaign->image)}}"
                                             class="w-100"
                                             alt=""
