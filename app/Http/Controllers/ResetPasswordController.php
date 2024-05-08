@@ -55,7 +55,7 @@ class ResetPasswordController extends Controller
                 $customer = Customer::where('phone', $smsConfirmation->phone)->first();
                 $customer->password = Hash::make($generatePassword);
                 if ($customer->save()){
-                    Sms::send($customer->phone, setting('speed_site_title') . " Giriş Yapmak için yeni şifreniz:  " . $generatePassword);
+                    Sms::send($customer->phone, setting('speed_message_title') . " Giriş Yapmak için yeni şifreniz:  " . $generatePassword);
                     return to_route('customer.login')->with('response', [
                         'status'=>"success",
                         'message'=>"Telefonunuz Doğrulandı. Yeni Şifreniz Numaranıza Sms Olarak Gönderildi"
@@ -83,7 +83,7 @@ class ResetPasswordController extends Controller
         $smsConfirmation->expire_at = now()->addMinute(3);
         $smsConfirmation->save();
 
-        Sms::send($smsConfirmation->phone, setting('speed_site_title') . " Şifre sıfırlama için, telefon numarası doğrulama kodunuz:  " . $generateCode);
+        Sms::send($smsConfirmation->phone, setting('speed_message_title') . " Şifre sıfırlama için, telefon numarası doğrulama kodunuz:  " . $generateCode);
 
         return $generateCode;
     }

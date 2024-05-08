@@ -40,7 +40,7 @@ function createVerifyCode($phone)
     $smsConfirmation->expire_at = now()->addMinute(3);
     $smsConfirmation->save();
 
-    Sms::send($phone,config('settings.speed_site_title'). " Sistemine giriş için, telefon numarası doğrulama kodunuz ". $generateCode);
+    Sms::send($phone,setting('speed_message_title'). " Sistemine giriş için, telefon numarası doğrulama kodunuz ". $generateCode);
 
     return $phone;
 }

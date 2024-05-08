@@ -50,7 +50,7 @@ class VerifyController extends Controller
                 $verifierCustomer->verify_phone = 1;
                 $verifierCustomer->status = 1;
                 if ($verifierCustomer->save()){
-                    Sms::send($verifierCustomer->phone, setting('speed_site_title') . " Sistemine Giriş İçin Yeni Şifreniz:  " . $generatePassword);
+                    Sms::send($verifierCustomer->phone, setting('speed_message_title') . " Sistemine Giriş İçin Yeni Şifreniz:  " . $generatePassword);
 
                     return to_route('customer.login')->with('response', [
                         'status'=>"success",
@@ -79,7 +79,7 @@ class VerifyController extends Controller
         $smsConfirmation->expire_at = now()->addMinute(3);
         $smsConfirmation->save();
 
-        Sms::send(clearPhone($phone), setting('speed_site_title') . " Sistemine Kayıt İçin Doğrulama Kodunuz:  " . $generateCode);
+        Sms::send(clearPhone($phone), setting('speed_message_title') . " Sistemine Kayıt İçin Doğrulama Kodunuz:  " . $generateCode);
 
         return $generateCode;
     }

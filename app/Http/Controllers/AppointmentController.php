@@ -408,7 +408,7 @@ class AppointmentController extends Controller
         $smsConfirmation->expire_at = now()->addMinute(3);
 
         $smsConfirmation->save();
-        Sms::send($phone, 'HızlıRandevu Sistemi randevunuz için doğrulama kodunuz: ' . $smsConfirmation->code);
+        Sms::send($phone, setting('speed_message_title').' Sistemi randevunuz için doğrulama kodunuz: ' . $smsConfirmation->code);
 
         return response()->json([
             'status' => "success",
