@@ -44,6 +44,26 @@
         });
 
     }
+    $('.appAlert').on('click', function (){
+        Swal.fire({
+            position: 'center',
+            icon: info,
+            title: "Mobil Uygulamalarımız Çok Yakında Marketlerde Yayında Olacak",
+            showConfirmButton: false,
+            timer: 3000,
+            background: '#fff',
+            customClass: {
+                title: 'text-primary fs-6',
+                content: 'text-dark',
+                popup: 'bg-light',
+
+            },
+            timerProgressBar: true,
+            width: '25rem',
+            height: '2.5rem',
+            fontsize:'15px'
+        });
+    })
 </script>
 @if(session('response'))
     <script>
