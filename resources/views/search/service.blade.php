@@ -20,6 +20,9 @@
     }elseif(request()->routeIs('search.businessCategoryAndCitySearch')){
         $title = $city->name. " ". $category->getName(). " Fiyatları & Kampanyaları - Gerçek Müşteri Yorumları | Randevu Al";
         $description = $city->name." ve Çevresindeki En İyi ".$category->getName(). " : Fiyatlar, Müşteri Yorumları, Kampanyalar, Tavsiyeler ve Daha Fazlası Burada! İhtiyacınıza Özel Randevu Alın.";
+    }elseif(request()->routeIs('search.serviceCategorySearch')){
+      $title = $category->getName(). " Hizmetlerinde Fiyatlar , Müşteri Deneyimleri, Kampanyalar ve İndirimler - Hemen Randevunuzu Alın!";
+      $description = $category->getName(). " Hizmeti Sunan Tüm İşletmelerde: Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - En İyi Seçimi Yapmak İçin Her Şey Burada!";
     }
 @endphp
 @section('title', $title)

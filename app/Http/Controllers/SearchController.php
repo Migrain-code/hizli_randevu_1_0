@@ -74,7 +74,7 @@ class SearchController extends Controller
                 $query->where('category', $category->id);
             })
             ->paginate(12);
-        return view('search.service', compact('businesses'));
+        return view('search.service', compact('businesses', 'category'));
     }
 
     public function serviceCityAndCategorySearch($city, $slug)
@@ -138,6 +138,7 @@ class SearchController extends Controller
 
     public function businessCategorySearch($category)
     {
+
         $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
         $businesses = Business::where('category_id', $category->id)->paginate(12);
         return view('search.service', compact('businesses', 'category'));
