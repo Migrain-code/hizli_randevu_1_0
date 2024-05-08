@@ -9,7 +9,7 @@
         <div class="col-lg-3 col-xl-2">
             <div class="boxItem">
                 <span>Toplam Ödenecek</span>
-                <strong>₺{{$packet->total}}</strong>
+                <strong>{{$packet->total}} TL</strong>
             </div>
         </div>
         <div class="col-lg-3 col-xl-2">
@@ -21,7 +21,7 @@
         <div class="col-lg-3 col-xl-2">
             <div class="boxItem">
                 <span>Paket Ödemesi Yaptınız</span>
-                <strong>₺{{$packet->payments->sum('price')}}</strong>
+                <strong>{{$packet->payments->sum('price')}} TL</strong>
             </div>
         </div>
         <div class="col-lg-3 col-xl-2">
@@ -33,7 +33,7 @@
         <div class="col-lg-3 col-xl-2">
             <div class="boxItem">
                 <span>Kalan Ödemeniz</span>
-                <strong>₺{{$packet->total -$packet->payments->sum('price')}}</strong>
+                <strong>{{$packet->total -$packet->payments->sum('price')}} TL</strong>
             </div>
         </div>
     </div>
