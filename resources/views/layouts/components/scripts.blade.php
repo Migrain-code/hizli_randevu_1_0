@@ -1,5 +1,5 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.1.60/inputmask/jquery.inputmask.js"></script>
+<script src="/assets/js/sweetalert2.js"></script>
+<script src="/assets/js/jquery.inputmask.js"></script>
 <script>
     $(".phone").inputmask({"mask": "0(999)-999-9999"});
     function toggleHeart(element) {
