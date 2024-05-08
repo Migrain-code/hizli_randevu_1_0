@@ -7,6 +7,7 @@ use App\Models\Ads;
 use App\Models\Blog;
 use App\Models\Business;
 use App\Models\BusinessCategory;
+use App\Models\City;
 use App\Models\CustomerContact;
 use App\Models\CustomerFaq;
 use App\Models\CustomerFaqCategory;
@@ -25,6 +26,14 @@ class HomeController extends Controller
 {
     public function index()
     {
+        foreach (District::all() as $dist){
+            $dist->name = ucfirst($dist->name);
+            $dist->save();
+        }
+        foreach (City::all() as $dist){
+            $dist->name = ucfirst($dist->name);
+            $dist->save();
+        }
         $brandList = Ads::where('type', 8)->get(); //Anasayfa marka reklamları
         $ads = Ads::where('type', 0)->get(); //Anasayfa reklamları
         $featuredServices = ServiceSubCategory::where('is_featured', 1)->orderBy('order_number', 'asc')->get();//öne çıkan hizmetler
