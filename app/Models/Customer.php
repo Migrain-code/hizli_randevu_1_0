@@ -81,6 +81,7 @@ class Customer extends Authenticatable
         $notification->content = $message;
         $notification->status = 0;
         $notification->slug = uniqid();
+        $notification->customer_id = $this->id;
         $notification->save();
         return true;
     }
