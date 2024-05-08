@@ -3,6 +3,13 @@
 @section('meta_description', 'Tüm Randevularım')
 @section('styles')
     <style>
+        @media screen and (max-width: 600px) {
+            .btn-pink {
+                height: 45px;
+                font-size: 12px;
+                padding: 10px 10px;
+            }
+        }
         @media (max-width: 1050px) {
             .table {
                 overflow: hidden;
