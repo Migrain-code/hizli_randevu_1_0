@@ -289,6 +289,7 @@
                 </div>
             </div>
         </div>
+        @if($activity->images->count() > 0)
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -304,91 +305,24 @@
                 <div class="col-12">
                     <div class="js-photo-gallery">
                         <div class="owl-carousel">
+                            @foreach($activity->images as $gallery)
                             <div class="item">
                                 <a
-                                    href="/assets/images/saloonCustomerPhoto.png"
-                                    data-lightbox="image-1"
-                                    data-title="My caption"
+                                    href="{{image($gallery->image)}}"
+                                    data-lightbox="image-{{$loop->index}}"
+                                    data-title="Etkinlik Görseli - {{$loop->index}}"
                                 >
-                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
+                                    <img src="{{image($gallery->image)}}" alt="" />
                                 </a>
                             </div>
-                            <div class="item">
-                                <a
-                                    href="/assets/images/saloonCustomerPhoto.png"
-                                    data-lightbox="image-1"
-                                    data-title="My caption"
-                                >
-                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a
-                                    href="/assets/images/saloonCustomerPhoto.png"
-                                    data-lightbox="image-1"
-                                    data-title="My caption"
-                                >
-                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a
-                                    href="/assets/images/saloonCustomerPhoto.png"
-                                    data-lightbox="image-1"
-                                    data-title="My caption"
-                                >
-                                    <img src="/assets/images/saloonCustomerPhoto.png" alt="" />
-                                </a>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="row">
-              <div class="col-12">
-                <div class="customerGallery">
-                  <div class="owl-carousel">
-                    <div class="item">
-                      <a
-                        href="assets/images/saloonCustomerPhoto.png"
-                        data-lightbox="image-1"
-                        data-title="My caption"
-                      >
-                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a
-                        href="assets/images/saloonCustomerPhoto.png"
-                        data-lightbox="image-1"
-                        data-title="My caption"
-                      >
-                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a
-                        href="assets/images/saloonCustomerPhoto.png"
-                        data-lightbox="image-1"
-                        data-title="My caption"
-                      >
-                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
-                      </a>
-                    </div>
-                    <div class="item">
-                      <a
-                        href="assets/images/saloonCustomerPhoto.png"
-                        data-lightbox="image-1"
-                        data-title="My caption"
-                      >
-                        <img src="assets/images/saloonCustomerPhoto.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+
         </div>
+        @endif
     </article>
     <div class="modal fade custom-modal" id="account_modal" role="dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
