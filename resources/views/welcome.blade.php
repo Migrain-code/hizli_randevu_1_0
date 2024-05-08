@@ -322,7 +322,7 @@
                                 <span>Türleri</span>
                             </div>
                             <p class="my-auto">
-                                {{main('speed_section_2_text')}}
+                                Her Tarza Uygun Salonlarımızda, Kendinizi İfade Edin ve Zarafetin Tadını Çıkarın!
                             </p>
                             {{--
                                 <div class="mt-auto">
