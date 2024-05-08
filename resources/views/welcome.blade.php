@@ -224,31 +224,34 @@
                 </div>
             </div>
         </section>
-        <section id="brandList">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="brandListSlider">
-                            <div class="owl-carousel owl-theme">
-                                @foreach($ads as $adBrand)
-                                    <div class="item">
-                                        <a href="{{$adBrand->link}}" target="_blank">
-                                            <img src="{{image($adBrand->logo ?? $adBrand->image)}}" alt="" />
-                                        </a>
-                                    </div>
-                                @endforeach
+        @if($brandList->count() > 0)
+            <section id="brandList">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="brandListSlider">
+                                <div class="owl-carousel owl-theme">
+                                    @foreach($brandList as $adBrand)
+                                        <div class="item">
+                                            <a href="{{$adBrand->link}}" target="_blank">
+                                                <img src="{{image($adBrand->logo ?? $adBrand->image)}}" alt="" />
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <a href="javascript:;" class="sliderPrev">
+                                    <img src="/assets/images/icons/ico-slider-left.svg" />
+                                </a>
+                                <a href="javascript:;" class="sliderNext">
+                                    <img src="/assets/images/icons/ico-slider-right.svg" />
+                                </a>
                             </div>
-                            <a href="javascript:;" class="sliderPrev">
-                                <img src="/assets/images/icons/ico-slider-left.svg" />
-                            </a>
-                            <a href="javascript:;" class="sliderNext">
-                                <img src="/assets/images/icons/ico-slider-right.svg" />
-                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
+
         <section id="featuredServices">
             <div class="container">
                 <div class="row">

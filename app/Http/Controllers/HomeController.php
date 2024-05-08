@@ -24,6 +24,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $brandList = Ads::where('type', 8)->get(); //Anasayfa marka reklamları
         $ads = Ads::where('type', 0)->get(); //Anasayfa reklamları
         $featuredServices = ServiceSubCategory::where('is_featured', 1)->orderBy('order_number', 'asc')->get();//öne çıkan hizmetler
         $featuredCategories = BusinessCategory::where('is_featured', 1)->where('status', 1)->take(6)->get();
@@ -31,7 +32,7 @@ class HomeController extends Controller
         $blogs = Blog::where('status', 1)->latest()->take(9)->get();
         $activities = Activity::where('status', 1)->latest()->take(4)->get();
         $mainPages = MaingPage::where('type', 0)->where('status', 1)->get();
-        return view('welcome', compact('ads', 'featuredServices', 'featuredCategories', 'blogs', 'activities', 'mainPages'));
+        return view('welcome', compact('brandList','ads', 'featuredServices', 'featuredCategories', 'blogs', 'activities', 'mainPages'));
     }
 
     public function businessId($id)
