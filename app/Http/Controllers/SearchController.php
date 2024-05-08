@@ -113,7 +113,11 @@ class SearchController extends Controller
         if ($request->filled('city_id') && $request->filled('category_id')){
             $city = City::find($request->input('city_id'));
             $category = BusinessCategory::find($request->input('category_id'));
-
+            $cityDistrict = explode('-', $request->city_id);
+            if (count($cityDistrict) == 2){
+                $district = District::find($cityDistrict[1]);
+                return to_route('search.businessCategoryAndCityAndDistrictSearch', [$city->slug,$district->slug, $category->getSlug()]);
+            }
             return to_route('search.businessCategoryAndCitySearch', [$city->slug, $category->getSlug()]);
         }
         else if ($request->filled('city_id')){
@@ -148,7 +152,21 @@ class SearchController extends Controller
             ->where('category_id', $category->id)
             ->paginate(12);
 
-        return view('search.service', compact('businesses'));
+        return view('search.service', compact('businesses', 'city', 'category'));
+    }
+
+    public function businessCategoryAndCityAndDistrictSearch($city,$districtSlug, $category)
+    {
+        $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
+        $city = City::where('slug', $city)->first();
+        $district = District::where('slug', $districtSlug)->first();
+
+        $businesses = Business::where('city', $city->id)
+            ->where('district', $district->id)
+            ->where('category_id', $category->id)
+            ->paginate(12);
+
+        return view('search.service', compact('businesses', 'district', 'category'));
     }
 
     public function salonName(Request $request)
