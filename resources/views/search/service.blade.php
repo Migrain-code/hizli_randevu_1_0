@@ -8,8 +8,12 @@
     } elseif (request()->routeIs('search.service')){
         $title = $subCategory->getName(). " Hizmetlerinde Fiyatlar , Müşteri Deneyimleri, Kampanyalar ve İndirimler - Hemen Randevunuzu Alın!";
         $description = $subCategory->getName(). " Hizmeti Sunan Tüm İşletmelerde: Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - En İyi Seçimi Yapmak İçin Her Şey Burada!";
-    } elseif (request()->routeIs('search.service')){
-
+    } elseif (request()->routeIs('search.serviceCityAndCategorySearch')){
+        $title = $city->name. " ". $category->getName(). " Fiyatları & Kampanyaları - Gerçek Müşteri Yorumları | Randevu Al";
+        $description = $city->name." ve Çevresindeki En İyi ".$category->getName(). " Hizmetleri: Fiyatlar, Müşteri Yorumları, Kampanyalar, Tavsiyeler ve Daha Fazlası Burada! İhtiyacınıza Özel Randevu Alın.";
+    } elseif (request()->routeIs('search.serviceCityAndDistrictCategorySearch')){
+        $title = $district->name. " ". $category->getName(). " Fiyatları & Kampanyaları - Gerçek Müşteri Yorumları | Randevu Al";
+        $description = $district->name." ve Çevresindeki En İyi ".$category->getName(). " Hizmetleri: Fiyatlar, Müşteri Yorumları, Kampanyalar, Tavsiyeler ve Daha Fazlası Burada! İhtiyacınıza Özel Randevu Alın.";
     }
 @endphp
 @section('title', $title)

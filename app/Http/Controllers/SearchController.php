@@ -89,24 +89,24 @@ class SearchController extends Controller
             })
             ->paginate(12);
 
-        return view('search.service', compact('businesses'));
+        return view('search.service', compact('businesses', 'city', 'category'));
     }
-    public function serviceCityAndDistrictCategorySearch($city,$district, $slug)
+    public function serviceCityAndDistrictCategorySearch($city,$districtSlug, $slug)
     {
 
         $city = City::where('slug', $city)->first();
-        $districtO = District::where('slug', $district)->first();
+        $district = District::where('slug', $districtSlug)->first();
         $category = ServiceCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->first();
 
         $businesses = Business::query()
             ->where('city', $city->id)
-            ->where('district', $districtO->id)
+            ->where('district', $district->id)
             ->whereHas('services', function ($query) use ($category) {
                 $query->where('category', $category->id);
             })
             ->paginate(12);
 
-        return view('search.service', compact('businesses'));
+        return view('search.service', compact('businesses', 'district', 'category'));
     }
     public function businessCategoryAndCity(Request $request)
     {
