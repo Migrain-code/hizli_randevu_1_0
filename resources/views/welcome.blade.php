@@ -80,7 +80,14 @@
                                                             <option value="">Şehir Seçin</option>
 
                                                             @foreach($cities as $city)
-                                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                                @if($city->featuredDistricts->count() > 0)
+                                                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                                                    @foreach($city->featuredDistricts as $district)
+                                                                        <option value="{{$city->id. "-". $district->id}}">{{$city->name. ", ". $district->name}}</option>
+                                                                    @endforeach
+                                                                @else
+                                                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                                                @endif
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -133,7 +140,14 @@
                                                     <select class="tomSelect" name="city_id" placeholder="Şehir Seçin">
                                                         <option value="">Şehir Seçin</option>
                                                         @foreach($cities as $city)
-                                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                                            @if($city->featuredDistricts->count() > 0)
+                                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                                @foreach($city->featuredDistricts as $district)
+                                                                    <option value="{{$city->id. "-". $district->id}}">{{$city->name. ", ". $district->name}}</option>
+                                                                @endforeach
+                                                            @else
+                                                                <option value="{{$city->id}}">{{$city->name}}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>

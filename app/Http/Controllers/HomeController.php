@@ -11,6 +11,7 @@ use App\Models\CustomerContact;
 use App\Models\CustomerFaq;
 use App\Models\CustomerFaqCategory;
 use App\Models\DayList;
+use App\Models\District;
 use App\Models\FeaturedCategorie;
 use App\Models\MaingPage;
 use App\Models\Page;

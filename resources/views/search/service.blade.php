@@ -8,6 +8,8 @@
     } elseif (request()->routeIs('search.service')){
         $title = $subCategory->getName(). " Hizmetlerinde Fiyatlar , Müşteri Deneyimleri, Kampanyalar ve İndirimler - Hemen Randevunuzu Alın!";
         $description = $subCategory->getName(). " Hizmeti Sunan Tüm İşletmelerde: Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - En İyi Seçimi Yapmak İçin Her Şey Burada!";
+    } elseif (request()->routeIs('search.service')){
+
     }
 @endphp
 @section('title', $title)

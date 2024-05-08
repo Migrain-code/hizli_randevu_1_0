@@ -62,6 +62,7 @@ Route::controller(SearchController::class)->prefix('ara')->as('search.')->group(
     Route::get('/sehire-gore-ara/{city}', 'citySearch')->name('citySearch');
     Route::get('/hizmete-gore-ara/{service}', 'serviceCategorySearch')->name('serviceCategorySearch');
     Route::get('/hizmete-ve-sehire-gore-ara/{city}/{service}', 'serviceCityAndCategorySearch')->name('serviceCityAndCategorySearch');
+    Route::get('/sehire-ilce-hizmet-ara/{city}/{district}/{service}', 'serviceCityAndDistrictCategorySearch')->name('serviceCityAndDistrictCategorySearch');
 
     Route::post('/ture-gore-ara', 'businessCategoryAndCity')->name('businessCategoryAndCity');
     Route::get('/ture-gore-ara/{category}', 'businessCategorySearch')->name('businessCategorySearch');

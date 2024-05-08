@@ -13,4 +13,9 @@ class City extends Model
     {
         return $this->hasMany(District::class, 'city_id','id');
     }
+
+    public function featuredDistricts()
+    {
+        return $this->districts()->where('is_featured', 1);
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\Business;
 use App\Models\BusinessCategory;
 use App\Models\BusinessService;
 use App\Models\City;
+use App\Models\District;
 use App\Models\ServiceCategory;
 use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
@@ -35,7 +36,11 @@ class SearchController extends Controller
         if ($request->filled('city_id') && $request->filled('service_id')){
             $city = City::find($request->input('city_id'));
             $category = ServiceCategory::find($request->input('service_id'));
-
+            $cityDistrict = explode('-', $request->city_id);
+            if (count($cityDistrict) == 2){
+                $district = District::find($cityDistrict[1]);
+                return to_route('search.serviceCityAndDistrictCategorySearch', [$city->slug,$district->slug, $category->getSlug()]);
+            }
             return to_route('search.serviceCityAndCategorySearch', [$city->slug, $category->getSlug()]);
         }
         else if ($request->filled('city_id')){
@@ -86,7 +91,23 @@ class SearchController extends Controller
 
         return view('search.service', compact('businesses'));
     }
+    public function serviceCityAndDistrictCategorySearch($city,$district, $slug)
+    {
 
+        $city = City::where('slug', $city)->first();
+        $districtO = District::where('slug', $district)->first();
+        $category = ServiceCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->first();
+
+        $businesses = Business::query()
+            ->where('city', $city->id)
+            ->where('district', $districtO->id)
+            ->whereHas('services', function ($query) use ($category) {
+                $query->where('category', $category->id);
+            })
+            ->paginate(12);
+
+        return view('search.service', compact('businesses'));
+    }
     public function businessCategoryAndCity(Request $request)
     {
         if ($request->filled('city_id') && $request->filled('category_id')){
