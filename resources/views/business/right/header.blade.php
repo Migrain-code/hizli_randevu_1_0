@@ -89,7 +89,7 @@
     </a>
 
     <a
-        href="#https://instagram.com/{{$business->phone}}"
+        href="https://instagram.com/{{$business->phone}}"
         class="d-flex align-items-center justify-content-center"
     >
         <svg
