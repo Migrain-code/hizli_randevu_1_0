@@ -19,7 +19,7 @@ class SearchController extends Controller
         $subCategory = ServiceSubCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->firstOrFail();/*hizmet kategorisini bul*/
 
         $businessIds = BusinessService::where('sub_category', $subCategory->id)->pluck('business_id');
-        $businesses = Business::whereIn('id', $businessIds)->latest('order_number')->paginate(12);
+        $businesses = Business::whereIn('id', $businessIds)->has('services')->latest('order_number')->paginate(12);
 
         return view('search.service', compact('businesses', 'subCategory'));
     }
@@ -28,7 +28,7 @@ class SearchController extends Controller
     {
         $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
         $city = City::where('slug', $city)->first();
-        $businesses = Business::where('city', $city)->where('category_id', $category)->latest('order_number')->paginate(12);
+        $businesses = Business::where('city', $city)->where('category_id', $category)->has('services')->latest('order_number')->paginate(12);
         return view('search.service', compact('businesses', 'city', 'category'));
     }
 
@@ -63,7 +63,8 @@ class SearchController extends Controller
     public function citySearch($slug)
     {
         $city = City::where('slug', $slug)->first();
-        $businesses = Business::where('city', $city->id)->paginate(12);
+        $businesses = Business::where('city', $city->id)
+            ->has('services')->paginate(12);
         return view('search.service', compact('businesses'));
     }
 
@@ -71,6 +72,7 @@ class SearchController extends Controller
     {
         $category = ServiceCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->first();
         $businesses = Business::query()
+            ->has('services')
             ->whereHas('services', function ($query) use ($category) {
                 $query->where('category', $category->id);
             })
@@ -85,6 +87,7 @@ class SearchController extends Controller
 
         $businesses = Business::query()
             ->where('city', $city->id)
+            ->has('services')
             ->whereHas('services', function ($query) use ($category) {
                 $query->where('category', $category->id);
             })
@@ -102,6 +105,7 @@ class SearchController extends Controller
         $businesses = Business::query()
             ->where('city', $city->id)
             ->where('district', $district->id)
+            ->has('services')
             ->whereHas('services', function ($query) use ($category) {
                 $query->where('category', $category->id);
             })
@@ -139,9 +143,8 @@ class SearchController extends Controller
 
     public function businessCategorySearch($category)
     {
-
         $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
-        $businesses = Business::where('category_id', $category->id)->paginate(12);
+        $businesses = Business::where('category_id', $category->id)->has('services')->paginate(12);
         return view('search.service', compact('businesses', 'category'));
     }
 
@@ -152,6 +155,7 @@ class SearchController extends Controller
 
         $businesses = Business::where('city', $city->id)
             ->where('category_id', $category->id)
+            ->has('services')
             ->paginate(12);
 
         return view('search.service', compact('businesses', 'city', 'category'));
@@ -166,6 +170,7 @@ class SearchController extends Controller
         $businesses = Business::where('city', $city->id)
             ->where('district', $district->id)
             ->where('category_id', $category->id)
+            ->has('services')
             ->paginate(12);
 
         return view('search.service', compact('businesses', 'district', 'category'));
@@ -174,6 +179,7 @@ class SearchController extends Controller
     public function salonName(Request $request)
     {
         $businesses = Business::select('id', 'name')->where('name', 'like', '%' . $request->q . '%')
+            ->has('services')
             ->take(50)
             ->get();
 
