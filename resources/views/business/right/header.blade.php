@@ -63,8 +63,9 @@
         <span>Yorumlar</span>
     </a>
     <a
-        href="#address"
+        href="javascript:void(0)"
         class="d-flex align-items-center justify-content-center"
+        onclick="openGoogleMaps()"
     >
         <svg
             width="25"
