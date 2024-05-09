@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @php
     $title = $business->name. " Hemen Randevu Al - Fiyatları ve Yorumları ". $business->cities->name. " ". $business->districts->name;
-    $descriptiton = $business->name. " işletmesinin gerçek müşteri yorumları, fotoğrafları, kampanyaları, adresi ve çalışma saatlerini görüntüleyin. Ayrıca, ".$business->districts->name.", ".$business->cities->name." konumunu harita üzerinde bulun ve yol tarifi alın."
+    $description = $business->name. " işletmesinin gerçek müşteri yorumları, fotoğrafları, kampanyaları, adresi ve çalışma saatlerini görüntüleyin. Ayrıca, ".$business->districts->name.", ".$business->cities->name." konumunu harita üzerinde bulun ve yol tarifi alın."
 @endphp
 @section('title', $title)
 @section('description', $description)
