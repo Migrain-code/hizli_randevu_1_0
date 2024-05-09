@@ -4,6 +4,7 @@
     <style>
         iframe {
             border-radius: 15px;
+            width: 100%;
         }
 
         .detailRating .stars i {
