@@ -26,3 +26,5 @@
       $description = $city->name." ".$category->getName(). "Tüm Berberler : Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - Herkes için En İyi Berberi Bulun!";
     }
 @endphp
+@section('title', $title)
+@section('description', $description)
