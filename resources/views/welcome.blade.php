@@ -1,5 +1,15 @@
 @extends('layouts.master')
 @section('title', setting('speed_site_title'))
+@section('style')
+    <style>
+        @media screen and (max-width: 1600px) {
+            #studiosTab {
+                padding: 80px 0;
+                display: none;
+            }
+        }
+    </style>
+@endsection
 @section('content')
     <article>
         <section id="homeBanner">
