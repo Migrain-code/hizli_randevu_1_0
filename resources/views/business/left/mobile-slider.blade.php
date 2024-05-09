@@ -3,10 +3,10 @@
         id=""
         class="owl-carousel owl-theme saloonDetailSlider1"
     >
-        @forelse($business->sliders as $slider)
+        @forelse($business->gallery as $slider)
             <div class="item">
                 <div class="saloonDetailSliderBigPhoto">
-                    <img src="{{image($slider->image)}}" alt=""/>
+                    <img src="{{image($slider->way)}}" alt="{{$slider->name}}"/>
                 </div>
             </div>
         @empty
@@ -17,11 +17,11 @@
         id=""
         class="owl-carousel owl-theme saloonDetailSlider2"
     >
-        @forelse($business->sliders as $slider)
+        @forelse($business->gallery as $slider)
             <div class="item">
             <div class="saloonDetailSliderMiniPhoto">
                 <img
-                    src="{{image($slider->image)}}"
+                    src="{{image($slider->way)}}"
                     class="w-100"
                     alt=""
                 />
