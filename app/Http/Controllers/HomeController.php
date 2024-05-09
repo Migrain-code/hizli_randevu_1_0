@@ -48,6 +48,7 @@ class HomeController extends Controller
             ->first();
         if ($business){
             $dayList = DayList::all();
+
             $womanServicesArray = $business->services()->where('type', 1)->with('categorys')->get();
             $womanServiceCategories = $womanServicesArray->groupBy('categorys.name');
             $womanServices = $this->transformServices($womanServiceCategories);
@@ -59,7 +60,7 @@ class HomeController extends Controller
             $unisexServicesArray = $business->services()->where('type', 3)->with('categorys')->get();
             $unisexServiceCategories = $unisexServicesArray->groupBy('categorys.name');
             $unisexServices = $this->transformServices($unisexServiceCategories);
-            dd($womanServices);
+
             return view('business.detail', compact('business', 'dayList', 'womanServices', 'manServices', 'unisexServices'));
 
         }
