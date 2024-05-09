@@ -86,7 +86,7 @@
             />
         </svg>
 
-        <span>Adres</span>
+        <span>Konum</span>
     </a>
 
     <a

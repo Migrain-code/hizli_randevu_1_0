@@ -58,7 +58,8 @@
                                     <div class="detailBoxContent mb-3">
                                         {{$business->address}}
                                     </div>
-                                    <div id="map"></div>
+                                    {!! $business->embed !!}
+
                                 </div>
                                 @include('business.left.personel.list')
                                 @include('business.left.work-time')
@@ -96,13 +97,6 @@
             // Yeni bir pencerede Google Haritalar'ı açın
             window.open(mapsURL);
         }
-        $(function (){
-            var embedURL = 'https://www.google.com/maps/embed/v1/view?key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U&center=' + lat + ',' + lng + '&zoom=15';
-
-            // İlgili div içine iframe ekleyin
-            var mapDiv = document.getElementById('map');
-            mapDiv.innerHTML = '<iframe width="100%" height="400px" frameborder="0" style="border:0" src="' + embedURL + '" allowfullscreen></iframe>';
-
-        });
     </script>
+
 @endsection
