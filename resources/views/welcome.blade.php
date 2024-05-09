@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title', setting('speed_site_title'))
-@section('style')
+@section('styles')
     <style>
         @media screen and (max-width: 1600px) {
             #studiosTab {
