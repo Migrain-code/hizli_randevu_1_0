@@ -3,7 +3,7 @@
     <span>{{$business->name}}</span>
 </div>
 <div
-    class="infoRating d-flex align-items-center justify-content-start"
+    class="infoRating d-flex align-items-center justify-content-start" style="flex-direction: row;gap: 16px"
 >
     @php
         $averageRating = $business->comments->count() > 0 ? number_format($business->comments()->sum('point') / $business->comments->count(), 1) : 0
@@ -14,13 +14,12 @@
                aria-hidden="true"></i>
         @endfor
     </div>
-    <span>{{number_format($averageRating, 1)}}</span>
-    <span>{{$business->comments->count()}} Ziyaretçi Puanı İle</span>
+    <span>[{{number_format($averageRating, 1)}}]</span>
+    <div>({{$business->comments->count()}} Yorumu Oku)</div>
 </div>
-<div class="description">
-    Listelenen fiyatlar bilgi amaçlıdır ve güncel tutulması
-    işletmenin sorumluluğundadır. Fiyatları teyit etmek için
-    bu sayfadaki numara üzerinden işletmeye ulaşabilirsiniz.
+<div class="description" style="background-color: aliceblue;border-radius: 15px;">
+    Fiyatlar bilgilendirme amaçlı olup, güncel tutulması işletmenin sorumluluğundadır.
+    Güncel fiyat bilgisi için lütfen işletme ile iletişime geçiniz.
 </div>
 
 <div class="linkGroup d-flex align-items-center">
