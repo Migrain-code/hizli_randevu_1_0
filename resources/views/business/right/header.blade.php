@@ -91,6 +91,7 @@
     <a
         href="https://instagram.com/{{$business->phone}}"
         class="d-flex align-items-center justify-content-center"
+        target="_blank"
     >
         <svg
             width="25"
