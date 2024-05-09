@@ -13,7 +13,8 @@
         @endforelse
 
     </div>
-    <div
+    {{--
+        <div
         id=""
         class="owl-carousel owl-theme saloonDetailSlider2"
     >
@@ -30,4 +31,5 @@
         @empty
         @endforelse
     </div>
+    --}}
 </div>

@@ -19,6 +19,17 @@
         .commentsText {
             width: 100%;
         }
+        @media screen and (max-width: 768px) {
+            .saloonDetailSliders .saloonDetailSlider1 .saloonDetailSliderBigPhoto img {
+                border-radius: 15px;
+                height: 260px;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+            }
+        }
+
     </style>
 @endsection
 @section('content')
