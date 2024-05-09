@@ -1,5 +1,8 @@
 @extends('layouts.master')
-@section('title', 'İşletme Detayı')
+@php
+    $title = $business->name. " Hemen Randevu Al - Fiyatları ve Yorumları ". $business->cities->name ?? "". " ". $business->districts->name ?? "";
+@endphp
+@section('title', $title)
 @section('styles')
     <style>
         iframe {
