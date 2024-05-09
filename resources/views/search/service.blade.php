@@ -1,4 +1,8 @@
 @extends('layouts.master')
+@php
+    $title = "Salon Ara";
+    $description = "Salon Ara";
+@endphp
 @include('search.parts.meta')
 @section('title', $title)
 @section('description', $description)

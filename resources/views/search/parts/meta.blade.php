@@ -1,6 +1,5 @@
 @php
-    $title = "Salon Ara";
-    $description = "Salon Ara";
+
     if (request()->routeIs('search.businessCategorySearch')){
         $title = $category->getMetaTitle();
         $description = $category->getMetaDescription();
