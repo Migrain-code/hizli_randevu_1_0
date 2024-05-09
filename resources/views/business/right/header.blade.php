@@ -17,7 +17,7 @@
     <span>[{{number_format($averageRating, 1)}}]</span>
     <div>({{$business->comments->count()}} Yorumu Oku)</div>
 </div>
-<div class="description" style="background-color: aliceblue;border-radius: 15px;">
+<div class="description" style="background-color: aliceblue;border-radius: 15px;padding: 10px">
     Fiyatlar bilgilendirme amaçlı olup, güncel tutulması işletmenin sorumluluğundadır.
     Güncel fiyat bilgisi için lütfen işletme ile iletişime geçiniz.
 </div>
