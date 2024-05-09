@@ -54,7 +54,7 @@ class Business extends Authenticatable
 
     public function services()
     {
-        return $this->allServices()->where('is_delete', 0);
+        return $this->allServices()->where('type', $this->type_id)->where('is_delete', 0);
     }
 
     public function singleService($id)
