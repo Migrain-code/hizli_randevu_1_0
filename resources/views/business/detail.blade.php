@@ -35,7 +35,7 @@
 @section('content')
     <article id="page">
         <section id="breadcrumbs" class="my-5 py-2">
-            <div class="container">
+            <div class="container mobile-hidden">
                 <div class="row">
                     <div class="col-12">
                         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
