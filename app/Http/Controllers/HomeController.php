@@ -59,7 +59,7 @@ class HomeController extends Controller
             $unisexServicesArray = $business->services()->where('type', 3)->with('categorys')->get();
             $unisexServiceCategories = $unisexServicesArray->groupBy('categorys.name');
             $unisexServices = $this->transformServices($unisexServiceCategories);
-
+            dd($womanServices);
             return view('business.detail', compact('business', 'dayList', 'womanServices', 'manServices', 'unisexServices'));
 
         }
