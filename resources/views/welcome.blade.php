@@ -5,7 +5,7 @@
         @media screen and (max-width: 1600px) {
             #studiosTab {
                 padding: 80px 0;
-                display: none;
+                display: none !important;
             }
         }
     </style>
