@@ -1,5 +1,5 @@
 @if(isset(request()["request"]["step"]))
-    <form method="post" id="step-4-form" action="{{route('appointment.create')}}">
+    <form method="post" id="step-4-form" action="{{route('appointment.create')}}" class="userInfoContainer">
      @csrf
     @foreach($ap_services as $service)
         <input type="hidden" name="services[]" value="{{$service->id}}">

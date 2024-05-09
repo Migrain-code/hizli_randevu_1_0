@@ -44,38 +44,73 @@
                                                 id="pills-tab"
                                                 role="tablist"
                                             >
-                                                <li class="nav-item" role="presentation">
-                                                    <button
-                                                        class="nav-link active"
-                                                        id="pills-1-tab"
-                                                        data-bs-toggle="pill"
-                                                        data-bs-target="#pills-1"
-                                                        type="button"
-                                                        role="tab"
-                                                        aria-controls="pills-1"
-                                                        aria-selected="true"
-                                                    >
-                                                        Erkekler
-                                                    </button>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button
-                                                        class="nav-link"
-                                                        id="pills-2-tab"
-                                                        data-bs-toggle="pill"
-                                                        data-bs-target="#pills-2"
-                                                        type="button"
-                                                        role="tab"
-                                                        aria-controls="pills-2"
-                                                        aria-selected="false"
-                                                    >
-                                                        Kadınlar
-                                                    </button>
-                                                </li>
+                                                @if($business->type_id == 2)
+                                                    <li class="nav-item" role="presentation">
+                                                        <button
+                                                            class="nav-link active"
+                                                            id="pills-1-tab"
+                                                            data-bs-toggle="pill"
+                                                            data-bs-target="#pills-1"
+                                                            type="button"
+                                                            role="tab"
+                                                            aria-controls="pills-1"
+                                                            aria-selected="true"
+                                                        >
+                                                            Erkek Hizmetleri
+                                                        </button>
+                                                    </li>
+                                                @endif
+                                                @if($business->type_id == 1 || $business->type->id == 3)
+                                                        <li class="nav-item" role="presentation">
+                                                            <button
+                                                                class="nav-link active"
+                                                                id="pills-2-tab"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#pills-2"
+                                                                type="button"
+                                                                role="tab"
+                                                                aria-controls="pills-2"
+                                                                aria-selected="false"
+                                                            >
+                                                                Kadın Hizmetleri
+                                                            </button>
+                                                        </li>
+                                                @endif
+                                                @if($business->type_id == 3)
+                                                        <li class="nav-item" role="presentation">
+                                                            <button
+                                                                class="nav-link active"
+                                                                id="pills-1-tab"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#pills-1"
+                                                                type="button"
+                                                                role="tab"
+                                                                aria-controls="pills-1"
+                                                                aria-selected="true"
+                                                            >
+                                                                Erkek Hizmetleri
+                                                            </button>
+                                                        </li>
+                                                        <li class="nav-item" role="presentation">
+                                                            <button
+                                                                class="nav-link"
+                                                                id="pills-2-tab"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#pills-2"
+                                                                type="button"
+                                                                role="tab"
+                                                                aria-controls="pills-2"
+                                                                aria-selected="false"
+                                                            >
+                                                                Kadın Hizmetleri
+                                                            </button>
+                                                        </li>
+                                                @endif
+
                                             </ul>
                                             <div class="tab-content" id="pills-tabContent">
                                                 <div
-                                                    class="tab-pane fade show active"
+                                                    class="tab-pane fade @if($business->type_id == 2) show active @endif"
                                                     id="pills-1"
                                                     role="tabpanel"
                                                     aria-labelledby="pills-home-tab"
@@ -149,7 +184,7 @@
                                                     </div>
                                                 </div>
                                                 <div
-                                                    class="tab-pane fade"
+                                                    class="tab-pane fade @if($business->type_id == 1 || $business->type->id == 3) show active @endif"
                                                     id="pills-2"
                                                     role="tabpanel"
                                                     aria-labelledby="pills-profile-tab"

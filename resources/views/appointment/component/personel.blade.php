@@ -20,7 +20,7 @@
                     class="customSelect iconSelect servicesSelect customTomSelect"
                 >
                     <select class="tomSelect" name="personels[]"  @if($loop->last) id="lastSelect" @endif required>
-                        <option value="">{{$service->subCategory->name}} için Personel Seçiniz</option>
+                        <option value="">Personel Seçiniz</option>
                         @forelse($service->personels as $service_personel)
                             <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
                         @empty

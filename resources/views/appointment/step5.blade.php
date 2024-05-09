@@ -6,6 +6,29 @@
             margin: 0 !important;
             margin-top: 50px !important;
         }
+        .servicesSuccess .servicesSuccessContent strong {
+            display: block;
+            font-weight: 400;
+            font-size: 21.6009px;
+            line-height: 41px;
+            color: var(--lightblue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .servicesSuccess .servicesSuccessContent strong {
+            display: block;
+            font-weight: 600;
+            font-size: 21.6009px;
+            line-height: 26px;
+            color: var(--lightblue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .servicesSuccess .servicesSuccessContent {
+            text-align: center;
+            max-width: 700px;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -21,16 +44,16 @@
                                 >
                                     <div class="servicesSuccessContent">
                                         <img src="/assets/images/success.svg" alt="" />
-                                        <strong>Randevu Başarıyla Alındı!!</strong>
+                                        <strong>Randevu talebiniz başarıyla kaydedildi. İşletmemizden kısa bir süre içinde yanıt alacaksınız.</strong>
                                         <p>
-                                            <strong>
-                                                {{$business->name}}
-                                            </strong>
-
-                                            <strong> işletmesine {{$appointment->start_time}} - {{$appointment->end_time}} arasında randevu alındı</strong>
-
+                                            <strong> "İlginiz için teşekkür ederiz!"</strong>
                                         </p>
-                                        <a href="/" class="btn-pink">Anasayfaya Dön</a>
+                                        @if(auth('customer')->check())
+                                            <a href="{{route('customer.appointment.index')}}" class="btn-pink">Randevularıma Git</a>
+                                        @else
+                                            <a href="/" class="btn-pink">Anasayfaya Dön</a>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>

@@ -15,7 +15,18 @@
             >
                 <span>Personeller</span>
                 <span>
+                    @forelse($selectedPersonels as $personel)
+                        <div style="
+                            border-bottom: 1px dashed #848f9c70;
+                            /* border: 1px solid red; */
+                            padding: 5px;
+                            font-weight: bold;
+                            font-size: 18px;
+                        ">{{$personel->name}} </div>
 
+                    @empty
+                        Personel Seçilmedi
+                    @endforelse
                 </span>
             </div>
         </div>
@@ -24,7 +35,7 @@
                 class="d-flex align-items-center justify-content-between"
             >
                 <span>Tarih</span>
-                <span>2023-09-23</span>
+                <span id="selectedTime">{{now()->format('d.m.Y')}}</span>
             </div>
         </div>
         <div class="summaryItem">
@@ -32,7 +43,7 @@
                 class="d-flex align-items-center justify-content-between"
             >
                 <span>Saat</span>
-                <span>21:00</span>
+                <span id="selectedClockContainer">Saat Seçilmedi</span>
             </div>
         </div>
         <div class="summaryItem">
@@ -47,28 +58,6 @@
                 @forelse($selectedServices as $service)
                     <div class="summaryServicesItem">
                         <span>{{$service->subCategory->name . "(" . $service->gender->name ." )"}}</span>
-                        <a href="javascript:;"
-                        ><svg
-                                width="15"
-                                height="15"
-                                viewBox="0 0 15 15"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M4.2207 10.4158L9.99541 4.64107"
-                                    stroke="#43506E"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                                <path
-                                    d="M4.2207 4.64087L9.99541 10.4156"
-                                    stroke="#43506E"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-                        </a>
                     </div>
 
                 @empty

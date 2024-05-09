@@ -43,6 +43,7 @@ class AppointmentController extends Controller
         $ap_services = [];
         $selectedPersonelIds = [];
         $personels = [];
+        $selectedPersonels = [];
         $remainingDate = [];
         $offDay = [];
         $filledTime = [];
@@ -69,6 +70,7 @@ class AppointmentController extends Controller
                 foreach ($selectedPersonelIds as $personel_id) {
                     $personels[] = Personel::find($personel_id);
                 }
+                $selectedPersonels = Personel::whereIn('id', array_unique($selectedPersonelIds))->get();
                 for ($i = 0; $i < $remainingDays; $i++) {
                     $days = Carbon::now()->addDays($i);
                     if ($days < Carbon::now()->endOfMonth()) {
@@ -86,7 +88,7 @@ class AppointmentController extends Controller
         }
 
         /*end modal queries*/
-        return view('appointment.step1', compact('business', 'personels', 'remainingDate', 'disabledDays', 'selectedPersonelIds', 'manServiceCategories', 'womanServiceCategories', 'womanCategories', 'manCategories', 'selectedServices', 'serviceIds', 'ap_services'));
+        return view('appointment.step1', compact('business', 'personels', 'remainingDate', 'disabledDays', 'selectedPersonelIds', 'manServiceCategories', 'womanServiceCategories', 'womanCategories', 'manCategories', 'selectedServices', 'serviceIds', 'ap_services', 'selectedPersonels'));
     }
 
     public function step1Store(Request $request)

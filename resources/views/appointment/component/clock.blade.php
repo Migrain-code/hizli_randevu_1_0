@@ -1,5 +1,5 @@
 @if(isset(request()["request"]["step"]))
-<div class="servicesBox">
+<div class="servicesBox clockSelectContainer">
     <div
         class="d-flex align-items-center justify-content-between"
     >

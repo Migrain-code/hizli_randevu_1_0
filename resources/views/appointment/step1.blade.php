@@ -44,7 +44,13 @@
             color: #f22969;
             border: 1px solid #f22969;
         }
-
+        .servicesLists .servicesItem.checkServicesItem input + .checkServicesItemContent {
+            display: block;
+            padding: 25px;
+            background: rgba(67, 80, 110, 0.03);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
     </style>
     <style>
         #loader {
@@ -165,11 +171,13 @@
     </script>
     <script>
         $(document).on('change','.active-time',function() {
-
+            scrollToElement('userInfoContainer');
             $('#times').html('');
 
             $('.active-time:checked').each(function() {
                 var selectedValue = $(this).val();
+                var selectedClock = $(this).data('clock');
+                $('#selectedClockContainer').text(selectedClock);
                 var name = $(this).attr('name');
 
                 $('#times').append('<input type="hidden" name="' + name + '" value="' + selectedValue + '">');
@@ -187,8 +195,15 @@
         document.addEventListener("DOMContentLoaded", function() {
             clickedDate('{{now()->format('d.m.Y')}}');
         });
+
         var newToken = '{{csrf_token()}}';
         function clickedDate(clickedTime){
+            scrollToElement('clockSelectContainer');
+            if (clickedTime instanceof Date && !isNaN(clickedTime)) {
+                clickedTime = formatDate(clickedTime);
+
+            }
+            $('#selectedTime').text(clickedTime);
             var appointmentInput = document.querySelector('input[name="appointment_date"]');
             appointmentInput.value= clickedTime;
 
@@ -221,7 +236,7 @@
                                 ${clock.durum ? '' : 'disabled'}
                                 type="radio"
                                 name="appointment_time"
-
+                                data-clock="${clock["saat"]}"
                                 value="${clock["value"]}"
                             />
                             <span>${clock["saat"]}</span>
@@ -252,6 +267,7 @@
                             if (result.isConfirmed) {
                                 if (clickedTime instanceof Date && !isNaN(clickedTime)) {
                                     clickedTime = formatDate(clickedTime);
+
                                 }
                                 var parts = clickedTime.split('.'); // Tarihi parçalara ayır
 
@@ -313,17 +329,7 @@
                 return;
             }
 
-            // Telefon numarasını kontrol et
-            const phoneRegex = /^(?!0)(\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/;
 
-            if (!phoneRegex.test(phoneNumber)) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Geçerli bir telefon numarası girin. Örnek: (55X)-XXX-XXXX!",
-                });
-                return;
-            }
 
             $.ajax({
                url: "{{route('appointment.phoneControl')}}",
@@ -383,6 +389,17 @@
                     }
                 }
             });
+        }
+
+        function scrollToElement(className) {
+            var element = document.querySelector('.' + className);
+            if (element) {
+                var topPos = element.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: topPos,
+                    behavior: 'smooth' // Düzgün bir kaydırma efekti için 'smooth' kullanılır
+                });
+            }
         }
     </script>
 
