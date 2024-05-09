@@ -56,6 +56,11 @@ class Business extends Authenticatable
     {
         return $this->allServices()->where('is_delete', 0);
     }
+
+    public function singleService($id)
+    {
+        return $this->services()->where('sub_category', $id)->get();
+    }
     public function allServices()
     {
         return $this->hasMany(BusinessService::class, 'business_id', 'id');

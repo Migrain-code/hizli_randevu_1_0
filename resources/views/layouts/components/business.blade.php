@@ -39,7 +39,13 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="price">
-                        <strong>{{$business->services()->min('price')}} TL</strong>
+                        @if(request()->routeIs('search.service'))
+
+                            <strong>{{$business->singleService($subCategory->id)->min('price')}} TL</strong>
+                        @else
+                            <strong>{{$business->services()->min('price')}} TL</strong>
+                        @endif
+
                         <span>‘den başlayan</span>
                     </div>
                 </div>

@@ -17,6 +17,7 @@ class SearchController extends Controller
     public function service($slug)
     {
         $subCategory = ServiceSubCategory::whereJsonContains('slug->' . App::getLocale(), $slug)->firstOrFail();/*hizmet kategorisini bul*/
+
         $businessIds = BusinessService::where('sub_category', $subCategory->id)->pluck('business_id');
         $businesses = Business::whereIn('id', $businessIds)->latest('order_number')->paginate(12);
 
