@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @php
-    $title = $business->name. " Hemen Randevu Al - Fiyatları ve Yorumları ". $business->cities->name ?? "". " ". $business->districts->name ?? "";
+    $title = $business->name. " Hemen Randevu Al - Fiyatları ve Yorumları ". $business->cities->name. " ". $business->districts->name;
 @endphp
 @section('title', $title)
 @section('styles')
