@@ -46,7 +46,7 @@
                         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('main')}}">Anasayfa</a></li>
-                                <li class="breadcrumb-item"><a href="#">İşletmeler</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('search.businessCategorySearch', $business->category->getSlug())}}">{{$business->category->getName()}}</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     {{$business->name}}
                                 </li>

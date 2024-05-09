@@ -8,6 +8,7 @@
         <input type="hidden" name="personels[]" value="{{$personel_id}}">
     @endforeach
     <input type="hidden" name="business_id" value="{{$business->id}}">
+    <input type="hidden" name="room_id" value="">
 
     <div id="times">
 

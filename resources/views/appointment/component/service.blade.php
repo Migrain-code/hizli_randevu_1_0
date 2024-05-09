@@ -1,3 +1,35 @@
+@if($rooms->count() > 0)
+<div class="servicesBox">
+    <div
+        class="d-flex align-items-center justify-content-between"
+    >
+        <div class="stepsTitle d-flex align-items-start">
+            <div class="step"><i class="fa fa-star"></i></div>
+            <div class="text"><span>Salon Seçimi</span></div>
+        </div>
+    </div>
+
+    <div class="servicesBoxContent" style="padding-top: 10px;">
+        <div
+            class="customSelect iconSelect servicesSelect customTomSelect"
+        >
+            <select class="tomSelect" id="roomSelect" name="room_id" required>
+                <option value="">Oda Seçiniz</option>
+
+                    <option value="0">Salon</option>
+                    @foreach($rooms as $room)
+                        <option value="{{$room->id}}">{{$room->name}}</option>
+                    @endforeach
+            </select>
+        </div>
+
+    </div>
+
+</div>
+@else
+    <input type="hidden" name="room_info" id="roomSelect" value="">
+@endif
+
 <div class="servicesBox">
     <div
         class="d-flex align-items-center justify-content-between"

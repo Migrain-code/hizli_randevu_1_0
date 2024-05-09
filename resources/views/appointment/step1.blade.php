@@ -93,11 +93,11 @@
                     <div class="col-12">
                         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
-                                <li class="breadcrumb-item"><a href="#">Kuaförler</a></li>
-                                <li class="breadcrumb-item"><a href="#">{{$business->name}}</a></li>
+                                <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('search.businessCategorySearch', $business->category->getSlug())}}">{{$business->category->getName()}}</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('business.detail', $business->slug)}}">{{$business->name}}</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Hizmet Seç
+                                    Randevu Ekranı
                                 </li>
                             </ol>
                         </nav>
@@ -170,6 +170,11 @@
         $("#verificationCode").inputmask({"mask": "999999"});
     </script>
     <script>
+        var roomID = "";
+        $('#roomSelect').on('change',function() {
+            roomID = $(this).val();
+            $('[name="room_id"]').val(roomID);
+        });
         $(document).on('change','.active-time',function() {
             scrollToElement('userInfoContainer');
             $('#times').html('');
@@ -212,6 +217,7 @@
             var postData = {
                 business_id: businessId,
                 date: clickedTime,
+                room_id: roomID,
                 personals: personels,
                 services: selectedServices,
                 _token:newToken

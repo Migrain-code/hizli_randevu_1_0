@@ -111,7 +111,7 @@ class SearchController extends Controller
             })
             ->paginate(12);
 
-        return view('search.service', compact('businesses', 'district', 'category'));
+        return view('search.service', compact('businesses', 'district', 'category', 'city'));
     }
     public function businessCategoryAndCity(Request $request)
     {
@@ -173,7 +173,7 @@ class SearchController extends Controller
             ->has('services')->has('personel')
             ->paginate(12);
 
-        return view('search.service', compact('businesses', 'district', 'category'));
+        return view('search.service', compact('businesses', 'district', 'category', 'city'));
     }
 
     public function salonName(Request $request)
