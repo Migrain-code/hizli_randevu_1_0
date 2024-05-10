@@ -2,54 +2,22 @@
 @section('styles')
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
-        #myModal{
-            max-width: 100%;
-        }
-        #myModal > .modal-dialog {
-            border-radius: 15px;
-            max-width: 100%;
-            margin-right: 5px !important;
-            margin-left: 5px !important;
-            margin-top: 5px !important;
-        }
-        #myModal > .modal-fullscreen .modal-footer, .modal-fullscreen .modal-header {
-            border: none;
-        }
 
-        #myModal > .modal-fullscreen .modal-content {
-            height: 100%;
-            border: 0;
-            border-radius: 23px;
-        }
-        @media (min-width: 576px)
-        {
-            #myModal > .modal-dialog {
-                margin-right: 5px !important;
-                margin-left: 5px !important;
-                margin-top: 5px !important;
+        @media screen and (max-width: 1600px) {
+            .servicesTab .nav .nav-item .nav-link {
+                font-size: 25px;
+                line-height: 0px;
             }
         }
-        .accordion-button:not(.collapsed) {
-            color: #f22969;
-            border: 1px solid #f22969;
-            background-color: #ffffff;
-            box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 #f22969;
-        }
-        .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
-            border-radius: 23px !important;
-        }
-
-        .timePickers .timePickerRadio input:disabled + span:hover {
-            background: rgba(242, 41, 105, 0.1);
-            color: #f22969;
-            border: 1px solid #f22969;
-        }
-        .servicesLists .servicesItem.checkServicesItem input + .checkServicesItemContent {
-            display: block;
-            padding: 25px;
-            background: rgba(67, 80, 110, 0.03);
-            border-radius: 15px;
-            margin-bottom: 30px;
+        @media screen and (max-width: 768px) {
+            .checkbox-group {
+                margin-right: 15px;
+                margin-top: -18px;
+            }
+            .servicesTab .nav .nav-item .nav-link {
+                line-height: 0px;
+                margin-bottom: -17px;
+            }
         }
     </style>
     <style>
@@ -79,9 +47,173 @@
             animation: spin 1s linear infinite;
         }
 
+        /* Gizli olan gerçek checkbox'u gizlemek için */
+        .hidden-checkbox {
+            display: none;
+        }
+
+
+        /* Gizli olan gerçek checkbox'u gizlemek için */
+        .hidden-checkbox {
+            display: none;
+        }
+
+        /* Görünür checkbox düğmesi stilini ayarlamak için */
+        .custom-checkbox {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            border: 1px solid #43506e87;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        .hidden-checkbox:checked + .custom-checkbox {
+            background-color: #2ecc71; /* Seçildiğinde arka plan rengi */
+        }
+
+        /* Seçili olmayan durum için yazı rengini değiştir */
+        .custom-checkbox:not(:checked) {
+            color: #000; /* Seçili olmayan durumda yazı rengi */
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 10%;
+            margin-left: auto;
+            max-width: 600px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .checkbox-group > * {
+            margin: 0.5rem 0.5rem;
+        }
+
+        .checkbox-group-legend {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #9c9c9c;
+            text-align: center;
+            line-height: 1.125;
+            margin-bottom: 1.25rem;
+        }
+
+        .checkbox-input {
+            clip: rect(0 0 0 0);
+            -webkit-clip-path: inset(100%);
+            clip-path: inset(100%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+
+        .checkbox-input:checked + .checkbox-tile {
+            border-color: #f22969;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            color: #f22969;
+        }
+
+        .checkbox-input:checked + .checkbox-tile .checkbox-icon, .checkbox-input:checked + .checkbox-tile .checkbox-label {
+            color: #f22969;
+        }
+
+        .checkbox-input:focus + .checkbox-tile {
+            border-color: #f22969;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+        }
+
+        .checkbox-input:focus + .checkbox-tile:before {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .checkbox-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 5.5rem;
+            min-height: 3rem;
+            border-radius: 1.5rem;
+            border: 2px solid #b5bfd9;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.15s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .checkbox-input:checked + .checkbox-tile:before {
+            transform: scale(1);
+            opacity: 1;
+            background-color: #f22969;
+            border-color: #f22969;
+        }
+
+        .checkbox-tile:before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #b5bfd9;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 0.75rem;
+            right: 0.25rem;
+            opacity: 0;
+            transform: scale(0);
+            transition: 0.25s ease;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+
+        .checkbox-tile:hover {
+            border-color: #f22969;
+        }
+
+        #servicesTab .accordionList .accordionListItem {
+            padding: 3px 0;
+            border-top: 1px solid rgba(67, 80, 110, 0.2);
+        }
+
+        .checkbox-tile:hover:before {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .checkbox-icon {
+            transition: 0.375s ease;
+            color: #494949;
+        }
+
+        .checkbox-icon svg {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .checkbox-label {
+            color: #707070;
+            transition: 0.375s ease;
+            text-align: center;
+        }
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 @endsection
@@ -94,8 +226,12 @@
                         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
-                                <li class="breadcrumb-item"><a href="{{route('search.businessCategorySearch', $business->category->getSlug())}}">{{$business->category->getName()}}</a></li>
-                                <li class="breadcrumb-item"><a href="{{route('business.detail', $business->slug)}}">{{$business->name}}</a></li>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('search.businessCategorySearch', $business->category->getSlug())}}">{{$business->category->getName()}}</a>
+                                </li>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('business.detail', $business->slug)}}">{{$business->name}}</a>
+                                </li>
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Randevu Ekranı
                                 </li>
@@ -127,7 +263,8 @@
         </div>
     </article>
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -143,7 +280,8 @@
                             ">30</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="verificationCode" id="verificationCode" placeholder="Örn:(462584)">
+                        <input type="text" class="form-control" name="verificationCode" id="verificationCode"
+                               placeholder="Örn:(462584)">
                         <label for="name">Doğrulama Kodunuz</label>
                     </div>
                 </div>
@@ -168,18 +306,30 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $("#verificationCode").inputmask({"mask": "999999"});
+        $("#phone").inputmask({"mask": "999-999-9999"});
+    </script>
+    <script>
+        function toggleLabel(checkbox) {
+            var label = checkbox.parentElement.querySelector('.checkbox-label');
+            if (checkbox.checked) {
+                label.textContent = 'Çıkar';
+            } else {
+                label.textContent = 'Ekle';
+            }
+        }
+
     </script>
     <script>
         var roomID = "";
-        $('#roomSelect').on('change',function() {
+        $('#roomSelect').on('change', function () {
             roomID = $(this).val();
             $('[name="room_id"]').val(roomID);
         });
-        $(document).on('change','.active-time',function() {
+        $(document).on('change', '.active-time', function () {
             scrollToElement('userInfoContainer');
             $('#times').html('');
 
-            $('.active-time:checked').each(function() {
+            $('.active-time:checked').each(function () {
                 var selectedValue = $(this).val();
                 var selectedClock = $(this).data('clock');
                 $('#selectedClockContainer').text(selectedClock);
@@ -197,12 +347,13 @@
         var selectedServices = @json($serviceArray);
         var personels = {!! isset(request()->query()['request']['personels']) ? json_encode(request()->query()['request']['personels']) : "" !!};
 
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             clickedDate('{{now()->format('d.m.Y')}}');
         });
 
         var newToken = '{{csrf_token()}}';
-        function clickedDate(clickedTime){
+
+        function clickedDate(clickedTime) {
             scrollToElement('clockSelectContainer');
             if (clickedTime instanceof Date && !isNaN(clickedTime)) {
                 clickedTime = formatDate(clickedTime);
@@ -210,7 +361,7 @@
             }
             $('#selectedTime').text(clickedTime);
             var appointmentInput = document.querySelector('input[name="appointment_date"]');
-            appointmentInput.value= clickedTime;
+            appointmentInput.value = clickedTime;
 
             var apiUrl = '{{route('appointment.clocks')}}';
 
@@ -220,7 +371,7 @@
                 room_id: roomID,
                 personals: personels,
                 services: selectedServices,
-                _token:newToken
+                _token: newToken
             };
 
             $.ajax({
@@ -302,6 +453,7 @@
                 },
             });
         }
+
         function formatDate(date) {
             var day = date.getDate();
             var month = date.getMonth() + 1; // Months are zero-based
@@ -313,6 +465,7 @@
             // Özel format: dd/MM/yyyy
             return `${formattedDay}.${formattedMonth}.${year}`;
         }
+
         function showLoader() {
             // Display a loading spinner or any other loading indicator
             document.getElementById("loader").style.display = "block";
@@ -322,7 +475,8 @@
             // Hide the loading spinner or loading indicator
             document.getElementById("loader").style.display = "none";
         }
-        function phoneControl(){
+
+        function phoneControl() {
             let phoneNumber = document.getElementById('phone').value;
             let userName = document.getElementById('name').value;
 
@@ -336,41 +490,41 @@
             }
 
 
-
             $.ajax({
-               url: "{{route('appointment.phoneControl')}}",
-               dataType: "JSON",
-               method: "GET",
-               data: {
-                   name: userName,
-                   phone: phoneNumber,
-               },
-               success:function (response){
-                   if(response.status == "success"){
-                       Swal.fire({
-                           icon: "success",
-                           title: "Doğrulama Kodunuz Gönderildi...",
-                           text: response.message,
-                       });
+                url: "{{route('appointment.phoneControl')}}",
+                dataType: "JSON",
+                method: "GET",
+                data: {
+                    name: userName,
+                    phone: phoneNumber,
+                },
+                success: function (response) {
+                    if (response.status == "success") {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Doğrulama Kodunuz Gönderildi...",
+                            text: response.message,
+                        });
 
-                       $('#staticBackdrop').modal('show');
+                        $('#staticBackdrop').modal('show');
 
-                       var sayac = 60;
-                       var interval = setInterval(function () {
-                           document.getElementById('appointmentCounter').innerText = sayac;
-                           sayac--;
+                        var sayac = 60;
+                        var interval = setInterval(function () {
+                            document.getElementById('appointmentCounter').innerText = sayac;
+                            sayac--;
 
-                           if (sayac < 0) {
-                               clearInterval(interval);
-                               phoneControl();
-                               //sayac=30;
-                           }
-                       }, 1000); // 1000 milisaniye = 1 saniye
-                   }
-               }
+                            if (sayac < 0) {
+                                clearInterval(interval);
+                                phoneControl();
+                                //sayac=30;
+                            }
+                        }, 1000); // 1000 milisaniye = 1 saniye
+                    }
+                }
             });
         }
-        function verifyPhoneCode(){
+
+        function verifyPhoneCode() {
             let verifyCode = document.getElementById('verificationCode').value;
             let phoneNumber = document.getElementById('phone').value;
 
@@ -389,7 +543,7 @@
                     });
 
                     if (response.status == "success") {
-                        setTimeout(function (){
+                        setTimeout(function () {
                             $('#step-4-form').submit()
                         }, 2000)
                     }
@@ -407,8 +561,10 @@
                 });
             }
         }
-    </script>
 
+
+
+    </script>
 
 @endsection
 

@@ -38,7 +38,7 @@
             <div class="step">1</div>
             <div class="text"><span>Hizmet Seçimi</span></div>
         </div>
-        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#myModal" class="editButton">
+        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#exampleModal" class="editButton">
             Ekle/Düzenle<svg
                 width="24"
                 height="25"

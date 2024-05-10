@@ -42,10 +42,10 @@
                 </div>
             </div>
             <div class="servicesBoxContent">
-                <div class="phoneInput mb-3 form-floating">
+                <div class="mb-3 form-floating phone">
                     <input
                         type="text"
-                        class="form-control phone"
+                        class="form-control"
                         id="phone"
                         name="phone"
                         placeholder="Telefon"

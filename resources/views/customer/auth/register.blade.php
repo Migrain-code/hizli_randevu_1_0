@@ -36,7 +36,7 @@
                             <span></span>
                         </div>
                         <span>
-                            Kolay Randevu <a href="javacript:;"> kullanım koşullarını</a>, <a href="javacript:;"></a>gizlilik ve KVKK politikasını</a> <a href="javacript:;"></a>ve aydınlatma metnini</a> okudum, bu kapsamda verilerimin işlenmesini onaylıyorum
+                            Hızlı Randevu <a href="javacript:;"> kullanım koşullarını</a>, <a href="javacript:;"></a>gizlilik ve KVKK politikasını</a> <a href="javacript:;"></a>ve aydınlatma metnini</a> okudum, bu kapsamda verilerimin işlenmesini onaylıyorum
                         </span>
                     </div>
                 </div>

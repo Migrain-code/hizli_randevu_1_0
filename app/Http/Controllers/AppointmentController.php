@@ -24,18 +24,17 @@ class AppointmentController extends Controller
         $business = Business::where('slug', $business)->firstOrFail();
         $rooms = $business->activeRooms;
         /*service modal queries */
-        $womanServices = $business->services()->where('type', 1)->get();
-        $manServices = $business->services()->where('type', 2)->get();
-        $womanServiceCategories = $womanServices->groupBy('category');
-        $manServiceCategories = $manServices->groupBy('category');
-        $manCategories = [];
-        $womanCategories = [];
-        foreach ($manServiceCategories as $key => $value) {
-            $manCategories[] = ServiceCategory::find($key);
-        }
-        foreach ($womanServiceCategories as $key => $value) {
-            $womanCategories[] = ServiceCategory::find($key);
-        }
+        $womanServicesArray = $business->services()->where('type', 1)->with('categorys')->get();
+        $womanServiceCategories = $womanServicesArray->groupBy('categorys.name');
+        $womanServices = $this->transformServices($womanServiceCategories);
+
+        $manServicesArray = $business->services()->where('type', 2)->with('categorys')->get();
+        $manServiceCategories = $manServicesArray->groupBy('categorys.name');
+        $manServices = $this->transformServices($manServiceCategories);
+
+        $unisexServicesArray = $business->services()->where('type', 3)->with('categorys')->get();
+        $unisexServiceCategories = $unisexServicesArray->groupBy('categorys.name');
+        $unisexServices = $this->transformServices($unisexServiceCategories);
         $array = ['businessName' => $business->name, 'businessSlug' => $business->slug];
         session()->put('appointment', $array);
         $selectedServices = [];
@@ -88,9 +87,31 @@ class AppointmentController extends Controller
         }
 
         /*end modal queries*/
-        return view('appointment.step1', compact('business', 'rooms','personels', 'remainingDate', 'disabledDays', 'selectedPersonelIds', 'manServiceCategories', 'womanServiceCategories', 'womanCategories', 'manCategories', 'selectedServices', 'serviceIds', 'ap_services', 'selectedPersonels'));
+        return view('appointment.step1', compact('business', 'rooms','personels', 'remainingDate', 'disabledDays', 'selectedPersonelIds', 'selectedServices', 'serviceIds', 'ap_services', 'selectedPersonels', 'womanServices', 'manServices', 'unisexServices'));
     }
+    function transformServices($womanServiceCategories)
+    {
+        $transformedDataWoman = [];
+        foreach ($womanServiceCategories as $category => $services) {
 
+            $transformedServices = [];
+            foreach ($services as $service) {
+                //if ($service->personels->count() > 0) { //hizmeti veren personel sayısı birden fazla ise listede göster
+                $transformedServices[] = [
+                    'id' => $service->id,
+                    'name' => $service->subCategory->getName(),
+                    'price' => $service->price,
+                ];
+
+            }
+            $transformedDataWoman[] = [
+                'id' => $services->first()->category,
+                'name' => $category,
+                'services' => $transformedServices,
+            ];
+        }
+        return $transformedDataWoman;
+    }
     public function step1Store(Request $request)
     {
         return to_route('step1.show', ['business' => session('appointment')["businessSlug"], 'request' => $request->all()]);
