@@ -16,6 +16,12 @@ class BusinessTakePriceController extends Controller
             ->first();
         if ($business){
             $form = $business->activeForm();
+            if (!$form){
+                return to_route('business.detail', $business->slug)->with('response', [
+                    'status' => "warning",
+                    'message' => "İşletme Talep Alma Formunu Kapattı"
+                ]);
+            }
             $services = $form->services;
             return view('price.index', compact('business', 'form', 'services'));
         } else{
