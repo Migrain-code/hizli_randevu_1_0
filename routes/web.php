@@ -27,7 +27,7 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('m
 Route::domain('{business_slug}.hizlirandevu.com.tr')->group(function (){
     Route::get('/', [\App\Http\Controllers\HomeController::class, 'businessDetail'])->name('business.detail');
 });
-Route::get('/salon/{slug}', [\App\Http\Controllers\HomeController::class, 'businessDetail'])->name('business.detail');
+//Route::get('/salon/{slug}', [\App\Http\Controllers\HomeController::class, 'businessDetail'])->name('business.detail');
 Route::get('/salon/{slug}/fiyat-al', [BusinessTakePriceController::class, 'businessTakePrice'])->name('business.takePrice');
 Route::post('/salon/take-price/service/select', [BusinessTakePriceController::class, 'takePriceQuestion'])->name('business.takePriceQuestion');
 Route::post('/salon/{slug}/take-price', [BusinessTakePriceController::class, 'takePriceQuestionForm'])->name('business.takePriceQuestionForm');
