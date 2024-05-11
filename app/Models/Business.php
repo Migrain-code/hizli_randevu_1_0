@@ -123,7 +123,14 @@ class Business extends Authenticatable
         return $this->hasOne(District::class, 'id', 'district');
 
     }
-
+    public function forms()
+    {
+        return $this->hasMany(AppointmentRequestForm::class, 'business_id', 'id');
+    }
+    public function activeForm()
+    {
+        return $this->forms()->where('is_default', 1)->first();
+    }
     public function comments()
     {
         return $this->hasMany(BusinessComment::class, 'business_id', 'id')->where('status', 1)->latest();

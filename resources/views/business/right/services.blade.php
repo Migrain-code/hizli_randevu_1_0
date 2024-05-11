@@ -267,7 +267,8 @@
 
     </div>
 </div>
-
-<a href="javascript:;" class="btn-pink d-block text-center mt-5">
-    Fiyat Al
-</a>
+@if($business->activeForm())
+    <a href="{{route('business.takePrice', $business->slug)}}" class="btn-pink d-block text-center mt-5">
+        Fiyat Al
+    </a>
+@endif

@@ -6,8 +6,11 @@
             @include('customer.auth.components.slider')
             <form class="formBoxForm" method="post" action="{{route('customer.login')}}">
                 @csrf
-                <div class="mb-5 text-center formLogo">
-                    <img src="/assets/images/logo-pink.svg" alt="" />
+                <div class="mb-0 mt-2">
+                    <label class="registerLabel">
+                        <h3>Müşteri Girişi</h3>
+                    </label>
+                    <label class="registerLabel">Randevularınızı Akıllıca Planlayın, İşinizi Büyütün.</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input

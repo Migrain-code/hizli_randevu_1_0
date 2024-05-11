@@ -11,6 +11,7 @@ use \App\Http\Controllers\Customer\Auth\VerifyController;
 use App\Http\Controllers\Customer\ProfileController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\BusinessTakePriceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,10 @@ use App\Http\Controllers\ResetPasswordController;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('main');
 Route::get('/salon/{slug}', [\App\Http\Controllers\HomeController::class, 'businessDetail'])->name('business.detail');
+Route::get('/salon/{slug}/fiyat-al', [BusinessTakePriceController::class, 'businessTakePrice'])->name('business.takePrice');
+Route::post('/salon/take-price/service/select', [BusinessTakePriceController::class, 'takePriceQuestion'])->name('business.takePriceQuestion');
+Route::post('/salon/{slug}/take-price', [BusinessTakePriceController::class, 'takePriceQuestionForm'])->name('business.takePriceQuestionForm');
+
 Route::get('/business/{id}', [\App\Http\Controllers\HomeController::class, 'businessId']);
 Route::get('/biz-kimiz', [\App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('/destek-1', [\App\Http\Controllers\HomeController::class, 'support'])->name('support');

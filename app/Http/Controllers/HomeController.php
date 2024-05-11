@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AppointmentRequestFormServiceResource;
 use App\Models\Activity;
 use App\Models\Ads;
+use App\Models\AppointmentRequestFormQuestion;
+use App\Models\AppointmentRequestFormService;
 use App\Models\Blog;
 use App\Models\Business;
 use App\Models\BusinessCategory;
+use App\Models\BusinessService;
 use App\Models\City;
 use App\Models\CustomerContact;
 use App\Models\CustomerFaq;
@@ -47,6 +51,7 @@ class HomeController extends Controller
         $business = Business::where('slug', $slug)
             ->first();
         if ($business){
+
             $dayList = DayList::all();
 
             $womanServicesArray = $business->services()->where('type', 1)->with('categorys')->get();
@@ -71,6 +76,7 @@ class HomeController extends Controller
             ]);
         }
     }
+
     function transformServices($womanServiceCategories)
     {
         $transformedDataWoman = [];

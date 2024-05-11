@@ -76,9 +76,11 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255', 'unique:customers'],
+            'terms' => ['accepted'],
         ], [], [
             'name' => 'Ad Soyad',
             'phone' => 'Telefon',
+            'terms' => 'Sözleşmeler',
         ]);
     }
 

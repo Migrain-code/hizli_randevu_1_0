@@ -5,10 +5,10 @@
         <div class="formBoxContent d-flex align-items-center w-auto forgotPass">
             <form method="post" action="{{route('customer.forgotPasswordVerify')}}" class="formBoxForm w-auto">
                 @csrf
-                <div class="mb-5 text-center formLogo">
-                    <img src="/assets/images/logo-pink.svg" alt="" />
+                <div class="aut-content" style="text-align: center;margin-bottom: 26px;">
+                    <h2 style="font-size: 24px;font-family: 'Euclid Circular A';">Telefon Numarası Doğrulama</h2>
                 </div>
-                <label class="registerLabel">Telefon Doğrulama</label>
+                <label class="registerLabel">Gönderdiğimiz doğrulama kodunu giriniz</label>
                 <div class="form-floating mb-3">
                     <input
                         type="text"

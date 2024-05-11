@@ -6,8 +6,11 @@
             @include('customer.auth.components.slider')
             <form method="post" action="{{route('customer.register')}}" class="formBoxForm">
                 @csrf
-                <div class="mb-4 text-center formLogo">
-                    <img src="/assets/images/logo-pink.svg" alt="">
+                <div class="mb-0 mt-2">
+                    <label class="registerLabel">
+                        <h3>Yeni müşteri kaydı</h3>
+                    </label>
+                    <label class="registerLabel">Hızlı Randevuya kayıt olun</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingInput" name="name" placeholder="Cep Telefonu">
@@ -21,7 +24,7 @@
                 <div class="mb-3">
                     <div class="customCheck">
                         <div class="customCheckInput">
-                            <input type="checkbox">
+                            <input type="checkbox" name="is_campaign">
                             <span></span>
                         </div>
                         <span>
@@ -32,12 +35,19 @@
                 <div class="mb-3">
                     <div class="customCheck">
                         <div class="customCheckInput">
-                            <input type="checkbox">
+                            <input type="checkbox" name="terms">
                             <span></span>
                         </div>
                         <span>
-                            Hızlı Randevu <a href="javacript:;"> kullanım koşullarını</a>, <a href="javacript:;"></a>gizlilik ve KVKK politikasını</a> <a href="javacript:;"></a>ve aydınlatma metnini</a> okudum, bu kapsamda verilerimin işlenmesini onaylıyorum
-                        </span>
+                                Hızlı Randevu
+                                @foreach($use_pages as $page)
+                                        @php
+                                            $add = $loop->first ? "nı" : ($loop->index == 1 ? "ı" : ($loop->index == 2 ? "ni" : ""));
+                                        @endphp
+                                    <a href="{{route('page.detail', $page->slug)}}" target="_blank">{{$page->title . $add}}</a>
+                                @endforeach
+                                okudum, bu kapsamda verilerimin işlenmesini onaylıyorum
+                            </span>
                     </div>
                 </div>
 
