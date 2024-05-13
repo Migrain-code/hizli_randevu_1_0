@@ -31,7 +31,7 @@
                                     @forelse($topImages as $top)
                                         <div class="item">
                                             <a href="{{$top->link}}" target="_blank" >
-                                                <img src="{{image($top->image)}}" alt=""  style="height: 350px"/>
+                                                <img src="{{image($top->image)}}" alt=""  style="height: 350px !important"/>
                                             </a>
                                         </div>
                                     @empty

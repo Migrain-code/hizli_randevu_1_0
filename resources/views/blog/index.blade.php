@@ -41,7 +41,7 @@
                                 @forelse($ads as $advert)
                                     <div class="item">
                                         <a href="{{$advert->link}}" target="_blank" >
-                                            <img src="{{image($advert->image)}}" alt="" style="height: 350px"/>
+                                            <img src="{{image($advert->image)}}" alt="" style="height: 350px !important;"/>
                                         </a>
                                     </div>
                                 @empty
