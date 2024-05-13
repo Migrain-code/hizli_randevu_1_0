@@ -1,5 +1,6 @@
 @extends('layouts.master')
-@section('title', $activity->getTitle())
+@section('title', $activity->meta_title)
+@section('description', $activity->meta_description)
 @section('styles')
     <style>
         iframe{
