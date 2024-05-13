@@ -175,22 +175,23 @@
                                             type="text"
                                             name="user_name"
                                             class="form-control"
-                                            id="floatingInput"
+                                            id="nameInput"
                                             placeholder="Cep Telefonu"
                                             value=""
                                         />
-                                        <label for="floatingInput">Adınız Soyadınız</label>
+                                        <label for="nameInput">Adınız Soyadınız</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input
                                             type="text"
                                             name="phone"
+
                                             class="form-control phone"
-                                            id="floatingInput"
+                                            id="phoneInput"
                                             placeholder="Cep Telefonu"
                                             value=""
                                         />
-                                        <label for="floatingInput">Cep Telefonu</label>
+                                        <label for="phoneInput">Cep Telefonu</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input
@@ -226,7 +227,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <button type="submit" style="border: 0px" id="submitButton" class="btn-pink w-100 p-4 text-center">
+                                        <button type="button" style="border: 0px" id="submitButton" class="btn-pink w-100 p-4 text-center">
                                             Fiyat İste
                                         </button>
                                     </div>
@@ -238,6 +239,35 @@
             </div>
         </section>
     </article>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Doğrulama Kodunu Giriniz</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <div class="mb-3">
+                        <label id="appointmentCounter" style="
+                            color: #5c636a;
+                            font-weight: 700;
+                            font-size: 2.2rem;
+                            ">30</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="verificationCode" id="verificationCode"
+                               placeholder="Örn:(462584)">
+                        <label for="name">Doğrulama Kodunuz</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal Et</button>
+                    <button type="button" class="btn btn-primary" onclick="verifyPhoneCode()">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 
@@ -398,17 +428,8 @@
     </script>
 
     <script>
-        // Form elementini seç
-        var form = document.getElementById("fromRequest");
-
-        // Submit butonunu seç
-        var submitButton = document.getElementById("submitButton");
-
-        // Submit butonuna tıklama olayını ekle
-        submitButton.addEventListener("click", function(event) {
-            // Formun gönderilmesini engelle
-            event.preventDefault();
-
+        var form = document.getElementById('fromRequest');
+        $('#submitButton').on('click', function (){
             // Formdaki tüm inputları al
             var inputs = form.querySelectorAll("input, textarea, select");
             var allFieldsFilled = true;
@@ -433,13 +454,89 @@
                 } else{
                     input.classList.remove('requiredBorder');
                 }
-                // Eğer tüm inputlar doluysa
-                if (allFieldsFilled) {
-                    // Formu gönder
-                    document.getElementById("fromRequest").submit();
-                }
+
             });
+            // Eğer tüm inputlar doluysa
+            if (allFieldsFilled) {
+                // Formu gönder
+                phoneControl();
+            }
         });
 
+        function verifyPhoneCode() {
+            let verifyCode = document.getElementById('verificationCode').value;
+            let phoneNumber = document.getElementById('phoneInput').value;
+
+            $.ajax({
+                url: "{{route('appointment.phoneVerify')}}",
+                dataType: "JSON",
+                method: "GET",
+                data: {
+                    verify_code: verifyCode,
+                    phone: phoneNumber,
+                },
+                success: function (response) {
+
+                    if (response.status == "success") {
+                        setTimeout(function () {
+                            form.submit()
+                        }, 2000)
+                    } else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: "Bir Hata Oluştu. Lütfen Sayfayı Yenileyin",
+                        });
+
+                    }
+                }
+            });
+        }
+        function phoneControl() {
+            let phoneNumber = document.getElementById('phoneInput').value;
+            let userName = document.getElementById('nameInput').value;
+
+            if (userName.trim() === "") {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Lütfen Adınızı Giriniz",
+                });
+                return;
+            }
+
+
+            $.ajax({
+                url: "{{route('appointment.phoneControl')}}",
+                dataType: "JSON",
+                method: "GET",
+                data: {
+                    name: userName,
+                    phone: phoneNumber,
+                },
+                success: function (response) {
+                    if (response.status == "success") {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Doğrulama Kodunuz Gönderildi...",
+                            text: response.message,
+                        });
+
+                        $('#staticBackdrop').modal('show');
+
+                        var sayac = 60;
+                        var interval = setInterval(function () {
+                            document.getElementById('appointmentCounter').innerText = sayac;
+                            sayac--;
+
+                            if (sayac < 0) {
+                                clearInterval(interval);
+                                phoneControl();
+                                //sayac=30;
+                            }
+                        }, 1000); // 1000 milisaniye = 1 saniye
+                    }
+                }
+            });
+        }
     </script>
 @endsection
