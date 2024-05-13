@@ -105,7 +105,12 @@ $(document).ready(function () {
         yearSuffix: "",
     };
     $.datepicker.setDefaults($.datepicker.regional["tr"]);
-    $("#eventDatePicker").datepicker();
+    $("#eventDatePicker").datepicker({
+        onSelect: function(dateText) {
+            window.location.href = "/etkinlik/?selectedDate="+dateText;
+            console.log("Seçilen Tarih: " + dateText);
+        }
+    });
     $(".homeBlogSlider .owl-carousel").owlCarousel({
         loop: true,
         margin: 9,

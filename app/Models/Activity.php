@@ -11,7 +11,7 @@ class Activity extends Model
     use HasFactory, HasTranslations;
 
     protected $translatable=['title', 'description'];
-    protected $dates=['start_time', 'end_time'];
+    protected $casts=['start_time' => 'datetime', 'end_time' => "datetime"];
 
     public function getTitle()
     {

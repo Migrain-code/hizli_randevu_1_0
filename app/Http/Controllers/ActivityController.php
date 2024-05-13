@@ -7,13 +7,20 @@ use App\Models\ActivityBusiness;
 use App\Models\Ads;
 use App\Models\Personel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class ActivityController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $activities = Activity::where('status', 1)->latest()->paginate(10);
+        if ($request->filled('selectedDate')){
+            $searchDate = Carbon::parse($request->selectedDate)->toDateString();
+            $activities = Activity::where('status', 1)->whereDate('start_time',$searchDate)->latest()->paginate(10);
+        } else{
+            $activities = Activity::where('status', 1)->latest()->paginate(10);
+        }
+
         $ads = Ads::where('type', 5)->where('status', 1)->take(2)->get();
         $topImages = Ads::where('type', 9)->get();
         return view('activity.index', compact('activities', 'ads', 'topImages'));

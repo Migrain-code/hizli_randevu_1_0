@@ -36,7 +36,6 @@
                                         </div>
                                     @empty
                                     @endforelse
-
                                 </div>
                                 <div class="sliderArrow">
                                     <a href="javascript:;" class="sliderPrev">
@@ -60,7 +59,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="homeEventsList">
-                                    @foreach($activities as $activity)
+                                    @forelse($activities as $activity)
                                         <a href="{{route('activity.detail', $activity->slug)}}" class="d-flex align-items-center">
                                             <span class="date">
                                               <strong>{{\Illuminate\Support\Carbon::parse($activity->start_time)->format('d')}}</strong>
@@ -71,7 +70,9 @@
                                                 {{$activity->getTitle()}}
                                             </span>
                                         </a>
-                                    @endforeach
+                                    @empty
+                                        <div class="alert alert-warning mt-3 text-center">Etkinlik Bulunamadı</div>
+                                    @endforelse
                                 </div>
                                 <div class="my-2 d-flex justify-content-center">
                                     {!! $activities->links() !!}

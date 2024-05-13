@@ -36,7 +36,7 @@ class HomeController extends Controller
         $featuredCategories = BusinessCategory::where('is_featured', 1)->where('status', 1)->take(6)->get();
 
         $blogs = Blog::where('status', 1)->latest()->take(9)->get();
-        $activities = Activity::where('status', 1)->latest()->take(4)->get();
+        $activities = Activity::where('status', 1)->latest()->take(3)->get();
         $mainPages = MaingPage::where('type', 0)->where('status', 1)->get();
         return view('welcome', compact('brandList','ads', 'featuredServices', 'featuredCategories', 'blogs', 'activities', 'mainPages'));
     }
@@ -80,8 +80,8 @@ class HomeController extends Controller
     function transformServices($womanServiceCategories)
     {
         $transformedDataWoman = [];
+        $transformedFeaturedServices = [];
         foreach ($womanServiceCategories as $category => $services) {
-
             $transformedServices = [];
             foreach ($services as $service) {
                 //if ($service->personels->count() > 0) { //hizmeti veren personel sayısı birden fazla ise listede göster
@@ -90,15 +90,26 @@ class HomeController extends Controller
                     'name' => $service->subCategory->getName(),
                     'price' => $service->price,
                 ];
+                if ($service->is_featured == 1){
+                    $transformedFeaturedServices[] = [
+                        'id' => $service->id,
+                        'name' => $service->subCategory->getName(),
+                        'price' => $service->price,
+                    ];
+                }
 
             }
             $transformedDataWoman[] = [
                 'id' => $services->first()->category,
                 'name' => $category,
                 'services' => $transformedServices,
+                'featuredServices' => $transformedFeaturedServices
             ];
         }
-        return $transformedDataWoman;
+        return [
+            'services' => $transformedDataWoman,
+            'featured' => $transformedFeaturedServices
+        ];
     }
 
     public function about()
