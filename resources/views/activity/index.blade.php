@@ -1,5 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Etkinlikler')
+@section('title', 'Kuaförler - Berberler - Güzellik salonları Etkinlikleri')
+@section('description', 'Güzelliğe Dair Her Şey: Kuaförler, Berberler ve Güzellik Salonlarına Yönelik Canlı Etkinlikler ve Atölyeler Etkinlik Takvimleri.')
 @section('styles')
 
 @endsection
