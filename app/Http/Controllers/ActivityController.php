@@ -15,7 +15,8 @@ class ActivityController extends Controller
     {
         $activities = Activity::where('status', 1)->latest()->paginate(10);
         $ads = Ads::where('type', 5)->where('status', 1)->take(2)->get();
-        return view('activity.index', compact('activities', 'ads'));
+        $topImages = Ads::where('type', 9)->get();
+        return view('activity.index', compact('activities', 'ads', 'topImages'));
     }
 
     public function detail($slug)

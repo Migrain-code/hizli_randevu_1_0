@@ -40,7 +40,7 @@
                             <div class="owl-carousel owl-theme">
                                 @forelse($ads as $advert)
                                     <div class="item">
-                                        <a href="{{$advert->link}}" target="_blank">
+                                        <a href="{{$advert->link}}" target="_blank" style="height: 350px">
                                             <img src="{{image($advert->image)}}" alt="" />
                                         </a>
                                     </div>

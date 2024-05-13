@@ -21,6 +21,38 @@
                 </div>
             </div>
         </section>
+        @if($topImages->count() > 0)
+            <section id="bigSlider" class="mb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="bigSliderContent">
+                                <div class="owl-carousel owl-theme">
+                                    @forelse($topImages as $top)
+                                        <div class="item">
+                                            <a href="{{$top->link}}" target="_blank" style="height: 350px">
+                                                <img src="{{image($top->image)}}" alt="" />
+                                            </a>
+                                        </div>
+                                    @empty
+                                    @endforelse
+
+                                </div>
+                                <div class="sliderArrow">
+                                    <a href="javascript:;" class="sliderPrev">
+                                        <img src="/assets/images/icons/ico-slider-left.svg" />
+                                    </a>
+                                    <a href="javascript:;" class="sliderNext">
+                                        <img src="/assets/images/icons/ico-slider-right.svg" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        @endif
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
