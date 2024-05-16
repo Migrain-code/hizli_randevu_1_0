@@ -367,7 +367,7 @@
                                         <div
                                             class="panel @if($loop->first) active @endif"
                                             style="
-                                          background-image: url('{{image($category->icon)}}');
+                                          background-image: url('{{image($category->image)}}');
                                         "
                                         >
                                             <div
