@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
         $services =  ServiceCategory::orderBy('order_number', 'asc')->take(10)->get();
         View::share('services', $services);
 
-        $categories = BusinessCategory::where('is_menu', 1)->get();
+        $categories = BusinessCategory::where('is_menu', 1)->whereStatus(1)->orderBy('order_number', 'asc')->get();
         View::share('categories', $categories);
 
         $featuredCategory = ServiceCategory::where('is_menu', 1)->orderBy('order_number', 'asc')->take(6)->get();
