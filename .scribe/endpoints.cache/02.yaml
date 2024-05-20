@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: Login
+      title: 'Giriş Yap'
       description: ''
       authenticated: false
       custom: []
@@ -28,7 +28,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 0.7
+        example: 2.412373791
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -37,14 +37,94 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: aspernatur
+        example: dolorem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 0.7
-      password: aspernatur
+      phone: 2.412373791
+      password: dolorem
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/customer/auth/register
+    metadata:
+      groupName: 'Customer Authentication'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Kayıt ol'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/customer/auth/verify
+    metadata:
+      groupName: 'Customer Authentication'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Telefon Doğrulama'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone:
+        name: phone
+        description: ''
+        required: true
+        example: 1685035.6
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      code:
+        name: code
+        description: ''
+        required: true
+        example: 7279.447
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      phone: 1685035.6
+      code: 7279.447
     fileParameters: []
     responses: []
     responseFields: []

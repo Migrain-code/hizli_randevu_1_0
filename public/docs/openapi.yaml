@@ -17,10 +17,63 @@ paths:
       tags:
         - Appointment
       security: []
+  /api/customer/notification:
+    get:
+      summary: "Bildirim Listesi\n Bildirim Durumları\n 0 => Okunmadı\n 1 => okundu"
+      operationId: bildirimListesiBildirimDurumlar0Okunmad1Okundu
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Bildirimler
+      security: []
+  '/api/customer/notification/{id}':
+    get:
+      summary: 'Bildirim Detayı'
+      operationId: bildirimDetay
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Bildirimler
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the notification.'
+        example: 44
+        required: true
+        schema:
+          type: integer
   /api/customer/auth/login:
     post:
-      summary: Login
-      operationId: login
+      summary: 'Giriş Yap'
+      operationId: giriYap
       description: ''
       parameters: []
       responses: {  }
@@ -36,14 +89,52 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 0.7
+                  example: 2.412373791
                 password:
                   type: string
                   description: ''
-                  example: aspernatur
+                  example: dolorem
               required:
                 - phone
                 - password
+      security: []
+  /api/customer/auth/register:
+    post:
+      summary: 'Kayıt ol'
+      operationId: kaytOl
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Customer Authentication'
+      security: []
+  /api/customer/auth/verify:
+    post:
+      summary: 'Telefon Doğrulama'
+      operationId: telefonDorulama
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Customer Authentication'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: number
+                  description: ''
+                  example: 1685035.6
+                code:
+                  type: number
+                  description: ''
+                  example: 7279.447
+              required:
+                - phone
+                - code
       security: []
   /api/salon-ara:
     post:
@@ -55,13 +146,465 @@ paths:
       tags:
         - Endpoints
       security: []
+  /api/customer/favorite:
+    get:
+      summary: 'Favoriler Listesi'
+      operationId: favorilerListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: "Favori Ekleme / Çıkarma\nNot: Burada yapılan koşullandırma şu şekilde:\n <ul>\n     <li>Eğer işletme kullanıcının favori listesindeyse çıkarılır</li>\n     <li>Eğer işletme kullanıcının favori listesinde değilse eklenir</li>\n </ul>"
+      operationId: favoriEklemekarmaNotBuradaYaplanKoullandrmauekildeulliEerIletmeKullancnnFavoriListesindeysekarlrliliEerIletmeKullancnnFavoriListesindeDeilseEklenirliul
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                business_id:
+                  type: number
+                  description: ''
+                  example: 33692.7178996
+              required:
+                - business_id
+      security: []
+  /api/customer/product-sale:
+    get:
+      summary: ''
+      operationId: getApiCustomerProductSale
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/customer/appointment:
+    get:
+      summary: 'Randevu Listesi'
+      operationId: randevuListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/customer/appointment/{id}':
+    get:
+      summary: 'Randevu Detayı'
+      operationId: randevuDetay
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Randevuya Yorum Yap'
+      operationId: randevuyaYorumYap
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rating:
+                  type: string
+                  description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
+                  example: lpsvayblppsrcvpepjopyforlzhecftwhnouswdiwkekvrwycde
+                content:
+                  type: string
+                  description: ''
+                  example: et
+                terms:
+                  type: boolean
+                  description: 'Must be accepted.'
+                  example: true
+              required:
+                - rating
+                - content
+                - terms
+      security: []
+    delete:
+      summary: 'Randevu İptali'
+      operationId: randevuptali
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the appointment.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/customer/campaign:
+    get:
+      summary: 'Kampanyalar Listesi'
+      operationId: kampanyalarListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/customer/campaign/{id}':
+    get:
+      summary: 'Kampanya Detayı'
+      operationId: kampanyaDetay
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the campaign.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/customer/user:
+    get:
+      summary: 'Tüm Bilgileri'
+      operationId: tmBilgileri
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Kullanıcı Bilgileri'
+      security: []
+  /api/customer/change-password:
+    post:
+      summary: 'Şifre Değiştir'
+      operationId: ifreDeitir
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Kullanıcı Bilgileri'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  description: ''
+                  example: molestias
+                password_confirmation:
+                  type: string
+                  description: ''
+                  example: placeat
+              required:
+                - password
+                - password_confirmation
+      security: []
+  /api/customer/update-info:
+    post:
+      summary: 'Kullanıcı Bilgileri Güncelleme'
+      operationId: kullancBilgileriGncelleme
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Kullanıcı Bilgileri'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: animi
+                phone:
+                  type: string
+                  description: ''
+                  example: nemo
+                email:
+                  type: string
+                  description: ''
+                  example: vitae
+                gender:
+                  type: string
+                  description: ''
+                  example: odio
+                year:
+                  type: number
+                  description: ''
+                  example: 414.0
+                month:
+                  type: number
+                  description: ''
+                  example: 0.0
+                day:
+                  type: number
+                  description: ''
+                  example: 40.74751912
+              required:
+                - name
+                - phone
+                - email
+                - gender
+                - year
+                - month
+                - day
+      security: []
+  /api/customer/package-sale:
+    get:
+      summary: 'Paket Satış Listesi'
+      operationId: paketSatListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Paket Satışları'
+      security: []
+  '/api/customer/package-sale/{id}':
+    get:
+      summary: "Paket Detayı\n<b>İstatistik alanı için başlıklara göre bilgiler aşağıda verilmiştir</b>\n<ul>\n    <li>Hakkınız var : summary.totalAmount</li>\n    <li>Toplam Ödenecek : summary.totalPay</li>\n    <li>Paket Kullandınız : summary.usageAmount</li>\n    <li>Paket Ödemesi Yaptınız : summary.payedTotal</li>\n    <li>Kalan Kullanım Hakkınız : summary.remainingAmount</li>\n    <li>Kalan Ödemeniz : summary.remainingPayed</li>\n</ul>"
+      operationId: paketDetaybstatistikAlanIinBalklaraGreBilgilerAadaVerilmitirbulliHakknzVarSummarytotalAmountliliToplamdenecekSummarytotalPayliliPaketKullandnzSummaryusageAmountliliPaketdemesiYaptnzSummarypayedTotalliliKalanKullanmHakknzSummaryremainingAmountliliKalandemenizSummaryremainingPayedliul
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Paket Satışları'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the package sale.'
+        example: 22
+        required: true
+        schema:
+          type: integer
+  /api/customer/auth/forgot-password:
+    post:
+      summary: 'Telefon Kontrolü'
+      operationId: telefonKontrol
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Sifremi Unuttum'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: number
+                  description: ''
+                  example: 35.2
+              required:
+                - phone
+      security: []
+  /api/customer/auth/forgot-password/verify:
+    post:
+      summary: Doğrulama
+      operationId: dorulama
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Sifremi Unuttum'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: number
+                  description: ''
+                  example: 44347.1998
+              required:
+                - code
+      security: []
+  /api/customer/comment:
+    get:
+      summary: 'Yorum Listesi'
+      operationId: yorumListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Yorumlarım
+      security: []
 tags:
   -
     name: Appointment
+    description: ''
+  -
+    name: Bildirimler
     description: ''
   -
     name: 'Customer Authentication'
     description: ''
   -
     name: Endpoints
+    description: ''
+  -
+    name: 'Kullanıcı Bilgileri'
+    description: ''
+  -
+    name: 'Paket Satışları'
+    description: ''
+  -
+    name: 'Sifremi Unuttum'
+    description: ''
+  -
+    name: Yorumlarım
     description: ''
