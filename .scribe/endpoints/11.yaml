@@ -1,0 +1,91 @@
+name: Kampanyalarım
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/customer/campaign
+    metadata:
+      groupName: Kampanyalarım
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Kampanyalar Listesi'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/customer/campaign/{id}'
+    metadata:
+      groupName: Kampanyalarım
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Kampanya Detayı'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the campaign.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
