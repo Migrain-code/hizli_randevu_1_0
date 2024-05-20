@@ -17,6 +17,16 @@ paths:
       tags:
         - Appointment
       security: []
+  /api/salon-ara:
+    post:
+      summary: ''
+      operationId: postApiSalonAra
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Ara
+      security: []
   /api/customer/notification:
     get:
       summary: "Bildirim Listesi\n Bildirim Durumları\n 0 => Okunmadı\n 1 => okundu"
@@ -89,11 +99,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 2.412373791
+                  example: 103.1377
                 password:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: quas
               required:
                 - phone
                 - password
@@ -127,24 +137,14 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 1685035.6
+                  example: 39931.09
                 code:
                   type: number
                   description: ''
-                  example: 7279.447
+                  example: 1273.043586124
               required:
                 - phone
                 - code
-      security: []
-  /api/salon-ara:
-    post:
-      summary: ''
-      operationId: postApiSalonAra
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
       security: []
   /api/customer/favorite:
     get:
@@ -166,16 +166,16 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Endpoints
+        - 'Favori İşletmeler'
       security: []
     post:
-      summary: "Favori Ekleme / Çıkarma\nNot: Burada yapılan koşullandırma şu şekilde:\n <ul>\n     <li>Eğer işletme kullanıcının favori listesindeyse çıkarılır</li>\n     <li>Eğer işletme kullanıcının favori listesinde değilse eklenir</li>\n </ul>"
-      operationId: favoriEklemekarmaNotBuradaYaplanKoullandrmauekildeulliEerIletmeKullancnnFavoriListesindeysekarlrliliEerIletmeKullancnnFavoriListesindeDeilseEklenirliul
-      description: ''
+      summary: 'Favori Ekleme / Çıkarma'
+      operationId: favoriEklemekarma
+      description: "Not: Burada yapılan koşullandırma şu şekilde:\n <ul>\n     <li>Eğer işletme kullanıcının favori listesindeyse çıkarılır</li>\n     <li>Eğer işletme kullanıcının favori listesinde değilse eklenir</li>\n </ul>"
       parameters: []
       responses: {  }
       tags:
-        - Endpoints
+        - 'Favori İşletmeler'
       requestBody:
         required: true
         content:
@@ -186,126 +186,10 @@ paths:
                 business_id:
                   type: number
                   description: ''
-                  example: 33692.7178996
+                  example: 3.0
               required:
                 - business_id
       security: []
-  /api/customer/product-sale:
-    get:
-      summary: ''
-      operationId: getApiCustomerProductSale
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-  /api/customer/appointment:
-    get:
-      summary: 'Randevu Listesi'
-      operationId: randevuListesi
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-  '/api/customer/appointment/{id}':
-    get:
-      summary: 'Randevu Detayı'
-      operationId: randevuDetay
-      description: ''
-      parameters: []
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    put:
-      summary: 'Randevuya Yorum Yap'
-      operationId: randevuyaYorumYap
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                rating:
-                  type: string
-                  description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
-                  example: lpsvayblppsrcvpepjopyforlzhecftwhnouswdiwkekvrwycde
-                content:
-                  type: string
-                  description: ''
-                  example: et
-                terms:
-                  type: boolean
-                  description: 'Must be accepted.'
-                  example: true
-              required:
-                - rating
-                - content
-                - terms
-      security: []
-    delete:
-      summary: 'Randevu İptali'
-      operationId: randevuptali
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the appointment.'
-        example: 1
-        required: true
-        schema:
-          type: integer
   /api/customer/campaign:
     get:
       summary: 'Kampanyalar Listesi'
@@ -326,7 +210,7 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Endpoints
+        - Kampanyalarım
       security: []
   '/api/customer/campaign/{id}':
     get:
@@ -348,7 +232,7 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Endpoints
+        - Kampanyalarım
       security: []
     parameters:
       -
@@ -400,11 +284,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: molestias
+                  example: aliquid
                 password_confirmation:
                   type: string
                   description: ''
-                  example: placeat
+                  example: inventore
               required:
                 - password
                 - password_confirmation
@@ -428,31 +312,31 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: animi
+                  example: velit
                 phone:
                   type: string
                   description: ''
-                  example: nemo
+                  example: pariatur
                 email:
                   type: string
                   description: ''
-                  example: vitae
+                  example: necessitatibus
                 gender:
                   type: string
                   description: ''
-                  example: odio
+                  example: beatae
                 year:
                   type: number
                   description: ''
-                  example: 414.0
+                  example: 3888.5
                 month:
                   type: number
                   description: ''
-                  example: 0.0
+                  example: 3.4585
                 day:
                   type: number
                   description: ''
-                  example: 40.74751912
+                  example: 1570470.95765
               required:
                 - name
                 - phone
@@ -515,6 +399,100 @@ paths:
         required: true
         schema:
           type: integer
+  /api/customer/appointment:
+    get:
+      summary: 'Randevu Listesi'
+      operationId: randevuListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Randevularım
+      security: []
+  '/api/customer/appointment/{id}':
+    get:
+      summary: 'Randevu Detayı'
+      operationId: randevuDetay
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Randevularım
+      security: []
+    put:
+      summary: 'Randevuya Yorum Yap'
+      operationId: randevuyaYorumYap
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Randevularım
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                rating:
+                  type: string
+                  description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
+                  example: fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv
+                content:
+                  type: string
+                  description: ''
+                  example: porro
+                terms:
+                  type: boolean
+                  description: 'Must be accepted.'
+                  example: true
+              required:
+                - rating
+                - content
+                - terms
+      security: []
+    delete:
+      summary: 'Randevu İptali'
+      operationId: randevuptali
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Randevularım
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the appointment.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   /api/customer/auth/forgot-password:
     post:
       summary: 'Telefon Kontrolü'
@@ -534,7 +512,7 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 35.2
+                  example: 1229.0
               required:
                 - phone
       security: []
@@ -557,9 +535,31 @@ paths:
                 code:
                   type: number
                   description: ''
-                  example: 44347.1998
+                  example: 44247563.288
               required:
                 - code
+      security: []
+  /api/customer/product-sale:
+    get:
+      summary: 'Sipariş Listesi'
+      operationId: sipariListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Siparişlerim
       security: []
   /api/customer/comment:
     get:
@@ -588,13 +588,19 @@ tags:
     name: Appointment
     description: ''
   -
+    name: Ara
+    description: ''
+  -
     name: Bildirimler
     description: ''
   -
     name: 'Customer Authentication'
     description: ''
   -
-    name: Endpoints
+    name: 'Favori İşletmeler'
+    description: ''
+  -
+    name: Kampanyalarım
     description: ''
   -
     name: 'Kullanıcı Bilgileri'
@@ -603,7 +609,13 @@ tags:
     name: 'Paket Satışları'
     description: ''
   -
+    name: Randevularım
+    description: ''
+  -
     name: 'Sifremi Unuttum'
+    description: ''
+  -
+    name: Siparişlerim
     description: ''
   -
     name: Yorumlarım

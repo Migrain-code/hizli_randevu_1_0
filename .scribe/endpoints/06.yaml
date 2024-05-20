@@ -1,16 +1,16 @@
-name: Yorumlarım
+name: Siparişlerim
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/customer/comment
+    uri: api/customer/product-sale
     metadata:
-      groupName: Yorumlarım
+      groupName: Siparişlerim
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Yorum Listesi'
+      title: 'Sipariş Listesi'
       description: ''
       authenticated: false
       custom: []

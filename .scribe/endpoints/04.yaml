@@ -65,7 +65,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: molestias
+        example: aliquid
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -74,14 +74,14 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: placeat
+        example: inventore
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      password: molestias
-      password_confirmation: placeat
+      password: aliquid
+      password_confirmation: inventore
     fileParameters: []
     responses: []
     responseFields: []
@@ -115,7 +115,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: animi
+        example: velit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -124,7 +124,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: nemo
+        example: pariatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -133,7 +133,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: vitae
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -142,7 +142,7 @@ endpoints:
         name: gender
         description: ''
         required: true
-        example: odio
+        example: beatae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -151,7 +151,7 @@ endpoints:
         name: year
         description: ''
         required: true
-        example: 414.0
+        example: 3888.5
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -160,7 +160,7 @@ endpoints:
         name: month
         description: ''
         required: true
-        example: 0.0
+        example: 3.4585
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -169,19 +169,19 @@ endpoints:
         name: day
         description: ''
         required: true
-        example: 40.74751912
+        example: 1570470.95765
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: animi
-      phone: nemo
-      email: vitae
-      gender: odio
-      year: 414.0
-      month: 0.0
-      day: 40.74751912
+      name: velit
+      phone: pariatur
+      email: necessitatibus
+      gender: beatae
+      year: 3888.5
+      month: 3.4585
+      day: 1570470.95765
     fileParameters: []
     responses: []
     responseFields: []

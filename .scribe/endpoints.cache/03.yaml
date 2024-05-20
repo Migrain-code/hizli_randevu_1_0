@@ -28,13 +28,13 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 35.2
+        example: 1229.0
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 35.2
+      phone: 1229.0
     fileParameters: []
     responses: []
     responseFields: []
@@ -68,13 +68,13 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: 44347.1998
+        example: 44247563.288
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      code: 44347.1998
+      code: 44247563.288
     fileParameters: []
     responses: []
     responseFields: []

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "07112e3b-3889-4a4b-bdfa-87587e6cbab6",
+        "_postman_id": "dd398c56-72cc-47cc-9e43-aaff15c1a8d5",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -27,6 +27,40 @@
                             "path": "api\/appointment\/clock\/get-2",
                             "query": [],
                             "raw": "{{baseUrl}}\/api\/appointment\/clock\/get-2"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Ara",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/salon-ara",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/salon-ara",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/salon-ara"
                         },
                         "method": "POST",
                         "header": [
@@ -185,7 +219,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":2.412373791,\"password\":\"dolorem\"}"
+                            "raw": "{\"phone\":103.1377,\"password\":\"quas\"}"
                         },
                         "description": "",
                         "auth": {
@@ -244,7 +278,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":1685035.6,\"code\":7279.447}"
+                            "raw": "{\"phone\":39931.09,\"code\":1273.043586124}"
                         },
                         "description": "",
                         "auth": {
@@ -256,37 +290,9 @@
             ]
         },
         {
-            "name": "Endpoints",
+            "name": "Favori \u0130\u015fletmeler",
             "description": "",
             "item": [
-                {
-                    "name": "POST api\/salon-ara",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/salon-ara",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/salon-ara"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
                 {
                     "name": "Favoriler Listesi",
                     "request": {
@@ -336,7 +342,7 @@
                     ]
                 },
                 {
-                    "name": "Favori Ekleme \/ \u00c7\u0131karma\nNot: Burada yap\u0131lan ko\u015fulland\u0131rma \u015fu \u015fekilde:\n <ul>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesindeyse \u00e7\u0131kar\u0131l\u0131r<\/li>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesinde de\u011filse eklenir<\/li>\n <\/ul>",
+                    "name": "Favori Ekleme \/ \u00c7\u0131karma",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -357,242 +363,21 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"business_id\":33692.7178996}"
+                            "raw": "{\"business_id\":3}"
                         },
-                        "description": "",
+                        "description": "Not: Burada yap\u0131lan ko\u015fulland\u0131rma \u015fu \u015fekilde:\n <ul>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesindeyse \u00e7\u0131kar\u0131l\u0131r<\/li>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesinde de\u011filse eklenir<\/li>\n <\/ul>",
                         "auth": {
                             "type": "noauth"
                         }
                     },
                     "response": []
-                },
-                {
-                    "name": "GET api\/customer\/product-sale",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/customer\/product-sale",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/customer\/product-sale"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Randevu Listesi",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/customer\/appointment",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/customer\/appointment"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Randevu Detay\u0131",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/customer\/appointment\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/customer\/appointment\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the appointment."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Randevuya Yorum Yap",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/customer\/appointment\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/customer\/appointment\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the appointment."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"rating\":\"lpsvayblppsrcvpepjopyforlzhecftwhnouswdiwkekvrwycde\",\"content\":\"et\",\"terms\":true}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Randevu \u0130ptali",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/customer\/appointment\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/customer\/appointment\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the appointment."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
+                }
+            ]
+        },
+        {
+            "name": "Kampanyalar\u0131m",
+            "description": "",
+            "item": [
                 {
                     "name": "Kampanyalar Listesi",
                     "request": {
@@ -773,7 +558,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"password\":\"molestias\",\"password_confirmation\":\"placeat\"}"
+                            "raw": "{\"password\":\"aliquid\",\"password_confirmation\":\"inventore\"}"
                         },
                         "description": "",
                         "auth": {
@@ -804,7 +589,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"animi\",\"phone\":\"nemo\",\"email\":\"vitae\",\"gender\":\"odio\",\"year\":414,\"month\":0,\"day\":40.74751912}"
+                            "raw": "{\"name\":\"velit\",\"phone\":\"pariatur\",\"email\":\"necessitatibus\",\"gender\":\"beatae\",\"year\":3888.5,\"month\":3.4585,\"day\":1570470.95765}"
                         },
                         "description": "",
                         "auth": {
@@ -926,6 +711,191 @@
             ]
         },
         {
+            "name": "Randevular\u0131m",
+            "description": "",
+            "item": [
+                {
+                    "name": "Randevu Listesi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/appointment",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/customer\/appointment"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Randevu Detay\u0131",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/appointment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/customer\/appointment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the appointment."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Randevuya Yorum Yap",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/appointment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/customer\/appointment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the appointment."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"rating\":\"fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv\",\"content\":\"porro\",\"terms\":true}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Randevu \u0130ptali",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/appointment\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/customer\/appointment\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the appointment."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
             "name": "Sifremi Unuttum",
             "description": "",
             "item": [
@@ -951,7 +921,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":35.2}"
+                            "raw": "{\"phone\":1229}"
                         },
                         "description": "",
                         "auth": {
@@ -982,7 +952,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":44347.1998}"
+                            "raw": "{\"code\":44247563.288}"
                         },
                         "description": "",
                         "auth": {
@@ -990,6 +960,60 @@
                         }
                     },
                     "response": []
+                }
+            ]
+        },
+        {
+            "name": "Sipari\u015flerim",
+            "description": "",
+            "item": [
+                {
+                    "name": "Sipari\u015f Listesi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/product-sale",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/customer\/product-sale"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },

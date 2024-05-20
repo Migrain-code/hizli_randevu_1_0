@@ -11,7 +11,7 @@ use Cassandra\Custom;
 use Illuminate\Http\Request;
 
 /**
- * Favori İşletmeler
+ * @group Favori İşletmeler
  *
  */
 class FavoriteController extends Controller
@@ -39,6 +39,7 @@ class FavoriteController extends Controller
 
     /**
      * Favori Ekleme / Çıkarma
+     *
      * Not: Burada yapılan koşullandırma şu şekilde:
      *  <ul>
      *      <li>Eğer işletme kullanıcının favori listesindeyse çıkarılır</li>

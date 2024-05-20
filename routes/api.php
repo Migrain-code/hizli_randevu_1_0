@@ -66,7 +66,7 @@ Route::prefix('customer')->group(function (){
 
         //Yorumlar
         Route::apiResource('comment', CommentController::class)->only([
-            'index', 'update','show', 'destroy'
+            'index',
         ]);
 
         //Bildirimler

@@ -16,7 +16,7 @@ use Cassandra\Custom;
 use Illuminate\Http\Request;
 
 /**
- * Randevularım
+ * @group Randevularım
  *
  */
 class CustomerAppointmentController extends Controller

@@ -12,6 +12,9 @@ use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
+/**
+ * @group Ara
+ */
 class SearchController extends Controller
 {
     public function service($slug)

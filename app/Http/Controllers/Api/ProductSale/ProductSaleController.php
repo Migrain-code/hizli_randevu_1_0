@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductSale\ProductSaleListResource;
 use Illuminate\Http\Request;
 
+/**
+ * @group Siparişlerim
+ */
 class ProductSaleController extends Controller
 {
     private $customer;
@@ -17,6 +20,11 @@ class ProductSaleController extends Controller
             return $next($request);
         });
     }
+
+    /**
+     * Sipariş Listesi
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
         $orders = $this->customer->orders;

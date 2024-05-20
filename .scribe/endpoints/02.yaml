@@ -26,7 +26,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 2.412373791
+        example: 103.1377
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -35,14 +35,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: dolorem
+        example: quas
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 2.412373791
-      password: dolorem
+      phone: 103.1377
+      password: quas
     fileParameters: []
     responses: []
     responseFields: []
@@ -106,7 +106,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 1685035.6
+        example: 39931.09
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -115,14 +115,14 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: 7279.447
+        example: 1273.043586124
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 1685035.6
-      code: 7279.447
+      phone: 39931.09
+      code: 1273.043586124
     fileParameters: []
     responses: []
     responseFields: []

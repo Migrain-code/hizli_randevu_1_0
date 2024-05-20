@@ -8,6 +8,9 @@ use App\Http\Resources\Campaign\CampaignListResource;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
+/**
+ * @group Kampanyalarım
+ */
 class CamapignController extends Controller
 {
     private $customer;
