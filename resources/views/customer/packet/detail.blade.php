@@ -52,7 +52,7 @@
                                             class="packageSummaryItem d-flex align-items-center justify-content-between"
                                         >
                                             <span>Hizmet Adı</span>
-                                            <span>{{$packet->service->subCategory->name ?? ""}}</span>
+                                            <span>{{$packet->service->subCategory->getName() ?? ""}}</span>
                                         </div>
                                         <div
                                             class="packageSummaryItem d-flex align-items-center justify-content-between"

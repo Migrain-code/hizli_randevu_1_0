@@ -17,7 +17,10 @@ function setting($key){
 function main($key){
     return config('main_pages.'.$key);
 }
-
+function formatPrice($price)
+{
+    return number_format($price, 2) . ' ₺';
+}
 function clearPhone($phoneNumber){
     $newPhoneNumber = str_replace([' ', '(', ')', '-'], '', $phoneNumber);
 

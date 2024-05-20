@@ -10,8 +10,8 @@ class AppointmentServices extends Model
     use HasFactory;
 
     protected $casts = [
-        'start_date' => 'datetime',
-        'end_date' => 'datetime',
+        'start_time' => 'datetime',
+        'end_time' => 'datetime',
     ];
 
     public function service()

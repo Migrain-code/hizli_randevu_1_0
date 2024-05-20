@@ -1,8 +1,18 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\Auth\VerifyController;
+use App\Http\Controllers\Api\Auth\ResetPasswordController;
+use App\Http\Controllers\Api\Auth\UserController;
+use App\Http\Controllers\Api\Business\FavoriteController;
+use \App\Http\Controllers\Api\ProductSale\ProductSaleController;
+use App\Http\Controllers\Api\PackageSale\PackageSaleController;
+use \App\Http\Controllers\Api\Appointment\CustomerAppointmentController;
+use App\Http\Controllers\Api\Comment\CommentController;
+use App\Http\Controllers\Api\Notification\NotificationController;
+use App\Http\Controllers\Api\Campaing\CamapignController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,4 +28,59 @@ Route::post('/salon-ara', [\App\Http\Controllers\SearchController::class, 'salon
 
 Route::prefix('appointment')->group(function (){
     Route::post('/clock/get-2', [AppointmentController::class, 'getClock']);
+});
+
+Route::prefix('customer')->group(function (){
+    Route::prefix('auth')->group(function (){
+        Route::post('login', [AuthController::class, 'login']); // Giriş Yap
+        Route::post('register', [AuthController::class, 'register']); // Kayıt Ol
+        Route::post('verify', [VerifyController::class, 'verify']); // Kayıttaki Doğrulama
+
+        Route::post('forgot-password', [ResetPasswordController::class, 'forgotPassword']);// Şifremi unuttum
+        Route::post('forgot-password/verify', [ResetPasswordController::class, 'verifyResetPassword']); //  Şifremi Unuttum Doğrulama
+    });
+    Route::middleware('auth:api')->group(function () {
+        // kullanıcı bilgisi
+        Route::get('user', [UserController::class, 'index']);
+        //Şifre Değiştir
+        Route::post('change-password', [UserController::class, 'changePassword']);
+        // Bilgileri Güncelle
+        Route::post('update-info', [UserController::class, 'updateInfo']);
+
+        // Favori İşletmeler
+        Route::apiResource('favorite', FavoriteController::class)->only([
+            'index', 'store'
+        ]);
+        // Ürün Satışları
+        Route::get('product-sale', [ProductSaleController::class, 'index']);
+
+        // Paket Satışları
+        Route::apiResource('package-sale', PackageSaleController::class)->only([
+            'index', 'show'
+        ]);
+
+        //Randevular
+        Route::apiResource('appointment', CustomerAppointmentController::class)->only([
+            'index', 'update','show', 'destroy'
+        ]);
+
+        //Yorumlar
+        Route::apiResource('comment', CommentController::class)->only([
+            'index', 'update','show', 'destroy'
+        ]);
+
+        //Bildirimler
+        Route::apiResource('notification', NotificationController::class)->only([
+            'index','show'
+        ]);
+
+        //Kampanyalar
+        Route::apiResource('campaign', CamapignController::class)->only([
+            'index','show'
+        ]);
+
+
+
+    });
+
 });

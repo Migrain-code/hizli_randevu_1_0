@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/appointment/clock/get-2:
+    post:
+      summary: ''
+      operationId: postApiAppointmentClockGet2
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Appointment
+      security: []
+  /api/customer/auth/login:
+    post:
+      summary: Login
+      operationId: login
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Customer Authentication'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: number
+                  description: ''
+                  example: 0.7
+                password:
+                  type: string
+                  description: ''
+                  example: aspernatur
+              required:
+                - phone
+                - password
+      security: []
+  /api/salon-ara:
+    post:
+      summary: ''
+      operationId: postApiSalonAra
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Appointment
+    description: ''
+  -
+    name: 'Customer Authentication'
+    description: ''
+  -
+    name: Endpoints
+    description: ''

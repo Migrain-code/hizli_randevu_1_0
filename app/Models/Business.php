@@ -138,7 +138,7 @@ class Business extends Authenticatable
 
     public function points()
     {
-        $businessComments = $this->hasMany(BusinessComment::class, 'business_id', 'id')->where('status', 1);
+        $businessComments = $this->comments;
         $point = $businessComments->sum("point");
 
         if ($point == 0 || $businessComments->count() == 0) {

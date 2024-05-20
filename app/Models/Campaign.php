@@ -10,6 +10,7 @@ class Campaign extends Model
 {
     use HasFactory, HasTranslations;
     protected $translatable =['title', 'slug', 'description'];
+    protected $casts = ['start_time' => "datetime", 'end_date' => "datetime"];
     const STATUS_LIST=[
         0 => [
             'html' => '<span class="badge light badge-warning fw-bolder px-2 py-2">Onay Bekliyor</span>',

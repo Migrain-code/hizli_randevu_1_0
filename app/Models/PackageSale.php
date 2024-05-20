@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PackageSale extends Model
 {
     use HasFactory;
-    protected $dates=["seller_date"];
+    protected $casts=["seller_date" => "datetime"];
+    const PACKAGE_TYPES = [
+        0 => ["id" => 0, "name" => "Seans"],
+        1 => ["id" => 1, "name" => "Dakika"],
+    ];
+    public function packageType($type)
+    {
+        return self::PACKAGE_TYPES[$this->type][$type] ?? null;
+    }
     public function customer()
     {
         return $this->hasOne(Customer::class,'id', 'customer_id');
