@@ -125,7 +125,7 @@ endpoints:
         name: rating
         description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
         required: true
-        example: fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv
+        example: ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -134,7 +134,7 @@ endpoints:
         name: content
         description: ''
         required: true
-        example: porro
+        example: commodi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -149,8 +149,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      rating: fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv
-      content: porro
+      rating: ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv
+      content: commodi
       terms: true
     fileParameters: []
     responses: []

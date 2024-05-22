@@ -40,8 +40,8 @@ class Activity extends Model
         return $this->hasMany(ActivityImages::class, 'activity_id', 'id')->latest();
     }
 
-    public function citys()
+    public function city()
     {
-        return $this->hasOne(City::class, 'id', 'city');
+        return $this->hasOne(City::class, 'id', 'city_id');
     }
 }

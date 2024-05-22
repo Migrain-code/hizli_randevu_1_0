@@ -12,7 +12,11 @@ use App\Http\Controllers\Api\PackageSale\PackageSaleController;
 use \App\Http\Controllers\Api\Appointment\CustomerAppointmentController;
 use App\Http\Controllers\Api\Comment\CommentController;
 use App\Http\Controllers\Api\Notification\NotificationController;
+use App\Http\Controllers\Api\NotificationPermission\NotificationPermissionController;
 use App\Http\Controllers\Api\Campaing\CamapignController;
+use App\Http\Controllers\Api\MainPage\MainPageController;
+use App\Http\Controllers\Api\Location\LocationController;
+use App\Http\Controllers\Api\Activity\ActivityController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,7 +33,16 @@ Route::post('/salon-ara', [\App\Http\Controllers\SearchController::class, 'salon
 Route::prefix('appointment')->group(function (){
     Route::post('/clock/get-2', [AppointmentController::class, 'getClock']);
 });
-
+//Anasayfa
+Route::get('main-page', [MainPageController::class, 'index']);
+// Şehir ve ilçe
+Route::apiResource('city', LocationController::class)->only([
+    'index', 'show'
+]);
+// Activity
+Route::apiResource('activity', ActivityController::class)->only([
+    'index', 'show'
+]);
 Route::prefix('customer')->group(function (){
     Route::prefix('auth')->group(function (){
         Route::post('login', [AuthController::class, 'login']); // Giriş Yap
@@ -79,8 +92,10 @@ Route::prefix('customer')->group(function (){
             'index','show'
         ]);
 
-
-
+        //Bildirim İzinleri
+        Route::apiResource('notification-permission', NotificationPermissionController::class)->only([
+            'index','update'
+        ]);
     });
 
 });

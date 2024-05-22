@@ -80,6 +80,60 @@ paths:
         required: true
         schema:
           type: integer
+  /api/customer/notification-permission:
+    get:
+      summary: 'Bildirim listesi'
+      operationId: bildirimListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Bildirim İzinleri'
+      security: []
+  '/api/customer/notification-permission/{id}':
+    put:
+      summary: 'Bildirim İzinleri Güncelleme'
+      operationId: bildirimzinleriGncelleme
+      description: 'Not: Size bildirim izin listesinde gönderilen sütun adlarını column değişkeni ile apiye istek atmanız yeterlidir.'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Bildirim İzinleri'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                column:
+                  type: string
+                  description: ''
+                  example: rem
+              required:
+                - column
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the notification permission.'
+        example: 35
+        required: true
+        schema:
+          type: integer
   /api/customer/auth/login:
     post:
       summary: 'Giriş Yap'
@@ -99,11 +153,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 103.1377
+                  example: 8170833.25169
                 password:
                   type: string
                   description: ''
-                  example: quas
+                  example: iure
               required:
                 - phone
                 - password
@@ -137,11 +191,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 39931.09
+                  example: 180685741.43954
                 code:
                   type: number
                   description: ''
-                  example: 1273.043586124
+                  example: 478996.735897
               required:
                 - phone
                 - code
@@ -186,7 +240,7 @@ paths:
                 business_id:
                   type: number
                   description: ''
-                  example: 3.0
+                  example: 13.0
               required:
                 - business_id
       security: []
@@ -284,11 +338,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: aliquid
+                  example: rerum
                 password_confirmation:
                   type: string
                   description: ''
-                  example: inventore
+                  example: nemo
               required:
                 - password
                 - password_confirmation
@@ -312,31 +366,31 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: velit
+                  example: quia
                 phone:
                   type: string
                   description: ''
-                  example: pariatur
+                  example: delectus
                 email:
                   type: string
                   description: ''
-                  example: necessitatibus
+                  example: cum
                 gender:
                   type: string
                   description: ''
-                  example: beatae
+                  example: aut
                 year:
                   type: number
                   description: ''
-                  example: 3888.5
+                  example: 26.59311992
                 month:
                   type: number
                   description: ''
-                  example: 3.4585
+                  example: 8057.282518
                 day:
                   type: number
                   description: ''
-                  example: 1570470.95765
+                  example: 23033.082
               required:
                 - name
                 - phone
@@ -461,11 +515,11 @@ paths:
                 rating:
                   type: string
                   description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
-                  example: fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv
+                  example: ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv
                 content:
                   type: string
                   description: ''
-                  example: porro
+                  example: commodi
                 terms:
                   type: boolean
                   description: 'Must be accepted.'
@@ -512,7 +566,7 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 1229.0
+                  example: 258582996.0
               required:
                 - phone
       security: []
@@ -535,7 +589,7 @@ paths:
                 code:
                   type: number
                   description: ''
-                  example: 44247563.288
+                  example: 210.14682
               required:
                 - code
       security: []
@@ -592,6 +646,9 @@ tags:
     description: ''
   -
     name: Bildirimler
+    description: ''
+  -
+    name: 'Bildirim İzinleri'
     description: ''
   -
     name: 'Customer Authentication'

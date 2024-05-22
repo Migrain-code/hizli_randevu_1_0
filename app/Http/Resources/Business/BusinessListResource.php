@@ -30,7 +30,8 @@ class BusinessListResource extends JsonResource
             'wallpaper' => image($this->gallery()->first()->way ?? "default/business.png"),
             'commentCount' => $this->comments->count(),
             'point' => $this->points(),
-            'address' => $this->addresss
+            'address' => $this->addresss,
+            'is_favorite' => $this->checkFavorite(auth('api')->id()),
         ];
     }
 }

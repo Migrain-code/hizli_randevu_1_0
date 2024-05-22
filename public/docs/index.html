@@ -102,6 +102,19 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-bildirim-izinleri" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="bildirim-izinleri">
+                    <a href="#bildirim-izinleri">Bildirim İzinleri</a>
+                </li>
+                                    <ul id="tocify-subheader-bildirim-izinleri" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="bildirim-izinleri-GETapi-customer-notification-permission">
+                                <a href="#bildirim-izinleri-GETapi-customer-notification-permission">Bildirim listesi</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="bildirim-izinleri-PUTapi-customer-notification-permission--id-">
+                                <a href="#bildirim-izinleri-PUTapi-customer-notification-permission--id-">Bildirim İzinleri Güncelleme</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-customer-authentication" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="customer-authentication">
                     <a href="#customer-authentication">Customer Authentication</a>
@@ -752,6 +765,279 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="bildirim-izinleri">Bildirim İzinleri</h1>
+
+    
+
+                                <h2 id="bildirim-izinleri-GETapi-customer-notification-permission">Bildirim listesi</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-customer-notification-permission">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/customer/notification-permission" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/customer/notification-permission"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-customer-notification-permission">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-customer-notification-permission" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-customer-notification-permission"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-customer-notification-permission"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-customer-notification-permission" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-customer-notification-permission">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-customer-notification-permission" data-method="GET"
+      data-path="api/customer/notification-permission"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-customer-notification-permission', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-customer-notification-permission"
+                    onclick="tryItOut('GETapi-customer-notification-permission');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-customer-notification-permission"
+                    onclick="cancelTryOut('GETapi-customer-notification-permission');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-customer-notification-permission"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/customer/notification-permission</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-customer-notification-permission"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-customer-notification-permission"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="bildirim-izinleri-PUTapi-customer-notification-permission--id-">Bildirim İzinleri Güncelleme</h2>
+
+<p>
+</p>
+
+<p>Not: Size bildirim izin listesinde gönderilen sütun adlarını column değişkeni ile apiye istek atmanız yeterlidir.</p>
+
+<span id="example-requests-PUTapi-customer-notification-permission--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/customer/notification-permission/35" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"column\": \"rem\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/customer/notification-permission/35"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "column": "rem"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-customer-notification-permission--id-">
+</span>
+<span id="execution-results-PUTapi-customer-notification-permission--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-customer-notification-permission--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-customer-notification-permission--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-customer-notification-permission--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-customer-notification-permission--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-customer-notification-permission--id-" data-method="PUT"
+      data-path="api/customer/notification-permission/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-customer-notification-permission--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-customer-notification-permission--id-"
+                    onclick="tryItOut('PUTapi-customer-notification-permission--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-customer-notification-permission--id-"
+                    onclick="cancelTryOut('PUTapi-customer-notification-permission--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-customer-notification-permission--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/customer/notification-permission/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/customer/notification-permission/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-customer-notification-permission--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-customer-notification-permission--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-customer-notification-permission--id-"
+               value="35"
+               data-component="url">
+    <br>
+<p>The ID of the notification permission. Example: <code>35</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>column</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="column"                data-endpoint="PUTapi-customer-notification-permission--id-"
+               value="rem"
+               data-component="body">
+    <br>
+<p>Example: <code>rem</code></p>
+        </div>
+        </form>
+
                 <h1 id="customer-authentication">Customer Authentication</h1>
 
     
@@ -773,8 +1059,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 103.1377,
-    \"password\": \"quas\"
+    \"phone\": 8170833.25169,
+    \"password\": \"iure\"
 }"
 </code></pre></div>
 
@@ -790,8 +1076,8 @@ const headers = {
 };
 
 let body = {
-    "phone": 103.1377,
-    "password": "quas"
+    "phone": 8170833.25169,
+    "password": "iure"
 };
 
 fetch(url, {
@@ -880,10 +1166,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="phone"                data-endpoint="POSTapi-customer-auth-login"
-               value="103.1377"
+               value="8170833.25169"
                data-component="body">
     <br>
-<p>Example: <code>103.1377</code></p>
+<p>Example: <code>8170833.25169</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -891,10 +1177,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-customer-auth-login"
-               value="quas"
+               value="iure"
                data-component="body">
     <br>
-<p>Example: <code>quas</code></p>
+<p>Example: <code>iure</code></p>
         </div>
         </form>
 
@@ -1023,8 +1309,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 39931.09,
-    \"code\": 1273.043586124
+    \"phone\": 180685741.4395437,
+    \"code\": 478996.735897
 }"
 </code></pre></div>
 
@@ -1040,8 +1326,8 @@ const headers = {
 };
 
 let body = {
-    "phone": 39931.09,
-    "code": 1273.043586124
+    "phone": 180685741.4395437,
+    "code": 478996.735897
 };
 
 fetch(url, {
@@ -1130,10 +1416,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="phone"                data-endpoint="POSTapi-customer-auth-verify"
-               value="39931.09"
+               value="180685741.43954"
                data-component="body">
     <br>
-<p>Example: <code>39931.09</code></p>
+<p>Example: <code>180685741.43954</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -1141,10 +1427,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="code"                data-endpoint="POSTapi-customer-auth-verify"
-               value="1273.043586124"
+               value="478996.735897"
                data-component="body">
     <br>
-<p>Example: <code>1273.043586124</code></p>
+<p>Example: <code>478996.735897</code></p>
         </div>
         </form>
 
@@ -1297,7 +1583,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"business_id\": 3
+    \"business_id\": 13
 }"
 </code></pre></div>
 
@@ -1313,7 +1599,7 @@ const headers = {
 };
 
 let body = {
-    "business_id": 3
+    "business_id": 13
 };
 
 fetch(url, {
@@ -1402,10 +1688,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="business_id"                data-endpoint="POSTapi-customer-favorite"
-               value="3"
+               value="13"
                data-component="body">
     <br>
-<p>Example: <code>3</code></p>
+<p>Example: <code>13</code></p>
         </div>
         </form>
 
@@ -1818,8 +2104,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"password\": \"aliquid\",
-    \"password_confirmation\": \"inventore\"
+    \"password\": \"rerum\",
+    \"password_confirmation\": \"nemo\"
 }"
 </code></pre></div>
 
@@ -1835,8 +2121,8 @@ const headers = {
 };
 
 let body = {
-    "password": "aliquid",
-    "password_confirmation": "inventore"
+    "password": "rerum",
+    "password_confirmation": "nemo"
 };
 
 fetch(url, {
@@ -1925,10 +2211,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-customer-change-password"
-               value="aliquid"
+               value="rerum"
                data-component="body">
     <br>
-<p>Example: <code>aliquid</code></p>
+<p>Example: <code>rerum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -1936,10 +2222,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-customer-change-password"
-               value="inventore"
+               value="nemo"
                data-component="body">
     <br>
-<p>Example: <code>inventore</code></p>
+<p>Example: <code>nemo</code></p>
         </div>
         </form>
 
@@ -1960,13 +2246,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"velit\",
-    \"phone\": \"pariatur\",
-    \"email\": \"necessitatibus\",
-    \"gender\": \"beatae\",
-    \"year\": 3888.5,
-    \"month\": 3.4585,
-    \"day\": 1570470.95765
+    \"name\": \"quia\",
+    \"phone\": \"delectus\",
+    \"email\": \"cum\",
+    \"gender\": \"aut\",
+    \"year\": 26.59311992,
+    \"month\": 8057.282518,
+    \"day\": 23033.082
 }"
 </code></pre></div>
 
@@ -1982,13 +2268,13 @@ const headers = {
 };
 
 let body = {
-    "name": "velit",
-    "phone": "pariatur",
-    "email": "necessitatibus",
-    "gender": "beatae",
-    "year": 3888.5,
-    "month": 3.4585,
-    "day": 1570470.95765
+    "name": "quia",
+    "phone": "delectus",
+    "email": "cum",
+    "gender": "aut",
+    "year": 26.59311992,
+    "month": 8057.282518,
+    "day": 23033.082
 };
 
 fetch(url, {
@@ -2077,10 +2363,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-customer-update-info"
-               value="velit"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>velit</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -2088,10 +2374,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-customer-update-info"
-               value="pariatur"
+               value="delectus"
                data-component="body">
     <br>
-<p>Example: <code>pariatur</code></p>
+<p>Example: <code>delectus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2099,10 +2385,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-customer-update-info"
-               value="necessitatibus"
+               value="cum"
                data-component="body">
     <br>
-<p>Example: <code>necessitatibus</code></p>
+<p>Example: <code>cum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -2110,10 +2396,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-customer-update-info"
-               value="beatae"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>beatae</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>year</code></b>&nbsp;&nbsp;
@@ -2121,10 +2407,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="year"                data-endpoint="POSTapi-customer-update-info"
-               value="3888.5"
+               value="26.59311992"
                data-component="body">
     <br>
-<p>Example: <code>3888.5</code></p>
+<p>Example: <code>26.59311992</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>month</code></b>&nbsp;&nbsp;
@@ -2132,10 +2418,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="month"                data-endpoint="POSTapi-customer-update-info"
-               value="3.4585"
+               value="8057.282518"
                data-component="body">
     <br>
-<p>Example: <code>3.4585</code></p>
+<p>Example: <code>8057.282518</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>day</code></b>&nbsp;&nbsp;
@@ -2143,10 +2429,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="day"                data-endpoint="POSTapi-customer-update-info"
-               value="1570470.95765"
+               value="23033.082"
                data-component="body">
     <br>
-<p>Example: <code>1570470.95765</code></p>
+<p>Example: <code>23033.082</code></p>
         </div>
         </form>
 
@@ -2704,8 +2990,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"rating\": \"fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv\",
-    \"content\": \"porro\",
+    \"rating\": \"ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv\",
+    \"content\": \"commodi\",
     \"terms\": true
 }"
 </code></pre></div>
@@ -2722,8 +3008,8 @@ const headers = {
 };
 
 let body = {
-    "rating": "fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv",
-    "content": "porro",
+    "rating": "ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv",
+    "content": "commodi",
     "terms": true
 };
 
@@ -2829,10 +3115,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="rating"                data-endpoint="PUTapi-customer-appointment--id-"
-               value="fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv"
+               value="ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv"
                data-component="body">
     <br>
-<p>value değeri 1 karakter değerinden büyük olmalıdır. Example: <code>fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv</code></p>
+<p>value değeri 1 karakter değerinden büyük olmalıdır. Example: <code>ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>content</code></b>&nbsp;&nbsp;
@@ -2840,10 +3126,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="content"                data-endpoint="PUTapi-customer-appointment--id-"
-               value="porro"
+               value="commodi"
                data-component="body">
     <br>
-<p>Example: <code>porro</code></p>
+<p>Example: <code>commodi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>terms</code></b>&nbsp;&nbsp;
@@ -3009,7 +3295,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 1229
+    \"phone\": 258582996
 }"
 </code></pre></div>
 
@@ -3025,7 +3311,7 @@ const headers = {
 };
 
 let body = {
-    "phone": 1229
+    "phone": 258582996
 };
 
 fetch(url, {
@@ -3114,10 +3400,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="phone"                data-endpoint="POSTapi-customer-auth-forgot-password"
-               value="1229"
+               value="258582996"
                data-component="body">
     <br>
-<p>Example: <code>1229</code></p>
+<p>Example: <code>258582996</code></p>
         </div>
         </form>
 
@@ -3138,7 +3424,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"code\": 44247563.288
+    \"code\": 210.14682
 }"
 </code></pre></div>
 
@@ -3154,7 +3440,7 @@ const headers = {
 };
 
 let body = {
-    "code": 44247563.288
+    "code": 210.14682
 };
 
 fetch(url, {
@@ -3243,10 +3529,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="code"                data-endpoint="POSTapi-customer-auth-forgot-password-verify"
-               value="44247563.288"
+               value="210.14682"
                data-component="body">
     <br>
-<p>Example: <code>44247563.288</code></p>
+<p>Example: <code>210.14682</code></p>
         </div>
         </form>
 

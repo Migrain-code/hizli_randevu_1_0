@@ -25,7 +25,7 @@ class CamapignController extends Controller
 
     /**
      * Kampanyalar Listesi
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -35,7 +35,7 @@ class CamapignController extends Controller
 
     /**
      * Kampanya Detayı
-     * @return void
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function show(Campaign $campaign)

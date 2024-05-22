@@ -25,7 +25,9 @@ class Customer extends Authenticatable
 
     public function campaigns()
     {
-        return $this->hasMany(CampaignCustomer::class, 'customer_id', 'id');
+        return $this->hasMany(CampaignCustomer::class, 'customer_id', 'id')->whereHas('campaign', function ($q){
+            $q->whereStatus(1);
+        });
     }
     public function notifications()
     {

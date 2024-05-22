@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "dd398c56-72cc-47cc-9e43-aaff15c1a8d5",
+        "_postman_id": "85871ca0-fb0e-4d2a-8336-4e7e9936f8b0",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -194,6 +194,99 @@
             ]
         },
         {
+            "name": "Bildirim \u0130zinleri",
+            "description": "",
+            "item": [
+                {
+                    "name": "Bildirim listesi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/notification-permission",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/customer\/notification-permission"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Bildirim \u0130zinleri G\u00fcncelleme",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer\/notification-permission\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/customer\/notification-permission\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "35",
+                                    "description": "The ID of the notification permission."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"column\":\"rem\"}"
+                        },
+                        "description": "Not: Size bildirim izin listesinde g\u00f6nderilen s\u00fctun adlar\u0131n\u0131 column de\u011fi\u015fkeni ile apiye istek atman\u0131z yeterlidir.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
             "name": "Customer Authentication",
             "description": "",
             "item": [
@@ -219,7 +312,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":103.1377,\"password\":\"quas\"}"
+                            "raw": "{\"phone\":8170833.25169,\"password\":\"iure\"}"
                         },
                         "description": "",
                         "auth": {
@@ -278,7 +371,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":39931.09,\"code\":1273.043586124}"
+                            "raw": "{\"phone\":180685741.4395437,\"code\":478996.735897}"
                         },
                         "description": "",
                         "auth": {
@@ -363,7 +456,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"business_id\":3}"
+                            "raw": "{\"business_id\":13}"
                         },
                         "description": "Not: Burada yap\u0131lan ko\u015fulland\u0131rma \u015fu \u015fekilde:\n <ul>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesindeyse \u00e7\u0131kar\u0131l\u0131r<\/li>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesinde de\u011filse eklenir<\/li>\n <\/ul>",
                         "auth": {
@@ -558,7 +651,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"password\":\"aliquid\",\"password_confirmation\":\"inventore\"}"
+                            "raw": "{\"password\":\"rerum\",\"password_confirmation\":\"nemo\"}"
                         },
                         "description": "",
                         "auth": {
@@ -589,7 +682,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"velit\",\"phone\":\"pariatur\",\"email\":\"necessitatibus\",\"gender\":\"beatae\",\"year\":3888.5,\"month\":3.4585,\"day\":1570470.95765}"
+                            "raw": "{\"name\":\"quia\",\"phone\":\"delectus\",\"email\":\"cum\",\"gender\":\"aut\",\"year\":26.59311992,\"month\":8057.282518,\"day\":23033.082}"
                         },
                         "description": "",
                         "auth": {
@@ -848,7 +941,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"rating\":\"fpeitsypwkglfpppgycknulqnjueqhawcwvwixinwbvvqnfazwnttqv\",\"content\":\"porro\",\"terms\":true}"
+                            "raw": "{\"rating\":\"ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv\",\"content\":\"commodi\",\"terms\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -921,7 +1014,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":1229}"
+                            "raw": "{\"phone\":258582996}"
                         },
                         "description": "",
                         "auth": {
@@ -952,7 +1045,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":44247563.288}"
+                            "raw": "{\"code\":210.14682}"
                         },
                         "description": "",
                         "auth": {

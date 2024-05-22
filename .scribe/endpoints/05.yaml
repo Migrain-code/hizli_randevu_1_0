@@ -70,13 +70,13 @@ endpoints:
         name: business_id
         description: ''
         required: true
-        example: 3.0
+        example: 13.0
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      business_id: 3.0
+      business_id: 13.0
     fileParameters: []
     responses: []
     responseFields: []

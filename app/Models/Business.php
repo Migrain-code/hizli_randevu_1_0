@@ -136,6 +136,10 @@ class Business extends Authenticatable
         return $this->hasMany(BusinessComment::class, 'business_id', 'id')->where('status', 1)->latest();
     }
 
+    public function checkFavorite($customerId)
+    {
+        return $this->hasMany(CustomerFavorite::class, 'business_id', 'id')->where('customer_id', $customerId)->exists();
+    }
     public function points()
     {
         $businessComments = $this->comments;

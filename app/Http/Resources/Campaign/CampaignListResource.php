@@ -21,6 +21,7 @@ class CampaignListResource extends JsonResource
             'code' => $this->campaign->code,
             'start_time' => $this->campaign->start_time->format('d.m.Y H:i'),
             'end_time' => $this->campaign->end_date->format('d.m.Y H:i'),
+            'status' => $this->campaign->end_date > now(),
             'business' => BusinessListResource::make($this->campaign->business),
         ];
     }
