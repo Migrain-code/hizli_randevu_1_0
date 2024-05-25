@@ -241,6 +241,10 @@ class HomeController extends Controller
         $appointment = Appointment::find($request->id);
         $appointment->status = 3;
         $appointment->save();
+        foreach ($appointment->services as $service){
+            $service->status = 3;
+            $service->save();
+        }
         $message = $appointment->business->name . ' İşletmesine ' . $appointment->start_time->format('d.m.Y H:i') . ' tarihindeki randevunuz iptal edildi.';
         $appointment->customer->sendSms($message);
         $appointment->customer->sendNotification('Randevunuz Sizin Tarafınızdan İptal Edildi', $message);
