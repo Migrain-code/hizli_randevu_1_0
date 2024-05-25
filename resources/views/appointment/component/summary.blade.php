@@ -54,10 +54,13 @@
             </div>
             <div class="summaryServices">
 
-
+                @php
+                    $toplam = 0;
+                @endphp
                 @forelse($selectedServices as $service)
+                    @php($toplam+= $service->price)
                     <div class="summaryServicesItem">
-                        <span>{{$service->subCategory->name . "(" . $service->gender->name ." )"}}</span>
+                        <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->price. " TL"}}</span>
                     </div>
 
                 @empty
@@ -66,5 +69,14 @@
 
             </div>
         </div>
+        <div class="summaryItem">
+            <div
+                class="d-flex align-items-center justify-content-between"
+            >
+                <span>Toplam</span>
+                <span id="totalPrice">{{$toplam}} TL</span>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -385,7 +385,7 @@ class AppointmentController extends Controller
             $endDateTime = Carbon::parse($appointment->end_time);
 
             $currentDateTime = $startDateTime->copy();
-            while ($currentDateTime <= $endDateTime) {
+            while ($currentDateTime < $endDateTime) {
 
                 $disableds[] = $currentDateTime->format('d.m.Y H:i');
 
