@@ -348,7 +348,7 @@
         var personels = {!! isset(request()->query()['request']['personels']) ? json_encode(request()->query()['request']['personels']) : "" !!};
 
         document.addEventListener("DOMContentLoaded", function () {
-            clickedDate('{{now()->format('d.m.Y')}}');
+            clickedDate('{{now()}}');
         });
 
         var newToken = '{{csrf_token()}}';

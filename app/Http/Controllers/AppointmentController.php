@@ -235,7 +235,8 @@ class AppointmentController extends Controller
 
     public function getClock(Request $request)
     {
-        $getDate = Carbon::parse($request->date);
+        $getDate = Carbon::parse($request->input('date'), 'UTC');
+        $noFormattedDate = Carbon::parse($request->input('date'), 'UTC');
         $business = Business::find($request->business_id);
         $uniquePersonals = array_unique($request->personals);
 
@@ -250,13 +251,13 @@ class AppointmentController extends Controller
 
                 $disabledDays[] = $this->findTimes($personel, $request->room_id);
 
-                if (Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek == $business->off_day) {
+                if ($getDate->dayOfWeek == $business->off_day) {
                     return response()->json([
                         "status" => "error",
                         "message" => "İşletme bu tarihte hizmet vermemektedir"
                     ]);
                 } else {
-                    if (in_array(Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek, $personel->restDays()->pluck('day_id')->toArray())) {
+                    if (in_array($getDate->dayOfWeek, $personel->restDays()->pluck('day_id')->toArray())) {
                         return response()->json([
                             "status" => "error",
                             "message" => "Personel bu tarihte hizmet vermemektedir"
@@ -265,7 +266,7 @@ class AppointmentController extends Controller
                         if ($personel->checkDateIsOff($getDate)) {
                             return response()->json([
                                 "status" => "error",
-                                "message" => 'Personel ' . Carbon::parse($personel->stayOffDays->start_time)->format('d.m.Y H:i') . " tarihinden " . Carbon::parse($personel->stayOffDays->end_time)->format('d.m.Y H:i') . " Tarihine Kadar İzinlidir",
+                                "message" => 'Personel bu tarihte hizmet vermemektedir',
 
                             ]);
                         } else {

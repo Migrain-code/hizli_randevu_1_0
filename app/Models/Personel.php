@@ -40,7 +40,15 @@ class Personel extends Model
     {
         return $this->hasMany(PersonelStayOffDay::class, 'personel_id', 'id');
     }
-
+    public function checkDayControl($personel_id, $secilen_tarih_baslangic, $secilen_tarih_bitis)
+    {
+        return PersonelStayOffDay::where('personel_id', $personel_id)
+            ->where(function($query) use ($secilen_tarih_baslangic, $secilen_tarih_bitis) {
+                $query->whereBetween('start_time', [$secilen_tarih_baslangic, $secilen_tarih_bitis])
+                    ->orWhereBetween('end_time', [$secilen_tarih_baslangic, $secilen_tarih_bitis]);
+            })
+            ->exists();
+    }
     public function checkDateIsOff($getDate)
     {
         // stayOffDays ilişkisini kullanarak izin tarihlerini alıyoruz.
