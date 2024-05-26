@@ -431,15 +431,13 @@
 
                                 // parts[2] -> yıl, parts[1] -> ay, parts[0] -> gün
                                 var formattedDate = `${year}-${month}-${day}`;
-                                alert(formattedDate);
+
                                 var originalDate = new Date(formattedDate); // Örnek tarih
                                 var nextDay = new Date(originalDate);
                                 nextDay.setDate(originalDate.getDate() + 1);
-
                                 clickedDate(nextDay);
-
                                 let newClickedTime = formatDate(nextDay);
-                                alert(newClickedTime);
+
                                 var targetInput = document.querySelector('input[data-date="' + newClickedTime + '"]');
                                 targetInput.checked = true;
                             } else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
