@@ -7,6 +7,854 @@ servers:
   -
     url: 'http://localhost'
 paths:
+  /api/main-page:
+    get:
+      summary: 'Anasayfa Apisi'
+      operationId: anasayfaApisi
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hizli_randevu.interviews' doesn't exist (Connection: mysql, SQL: select * from `interviews` where `status` = 1)"
+                  exception: Illuminate\Database\QueryException
+                  file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
+                  line: 829
+                  trace:
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
+                      line: 783
+                      function: runQueryCallback
+                      class: Illuminate\Database\Connection
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
+                      line: 431
+                      function: run
+                      class: Illuminate\Database\Connection
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                      line: 2872
+                      function: select
+                      class: Illuminate\Database\Connection
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                      line: 2860
+                      function: runSelect
+                      class: Illuminate\Database\Query\Builder
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                      line: 3414
+                      function: 'Illuminate\Database\Query\{closure}'
+                      class: Illuminate\Database\Query\Builder
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                      line: 2861
+                      function: onceWithColumns
+                      class: Illuminate\Database\Query\Builder
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
+                      line: 739
+                      function: get
+                      class: Illuminate\Database\Query\Builder
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
+                      line: 723
+                      function: getModels
+                      class: Illuminate\Database\Eloquent\Builder
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\app\Http\Controllers\Api\MainPage\MainPageController.php'
+                      line: 34
+                      function: get
+                      class: Illuminate\Database\Eloquent\Builder
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
+                      line: 54
+                      function: index
+                      class: App\Http\Controllers\Api\MainPage\MainPageController
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
+                      line: 43
+                      function: callAction
+                      class: Illuminate\Routing\Controller
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                      line: 260
+                      function: dispatch
+                      class: Illuminate\Routing\ControllerDispatcher
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                      line: 205
+                      function: runController
+                      class: Illuminate\Routing\Route
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 806
+                      function: run
+                      class: Illuminate\Routing\Route
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 144
+                      function: 'Illuminate\Routing\{closure}'
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                      line: 50
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Routing\Middleware\SubstituteBindings
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 119
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 807
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 784
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 748
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 737
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 200
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 144
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 99
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                      line: 62
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Http\Middleware\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 119
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 175
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 144
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 300
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 288
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 91
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 44
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 236
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 125
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 72
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 50
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 53
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 662
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 211
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
+                      line: 326
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 181
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                      line: 1096
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                      line: 324
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                      line: 175
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 201
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hizli_randevu.interviews' doesn't exist (Connection: mysql, SQL: select * from `interviews` where `status` = 1)"
+                  exception:
+                    type: string
+                    example: Illuminate\Database\QueryException
+                  file:
+                    type: string
+                    example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
+                  line:
+                    type: integer
+                    example: 829
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
+                        line: 783
+                        function: runQueryCallback
+                        class: Illuminate\Database\Connection
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
+                        line: 431
+                        function: run
+                        class: Illuminate\Database\Connection
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                        line: 2872
+                        function: select
+                        class: Illuminate\Database\Connection
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                        line: 2860
+                        function: runSelect
+                        class: Illuminate\Database\Query\Builder
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                        line: 3414
+                        function: 'Illuminate\Database\Query\{closure}'
+                        class: Illuminate\Database\Query\Builder
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
+                        line: 2861
+                        function: onceWithColumns
+                        class: Illuminate\Database\Query\Builder
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
+                        line: 739
+                        function: get
+                        class: Illuminate\Database\Query\Builder
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
+                        line: 723
+                        function: getModels
+                        class: Illuminate\Database\Eloquent\Builder
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\app\Http\Controllers\Api\MainPage\MainPageController.php'
+                        line: 34
+                        function: get
+                        class: Illuminate\Database\Eloquent\Builder
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
+                        line: 54
+                        function: index
+                        class: App\Http\Controllers\Api\MainPage\MainPageController
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
+                        line: 43
+                        function: callAction
+                        class: Illuminate\Routing\Controller
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                        line: 260
+                        function: dispatch
+                        class: Illuminate\Routing\ControllerDispatcher
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
+                        line: 205
+                        function: runController
+                        class: Illuminate\Routing\Route
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 806
+                        function: run
+                        class: Illuminate\Routing\Route
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 144
+                        function: 'Illuminate\Routing\{closure}'
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
+                        line: 50
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Routing\Middleware\SubstituteBindings
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 119
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 807
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 784
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 748
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 737
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 200
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 144
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 99
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                        line: 62
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Http\Middleware\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 119
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 175
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 144
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 300
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 288
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 91
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 44
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 236
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 125
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 72
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 50
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 53
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 662
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 211
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
+                        line: 326
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 181
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                        line: 1096
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                        line: 324
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                        line: 175
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 201
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
+                        line:
+                          type: integer
+                          example: 783
+                        function:
+                          type: string
+                          example: runQueryCallback
+                        class:
+                          type: string
+                          example: Illuminate\Database\Connection
+                        type:
+                          type: string
+                          example: '->'
+      tags:
+        - Anasayfa
+      security: []
   /api/appointment/clock/get-2:
     post:
       summary: ''
@@ -76,7 +924,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the notification.'
-        example: 44
+        example: 1
         required: true
         schema:
           type: integer
@@ -121,7 +969,7 @@ paths:
                 column:
                   type: string
                   description: ''
-                  example: rem
+                  example: vel
               required:
                 - column
       security: []
@@ -130,7 +978,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the notification permission.'
-        example: 35
+        example: 1
         required: true
         schema:
           type: integer
@@ -153,11 +1001,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 8170833.25169
+                  example: 336708878.257
                 password:
                   type: string
                   description: ''
-                  example: iure
+                  example: harum
               required:
                 - phone
                 - password
@@ -191,15 +1039,805 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 180685741.43954
+                  example: 26.8
                 code:
                   type: number
                   description: ''
-                  example: 478996.735897
+                  example: 9455194.413757
               required:
                 - phone
                 - code
       security: []
+  /api/activity:
+    get:
+      summary: 'Etkinlik listesi'
+      operationId: etkinlikListesi
+      description: 'Not: todayActivity aktif ise apiye urlparametere olarak gönderilecek.. aktif değilse url paramttere hiç eklenemeyecek'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Etkinlikler
+      security: []
+    post:
+      summary: 'Etkinliğe Katıl'
+      operationId: etkinlieKatl
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Etkinlikler
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: number
+                  description: ''
+                  example: 7.54
+                password:
+                  type: string
+                  description: ''
+                  example: reprehenderit
+              required:
+                - phone
+                - password
+      security: []
+    parameters:
+      -
+        in: path
+        name: todayActiviy
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: et
+      -
+        in: path
+        name: city_id
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: qui
+      -
+        in: path
+        name: activity_date
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: voluptatem
+  '/api/activity/{id}':
+    get:
+      summary: 'Etkinlik detayı'
+      operationId: etkinlikDetay
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Activity] 17'
+                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line: 487
+                  trace:
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                      line: 463
+                      function: prepareException
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                      line: 54
+                      function: render
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                      line: 51
+                      function: render
+                      class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 188
+                      function: handleException
+                      class: Illuminate\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 119
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 807
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 784
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 748
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 737
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 200
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 144
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 99
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                      line: 62
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Http\Middleware\HandleCors
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 183
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 119
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 175
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 144
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 300
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 288
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 91
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 44
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 236
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 125
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 72
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 50
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 53
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 662
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 211
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
+                      line: 326
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 181
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                      line: 1096
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                      line: 324
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                      line: 175
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 201
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Activity] 17'
+                  exception:
+                    type: string
+                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file:
+                    type: string
+                    example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line:
+                    type: integer
+                    example: 487
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line: 463
+                        function: prepareException
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                        line: 54
+                        function: render
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                        line: 51
+                        function: render
+                        class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 188
+                        function: handleException
+                        class: Illuminate\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 119
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 807
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 784
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 748
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 737
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 200
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 144
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 99
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                        line: 62
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Http\Middleware\HandleCors
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 183
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 119
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 175
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 144
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 300
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 288
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 91
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 44
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 236
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 125
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 72
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 50
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 53
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 662
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 211
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
+                        line: 326
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 181
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                        line: 1096
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                        line: 324
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
+                        line: 175
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 201
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line:
+                          type: integer
+                          example: 463
+                        function:
+                          type: string
+                          example: prepareException
+                        class:
+                          type: string
+                          example: Illuminate\Foundation\Exceptions\Handler
+                        type:
+                          type: string
+                          example: '->'
+      tags:
+        - Etkinlikler
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the activity.'
+        example: 17
+        required: true
+        schema:
+          type: integer
   /api/customer/favorite:
     get:
       summary: 'Favoriler Listesi'
@@ -240,7 +1878,7 @@ paths:
                 business_id:
                   type: number
                   description: ''
-                  example: 13.0
+                  example: 48890335.1025
               required:
                 - business_id
       security: []
@@ -293,7 +1931,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the campaign.'
-        example: 1
+        example: 20
         required: true
         schema:
           type: integer
@@ -338,11 +1976,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: rerum
+                  example: assumenda
                 password_confirmation:
                   type: string
                   description: ''
-                  example: nemo
+                  example: officia
               required:
                 - password
                 - password_confirmation
@@ -366,31 +2004,31 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: quia
+                  example: et
                 phone:
                   type: string
                   description: ''
-                  example: delectus
+                  example: est
                 email:
                   type: string
                   description: ''
-                  example: cum
+                  example: facere
                 gender:
                   type: string
                   description: ''
-                  example: aut
+                  example: qui
                 year:
                   type: number
                   description: ''
-                  example: 26.59311992
+                  example: 2.80884755
                 month:
                   type: number
                   description: ''
-                  example: 8057.282518
+                  example: 29.9308
                 day:
                   type: number
                   description: ''
-                  example: 23033.082
+                  example: 156.42437009
               required:
                 - name
                 - phone
@@ -449,7 +2087,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the package sale.'
-        example: 22
+        example: 4
         required: true
         schema:
           type: integer
@@ -515,11 +2153,11 @@ paths:
                 rating:
                   type: string
                   description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
-                  example: ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv
+                  example: ruqliic
                 content:
                   type: string
                   description: ''
-                  example: commodi
+                  example: eaque
                 terms:
                   type: boolean
                   description: 'Must be accepted.'
@@ -566,7 +2204,7 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 258582996.0
+                  example: 4.053367
               required:
                 - phone
       security: []
@@ -589,7 +2227,7 @@ paths:
                 code:
                   type: number
                   description: ''
-                  example: 210.14682
+                  example: 2546.3119
               required:
                 - code
       security: []
@@ -637,7 +2275,345 @@ paths:
       tags:
         - Yorumlarım
       security: []
+  /api/city:
+    get:
+      summary: 'Şehir Listesi'
+      operationId: ehirListesi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: Adana
+                  -
+                    id: 2
+                    name: Adıyaman
+                  -
+                    id: 3
+                    name: Afyon
+                  -
+                    id: 4
+                    name: Ağrı
+                  -
+                    id: 5
+                    name: Amasya
+                  -
+                    id: 6
+                    name: Ankara
+                  -
+                    id: 7
+                    name: Antalya
+                  -
+                    id: 8
+                    name: Artvi̇n
+                  -
+                    id: 9
+                    name: Aydin
+                  -
+                    id: 10
+                    name: Balikesi̇r
+                  -
+                    id: 11
+                    name: Bi̇leci̇k
+                  -
+                    id: 12
+                    name: Bi̇ngöl
+                  -
+                    id: 13
+                    name: Bi̇tli̇s
+                  -
+                    id: 14
+                    name: Bolu
+                  -
+                    id: 15
+                    name: Burdur
+                  -
+                    id: 16
+                    name: Bursa
+                  -
+                    id: 17
+                    name: Çanakkale
+                  -
+                    id: 18
+                    name: Çankırı
+                  -
+                    id: 19
+                    name: Çorum
+                  -
+                    id: 20
+                    name: Deni̇zli̇
+                  -
+                    id: 21
+                    name: Diyarbakır
+                  -
+                    id: 22
+                    name: Edi̇rne
+                  -
+                    id: 23
+                    name: Elazığ
+                  -
+                    id: 24
+                    name: Erzi̇ncan
+                  -
+                    id: 25
+                    name: Erzurum
+                  -
+                    id: 26
+                    name: Eski̇şehi̇r
+                  -
+                    id: 27
+                    name: Gazi̇antep
+                  -
+                    id: 28
+                    name: Gi̇resun
+                  -
+                    id: 29
+                    name: Gümüşhane
+                  -
+                    id: 30
+                    name: Hakkari̇
+                  -
+                    id: 31
+                    name: Hatay
+                  -
+                    id: 32
+                    name: Isparta
+                  -
+                    id: 33
+                    name: İçel
+                  -
+                    id: 34
+                    name: İstanbul
+                  -
+                    id: 35
+                    name: İzmi̇r
+                  -
+                    id: 36
+                    name: Kars
+                  -
+                    id: 37
+                    name: Kastamonu
+                  -
+                    id: 38
+                    name: Kayseri̇
+                  -
+                    id: 39
+                    name: Kırklareli̇
+                  -
+                    id: 40
+                    name: Kirşehi̇r
+                  -
+                    id: 41
+                    name: Kocaeli̇
+                  -
+                    id: 42
+                    name: Konya
+                  -
+                    id: 43
+                    name: Kütahya
+                  -
+                    id: 44
+                    name: Malatya
+                  -
+                    id: 45
+                    name: Mani̇sa
+                  -
+                    id: 46
+                    name: Kahramanmaraş
+                  -
+                    id: 47
+                    name: Mardi̇n
+                  -
+                    id: 48
+                    name: Muğla
+                  -
+                    id: 49
+                    name: Muş
+                  -
+                    id: 50
+                    name: Nevşehi̇r
+                  -
+                    id: 51
+                    name: Ni̇ğde
+                  -
+                    id: 52
+                    name: Ordu
+                  -
+                    id: 53
+                    name: Rize
+                  -
+                    id: 54
+                    name: Sakarya
+                  -
+                    id: 55
+                    name: Samsun
+                  -
+                    id: 56
+                    name: Si̇i̇rt
+                  -
+                    id: 57
+                    name: Si̇nop
+                  -
+                    id: 58
+                    name: Si̇vas
+                  -
+                    id: 59
+                    name: Teki̇rdağ
+                  -
+                    id: 60
+                    name: Tokat
+                  -
+                    id: 61
+                    name: Trabzon
+                  -
+                    id: 62
+                    name: Tunceli̇
+                  -
+                    id: 63
+                    name: şanliurfa
+                  -
+                    id: 64
+                    name: Uşak
+                  -
+                    id: 65
+                    name: Van
+                  -
+                    id: 66
+                    name: Yozgat
+                  -
+                    id: 67
+                    name: Zonguldak
+                  -
+                    id: 68
+                    name: Aksaray
+                  -
+                    id: 69
+                    name: Bayburt
+                  -
+                    id: 70
+                    name: Karaman
+                  -
+                    id: 71
+                    name: Kırıkkale
+                  -
+                    id: 72
+                    name: Batman
+                  -
+                    id: 73
+                    name: Şırnak
+                  -
+                    id: 74
+                    name: Bartın
+                  -
+                    id: 75
+                    name: Ardahan
+                  -
+                    id: 76
+                    name: Iğdır
+                  -
+                    id: 77
+                    name: Yalova
+                  -
+                    id: 78
+                    name: Karabük
+                  -
+                    id: 79
+                    name: Ki̇li̇s
+                  -
+                    id: 80
+                    name: Osmani̇ye
+                  -
+                    id: 81
+                    name: Düzce
+      tags:
+        - 'İL / İlçe'
+      security: []
+  '/api/city/{id}':
+    get:
+      summary: 'İlçe Listesi'
+      operationId: leListesi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: Aladağ
+                  -
+                    id: 2
+                    name: Ceyhan
+                  -
+                    id: 3
+                    name: Çukurova
+                  -
+                    id: 4
+                    name: Feke
+                  -
+                    id: 5
+                    name: İmamoğlu
+                  -
+                    id: 6
+                    name: Karai̇sali
+                  -
+                    id: 7
+                    name: Karataş
+                  -
+                    id: 8
+                    name: Kozan
+                  -
+                    id: 9
+                    name: Pozanti
+                  -
+                    id: 10
+                    name: Sai̇mbeyli̇
+                  -
+                    id: 11
+                    name: Sariçam
+                  -
+                    id: 12
+                    name: Seyhan
+                  -
+                    id: 13
+                    name: Tufanbeyli̇
+                  -
+                    id: 14
+                    name: Yumurtalık
+                  -
+                    id: 15
+                    name: Yüreği̇r
+      tags:
+        - 'İL / İlçe'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the city.'
+        example: 1
+        required: true
+        schema:
+          type: integer
 tags:
+  -
+    name: Anasayfa
+    description: ''
   -
     name: Appointment
     description: ''
@@ -652,6 +2628,9 @@ tags:
     description: ''
   -
     name: 'Customer Authentication'
+    description: ''
+  -
+    name: Etkinlikler
     description: ''
   -
     name: 'Favori İşletmeler'
@@ -676,4 +2655,7 @@ tags:
     description: ''
   -
     name: Yorumlarım
+    description: ''
+  -
+    name: 'İL / İlçe'
     description: ''

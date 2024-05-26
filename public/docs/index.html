@@ -66,6 +66,16 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
+                    <ul id="tocify-header-anasayfa" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="anasayfa">
+                    <a href="#anasayfa">Anasayfa</a>
+                </li>
+                                    <ul id="tocify-subheader-anasayfa" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="anasayfa-GETapi-main-page">
+                                <a href="#anasayfa-GETapi-main-page">Anasayfa Apisi</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-appointment" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="appointment">
                     <a href="#appointment">Appointment</a>
@@ -128,6 +138,22 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="customer-authentication-POSTapi-customer-auth-verify">
                                 <a href="#customer-authentication-POSTapi-customer-auth-verify">Telefon Doğrulama</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-etkinlikler" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="etkinlikler">
+                    <a href="#etkinlikler">Etkinlikler</a>
+                </li>
+                                    <ul id="tocify-subheader-etkinlikler" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="etkinlikler-GETapi-activity">
+                                <a href="#etkinlikler-GETapi-activity">Etkinlik listesi</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="etkinlikler-POSTapi-activity">
+                                <a href="#etkinlikler-POSTapi-activity">Etkinliğe Katıl</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="etkinlikler-GETapi-activity--id-">
+                                <a href="#etkinlikler-GETapi-activity--id-">Etkinlik detayı</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -247,6 +273,19 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-il-ilce" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="il-ilce">
+                    <a href="#il-ilce">İL / İlçe</a>
+                </li>
+                                    <ul id="tocify-subheader-il-ilce" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="il-ilce-GETapi-city">
+                                <a href="#il-ilce-GETapi-city">Şehir Listesi</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="il-ilce-GETapi-city--id-">
+                                <a href="#il-ilce-GETapi-city--id-">İlçe Listesi</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -256,7 +295,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: May 21, 2024</li>
+        <li>Last updated: May 26, 2024</li>
     </ul>
 </div>
 
@@ -274,7 +313,602 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="appointment">Appointment</h1>
+        <h1 id="anasayfa">Anasayfa</h1>
+
+    
+
+                                <h2 id="anasayfa-GETapi-main-page">Anasayfa Apisi</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-main-page">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/main-page" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/main-page"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-main-page">
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;SQLSTATE[42S02]: Base table or view not found: 1146 Table &#039;hizli_randevu.interviews&#039; doesn&#039;t exist (Connection: mysql, SQL: select * from `interviews` where `status` = 1)&quot;,
+    &quot;exception&quot;: &quot;Illuminate\\Database\\QueryException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php&quot;,
+    &quot;line&quot;: 829,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php&quot;,
+            &quot;line&quot;: 783,
+            &quot;function&quot;: &quot;runQueryCallback&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php&quot;,
+            &quot;line&quot;: 431,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php&quot;,
+            &quot;line&quot;: 2872,
+            &quot;function&quot;: &quot;select&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php&quot;,
+            &quot;line&quot;: 2860,
+            &quot;function&quot;: &quot;runSelect&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php&quot;,
+            &quot;line&quot;: 3414,
+            &quot;function&quot;: &quot;Illuminate\\Database\\Query\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Query\\Builder.php&quot;,
+            &quot;line&quot;: 2861,
+            &quot;function&quot;: &quot;onceWithColumns&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php&quot;,
+            &quot;line&quot;: 739,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php&quot;,
+            &quot;line&quot;: 723,
+            &quot;function&quot;: &quot;getModels&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\app\\Http\\Controllers\\Api\\MainPage\\MainPageController.php&quot;,
+            &quot;line&quot;: 34,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php&quot;,
+            &quot;line&quot;: 54,
+            &quot;function&quot;: &quot;index&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\MainPage\\MainPageController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php&quot;,
+            &quot;line&quot;: 43,
+            &quot;function&quot;: &quot;callAction&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Controller&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php&quot;,
+            &quot;line&quot;: 260,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php&quot;,
+            &quot;line&quot;: 205,
+            &quot;function&quot;: &quot;runController&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 806,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 119,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 807,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 784,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 748,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 737,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 200,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 99,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php&quot;,
+            &quot;line&quot;: 62,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 119,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 175,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 300,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 288,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 91,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 44,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 236,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 125,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 72,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 53,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 662,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 211,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 326,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 181,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1096,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 324,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 175,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 201,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-main-page" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-main-page"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-main-page"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-main-page" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-main-page">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-main-page" data-method="GET"
+      data-path="api/main-page"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-main-page', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-main-page"
+                    onclick="tryItOut('GETapi-main-page');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-main-page"
+                    onclick="cancelTryOut('GETapi-main-page');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-main-page"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/main-page</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-main-page"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-main-page"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                <h1 id="appointment">Appointment</h1>
 
     
 
@@ -642,14 +1276,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/customer/notification/44" \
+    --get "http://localhost/api/customer/notification/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customer/notification/44"
+    "http://localhost/api/customer/notification/1"
 );
 
 const headers = {
@@ -758,10 +1392,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-customer-notification--id-"
-               value="44"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the notification. Example: <code>44</code></p>
+<p>The ID of the notification. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -906,18 +1540,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/customer/notification-permission/35" \
+    "http://localhost/api/customer/notification-permission/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"column\": \"rem\"
+    \"column\": \"vel\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customer/notification-permission/35"
+    "http://localhost/api/customer/notification-permission/1"
 );
 
 const headers = {
@@ -926,7 +1560,7 @@ const headers = {
 };
 
 let body = {
-    "column": "rem"
+    "column": "vel"
 };
 
 fetch(url, {
@@ -1019,10 +1653,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-customer-notification-permission--id-"
-               value="35"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the notification permission. Example: <code>35</code></p>
+<p>The ID of the notification permission. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1031,10 +1665,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="column"                data-endpoint="PUTapi-customer-notification-permission--id-"
-               value="rem"
+               value="vel"
                data-component="body">
     <br>
-<p>Example: <code>rem</code></p>
+<p>Example: <code>vel</code></p>
         </div>
         </form>
 
@@ -1059,8 +1693,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 8170833.25169,
-    \"password\": \"iure\"
+    \"phone\": 336708878.257,
+    \"password\": \"harum\"
 }"
 </code></pre></div>
 
@@ -1076,8 +1710,8 @@ const headers = {
 };
 
 let body = {
-    "phone": 8170833.25169,
-    "password": "iure"
+    "phone": 336708878.257,
+    "password": "harum"
 };
 
 fetch(url, {
@@ -1166,10 +1800,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="phone"                data-endpoint="POSTapi-customer-auth-login"
-               value="8170833.25169"
+               value="336708878.257"
                data-component="body">
     <br>
-<p>Example: <code>8170833.25169</code></p>
+<p>Example: <code>336708878.257</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1177,10 +1811,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-customer-auth-login"
-               value="iure"
+               value="harum"
                data-component="body">
     <br>
-<p>Example: <code>iure</code></p>
+<p>Example: <code>harum</code></p>
         </div>
         </form>
 
@@ -1309,8 +1943,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 180685741.4395437,
-    \"code\": 478996.735897
+    \"phone\": 26.8,
+    \"code\": 9455194.41375697
 }"
 </code></pre></div>
 
@@ -1326,8 +1960,8 @@ const headers = {
 };
 
 let body = {
-    "phone": 180685741.4395437,
-    "code": 478996.735897
+    "phone": 26.8,
+    "code": 9455194.41375697
 };
 
 fetch(url, {
@@ -1416,10 +2050,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="phone"                data-endpoint="POSTapi-customer-auth-verify"
-               value="180685741.43954"
+               value="26.8"
                data-component="body">
     <br>
-<p>Example: <code>180685741.43954</code></p>
+<p>Example: <code>26.8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -1427,12 +2061,826 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="code"                data-endpoint="POSTapi-customer-auth-verify"
-               value="478996.735897"
+               value="9455194.413757"
                data-component="body">
     <br>
-<p>Example: <code>478996.735897</code></p>
+<p>Example: <code>9455194.413757</code></p>
         </div>
         </form>
+
+                <h1 id="etkinlikler">Etkinlikler</h1>
+
+    
+
+                                <h2 id="etkinlikler-GETapi-activity">Etkinlik listesi</h2>
+
+<p>
+</p>
+
+<p>Not: todayActivity aktif ise apiye urlparametere olarak gönderilecek.. aktif değilse url paramttere hiç eklenemeyecek</p>
+
+<span id="example-requests-GETapi-activity">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/activity" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/activity"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-activity">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-activity" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-activity"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-activity"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-activity" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-activity">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-activity" data-method="GET"
+      data-path="api/activity"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-activity', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-activity"
+                    onclick="tryItOut('GETapi-activity');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-activity"
+                    onclick="cancelTryOut('GETapi-activity');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-activity"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/activity</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-activity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-activity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>todayActiviy</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="todayActiviy"                data-endpoint="GETapi-activity"
+               value="et"
+               data-component="url">
+    <br>
+<p>Example: <code>et</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>city_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="city_id"                data-endpoint="GETapi-activity"
+               value="qui"
+               data-component="url">
+    <br>
+<p>Example: <code>qui</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>activity_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="activity_date"                data-endpoint="GETapi-activity"
+               value="voluptatem"
+               data-component="url">
+    <br>
+<p>Example: <code>voluptatem</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="etkinlikler-POSTapi-activity">Etkinliğe Katıl</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-activity">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/activity" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"phone\": 7.54,
+    \"password\": \"reprehenderit\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/activity"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "phone": 7.54,
+    "password": "reprehenderit"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-activity">
+</span>
+<span id="execution-results-POSTapi-activity" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-activity"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-activity"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-activity" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-activity">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-activity" data-method="POST"
+      data-path="api/activity"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-activity', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-activity"
+                    onclick="tryItOut('POSTapi-activity');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-activity"
+                    onclick="cancelTryOut('POSTapi-activity');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-activity"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/activity</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-activity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-activity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="phone"                data-endpoint="POSTapi-activity"
+               value="7.54"
+               data-component="body">
+    <br>
+<p>Example: <code>7.54</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-activity"
+               value="reprehenderit"
+               data-component="body">
+    <br>
+<p>Example: <code>reprehenderit</code></p>
+        </div>
+        </form>
+
+                    <h2 id="etkinlikler-GETapi-activity--id-">Etkinlik detayı</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-activity--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/activity/17" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/activity/17"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-activity--id-">
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Activity] 17&quot;,
+    &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
+    &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php&quot;,
+    &quot;line&quot;: 487,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php&quot;,
+            &quot;line&quot;: 463,
+            &quot;function&quot;: &quot;prepareException&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Exceptions\\Handler&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\nunomaduro\\collision\\src\\Adapters\\Laravel\\ExceptionHandler.php&quot;,
+            &quot;line&quot;: 54,
+            &quot;function&quot;: &quot;render&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Exceptions\\Handler&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php&quot;,
+            &quot;line&quot;: 51,
+            &quot;function&quot;: &quot;render&quot;,
+            &quot;class&quot;: &quot;NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 188,
+            &quot;function&quot;: &quot;handleException&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 119,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 807,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 784,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 748,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php&quot;,
+            &quot;line&quot;: 737,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 200,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 99,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php&quot;,
+            &quot;line&quot;: 62,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php&quot;,
+            &quot;line&quot;: 119,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 175,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 300,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 288,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 91,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 44,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 236,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 166,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 125,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 72,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 53,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php&quot;,
+            &quot;line&quot;: 662,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 211,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Command\\Command.php&quot;,
+            &quot;line&quot;: 326,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php&quot;,
+            &quot;line&quot;: 181,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 1096,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 324,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\symfony\\console\\Application.php&quot;,
+            &quot;line&quot;: 175,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php&quot;,
+            &quot;line&quot;: 201,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\artisan&quot;,
+            &quot;line&quot;: 37,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-activity--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-activity--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-activity--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-activity--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-activity--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-activity--id-" data-method="GET"
+      data-path="api/activity/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-activity--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-activity--id-"
+                    onclick="tryItOut('GETapi-activity--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-activity--id-"
+                    onclick="cancelTryOut('GETapi-activity--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-activity--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/activity/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-activity--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-activity--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-activity--id-"
+               value="17"
+               data-component="url">
+    <br>
+<p>The ID of the activity. Example: <code>17</code></p>
+            </div>
+                    </form>
 
                 <h1 id="favori-isletmeler">Favori İşletmeler</h1>
 
@@ -1583,7 +3031,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"business_id\": 13
+    \"business_id\": 48890335.1025
 }"
 </code></pre></div>
 
@@ -1599,7 +3047,7 @@ const headers = {
 };
 
 let body = {
-    "business_id": 13
+    "business_id": 48890335.1025
 };
 
 fetch(url, {
@@ -1688,10 +3136,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="business_id"                data-endpoint="POSTapi-customer-favorite"
-               value="13"
+               value="48890335.1025"
                data-component="body">
     <br>
-<p>Example: <code>13</code></p>
+<p>Example: <code>48890335.1025</code></p>
         </div>
         </form>
 
@@ -1836,14 +3284,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/customer/campaign/1" \
+    --get "http://localhost/api/customer/campaign/20" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customer/campaign/1"
+    "http://localhost/api/customer/campaign/20"
 );
 
 const headers = {
@@ -1952,10 +3400,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-customer-campaign--id-"
-               value="1"
+               value="20"
                data-component="url">
     <br>
-<p>The ID of the campaign. Example: <code>1</code></p>
+<p>The ID of the campaign. Example: <code>20</code></p>
             </div>
                     </form>
 
@@ -2104,8 +3552,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"password\": \"rerum\",
-    \"password_confirmation\": \"nemo\"
+    \"password\": \"assumenda\",
+    \"password_confirmation\": \"officia\"
 }"
 </code></pre></div>
 
@@ -2121,8 +3569,8 @@ const headers = {
 };
 
 let body = {
-    "password": "rerum",
-    "password_confirmation": "nemo"
+    "password": "assumenda",
+    "password_confirmation": "officia"
 };
 
 fetch(url, {
@@ -2211,10 +3659,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-customer-change-password"
-               value="rerum"
+               value="assumenda"
                data-component="body">
     <br>
-<p>Example: <code>rerum</code></p>
+<p>Example: <code>assumenda</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -2222,10 +3670,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-customer-change-password"
-               value="nemo"
+               value="officia"
                data-component="body">
     <br>
-<p>Example: <code>nemo</code></p>
+<p>Example: <code>officia</code></p>
         </div>
         </form>
 
@@ -2246,13 +3694,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"quia\",
-    \"phone\": \"delectus\",
-    \"email\": \"cum\",
-    \"gender\": \"aut\",
-    \"year\": 26.59311992,
-    \"month\": 8057.282518,
-    \"day\": 23033.082
+    \"name\": \"et\",
+    \"phone\": \"est\",
+    \"email\": \"facere\",
+    \"gender\": \"qui\",
+    \"year\": 2.80884755,
+    \"month\": 29.9308,
+    \"day\": 156.42437009
 }"
 </code></pre></div>
 
@@ -2268,13 +3716,13 @@ const headers = {
 };
 
 let body = {
-    "name": "quia",
-    "phone": "delectus",
-    "email": "cum",
-    "gender": "aut",
-    "year": 26.59311992,
-    "month": 8057.282518,
-    "day": 23033.082
+    "name": "et",
+    "phone": "est",
+    "email": "facere",
+    "gender": "qui",
+    "year": 2.80884755,
+    "month": 29.9308,
+    "day": 156.42437009
 };
 
 fetch(url, {
@@ -2363,10 +3811,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-customer-update-info"
-               value="quia"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>quia</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -2374,10 +3822,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-customer-update-info"
-               value="delectus"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>delectus</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2385,10 +3833,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-customer-update-info"
-               value="cum"
+               value="facere"
                data-component="body">
     <br>
-<p>Example: <code>cum</code></p>
+<p>Example: <code>facere</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -2396,10 +3844,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-customer-update-info"
-               value="aut"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>year</code></b>&nbsp;&nbsp;
@@ -2407,10 +3855,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="year"                data-endpoint="POSTapi-customer-update-info"
-               value="26.59311992"
+               value="2.80884755"
                data-component="body">
     <br>
-<p>Example: <code>26.59311992</code></p>
+<p>Example: <code>2.80884755</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>month</code></b>&nbsp;&nbsp;
@@ -2418,10 +3866,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="month"                data-endpoint="POSTapi-customer-update-info"
-               value="8057.282518"
+               value="29.9308"
                data-component="body">
     <br>
-<p>Example: <code>8057.282518</code></p>
+<p>Example: <code>29.9308</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>day</code></b>&nbsp;&nbsp;
@@ -2429,10 +3877,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="day"                data-endpoint="POSTapi-customer-update-info"
-               value="23033.082"
+               value="156.42437009"
                data-component="body">
     <br>
-<p>Example: <code>23033.082</code></p>
+<p>Example: <code>156.42437009</code></p>
         </div>
         </form>
 
@@ -2586,14 +4034,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/customer/package-sale/22" \
+    --get "http://localhost/api/customer/package-sale/4" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customer/package-sale/22"
+    "http://localhost/api/customer/package-sale/4"
 );
 
 const headers = {
@@ -2702,10 +4150,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-customer-package-sale--id-"
-               value="22"
+               value="4"
                data-component="url">
     <br>
-<p>The ID of the package sale. Example: <code>22</code></p>
+<p>The ID of the package sale. Example: <code>4</code></p>
             </div>
                     </form>
 
@@ -2990,8 +4438,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"rating\": \"ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv\",
-    \"content\": \"commodi\",
+    \"rating\": \"ruqliic\",
+    \"content\": \"eaque\",
     \"terms\": true
 }"
 </code></pre></div>
@@ -3008,8 +4456,8 @@ const headers = {
 };
 
 let body = {
-    "rating": "ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv",
-    "content": "commodi",
+    "rating": "ruqliic",
+    "content": "eaque",
     "terms": true
 };
 
@@ -3115,10 +4563,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="rating"                data-endpoint="PUTapi-customer-appointment--id-"
-               value="ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv"
+               value="ruqliic"
                data-component="body">
     <br>
-<p>value değeri 1 karakter değerinden büyük olmalıdır. Example: <code>ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv</code></p>
+<p>value değeri 1 karakter değerinden büyük olmalıdır. Example: <code>ruqliic</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>content</code></b>&nbsp;&nbsp;
@@ -3126,10 +4574,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="content"                data-endpoint="PUTapi-customer-appointment--id-"
-               value="commodi"
+               value="eaque"
                data-component="body">
     <br>
-<p>Example: <code>commodi</code></p>
+<p>Example: <code>eaque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>terms</code></b>&nbsp;&nbsp;
@@ -3295,7 +4743,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": 258582996
+    \"phone\": 4.053367
 }"
 </code></pre></div>
 
@@ -3311,7 +4759,7 @@ const headers = {
 };
 
 let body = {
-    "phone": 258582996
+    "phone": 4.053367
 };
 
 fetch(url, {
@@ -3400,10 +4848,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="phone"                data-endpoint="POSTapi-customer-auth-forgot-password"
-               value="258582996"
+               value="4.053367"
                data-component="body">
     <br>
-<p>Example: <code>258582996</code></p>
+<p>Example: <code>4.053367</code></p>
         </div>
         </form>
 
@@ -3424,7 +4872,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"code\": 210.14682
+    \"code\": 2546.3119
 }"
 </code></pre></div>
 
@@ -3440,7 +4888,7 @@ const headers = {
 };
 
 let body = {
-    "code": 210.14682
+    "code": 2546.3119
 };
 
 fetch(url, {
@@ -3529,10 +4977,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="code"                data-endpoint="POSTapi-customer-auth-forgot-password-verify"
-               value="210.14682"
+               value="2546.3119"
                data-component="body">
     <br>
-<p>Example: <code>210.14682</code></p>
+<p>Example: <code>2546.3119</code></p>
         </div>
         </form>
 
@@ -3791,6 +5239,652 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="il-ilce">İL / İlçe</h1>
+
+    
+
+                                <h2 id="il-ilce-GETapi-city">Şehir Listesi</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-city">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/city" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/city"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-city">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Adana&quot;
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;Adıyaman&quot;
+    },
+    {
+        &quot;id&quot;: 3,
+        &quot;name&quot;: &quot;Afyon&quot;
+    },
+    {
+        &quot;id&quot;: 4,
+        &quot;name&quot;: &quot;Ağrı&quot;
+    },
+    {
+        &quot;id&quot;: 5,
+        &quot;name&quot;: &quot;Amasya&quot;
+    },
+    {
+        &quot;id&quot;: 6,
+        &quot;name&quot;: &quot;Ankara&quot;
+    },
+    {
+        &quot;id&quot;: 7,
+        &quot;name&quot;: &quot;Antalya&quot;
+    },
+    {
+        &quot;id&quot;: 8,
+        &quot;name&quot;: &quot;Artvi̇n&quot;
+    },
+    {
+        &quot;id&quot;: 9,
+        &quot;name&quot;: &quot;Aydin&quot;
+    },
+    {
+        &quot;id&quot;: 10,
+        &quot;name&quot;: &quot;Balikesi̇r&quot;
+    },
+    {
+        &quot;id&quot;: 11,
+        &quot;name&quot;: &quot;Bi̇leci̇k&quot;
+    },
+    {
+        &quot;id&quot;: 12,
+        &quot;name&quot;: &quot;Bi̇ng&ouml;l&quot;
+    },
+    {
+        &quot;id&quot;: 13,
+        &quot;name&quot;: &quot;Bi̇tli̇s&quot;
+    },
+    {
+        &quot;id&quot;: 14,
+        &quot;name&quot;: &quot;Bolu&quot;
+    },
+    {
+        &quot;id&quot;: 15,
+        &quot;name&quot;: &quot;Burdur&quot;
+    },
+    {
+        &quot;id&quot;: 16,
+        &quot;name&quot;: &quot;Bursa&quot;
+    },
+    {
+        &quot;id&quot;: 17,
+        &quot;name&quot;: &quot;&Ccedil;anakkale&quot;
+    },
+    {
+        &quot;id&quot;: 18,
+        &quot;name&quot;: &quot;&Ccedil;ankırı&quot;
+    },
+    {
+        &quot;id&quot;: 19,
+        &quot;name&quot;: &quot;&Ccedil;orum&quot;
+    },
+    {
+        &quot;id&quot;: 20,
+        &quot;name&quot;: &quot;Deni̇zli̇&quot;
+    },
+    {
+        &quot;id&quot;: 21,
+        &quot;name&quot;: &quot;Diyarbakır&quot;
+    },
+    {
+        &quot;id&quot;: 22,
+        &quot;name&quot;: &quot;Edi̇rne&quot;
+    },
+    {
+        &quot;id&quot;: 23,
+        &quot;name&quot;: &quot;Elazığ&quot;
+    },
+    {
+        &quot;id&quot;: 24,
+        &quot;name&quot;: &quot;Erzi̇ncan&quot;
+    },
+    {
+        &quot;id&quot;: 25,
+        &quot;name&quot;: &quot;Erzurum&quot;
+    },
+    {
+        &quot;id&quot;: 26,
+        &quot;name&quot;: &quot;Eski̇şehi̇r&quot;
+    },
+    {
+        &quot;id&quot;: 27,
+        &quot;name&quot;: &quot;Gazi̇antep&quot;
+    },
+    {
+        &quot;id&quot;: 28,
+        &quot;name&quot;: &quot;Gi̇resun&quot;
+    },
+    {
+        &quot;id&quot;: 29,
+        &quot;name&quot;: &quot;G&uuml;m&uuml;şhane&quot;
+    },
+    {
+        &quot;id&quot;: 30,
+        &quot;name&quot;: &quot;Hakkari̇&quot;
+    },
+    {
+        &quot;id&quot;: 31,
+        &quot;name&quot;: &quot;Hatay&quot;
+    },
+    {
+        &quot;id&quot;: 32,
+        &quot;name&quot;: &quot;Isparta&quot;
+    },
+    {
+        &quot;id&quot;: 33,
+        &quot;name&quot;: &quot;İ&ccedil;el&quot;
+    },
+    {
+        &quot;id&quot;: 34,
+        &quot;name&quot;: &quot;İstanbul&quot;
+    },
+    {
+        &quot;id&quot;: 35,
+        &quot;name&quot;: &quot;İzmi̇r&quot;
+    },
+    {
+        &quot;id&quot;: 36,
+        &quot;name&quot;: &quot;Kars&quot;
+    },
+    {
+        &quot;id&quot;: 37,
+        &quot;name&quot;: &quot;Kastamonu&quot;
+    },
+    {
+        &quot;id&quot;: 38,
+        &quot;name&quot;: &quot;Kayseri̇&quot;
+    },
+    {
+        &quot;id&quot;: 39,
+        &quot;name&quot;: &quot;Kırklareli̇&quot;
+    },
+    {
+        &quot;id&quot;: 40,
+        &quot;name&quot;: &quot;Kirşehi̇r&quot;
+    },
+    {
+        &quot;id&quot;: 41,
+        &quot;name&quot;: &quot;Kocaeli̇&quot;
+    },
+    {
+        &quot;id&quot;: 42,
+        &quot;name&quot;: &quot;Konya&quot;
+    },
+    {
+        &quot;id&quot;: 43,
+        &quot;name&quot;: &quot;K&uuml;tahya&quot;
+    },
+    {
+        &quot;id&quot;: 44,
+        &quot;name&quot;: &quot;Malatya&quot;
+    },
+    {
+        &quot;id&quot;: 45,
+        &quot;name&quot;: &quot;Mani̇sa&quot;
+    },
+    {
+        &quot;id&quot;: 46,
+        &quot;name&quot;: &quot;Kahramanmaraş&quot;
+    },
+    {
+        &quot;id&quot;: 47,
+        &quot;name&quot;: &quot;Mardi̇n&quot;
+    },
+    {
+        &quot;id&quot;: 48,
+        &quot;name&quot;: &quot;Muğla&quot;
+    },
+    {
+        &quot;id&quot;: 49,
+        &quot;name&quot;: &quot;Muş&quot;
+    },
+    {
+        &quot;id&quot;: 50,
+        &quot;name&quot;: &quot;Nevşehi̇r&quot;
+    },
+    {
+        &quot;id&quot;: 51,
+        &quot;name&quot;: &quot;Ni̇ğde&quot;
+    },
+    {
+        &quot;id&quot;: 52,
+        &quot;name&quot;: &quot;Ordu&quot;
+    },
+    {
+        &quot;id&quot;: 53,
+        &quot;name&quot;: &quot;Rize&quot;
+    },
+    {
+        &quot;id&quot;: 54,
+        &quot;name&quot;: &quot;Sakarya&quot;
+    },
+    {
+        &quot;id&quot;: 55,
+        &quot;name&quot;: &quot;Samsun&quot;
+    },
+    {
+        &quot;id&quot;: 56,
+        &quot;name&quot;: &quot;Si̇i̇rt&quot;
+    },
+    {
+        &quot;id&quot;: 57,
+        &quot;name&quot;: &quot;Si̇nop&quot;
+    },
+    {
+        &quot;id&quot;: 58,
+        &quot;name&quot;: &quot;Si̇vas&quot;
+    },
+    {
+        &quot;id&quot;: 59,
+        &quot;name&quot;: &quot;Teki̇rdağ&quot;
+    },
+    {
+        &quot;id&quot;: 60,
+        &quot;name&quot;: &quot;Tokat&quot;
+    },
+    {
+        &quot;id&quot;: 61,
+        &quot;name&quot;: &quot;Trabzon&quot;
+    },
+    {
+        &quot;id&quot;: 62,
+        &quot;name&quot;: &quot;Tunceli̇&quot;
+    },
+    {
+        &quot;id&quot;: 63,
+        &quot;name&quot;: &quot;şanliurfa&quot;
+    },
+    {
+        &quot;id&quot;: 64,
+        &quot;name&quot;: &quot;Uşak&quot;
+    },
+    {
+        &quot;id&quot;: 65,
+        &quot;name&quot;: &quot;Van&quot;
+    },
+    {
+        &quot;id&quot;: 66,
+        &quot;name&quot;: &quot;Yozgat&quot;
+    },
+    {
+        &quot;id&quot;: 67,
+        &quot;name&quot;: &quot;Zonguldak&quot;
+    },
+    {
+        &quot;id&quot;: 68,
+        &quot;name&quot;: &quot;Aksaray&quot;
+    },
+    {
+        &quot;id&quot;: 69,
+        &quot;name&quot;: &quot;Bayburt&quot;
+    },
+    {
+        &quot;id&quot;: 70,
+        &quot;name&quot;: &quot;Karaman&quot;
+    },
+    {
+        &quot;id&quot;: 71,
+        &quot;name&quot;: &quot;Kırıkkale&quot;
+    },
+    {
+        &quot;id&quot;: 72,
+        &quot;name&quot;: &quot;Batman&quot;
+    },
+    {
+        &quot;id&quot;: 73,
+        &quot;name&quot;: &quot;Şırnak&quot;
+    },
+    {
+        &quot;id&quot;: 74,
+        &quot;name&quot;: &quot;Bartın&quot;
+    },
+    {
+        &quot;id&quot;: 75,
+        &quot;name&quot;: &quot;Ardahan&quot;
+    },
+    {
+        &quot;id&quot;: 76,
+        &quot;name&quot;: &quot;Iğdır&quot;
+    },
+    {
+        &quot;id&quot;: 77,
+        &quot;name&quot;: &quot;Yalova&quot;
+    },
+    {
+        &quot;id&quot;: 78,
+        &quot;name&quot;: &quot;Karab&uuml;k&quot;
+    },
+    {
+        &quot;id&quot;: 79,
+        &quot;name&quot;: &quot;Ki̇li̇s&quot;
+    },
+    {
+        &quot;id&quot;: 80,
+        &quot;name&quot;: &quot;Osmani̇ye&quot;
+    },
+    {
+        &quot;id&quot;: 81,
+        &quot;name&quot;: &quot;D&uuml;zce&quot;
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-city" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-city"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-city"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-city" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-city">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-city" data-method="GET"
+      data-path="api/city"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-city', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-city"
+                    onclick="tryItOut('GETapi-city');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-city"
+                    onclick="cancelTryOut('GETapi-city');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-city"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/city</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-city"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-city"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="il-ilce-GETapi-city--id-">İlçe Listesi</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-city--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/city/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/city/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-city--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Aladağ&quot;
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;Ceyhan&quot;
+    },
+    {
+        &quot;id&quot;: 3,
+        &quot;name&quot;: &quot;&Ccedil;ukurova&quot;
+    },
+    {
+        &quot;id&quot;: 4,
+        &quot;name&quot;: &quot;Feke&quot;
+    },
+    {
+        &quot;id&quot;: 5,
+        &quot;name&quot;: &quot;İmamoğlu&quot;
+    },
+    {
+        &quot;id&quot;: 6,
+        &quot;name&quot;: &quot;Karai̇sali&quot;
+    },
+    {
+        &quot;id&quot;: 7,
+        &quot;name&quot;: &quot;Karataş&quot;
+    },
+    {
+        &quot;id&quot;: 8,
+        &quot;name&quot;: &quot;Kozan&quot;
+    },
+    {
+        &quot;id&quot;: 9,
+        &quot;name&quot;: &quot;Pozanti&quot;
+    },
+    {
+        &quot;id&quot;: 10,
+        &quot;name&quot;: &quot;Sai̇mbeyli̇&quot;
+    },
+    {
+        &quot;id&quot;: 11,
+        &quot;name&quot;: &quot;Sari&ccedil;am&quot;
+    },
+    {
+        &quot;id&quot;: 12,
+        &quot;name&quot;: &quot;Seyhan&quot;
+    },
+    {
+        &quot;id&quot;: 13,
+        &quot;name&quot;: &quot;Tufanbeyli̇&quot;
+    },
+    {
+        &quot;id&quot;: 14,
+        &quot;name&quot;: &quot;Yumurtalık&quot;
+    },
+    {
+        &quot;id&quot;: 15,
+        &quot;name&quot;: &quot;Y&uuml;reği̇r&quot;
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-city--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-city--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-city--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-city--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-city--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-city--id-" data-method="GET"
+      data-path="api/city/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-city--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-city--id-"
+                    onclick="tryItOut('GETapi-city--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-city--id-"
+                    onclick="cancelTryOut('GETapi-city--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-city--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/city/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-city--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-city--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-city--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the city. Example: <code>1</code></p>
+            </div>
+                    </form>
 
             
 

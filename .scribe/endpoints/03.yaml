@@ -1,16 +1,16 @@
-name: 'Sifremi Unuttum'
+name: 'İL / İlçe'
 description: ''
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/customer/auth/forgot-password
+      - GET
+    uri: api/city
     metadata:
-      groupName: 'Sifremi Unuttum'
+      groupName: 'İL / İlçe'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Telefon Kontrolü'
+      title: 'Şehir Listesi'
       description: ''
       authenticated: false
       custom: []
@@ -21,20 +21,19 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      phone:
-        name: phone
-        description: ''
-        required: true
-        example: 258582996.0
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      phone: 258582996.0
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"name":"Adana"},{"id":2,"name":"Ad\u0131yaman"},{"id":3,"name":"Afyon"},{"id":4,"name":"A\u011fr\u0131"},{"id":5,"name":"Amasya"},{"id":6,"name":"Ankara"},{"id":7,"name":"Antalya"},{"id":8,"name":"Artvi\u0307n"},{"id":9,"name":"Aydin"},{"id":10,"name":"Balikesi\u0307r"},{"id":11,"name":"Bi\u0307leci\u0307k"},{"id":12,"name":"Bi\u0307ng\u00f6l"},{"id":13,"name":"Bi\u0307tli\u0307s"},{"id":14,"name":"Bolu"},{"id":15,"name":"Burdur"},{"id":16,"name":"Bursa"},{"id":17,"name":"\u00c7anakkale"},{"id":18,"name":"\u00c7ank\u0131r\u0131"},{"id":19,"name":"\u00c7orum"},{"id":20,"name":"Deni\u0307zli\u0307"},{"id":21,"name":"Diyarbak\u0131r"},{"id":22,"name":"Edi\u0307rne"},{"id":23,"name":"Elaz\u0131\u011f"},{"id":24,"name":"Erzi\u0307ncan"},{"id":25,"name":"Erzurum"},{"id":26,"name":"Eski\u0307\u015fehi\u0307r"},{"id":27,"name":"Gazi\u0307antep"},{"id":28,"name":"Gi\u0307resun"},{"id":29,"name":"G\u00fcm\u00fc\u015fhane"},{"id":30,"name":"Hakkari\u0307"},{"id":31,"name":"Hatay"},{"id":32,"name":"Isparta"},{"id":33,"name":"I\u0307\u00e7el"},{"id":34,"name":"I\u0307stanbul"},{"id":35,"name":"I\u0307zmi\u0307r"},{"id":36,"name":"Kars"},{"id":37,"name":"Kastamonu"},{"id":38,"name":"Kayseri\u0307"},{"id":39,"name":"K\u0131rklareli\u0307"},{"id":40,"name":"Kir\u015fehi\u0307r"},{"id":41,"name":"Kocaeli\u0307"},{"id":42,"name":"Konya"},{"id":43,"name":"K\u00fctahya"},{"id":44,"name":"Malatya"},{"id":45,"name":"Mani\u0307sa"},{"id":46,"name":"Kahramanmara\u015f"},{"id":47,"name":"Mardi\u0307n"},{"id":48,"name":"Mu\u011fla"},{"id":49,"name":"Mu\u015f"},{"id":50,"name":"Nev\u015fehi\u0307r"},{"id":51,"name":"Ni\u0307\u011fde"},{"id":52,"name":"Ordu"},{"id":53,"name":"Rize"},{"id":54,"name":"Sakarya"},{"id":55,"name":"Samsun"},{"id":56,"name":"Si\u0307i\u0307rt"},{"id":57,"name":"Si\u0307nop"},{"id":58,"name":"Si\u0307vas"},{"id":59,"name":"Teki\u0307rda\u011f"},{"id":60,"name":"Tokat"},{"id":61,"name":"Trabzon"},{"id":62,"name":"Tunceli\u0307"},{"id":63,"name":"\u015fanliurfa"},{"id":64,"name":"U\u015fak"},{"id":65,"name":"Van"},{"id":66,"name":"Yozgat"},{"id":67,"name":"Zonguldak"},{"id":68,"name":"Aksaray"},{"id":69,"name":"Bayburt"},{"id":70,"name":"Karaman"},{"id":71,"name":"K\u0131r\u0131kkale"},{"id":72,"name":"Batman"},{"id":73,"name":"\u015e\u0131rnak"},{"id":74,"name":"Bart\u0131n"},{"id":75,"name":"Ardahan"},{"id":76,"name":"I\u011fd\u0131r"},{"id":77,"name":"Yalova"},{"id":78,"name":"Karab\u00fck"},{"id":79,"name":"Ki\u0307li\u0307s"},{"id":80,"name":"Osmani\u0307ye"},{"id":81,"name":"D\u00fczce"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -43,38 +42,47 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: api/customer/auth/forgot-password/verify
+      - GET
+    uri: 'api/city/{id}'
     metadata:
-      groupName: 'Sifremi Unuttum'
+      groupName: 'İL / İlçe'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: Doğrulama
+      title: 'İlçe Listesi'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      code:
-        name: code
-        description: ''
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the city.'
         required: true
-        example: 210.14682
-        type: number
+        example: 1
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
-    cleanBodyParameters:
-      code: 210.14682
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"name":"Alada\u011f"},{"id":2,"name":"Ceyhan"},{"id":3,"name":"\u00c7ukurova"},{"id":4,"name":"Feke"},{"id":5,"name":"I\u0307mamo\u011flu"},{"id":6,"name":"Karai\u0307sali"},{"id":7,"name":"Karata\u015f"},{"id":8,"name":"Kozan"},{"id":9,"name":"Pozanti"},{"id":10,"name":"Sai\u0307mbeyli\u0307"},{"id":11,"name":"Sari\u00e7am"},{"id":12,"name":"Seyhan"},{"id":13,"name":"Tufanbeyli\u0307"},{"id":14,"name":"Yumurtal\u0131k"},{"id":15,"name":"Y\u00fcre\u011fi\u0307r"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null

@@ -236,7 +236,6 @@ class AppointmentController extends Controller
     public function getClock(Request $request)
     {
         $getDate = Carbon::parse($request->input('date'), 'UTC');
-        $noFormattedDate = Carbon::parse($request->input('date'), 'UTC');
         $business = Business::find($request->business_id);
         $uniquePersonals = array_unique($request->personals);
 

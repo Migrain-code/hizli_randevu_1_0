@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\Campaing\CamapignController;
 use App\Http\Controllers\Api\MainPage\MainPageController;
 use App\Http\Controllers\Api\Location\LocationController;
 use App\Http\Controllers\Api\Activity\ActivityController;
+use \App\Http\Controllers\Api\Business\BusinessController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,8 +42,11 @@ Route::apiResource('city', LocationController::class)->only([
 ]);
 // Activity
 Route::apiResource('activity', ActivityController::class)->only([
-    'index', 'show'
+    'index', 'show', 'store'
 ]);
+// İşletmeler
+Route::apiResource('business', BusinessController::class);
+
 Route::prefix('customer')->group(function (){
     Route::prefix('auth')->group(function (){
         Route::post('login', [AuthController::class, 'login']); // Giriş Yap

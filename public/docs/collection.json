@@ -10,11 +10,65 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "85871ca0-fb0e-4d2a-8336-4e7e9936f8b0",
+        "_postman_id": "092ab128-925d-474f-beee-4636fa1ec732",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Anasayfa",
+            "description": "",
+            "item": [
+                {
+                    "name": "Anasayfa Apisi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/main-page",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/main-page"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hizli_randevu.interviews' doesn't exist (Connection: mysql, SQL: select * from `interviews` where `status` = 1)\",\n    \"exception\": \"Illuminate\\\\Database\\\\QueryException\",\n    \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php\",\n    \"line\": 829,\n    \"trace\": [\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php\",\n            \"line\": 783,\n            \"function\": \"runQueryCallback\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Connection.php\",\n            \"line\": 431,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php\",\n            \"line\": 2872,\n            \"function\": \"select\",\n            \"class\": \"Illuminate\\\\Database\\\\Connection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php\",\n            \"line\": 2860,\n            \"function\": \"runSelect\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php\",\n            \"line\": 3414,\n            \"function\": \"Illuminate\\\\Database\\\\Query\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Query\\\\Builder.php\",\n            \"line\": 2861,\n            \"function\": \"onceWithColumns\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php\",\n            \"line\": 739,\n            \"function\": \"get\",\n            \"class\": \"Illuminate\\\\Database\\\\Query\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Database\\\\Eloquent\\\\Builder.php\",\n            \"line\": 723,\n            \"function\": \"getModels\",\n            \"class\": \"Illuminate\\\\Database\\\\Eloquent\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\app\\\\Http\\\\Controllers\\\\Api\\\\MainPage\\\\MainPageController.php\",\n            \"line\": 34,\n            \"function\": \"get\",\n            \"class\": \"Illuminate\\\\Database\\\\Eloquent\\\\Builder\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Controller.php\",\n            \"line\": 54,\n            \"function\": \"index\",\n            \"class\": \"App\\\\Http\\\\Controllers\\\\Api\\\\MainPage\\\\MainPageController\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\ControllerDispatcher.php\",\n            \"line\": 43,\n            \"function\": \"callAction\",\n            \"class\": \"Illuminate\\\\Routing\\\\Controller\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php\",\n            \"line\": 260,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\ControllerDispatcher\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Route.php\",\n            \"line\": 205,\n            \"function\": \"runController\",\n            \"class\": \"Illuminate\\\\Routing\\\\Route\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 806,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Routing\\\\Route\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 144,\n            \"function\": \"Illuminate\\\\Routing\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings.php\",\n            \"line\": 50,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 807,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 784,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 748,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 737,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 200,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 144,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance.php\",\n            \"line\": 99,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Http\\\\Middleware\\\\HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Http\\\\Middleware\\\\TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 175,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 144,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 300,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 288,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 91,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 44,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 236,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 125,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 72,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 50,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php\",\n            \"line\": 662,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 211,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 326,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 181,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 1096,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 324,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 175,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Console\\\\Kernel.php\",\n            \"line\": 201,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Appointment",
             "description": "",
@@ -147,7 +201,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "44",
+                                    "value": "1",
                                     "description": "The ID of the notification."
                                 }
                             ]
@@ -257,7 +311,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "35",
+                                    "value": "1",
                                     "description": "The ID of the notification permission."
                                 }
                             ]
@@ -275,7 +329,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"column\":\"rem\"}"
+                            "raw": "{\"column\":\"vel\"}"
                         },
                         "description": "Not: Size bildirim izin listesinde g\u00f6nderilen s\u00fctun adlar\u0131n\u0131 column de\u011fi\u015fkeni ile apiye istek atman\u0131z yeterlidir.",
                         "auth": {
@@ -312,7 +366,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":8170833.25169,\"password\":\"iure\"}"
+                            "raw": "{\"phone\":336708878.257,\"password\":\"harum\"}"
                         },
                         "description": "",
                         "auth": {
@@ -371,7 +425,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":180685741.4395437,\"code\":478996.735897}"
+                            "raw": "{\"phone\":26.8,\"code\":9455194.41375697}"
                         },
                         "description": "",
                         "auth": {
@@ -379,6 +433,167 @@
                         }
                     },
                     "response": []
+                }
+            ]
+        },
+        {
+            "name": "Etkinlikler",
+            "description": "",
+            "item": [
+                {
+                    "name": "Etkinlik listesi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activity",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activity",
+                            "variable": [
+                                {
+                                    "id": "todayActiviy",
+                                    "key": "todayActiviy",
+                                    "value": "et",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "city_id",
+                                    "key": "city_id",
+                                    "value": "qui",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "activity_date",
+                                    "key": "activity_date",
+                                    "value": "voluptatem",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Not: todayActivity aktif ise apiye urlparametere olarak g\u00f6nderilecek.. aktif de\u011filse url paramttere hi\u00e7 eklenemeyecek",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Etkinli\u011fe Kat\u0131l",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activity",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activity"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"phone\":7.54,\"password\":\"reprehenderit\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Etkinlik detay\u0131",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/activity\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/activity\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "17",
+                                    "description": "The ID of the activity."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"No query results for model [App\\\\Models\\\\Activity] 17\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Exceptions\\\\Handler.php\",\n    \"line\": 487,\n    \"trace\": [\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Exceptions\\\\Handler.php\",\n            \"line\": 463,\n            \"function\": \"prepareException\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\nunomaduro\\\\collision\\\\src\\\\Adapters\\\\Laravel\\\\ExceptionHandler.php\",\n            \"line\": 54,\n            \"function\": \"render\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Pipeline.php\",\n            \"line\": 51,\n            \"function\": \"render\",\n            \"class\": \"NunoMaduro\\\\Collision\\\\Adapters\\\\Laravel\\\\ExceptionHandler\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 188,\n            \"function\": \"handleException\",\n            \"class\": \"Illuminate\\\\Routing\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 807,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 784,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 748,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Routing\\\\Router.php\",\n            \"line\": 737,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 200,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 144,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance.php\",\n            \"line\": 99,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Http\\\\Middleware\\\\HandleCors.php\",\n            \"line\": 62,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Http\\\\Middleware\\\\TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 183,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Pipeline\\\\Pipeline.php\",\n            \"line\": 119,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 175,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Http\\\\Kernel.php\",\n            \"line\": 144,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 300,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 288,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 91,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 44,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 236,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 166,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Extracting\\\\Extractor.php\",\n            \"line\": 95,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 125,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 72,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp.php\",\n            \"line\": 50,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\knuckleswtf\\\\scribe\\\\src\\\\Commands\\\\GenerateDocumentation.php\",\n            \"line\": 53,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Container\\\\Container.php\",\n            \"line\": 662,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 211,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Command\\\\Command.php\",\n            \"line\": 326,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Console\\\\Command.php\",\n            \"line\": 181,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 1096,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 324,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\symfony\\\\console\\\\Application.php\",\n            \"line\": 175,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\vendor\\\\laravel\\\\framework\\\\src\\\\Illuminate\\\\Foundation\\\\Console\\\\Kernel.php\",\n            \"line\": 201,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"C:\\\\Users\\\\Migrain\\\\Desktop\\\\projects\\\\randevu_project\\\\hizli_randevu_1_0\\\\artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -456,7 +671,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"business_id\":13}"
+                            "raw": "{\"business_id\":48890335.1025}"
                         },
                         "description": "Not: Burada yap\u0131lan ko\u015fulland\u0131rma \u015fu \u015fekilde:\n <ul>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesindeyse \u00e7\u0131kar\u0131l\u0131r<\/li>\n     <li>E\u011fer i\u015fletme kullan\u0131c\u0131n\u0131n favori listesinde de\u011filse eklenir<\/li>\n <\/ul>",
                         "auth": {
@@ -531,7 +746,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "20",
                                     "description": "The ID of the campaign."
                                 }
                             ]
@@ -651,7 +866,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"password\":\"rerum\",\"password_confirmation\":\"nemo\"}"
+                            "raw": "{\"password\":\"assumenda\",\"password_confirmation\":\"officia\"}"
                         },
                         "description": "",
                         "auth": {
@@ -682,7 +897,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"quia\",\"phone\":\"delectus\",\"email\":\"cum\",\"gender\":\"aut\",\"year\":26.59311992,\"month\":8057.282518,\"day\":23033.082}"
+                            "raw": "{\"name\":\"et\",\"phone\":\"est\",\"email\":\"facere\",\"gender\":\"qui\",\"year\":2.80884755,\"month\":29.9308,\"day\":156.42437009}"
                         },
                         "description": "",
                         "auth": {
@@ -757,7 +972,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "22",
+                                    "value": "4",
                                     "description": "The ID of the package sale."
                                 }
                             ]
@@ -941,7 +1156,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"rating\":\"ioxngzryakrwthawkwefzgngbgkaklbffdlpqzwuwbv\",\"content\":\"commodi\",\"terms\":true}"
+                            "raw": "{\"rating\":\"ruqliic\",\"content\":\"eaque\",\"terms\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -1014,7 +1229,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"phone\":258582996}"
+                            "raw": "{\"phone\":4.053367}"
                         },
                         "description": "",
                         "auth": {
@@ -1045,7 +1260,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":210.14682}"
+                            "raw": "{\"code\":2546.3119}"
                         },
                         "description": "",
                         "auth": {
@@ -1158,6 +1373,116 @@
                             ],
                             "code": 401,
                             "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u0130L \/ \u0130l\u00e7e",
+            "description": "",
+            "item": [
+                {
+                    "name": "\u015eehir Listesi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/city",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/city"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id\":1,\"name\":\"Adana\"},{\"id\":2,\"name\":\"Ad\\u0131yaman\"},{\"id\":3,\"name\":\"Afyon\"},{\"id\":4,\"name\":\"A\\u011fr\\u0131\"},{\"id\":5,\"name\":\"Amasya\"},{\"id\":6,\"name\":\"Ankara\"},{\"id\":7,\"name\":\"Antalya\"},{\"id\":8,\"name\":\"Artvi\\u0307n\"},{\"id\":9,\"name\":\"Aydin\"},{\"id\":10,\"name\":\"Balikesi\\u0307r\"},{\"id\":11,\"name\":\"Bi\\u0307leci\\u0307k\"},{\"id\":12,\"name\":\"Bi\\u0307ng\\u00f6l\"},{\"id\":13,\"name\":\"Bi\\u0307tli\\u0307s\"},{\"id\":14,\"name\":\"Bolu\"},{\"id\":15,\"name\":\"Burdur\"},{\"id\":16,\"name\":\"Bursa\"},{\"id\":17,\"name\":\"\\u00c7anakkale\"},{\"id\":18,\"name\":\"\\u00c7ank\\u0131r\\u0131\"},{\"id\":19,\"name\":\"\\u00c7orum\"},{\"id\":20,\"name\":\"Deni\\u0307zli\\u0307\"},{\"id\":21,\"name\":\"Diyarbak\\u0131r\"},{\"id\":22,\"name\":\"Edi\\u0307rne\"},{\"id\":23,\"name\":\"Elaz\\u0131\\u011f\"},{\"id\":24,\"name\":\"Erzi\\u0307ncan\"},{\"id\":25,\"name\":\"Erzurum\"},{\"id\":26,\"name\":\"Eski\\u0307\\u015fehi\\u0307r\"},{\"id\":27,\"name\":\"Gazi\\u0307antep\"},{\"id\":28,\"name\":\"Gi\\u0307resun\"},{\"id\":29,\"name\":\"G\\u00fcm\\u00fc\\u015fhane\"},{\"id\":30,\"name\":\"Hakkari\\u0307\"},{\"id\":31,\"name\":\"Hatay\"},{\"id\":32,\"name\":\"Isparta\"},{\"id\":33,\"name\":\"I\\u0307\\u00e7el\"},{\"id\":34,\"name\":\"I\\u0307stanbul\"},{\"id\":35,\"name\":\"I\\u0307zmi\\u0307r\"},{\"id\":36,\"name\":\"Kars\"},{\"id\":37,\"name\":\"Kastamonu\"},{\"id\":38,\"name\":\"Kayseri\\u0307\"},{\"id\":39,\"name\":\"K\\u0131rklareli\\u0307\"},{\"id\":40,\"name\":\"Kir\\u015fehi\\u0307r\"},{\"id\":41,\"name\":\"Kocaeli\\u0307\"},{\"id\":42,\"name\":\"Konya\"},{\"id\":43,\"name\":\"K\\u00fctahya\"},{\"id\":44,\"name\":\"Malatya\"},{\"id\":45,\"name\":\"Mani\\u0307sa\"},{\"id\":46,\"name\":\"Kahramanmara\\u015f\"},{\"id\":47,\"name\":\"Mardi\\u0307n\"},{\"id\":48,\"name\":\"Mu\\u011fla\"},{\"id\":49,\"name\":\"Mu\\u015f\"},{\"id\":50,\"name\":\"Nev\\u015fehi\\u0307r\"},{\"id\":51,\"name\":\"Ni\\u0307\\u011fde\"},{\"id\":52,\"name\":\"Ordu\"},{\"id\":53,\"name\":\"Rize\"},{\"id\":54,\"name\":\"Sakarya\"},{\"id\":55,\"name\":\"Samsun\"},{\"id\":56,\"name\":\"Si\\u0307i\\u0307rt\"},{\"id\":57,\"name\":\"Si\\u0307nop\"},{\"id\":58,\"name\":\"Si\\u0307vas\"},{\"id\":59,\"name\":\"Teki\\u0307rda\\u011f\"},{\"id\":60,\"name\":\"Tokat\"},{\"id\":61,\"name\":\"Trabzon\"},{\"id\":62,\"name\":\"Tunceli\\u0307\"},{\"id\":63,\"name\":\"\\u015fanliurfa\"},{\"id\":64,\"name\":\"U\\u015fak\"},{\"id\":65,\"name\":\"Van\"},{\"id\":66,\"name\":\"Yozgat\"},{\"id\":67,\"name\":\"Zonguldak\"},{\"id\":68,\"name\":\"Aksaray\"},{\"id\":69,\"name\":\"Bayburt\"},{\"id\":70,\"name\":\"Karaman\"},{\"id\":71,\"name\":\"K\\u0131r\\u0131kkale\"},{\"id\":72,\"name\":\"Batman\"},{\"id\":73,\"name\":\"\\u015e\\u0131rnak\"},{\"id\":74,\"name\":\"Bart\\u0131n\"},{\"id\":75,\"name\":\"Ardahan\"},{\"id\":76,\"name\":\"I\\u011fd\\u0131r\"},{\"id\":77,\"name\":\"Yalova\"},{\"id\":78,\"name\":\"Karab\\u00fck\"},{\"id\":79,\"name\":\"Ki\\u0307li\\u0307s\"},{\"id\":80,\"name\":\"Osmani\\u0307ye\"},{\"id\":81,\"name\":\"D\\u00fczce\"}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "\u0130l\u00e7e Listesi",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/city\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/city\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the city."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id\":1,\"name\":\"Alada\\u011f\"},{\"id\":2,\"name\":\"Ceyhan\"},{\"id\":3,\"name\":\"\\u00c7ukurova\"},{\"id\":4,\"name\":\"Feke\"},{\"id\":5,\"name\":\"I\\u0307mamo\\u011flu\"},{\"id\":6,\"name\":\"Karai\\u0307sali\"},{\"id\":7,\"name\":\"Karata\\u015f\"},{\"id\":8,\"name\":\"Kozan\"},{\"id\":9,\"name\":\"Pozanti\"},{\"id\":10,\"name\":\"Sai\\u0307mbeyli\\u0307\"},{\"id\":11,\"name\":\"Sari\\u00e7am\"},{\"id\":12,\"name\":\"Seyhan\"},{\"id\":13,\"name\":\"Tufanbeyli\\u0307\"},{\"id\":14,\"name\":\"Yumurtal\\u0131k\"},{\"id\":15,\"name\":\"Y\\u00fcre\\u011fi\\u0307r\"}]",
                             "name": ""
                         }
                     ]
