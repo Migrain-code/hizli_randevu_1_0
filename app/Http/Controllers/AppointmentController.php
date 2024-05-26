@@ -179,6 +179,7 @@ class AppointmentController extends Controller
             $appointment->status = 0; // Onay bekliyor
         }
         if ($appointment->save()) {
+            $appointment->sendPersonelNotification();
             return to_route('appointment.success', $appointment->id)->with('response', [
                 'status' => "success",
                 'message' => "Randevunuz " . $appointment->start_time . " - " . $appointment->end_time . " arasına randevunuz oluşturuldu",

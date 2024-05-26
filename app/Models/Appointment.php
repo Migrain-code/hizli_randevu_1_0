@@ -130,6 +130,18 @@ class Appointment extends Model
         return $this->hasMany(AppointmentServices::class, 'appointment_id', 'id');
     }
 
+    public function sendPersonelNotification()
+    {
+        foreach ($this->services as $service){
+            $personelNotification = new PersonelNotification();
+            $personelNotification->business_id = $this->business_id;
+            $personelNotification->personel_id = $service->personel_id;
+            $personelNotification->title = "Merhaba ".$service->personel->name." ,Yeni bir randevunuz var!";
+            $personelNotification->message = $this->customer->name. " "." adlı müşteriniz sizden ". $service->start_time. " tarihine randevu aldı. Randevu kodu #".$this->id;
+            $personelNotification->link = uniqid();
+            $personelNotification->save();
+        }
+    }
     public function payments()
     {
         return $this->hasMany(AppointmentCollectionEntry::class, 'appointment_id', 'id');
