@@ -27,7 +27,7 @@
                 class="buttonGroups d-flex align-items-center justify-content-end"
             >
                 <a href="{{route('business.detail', $business->slug)}}" class="btn-gray">İptal</a>
-                <a href="javascript:;" onclick="$('#step-4-form').submit()" class="btn-pink">Gönder</a>
+                <a href="javascript:;" onclick="phoneControl()" class="btn-pink">Gönder</a>
             </div>
         @else
             <div

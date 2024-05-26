@@ -389,7 +389,7 @@
                             var newHtml = `
                         <label class="timePickerRadio">
                             <input
-                                class="form-check-input ${clock.durum ? 'active-time' : ''}"
+                                class="form-check-input ${clock.durum ? 'active-time' : 'disabled-time'}"
                                 ${clock.durum ? '' : 'disabled'}
                                 type="radio"
                                 name="appointment_time"
@@ -476,20 +476,41 @@
         }
 
         function phoneControl() {
+
+            let checkedClock = $('.active-time:checked');
+            if(checkedClock.length === 0){
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Lütfen Tarih ve saat seçiniz",
+                    confirmButtonText: "Tamam"
+                });
+                return;
+            }
+
+            @if(!auth('customer')->check())
             let phoneNumber = document.getElementById('phone').value;
             let userName = document.getElementById('name').value;
-
             if (userName.trim() === "") {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
                     text: "Lütfen Adınızı Giriniz",
+                    confirmButtonText: "Tamam"
                 });
                 return;
             }
 
-
-            $.ajax({
+            if (phoneNumber.trim() === "") {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Lütfen Telefon Numaranızı Giriniz",
+                    confirmButtonText: "Tamam"
+                });
+                return;
+            }
+              $.ajax({
                 url: "{{route('appointment.phoneControl')}}",
                 dataType: "JSON",
                 method: "GET",
@@ -521,6 +542,10 @@
                     }
                 }
             });
+            @else
+                $('#step-4-form').submit();
+            @endif
+
         }
 
         function verifyPhoneCode() {
