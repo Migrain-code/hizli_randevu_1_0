@@ -430,6 +430,7 @@
 
                                 // parts[2] -> yıl, parts[1] -> ay, parts[0] -> gün
                                 var formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                                alert(formattedDate);
                                 var originalDate = new Date(formattedDate); // Örnek tarih
                                 var nextDay = new Date(originalDate);
                                 nextDay.setDate(originalDate.getDate() + 1);
