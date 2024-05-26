@@ -437,10 +437,11 @@
                                 clickedDate(nextDay);
 
                                 let newClickedTime = formatDate(nextDay);
+                                if (newClickedTime instanceof Date && !isNaN(newClickedTime)) {
+                                    var targetInput = document.querySelector('input[data-clock="' + newClickedTime + '"]');
+                                    targetInput.checked = true;
+                                }
 
-                                var targetInput = document.querySelector('input[data-clock="' + newClickedTime + '"]');
-                               alert('targetInput: '+ newClickedTime);
-                                targetInput.checked = true;
                             } else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
                                 window.location.href = "{{route('business.detail', $business->slug)}}"
                             }
