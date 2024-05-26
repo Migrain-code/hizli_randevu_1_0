@@ -20,7 +20,7 @@
                                 type="radio"
                                 name="flexRadioDefault"
                                 id="flexRadioDefault1"
-                                data-clock="{{$date->format('d.m.Y')}}"
+                                data-date="{{$date->format('Y-m-d')}}"
                                 onclick="clickedDate('{{$date->toDateString()}}')"
                                 @if($date->format('d.m.Y') == now()->format('d.m.Y')) checked @endif
                             />

@@ -426,10 +426,11 @@
                                     clickedTime = formatDate(clickedTime);
 
                                 }
-                                var parts = clickedTime.split('.'); // Tarihi parçalara ayır
+                                let datePart = clickedTime.split(' ')[0]; // "2024-05-26"
+                                let [year, month, day] = datePart.split('-'); // ["2024", "05", "26"]
 
                                 // parts[2] -> yıl, parts[1] -> ay, parts[0] -> gün
-                                var formattedDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+                                var formattedDate = `${year}-${month}-${day}`;
                                 alert(formattedDate);
                                 var originalDate = new Date(formattedDate); // Örnek tarih
                                 var nextDay = new Date(originalDate);
@@ -438,8 +439,8 @@
                                 clickedDate(nextDay);
 
                                 let newClickedTime = formatDate(nextDay);
-
-                                var targetInput = document.querySelector('input[data-clock="' + newClickedTime + '"]');
+                                alert(newClickedTime);
+                                var targetInput = document.querySelector('input[data-date="' + newClickedTime + '"]');
                                 targetInput.checked = true;
                             } else if (result.isDismissed && result.dismiss === Swal.DismissReason.cancel) {
                                 window.location.href = "{{route('business.detail', $business->slug)}}"
@@ -463,7 +464,7 @@
             var formattedMonth = month < 10 ? '0' + month : month;
 
             // Özel format: dd/MM/yyyy
-            return `${formattedDay}.${formattedMonth}.${year}`;
+            return `${year}-${formattedMonth}-${formattedDay}`;
         }
 
         function showLoader() {
