@@ -57,9 +57,7 @@ class HomeController extends Controller
     public function appointments()
     {
         $customer = auth('customer')->user();
-        if ($customer->id == 3635){
-            dd($customer->appointments);
-        }
+
         return view('customer.appointment.index', compact('customer'));
     }
 
