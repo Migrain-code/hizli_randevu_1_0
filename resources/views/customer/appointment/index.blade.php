@@ -3,7 +3,7 @@
 @section('meta_description', 'Tüm Randevularım')
 @section('styles')
     <style>
-        
+
         @media (max-width: 1050px) {
             .table {
                 overflow: hidden;
@@ -107,7 +107,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @forelse($customer->appointments()->paginate(setting('speed_pagination_number')) as $appointment)
+                                                    @forelse($customer->appointments()->paginate(12) as $appointment)
                                                         <tr>
                                                             <td data-label="Randevu kodu">#{{$appointment->id}}</td>
                                                             <td data-label="İşletme Adı">{{$appointment->business->name}}</td>
