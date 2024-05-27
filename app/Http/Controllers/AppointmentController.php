@@ -117,6 +117,21 @@ class AppointmentController extends Controller
         return to_route('step1.show', ['business' => session('appointment')["businessSlug"], 'request' => $request->all()]);
     }
 
+    public function checkClock($personelId, $startTime, $endTime, $appointmentId = null)
+    {
+        $findPersonel = Personel::find($personelId);
+
+        foreach ($findPersonel->appointments as $appointment) {
+            if ($appointment->appointment_id != $appointmentId) {
+                // Randevuların çakışma durumunu kontrol et
+                if (($startTime->lt($appointment->end_time) && $endTime->gt($appointment->start_time)) ||
+                    ($endTime->gt($appointment->start_time) && $startTime->lt($appointment->end_time))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public function appointmentCreate(Request $request)
     {
         $request->validate([
@@ -163,10 +178,20 @@ class AppointmentController extends Controller
             $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
             $appointmentService->appointment_id = $appointment->id;
             $appointmentService->save();
+            if ($this->checkClock($request->personels[$index], $appointmentService->start_time, $appointmentService->end_time, $appointment->id)) {
+                $appointment->services()->delete();
+                $appointment->delete();
+                return back()->with('response', [
+                    'status' => "error",
+                    'message' => "Seçtiğiniz saate " . $findService->time . " dakikalık hizmet seçtiniz. Bu saate randevu alamazsınız. Başka bir saat seçmelisiniz."
+                ]);
+            }
         }
 
         $appointment->start_time = $appointment->services()->first()->start_time;
         $appointment->end_time = $appointment->services()->skip($appointment->services()->count() - 1)->first()->end_time;
+
+
         $calculateTotal = $appointment->calculateTotal();
         $appointment->total = $calculateTotal;
         if ($business->approve_type == 0) {
@@ -178,6 +203,8 @@ class AppointmentController extends Controller
         } else {
             $appointment->status = 0; // Onay bekliyor
         }
+
+
         if ($appointment->save()) {
             $appointment->sendPersonelNotification();
             return to_route('appointment.success', $appointment->id)->with('response', [
@@ -398,7 +425,7 @@ class AppointmentController extends Controller
         $startTime = Carbon::parse($personel->start_time);
         $endTime = Carbon::parse($personel->end_time);
         for ($i=$startTime;  $i < $endTime; $i->addMinutes(intval($personel->appointmentRange->time))){
-            if ($i < now()->addMinutes(30)){
+            if ($i < now()->addMinutes(5)){
                 $disableds[] = $i->format('d.m.Y H:i');
             }
         }
