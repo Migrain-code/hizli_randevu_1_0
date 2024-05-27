@@ -38,8 +38,12 @@ class ProfileController extends Controller
             $customer->birthday = $request->input('year') . "-" . $request->input('month') . "-" . $request->input('day');
         }
         $customer->email = $request->input('email');
-        $customer->city_id = $request->input('city_id');
-        $customer->district_id = $request->input('district_id');
+        if ($request->filled('city_id')){
+            $customer->city_id = $request->input('city_id');
+
+        }if ($request->filled('district_id')){
+            $customer->district_id = $request->input('district_id');
+        }
         if ($request->hasFile('image')) {
             $response = UploadFile::uploadFile($request->file('image'), 'customer_profiles');
             $customer->image = $response["image"]["way"];
