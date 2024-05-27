@@ -158,8 +158,8 @@
                                         <div class="col-lg-6">
                                             <div class="mb-3">
                                                 <div class="">
-                                                    <select class="select2Select" name="city_id" id="city_select">
-                                                        <option selected>İl</option>
+                                                    <select class="select2Select" name="city_id" id="city_select" data-placeholder="Şehir Seçiniz">
+                                                        <option value="" selected>İl</option>
                                                         @foreach($allCities as $city)
                                                             <option value="{{$city->id}}" @selected(auth('customer')->user()->city_id==$city->id)>{{$city->name}}</option>
                                                         @endforeach
