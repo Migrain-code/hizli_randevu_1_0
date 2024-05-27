@@ -215,6 +215,13 @@
                 transform: rotate(360deg);
             }
         }
+        .ts-dropdown, .ts-control, .ts-control input {
+            color: #303030;
+            font-family: inherit;
+            font-size: 18px;
+            line-height: 18px;
+            font-smoothing: inherit;
+        }
     </style>
 @endsection
 @section('content')

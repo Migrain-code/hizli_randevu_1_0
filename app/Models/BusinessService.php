@@ -33,4 +33,16 @@ class BusinessService extends Model
     {
         return $this->hasMany(PersonelService::class, 'service_id', 'id');
     }
+
+    public function getPrice($room_id = null)
+    {
+        $price = 0;
+        if (isset($room_id)){
+            $findRoom = $this->business->rooms()->where('id', $room_id)->first();
+            $price = $this->price + (($this->price * $findRoom->price) / 100);
+        } else{
+            $price = $this->price;
+        }
+        return $price;
+    }
 }

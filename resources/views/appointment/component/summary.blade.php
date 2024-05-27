@@ -58,7 +58,7 @@
                     $toplam = 0;
                 @endphp
                 @forelse($selectedServices as $service)
-                    @php($toplam+= $service->price)
+                    @php($toplam+= $service->getPrice())
                     <div class="summaryServicesItem">
                         <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->price. " TL"}}</span>
                     </div>
@@ -74,7 +74,7 @@
                 class="d-flex align-items-center justify-content-between"
             >
                 <span>Toplam</span>
-                <span id="totalPrice">{{$toplam}} TL</span>
+                <span id="totalPrice"><b>{{$toplam}}</b> TL</span>
             </div>
         </div>
 
