@@ -337,6 +337,7 @@
         $('#roomSelect').on('change', function () {
             roomID = $(this).val();
             $('[name="room_id"]').val(roomID);
+            $('#select-room-form').submit();
         });
         $(document).on('change', '.active-time', function () {
             scrollToElement('userInfoContainer');

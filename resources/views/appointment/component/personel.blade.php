@@ -12,6 +12,9 @@
     </div>
     <div class="servicesBoxContent" style="padding-top: 10px;">
         <form method="get" action="{{route('step1.store', ['business' => $business->slug])}}">
+            @if(isset(request()['request']['selection_room_id']))
+                <input type="hidden" name="selection_room_id" value="{{request()['request']['selection_room_id']}}">
+            @endif
             <input type="hidden" name="step" value="3">
             @foreach($ap_services as $service)
                 <input type="hidden" name="services[]" value="{{$service->id}}">

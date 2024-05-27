@@ -58,9 +58,18 @@
                     $toplam = 0;
                 @endphp
                 @forelse($selectedServices as $service)
-                    @php($toplam+= $service->getPrice())
+                    @if(isset(request()['request']['selection_room_id']))
+                        @php($toplam+= $service->getPrice(request()['request']['selection_room_id']))
+                    @else
+                        @php($toplam+= $service->getPrice())
+                    @endif
+
                     <div class="summaryServicesItem">
-                        <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->price. " TL"}}</span>
+                        @if(isset(request()['request']['selection_room_id']))
+                            <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->getPrice(request()['request']['selection_room_id']). " TL"}}</span>
+                        @else
+                            <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->price. " TL"}}</span>
+                        @endif
                     </div>
 
                 @empty

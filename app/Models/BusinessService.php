@@ -39,7 +39,11 @@ class BusinessService extends Model
         $price = 0;
         if (isset($room_id)){
             $findRoom = $this->business->rooms()->where('id', $room_id)->first();
-            $price = $this->price + (($this->price * $findRoom->price) / 100);
+            if ($findRoom){
+                $price = $this->price + (($this->price * $findRoom->price) / 100);
+            } else{
+                $price = $this->price;
+            }
         } else{
             $price = $this->price;
         }

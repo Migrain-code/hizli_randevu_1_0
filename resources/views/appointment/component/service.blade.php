@@ -10,19 +10,26 @@
     </div>
 
     <div class="servicesBoxContent" style="padding-top: 10px;">
+        <form id="select-room-form" method="get" action="{{route('step1.store')}}">
+
         <div
             class="customSelect iconSelect servicesSelect customTomSelect"
         >
-            <select class="tomSelect" id="roomSelect" name="room_id" required>
+            <select class="tomSelect" id="roomSelect" name="selection_room_id" required>
                 <option value="">Oda Seçiniz</option>
 
-                    <option value="0">Salon</option>
+                    <option value="0" @selected(isset(request()['request']['selection_room_id']) && request()['request']['selection_room_id'] == 0)>Salon</option>
                     @foreach($rooms as $room)
-                        <option value="{{$room->id}}">{{$room->name}}</option>
+                        <option value="{{$room->id}}" @selected(isset(request()['request']['selection_room_id']) && request()['request']['selection_room_id'] == $room->id)>{{$room->name}}</option>
                     @endforeach
             </select>
         </div>
+            @forelse($selectedServices as $service)
+                <input type="hidden" name="services[]" value="{{$service->id}}">
+            @empty
 
+            @endforelse
+        </form>
     </div>
 
 </div>

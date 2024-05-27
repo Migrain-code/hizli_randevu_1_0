@@ -8,8 +8,10 @@
         <input type="hidden" name="personels[]" value="{{$personel_id}}">
     @endforeach
     <input type="hidden" name="business_id" value="{{$business->id}}">
-    <input type="hidden" name="room_id" value="">
 
+    @if(isset(request()['request']['selection_room_id']) && request()['request']['selection_room_id'] > 0)
+        <input type="hidden" name="room_id" value="{{request()['request']['selection_room_id']}}">
+    @endif
     <div id="times">
 
     </div>

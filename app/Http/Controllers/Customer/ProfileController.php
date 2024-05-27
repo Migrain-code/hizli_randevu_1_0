@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Models\City;
+use App\Models\Customer;
 use App\Services\UploadFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -16,56 +17,78 @@ class ProfileController extends Controller
         $request->validate([
             'phone' => "required",
             'name' => "required",
-            'email' => "required",
         ], [], [
             'phone' => "Telefon Numarası",
             'name' => "Ad Soyad",
-            'email' => "E-posta",
         ]);
+        $phone = clearPhone($request->input('phone'));
+        $customer = auth('customer')->user();
+        if ($customer->phone != $phone){
+            if ($this->existPhone($phone)) {
+                return back()->with('response',[
+                    'status' => "error",
+                    'message' => "Değiştirmek istediğiniz numara ile başka kayıtlı kullanıcı bulunuyor. Lütfen Başka bir numara giriniz."
+                ]);
+            }
+        }
 
-        $customer=auth('customer')->user();
-        $customer->name=$request->input('name');
-        $customer->phone=clearPhone($request->input('phone'));
-        $customer->birthday=$request->input('year')."-".$request->input('month')."-". $request->input('day');
-        $customer->email=$request->input('email');
-        $customer->city_id=$request->input('city_id');
-        $customer->district_id=$request->input('district_id');
+        $customer->name = $request->input('name');
+        $customer->phone = $phone;
+        if ($request->filled('year') && $request->filled('month') && $request->filled('day')) {
+            $customer->birthday = $request->input('year') . "-" . $request->input('month') . "-" . $request->input('day');
+        }
+        $customer->email = $request->input('email');
+        $customer->city_id = $request->input('city_id');
+        $customer->district_id = $request->input('district_id');
         if ($request->hasFile('image')) {
             $response = UploadFile::uploadFile($request->file('image'), 'customer_profiles');
             $customer->image = $response["image"]["way"];
         }
-        if ($customer->save()){
+        if ($customer->save()) {
             return back()->with('response', [
-                'status'=>"success",
-                'message'=>"Bilgileriniz Güncellendi"
+                'status' => "success",
+                'message' => "Bilgileriniz Güncellendi"
             ]);
         }
+    }
+
+    public function existPhone($phone)
+    {
+        $existPhone = Customer::where('phone', $phone)->first();
+        if ($existPhone != null) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
     }
 
     public function editPassword()
     {
         return view('customer.profile.change-password');
     }
+
     public function edit()
     {
         $allCities = City::orderBy('name')->get();
 
-        $customer=auth('customer')->user();
+        $customer = auth('customer')->user();
         return view('customer.profile.setting', compact('customer', 'allCities'));
     }
+
     public function changePassword(Request $request)
     {
         $request->validate([
-           'password'=>"required|confirmed",
-        ],[],[
-            'password'=>"Şifre"
+            'password' => "required|confirmed",
+        ], [], [
+            'password' => "Şifre"
         ]);
-        $customer=auth('customer')->user();
-        $customer->password=Hash::make($request->input('password'));
-        if ($customer->save()){
+        $customer = auth('customer')->user();
+        $customer->password = Hash::make($request->input('password'));
+        if ($customer->save()) {
             return back()->with('response', [
-                'status'=>"success",
-                'message'=>"Şifreniz Güncellendi"
+                'status' => "success",
+                'message' => "Şifreniz Güncellendi"
             ]);
         }
     }

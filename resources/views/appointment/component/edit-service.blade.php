@@ -36,6 +36,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <form id="select-service-form" method="get" action="{{route('step1.store')}}">
+                                    @if(isset(request()['request']['selection_room_id']))
+                                        <input type="hidden" name="selection_room_id" value="{{request()['request']['selection_room_id']}}">
+                                    @endif
                                     <div class="pageTab mt-5 servicesTab" id="servicesTab">
                                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                         @if($business->type_id == 1)
