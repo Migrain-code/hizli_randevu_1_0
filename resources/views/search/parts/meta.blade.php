@@ -24,6 +24,9 @@
     }elseif(request()->routeIs('search.cityAndCategory')){
       $title = $city->name." ".$category->getName(). ": Fiyatlar, Yorumlar, Kampanyalar ve İndirimler - Randevu Al!";
       $description = $city->name." ".$category->getName(). "Tüm Berberler : Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - Herkes için En İyi Berberi Bulun!";
+    }elseif(request()->routeIs('search.citySearch')){
+      $title = $city->name. ": Fiyatlar, Yorumlar, Kampanyalar ve İndirimler - Randevu Al!";
+      $description = $city->name." Tüm Berberler : Fiyatlar, Müşteri Yorumları, Fırsatlar, Kampanyalar, Tavsiyeler, Adresler ve Puanlar - Herkes için En İyi Berberi Bulun!";
     }
 @endphp
 @section('title', $title)
