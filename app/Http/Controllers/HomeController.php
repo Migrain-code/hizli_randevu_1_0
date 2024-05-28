@@ -88,7 +88,8 @@ class HomeController extends Controller
                 $transformedServices[] = [
                     'id' => $service->id,
                     'name' => $service->subCategory->getName(),
-                    'price' => $service->price,
+                    'price' => $service->price_type_id == 0 ? $service->price : $service->price . " - " . $service->max_price,
+
                 ];
                 if ($service->is_featured == 1){
                     $transformedFeaturedServices[] = [
