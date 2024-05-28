@@ -68,7 +68,7 @@ class SearchController extends Controller
         $city = City::where('slug', $slug)->first();
         $businesses = Business::where('city', $city->id)
             ->has('services')->has('personel')->paginate(12);
-        return view('search.service', compact('businesses'));
+        return view('search.service', compact('businesses', 'city'));
     }
 
     public function serviceCategorySearch($slug)
