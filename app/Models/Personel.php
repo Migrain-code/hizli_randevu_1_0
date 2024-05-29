@@ -52,16 +52,14 @@ class Personel extends Model
     public function checkDateIsOff($getDate)
     {
         // stayOffDays ilişkisini kullanarak izin tarihlerini alıyoruz.
-        $getDate = Carbon::parse($getDate);
-        $offDays = $this->stayOffDays;
-
+        $getDate = Carbon::parse($getDate)->format('Y-m-d');
+        $offDays = $this->stayOffDays();
         if ($offDays->count() > 0) {
-            foreach ($offDays as $day) {
-                $startTime = Carbon::parse($day->start_time);
-                $endTime = Carbon::parse($day->end_time);
-                if ($getDate >= $startTime && $getDate <= $endTime) {
-                    return true;
-                }
+            $existLeave = $offDays->whereDate('start_time', '<=', $getDate)
+                ->whereDate('end_time', '>=', $getDate)
+                ->first();
+            if ($existLeave) {
+                return true;
             }
         }
         // Eğer tarih izin tarihleri arasında değilse,false döndürüyoruz.
