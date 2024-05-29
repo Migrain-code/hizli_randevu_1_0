@@ -224,7 +224,7 @@ class AppointmentController extends Controller
 
 
         if ($appointment->save()) {
-            $message = $business->name. " İşletmesine". $appointment->start_time. " tarihine randevunuz oluşturuldu.";
+            $message = $business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihine randevunuz oluşturuldu.";
             $appointment->customer->sendSms($message);
             $appointment->sendPersonelNotification();
             return to_route('appointment.success', $appointment->id)->with('response', [
