@@ -205,18 +205,18 @@ class Appointment extends Model
     public function calculateTotal() // toplam hizmet hiyatı
     {
         $total = 0;
+        $rangePrice = false;
         foreach ($this->services as $service) {
-            if (isset($this->room_id)) {
-                $room = $this->room;
-                if ($room->increase_type == 0) { // tl fiyat arttırma
-                    $total += $service->service->price + $room->price;
-                } else { // yüzde fiyat arttırma
-                    $total += $service->service->price + (($service->service->price * $room->price) / 100);
-                }
-            } else {
-                $total += $service->service->price;
+            $servicePrice = $service->servicePrice();
+            if (is_numeric($servicePrice)){
+                $total+= $servicePrice;
+            } else{
+                $rangePrice = true;
+                $total = "Hesaplanacak";
             }
-
+        }
+        if ($rangePrice){
+            return $total;
         }
         return $total;
     }

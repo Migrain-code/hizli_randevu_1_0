@@ -49,4 +49,9 @@ class BusinessService extends Model
         }
         return $price;
     }
+
+    public function getPersonelPrice($personelId)
+    {
+        return $this->hasOne(PersonelCustomerPriceList::class ,'business_service_id', 'id')->where('personel_id', $personelId)->first();
+    }
 }

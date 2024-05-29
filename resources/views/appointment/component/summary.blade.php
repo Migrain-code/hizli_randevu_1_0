@@ -57,12 +57,29 @@
                 @php
                     $toplam = 0;
                 @endphp
-                @forelse($selectedServices as $service)
-                    @if(isset(request()['request']['selection_room_id']))
-                        @php($toplam+= $service->getPrice(request()['request']['selection_room_id']))
-                    @else
-                        @php($toplam+= $service->getPrice())
+                @forelse($selectedServices as $index => $service)
+                    @if(isset(request()['request']['personels']))
+                        @php
+                            $servicePrice = 0;
+                            $personelPrice = $service->getPersonelPrice(request()['request']['personels'][$index]);
+                            if ($personelPrice){
+                                $servicePrice = $personelPrice->price;
+                            } else{
+                                $servicePrice = $service->getPrice();
+                            }
+                        @endphp
                     @endif
+
+                    @if(isset($personelPrice))
+                        @php $toplam+= $servicePrice @endphp
+                    @else
+                        @if(isset(request()['request']['selection_room_id']))
+                            @php($toplam+= $service->getPrice(request()['request']['selection_room_id']))
+                        @else
+                            @php($toplam+= $service->getPrice())
+                        @endif
+                    @endif
+
 
                     <div class="summaryServicesItem">
                         @if(isset(request()['request']['selection_room_id']))
