@@ -8,6 +8,7 @@ use App\Models\Business;
 use App\Models\BusinessService;
 use App\Models\Customer;
 use App\Models\Personel;
+use App\Models\PersonelRoom;
 use App\Models\ServiceCategory;
 use App\Models\SmsConfirmation;
 use App\Services\Sms;
@@ -24,6 +25,7 @@ class AppointmentController extends Controller
         $business = Business::where('slug', $business)->firstOrFail();
         $rooms = $business->activeRooms;
         /*service modal queries */
+
         $womanServicesArray = $business->services()->where('type', 1)->with('categorys')->get();
         $womanServiceCategories = $womanServicesArray->groupBy('categorys.name');
         $womanServices = $this->transformServices($womanServiceCategories);
@@ -114,7 +116,23 @@ class AppointmentController extends Controller
     }
     public function step1Store(Request $request)
     {
-        return to_route('step1.show', ['business' => session('appointment')["businessSlug"], 'request' => $request->all()]);
+        $selectedRoomId = null;
+        $roomPersonelIds = [];
+        $business = Business::whereSlug(session('appointment')["businessSlug"])->first();
+        if ($request->has('selection_room_id')){
+            $selectedRoomId = $request->input('selection_room_id');
+
+            $roomPersonelIds = PersonelRoom::where('business_id', $business->id)
+                ->where('room_id', $selectedRoomId)
+                ->pluck('personel_id')
+                ->toArray();
+        }
+
+        return to_route('step1.show', [
+            'business' => session('appointment')['businessSlug'],
+            'request' => $request->all(),
+            'roomPersonelIds' => $roomPersonelIds
+        ]);
     }
 
     public function checkClock($personelId, $startTime, $endTime, $appointmentId = null)

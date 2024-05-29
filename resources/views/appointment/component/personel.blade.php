@@ -15,8 +15,16 @@
             @if(isset(request()['request']['selection_room_id']))
                 <input type="hidden" name="selection_room_id" value="{{request()['request']['selection_room_id']}}">
             @endif
+            @php
+              $roomPersonelIds = [];
+                if(isset(request()['request']['selection_room_id'])){
+                    $roomPersonelIds = request()['roomPersonelIds'];
+
+                }
+            @endphp
             <input type="hidden" name="step" value="3">
             @foreach($ap_services as $service)
+
                 <input type="hidden" name="services[]" value="{{$service->id}}">
                 <p>{{$service->subCategory->name}} için personel seçiniz</p>
                 <div
@@ -25,8 +33,13 @@
                     <select class="tomSelect" name="personels[]"  @if($loop->last) id="lastSelect" @endif required>
                         <option value="">Personel Seçiniz</option>
                         @forelse($service->personels as $service_personel)
-                            <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                            @if(isset(request()['request']['selection_room_id']) && isset($roomPersonelIds) && in_array($service_personel->personel->id, $roomPersonelIds))
+                                <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                            @else
+                                <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                            @endif
                         @empty
+                            <option value="">Personel Bulunamadı</option>
                         @endforelse
                     </select>
                 </div>
