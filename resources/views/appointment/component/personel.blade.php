@@ -39,7 +39,6 @@
                                 @endif
                             @else
                                 <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
-
                             @endif
                         @empty
                             <option value="">Personel Bulunamadı</option>
