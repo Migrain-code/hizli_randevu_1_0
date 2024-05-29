@@ -85,7 +85,7 @@
                         @if(isset(request()['request']['selection_room_id']))
                             <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->getPrice(request()['request']['selection_room_id']). " TL"}}</span>
                         @else
-                            <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->price. " TL"}}</span>
+                            <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $servicePrice. " TL"}}</span>
                         @endif
                     </div>
 
