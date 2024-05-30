@@ -34,18 +34,31 @@ class BusinessService extends Model
         return $this->hasMany(PersonelService::class, 'service_id', 'id');
     }
 
-    public function getPrice($room_id = null)
+    public function getPrice($room_id = null, $personelPrice = null)
     {
         $price = 0;
         if (isset($room_id)){
             $findRoom = $this->business->rooms()->where('id', $room_id)->first();
             if ($findRoom){
-                $price = $this->price + (($this->price * $findRoom->price) / 100);
+                if (isset($personelPrice)){
+                    $price = $personelPrice + (($personelPrice * $findRoom->price) / 100);
+                } else{
+                    $price = $this->price + (($this->price * $findRoom->price) / 100);
+                }
             } else{
-                $price = $this->price;
+                if (isset($personelPrice)){
+                    $price = $personelPrice;
+                } else{
+                    $price = $this->price;
+                }
+
             }
         } else{
-            $price = $this->price_type_id == 0 ? $this->price : $this->price . " - " . $this->max_price;
+            if (isset($personelPrice)){
+                $price = $personelPrice;
+            } else{
+                $price = $this->price_type_id == 0 ? $this->price : $this->price . " - " . $this->max_price;
+            }
         }
 
         return $price;

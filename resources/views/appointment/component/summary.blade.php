@@ -76,8 +76,16 @@
                         @endphp
                     @endif
 
-                    @if(isset($personelPrice))
-                        @php $toplam+= $servicePrice @endphp
+
+                    @if(isset($personelPrice) && isset(request()['request']['selection_room_id']))
+                        @php
+                            $toplam= $service->getPrice(request()['request']['selection_room_id'], $personelPrice->price);
+                        @endphp
+                    @elseif(isset($personelPrice))
+                        @php
+                            $toplam= $service->getPrice(null, $personelPrice->price);
+                        @endphp
+
                     @else
                         @if(isset(request()['request']['selection_room_id']))
                             @php($toplam+= $service->getPrice(request()['request']['selection_room_id']))
@@ -87,20 +95,22 @@
                     @endif
 
 
+
                     <div class="summaryServicesItem">
                         @if(isset(request()['request']['selection_room_id']))
+
                             @if($servicePrice == null)
                                 @if(!isset(request()['request']["personels"]))
                                     <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
                                 @else
-                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(request()['request']['selection_room_id']). " TL"}}</span>
-
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(request()['request']['selection_room_id'], null). " TL"}}</span>
                                 @endif
                             @else
                                 @if(!isset(request()['request']["personels"]))
                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
                                 @else
-                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
+
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(request()['request']['selection_room_id'], $servicePrice) . " TL"}}</span>
 
                                 @endif
                             @endif
@@ -110,13 +120,13 @@
                                 @if(!isset(request()['request']["personels"]))
                                     <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
                                 @else
-                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->price . " TL"}}</span>
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(null, $personelPrice->price) . " TL"}}</span>
                                 @endif
                             @else
                                 @if(!isset(request()['request']["personels"]))
                                     <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
                                 @else
-                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(null, $personelPrice->price) . " TL"}}</span>
                                 @endif
                             @endif
                         @endif
