@@ -57,11 +57,16 @@
                 @php
                     $toplam = 0;
                     $servicePrice = null;
+                    $isCalculate = [];
                 @endphp
                 @forelse($selectedServices as $index => $service)
                     @if(isset(request()['request']['personels']))
                         @php
-
+                            if ($service->price_type_id == 1){
+                                $isCalculate[] = 1;
+                            } else{
+                                $isCalculate[] = 0;
+                            }
                             $personelPrice = $service->getPersonelPrice(request()['request']['personels'][$index]);
                             if ($personelPrice){
                                 $servicePrice = $personelPrice->price;
@@ -81,20 +86,28 @@
                         @endif
                     @endif
 
-
+                    @if(isset(request()['request']["personels"]))
                     <div class="summaryServicesItem">
                         @if(isset(request()['request']['selection_room_id']))
-                            <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->getPrice(request()['request']['selection_room_id']). " TL"}}</span>
+                            @if($servicePrice == null)
+                                <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->getPrice(request()['request']['selection_room_id']). " TL"}}</span>
+                            @else
+                                <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
+                            @endif
                         @else
+
                             @if($servicePrice == null)
                                 <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->price . " TL"}}</span>
                             @else
+
                                 <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
 
                             @endif
                         @endif
                     </div>
-
+                    @else
+                        Personel Seçiminden sonra hizmetler hesaplanacak
+                    @endif
                 @empty
                     <div class="alert alert-waring"><u>Lütfen Hizmet Seçiniz</u></div>
                 @endforelse
@@ -105,8 +118,14 @@
             <div
                 class="d-flex align-items-center justify-content-between"
             >
+
                 <span>Toplam</span>
-                <span id="totalPrice"><b>{{$toplam}}</b> TL</span>
+                @if(in_array(1, $isCalculate))
+                    <span style="font-size: 15px"><b>Fiyat İşletmede Hesaplanacak</b></span>
+                @else
+                    <span id="totalPrice"><b>{{$toplam}}</b> TL</span>
+                @endif
+
             </div>
         </div>
 

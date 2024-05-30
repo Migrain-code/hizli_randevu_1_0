@@ -45,8 +45,9 @@ class BusinessService extends Model
                 $price = $this->price;
             }
         } else{
-            $price = $this->price;
+            $price = $this->price_type_id == 0 ? $this->price : $this->price . " - " . $this->max_price;
         }
+
         return $price;
     }
 
