@@ -86,48 +86,65 @@
                         @endif
                     @endif
 
-                    @if(isset(request()['request']["personels"]))
+
                     <div class="summaryServicesItem">
                         @if(isset(request()['request']['selection_room_id']))
                             @if($servicePrice == null)
-                                <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ". $service->getPrice(request()['request']['selection_room_id']). " TL"}}</span>
+                                @if(!isset(request()['request']["personels"]))
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
+                                @else
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(request()['request']['selection_room_id']). " TL"}}</span>
+
+                                @endif
                             @else
-                                <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
+                                @if(!isset(request()['request']["personels"]))
+                                   <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
+                                @else
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
+
+                                @endif
                             @endif
                         @else
 
                             @if($servicePrice == null)
-                                <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->price . " TL"}}</span>
+                                @if(!isset(request()['request']["personels"]))
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
+                                @else
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->price . " TL"}}</span>
+                                @endif
                             @else
-
-                                <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
-
+                                @if(!isset(request()['request']["personels"]))
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
+                                @else
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $servicePrice . " TL"}}</span>
+                                @endif
                             @endif
                         @endif
                     </div>
-                    @else
-                        Personel Seçiminden sonra hizmetler hesaplanacak
-                    @endif
+
                 @empty
                     <div class="alert alert-waring"><u>Lütfen Hizmet Seçiniz</u></div>
                 @endforelse
 
             </div>
         </div>
-        <div class="summaryItem">
-            <div
-                class="d-flex align-items-center justify-content-between"
-            >
+        @if(isset(request()['request']["personels"]))
+            <div class="summaryItem">
+                <div
+                    class="d-flex align-items-center justify-content-between"
+                >
 
-                <span>Toplam</span>
-                @if(in_array(1, $isCalculate))
-                    <span style="font-size: 15px"><b>Fiyat İşletmede Hesaplanacak</b></span>
-                @else
-                    <span id="totalPrice"><b>{{$toplam}}</b> TL</span>
-                @endif
+                    <span>Toplam</span>
+                    @if(in_array(1, $isCalculate))
+                        <span style="font-size: 15px"><b>Fiyat İşletmede Hesaplanacak</b></span>
+                    @else
+                        <span id="totalPrice"><b>{{$toplam}}</b> TL</span>
+                    @endif
 
+                </div>
             </div>
-        </div>
+        @endif
+
 
     </div>
 </div>
