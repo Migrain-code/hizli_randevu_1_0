@@ -4,7 +4,7 @@
         <div class="detailBoxContentList userList">
 
             @foreach($dayList as $day)
-                @if($day->id == $business->off_day)
+                @if(isset($business->off_day) && $day->id == $business->off_day)
                     <div
                         class="detailBoxContentListItem d-flex align-items-center justify-content-between">
                         <span> {{$day->name}} </span>
