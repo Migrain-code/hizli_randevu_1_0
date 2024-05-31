@@ -139,7 +139,7 @@ class AppointmentController extends Controller
     {
         $findPersonel = Personel::find($personelId);
         $appointments =  $findPersonel->appointments()->whereNotIn('status', [3])->get();
-        foreach ($findPersonel->appointments as $appointment) {
+        foreach ($appointments as $appointment) {
             if ($appointment->appointment_id != $appointmentId) {
                 // Randevuların çakışma durumunu kontrol et
                 if (($startTime->lt($appointment->end_time) && $endTime->gt($appointment->start_time)) ||
