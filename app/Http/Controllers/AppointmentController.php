@@ -138,7 +138,7 @@ class AppointmentController extends Controller
     public function checkClock($personelId, $startTime, $endTime, $appointmentId = null)
     {
         $findPersonel = Personel::find($personelId);
-
+        $appointments =  $findPersonel->appointments()->whereNotIn('status', [3])->get();
         foreach ($findPersonel->appointments as $appointment) {
             if ($appointment->appointment_id != $appointmentId) {
                 // Randevuların çakışma durumunu kontrol et
