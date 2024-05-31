@@ -1,17 +1,20 @@
-name: 'Bildirim İzinleri'
+name: Bildirimler
 description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/customer/notification-permission
+    uri: api/customer/notification
     metadata:
-      groupName: 'Bildirim İzinleri'
+      groupName: Bildirimler
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Bildirim listesi'
-      description: ''
+      title: 'Bildirim Listesi'
+      description: |-
+        Bildirim Durumları
+         0 => Okunmadı
+         1 => okundu
       authenticated: false
       custom: []
     headers:
@@ -42,16 +45,15 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/customer/notification-permission/{id}'
+      - GET
+    uri: 'api/customer/notification/{id}'
     metadata:
-      groupName: 'Bildirim İzinleri'
+      groupName: Bildirimler
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Bildirim İzinleri Güncelleme'
-      description: 'Not: Size bildirim izin listesinde gönderilen sütun adlarını column değişkeni ile apiye istek atmanız yeterlidir.'
+      title: 'Bildirim Detayı'
+      description: ''
       authenticated: false
       custom: []
     headers:
@@ -60,7 +62,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the notification permission.'
+        description: 'The ID of the notification.'
         required: true
         example: 1
         type: integer
@@ -71,20 +73,19 @@ endpoints:
       id: 1
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      column:
-        name: column
-        description: ''
-        required: true
-        example: vel
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      column: vel
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null

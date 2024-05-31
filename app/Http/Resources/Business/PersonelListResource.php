@@ -17,6 +17,7 @@ class PersonelListResource extends JsonResource
         return [
           'id' => $this->id,
           'name' => $this->name,
+          'image' => image($this->image)
         ];
     }
 }

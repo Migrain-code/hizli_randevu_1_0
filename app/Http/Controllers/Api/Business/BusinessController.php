@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Api\Business;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Business\BusinessAboutResource;
+use App\Http\Resources\Business\BusinessCommentListResource;
 use App\Http\Resources\Business\BusinessDetailResource;
 use App\Http\Resources\Business\BusinessListResource;
+use App\Http\Resources\Business\PersonelListResource;
+use App\Http\Resources\Gallery\GalleryListResource;
 use App\Models\Business;
+use App\Models\DayList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +21,7 @@ class BusinessController extends Controller
 {
     /**
      * İşletme Listesi
+     *
      * @return \Illuminate\Http\JsonResponse
      *
      */
@@ -70,8 +76,58 @@ class BusinessController extends Controller
         return response()->json(BusinessListResource::collection($businesses));
     }
 
+    /**
+     * İşletme Detay
+     *
+     * @param Business $business
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show(Business $business)
     {
         return response()->json(BusinessDetailResource::make($business));
+    }
+
+    /**
+     * İşletme Galerisi
+     *
+     * @param Business $business
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function gallery(Business $business)
+    {
+        return response()->json(GalleryListResource::collection($business->gallery));
+    }
+
+    /**
+     * İşletme Hakkımızda
+     *
+     * @param Business $business
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function about(Business $business)
+    {
+        return response()->json(BusinessAboutResource::make($business));
+    }
+
+    /**
+     * İşletme Personel Listesi
+     *
+     * @param Business $business
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function personels(Business $business)
+    {
+        return response()->json(PersonelListResource::collection($business->personel));
+    }
+
+    /**
+     * İşletme Yorum Listesi
+     *
+     * @param Business $business
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function comments(Business $business)
+    {
+        return response()->json(BusinessCommentListResource::collection($business->comments));
     }
 }

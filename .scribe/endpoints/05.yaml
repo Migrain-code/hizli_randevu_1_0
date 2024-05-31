@@ -1,66 +1,16 @@
-name: 'Customer Authentication'
+name: Röportajlar
 description: ''
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/customer/auth/login
+      - GET
+    uri: api/interview
     metadata:
-      groupName: 'Customer Authentication'
+      groupName: Röportajlar
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Giriş Yap'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      phone:
-        name: phone
-        description: ''
-        required: true
-        example: 336708878.257
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      password:
-        name: password
-        description: ''
-        required: true
-        example: harum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      phone: 336708878.257
-      password: harum
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/customer/auth/register
-    metadata:
-      groupName: 'Customer Authentication'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Kayıt ol'
+      title: 'Röportaj Listesi'
       description: ''
       authenticated: false
       custom: []
@@ -74,7 +24,16 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '[{"id":1,"title":"test","name":"Osman Balc\u0131","image":"https:\/\/file.hizlirandevu.com.tr\/asdasdasd","viewCount":4,"created_at":"31 May\u0131s 2024"}]'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -83,48 +42,47 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: api/customer/auth/verify
+      - GET
+    uri: 'api/interview/{id}'
     metadata:
-      groupName: 'Customer Authentication'
+      groupName: Röportajlar
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Telefon Doğrulama'
+      title: 'Röportaj Detay'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the interview.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      phone:
-        name: phone
-        description: ''
-        required: true
-        example: 26.8
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      code:
-        name: code
-        description: ''
-        required: true
-        example: 9455194.413757
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      phone: 26.8
-      code: 9455194.413757
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"title":"test","name":"Osman Balc\u0131","description":"asdasdasd","video":"sadasdas","created_at":"31 May\u0131s 2024","gallery":[{"id":1,"image":"https:\/\/file.hizlirandevu.com.tr\/adasdas"}],"slider":[{"id":1,"image":"https:\/\/file.hizlirandevu.com.tr\/asdsasdasd"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null

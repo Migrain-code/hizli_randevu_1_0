@@ -24,6 +24,7 @@ class NotificationController extends Controller
 
     /**
      * Bildirim Listesi
+     *
      *  Bildirim Durumları
      *  0 => Okunmadı
      *  1 => okundu

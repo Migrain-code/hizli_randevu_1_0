@@ -126,7 +126,7 @@
                                 @if(!isset(request()['request']["personels"]))
                                     <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) "}}</span>
                                 @else
-                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(null, $personelPrice->price) . " TL"}}</span>
+                                    <span>{{$service->subCategory->name . "(" . $service->gender->name ." ) ".  $service->getPrice(null, $personelPrice?->price) . " TL"}}</span>
                                 @endif
                             @endif
                         @endif

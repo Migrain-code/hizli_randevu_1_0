@@ -18,6 +18,8 @@ use App\Http\Controllers\Api\MainPage\MainPageController;
 use App\Http\Controllers\Api\Location\LocationController;
 use App\Http\Controllers\Api\Activity\ActivityController;
 use \App\Http\Controllers\Api\Business\BusinessController;
+use App\Http\Controllers\Api\Interview\InterviewController;
+use App\Http\Controllers\Api\Appointment\AppointmentCreateController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,13 +42,25 @@ Route::get('main-page', [MainPageController::class, 'index']);
 Route::apiResource('city', LocationController::class)->only([
     'index', 'show'
 ]);
-// Activity
+// Etkinlikler
 Route::apiResource('activity', ActivityController::class)->only([
     'index', 'show', 'store'
 ]);
+// Röportajlar
+Route::apiResource('interview', InterviewController::class)->only([
+    'index', 'show'
+]);
 // İşletmeler
-Route::apiResource('business', BusinessController::class);
-
+Route::apiResource('business', BusinessController::class)->only([
+    'index', 'show'
+]);;
+// İşletme Detayları
+Route::prefix('business/{business}/')->group(function (){
+   Route::get('gallery', [BusinessController::class, 'gallery']);
+   Route::get('about', [BusinessController::class, 'about']);
+   Route::get('personels', [BusinessController::class, 'personels']);
+   Route::get('comments', [BusinessController::class, 'comments']);
+});
 Route::prefix('customer')->group(function (){
     Route::prefix('auth')->group(function (){
         Route::post('login', [AuthController::class, 'login']); // Giriş Yap
@@ -100,6 +114,15 @@ Route::prefix('customer')->group(function (){
         Route::apiResource('notification-permission', NotificationPermissionController::class)->only([
             'index','update'
         ]);
+
+        //Randevu oluşturma
+        Route::prefix('appointment-create/{business}/')->group(function (){
+            Route::get('personel', [AppointmentCreateController::class, 'getPersonel']);
+            Route::get('clock', [AppointmentCreateController::class, 'getClock']);
+            Route::get('check-clock', [AppointmentCreateController::class, 'checkClock']);
+            Route::get('summary', [AppointmentCreateController::class, 'summary']);
+        });
+
     });
 
 });

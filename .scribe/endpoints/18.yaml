@@ -1,0 +1,287 @@
+name: 'Randevu Oluşturma'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: 'api/customer/appointment-create/{business_id}/personel'
+    metadata:
+      groupName: 'Randevu Oluşturma'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Personel Listesi'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      business_id:
+        name: business_id
+        description: 'The ID of the business.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      business_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      services:
+        name: services
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      room_id:
+        name: room_id
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      services: voluptas
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/customer/appointment-create/{business_id}/clock'
+    metadata:
+      groupName: 'Randevu Oluşturma'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Saat Listesi'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      business_id:
+        name: business_id
+        description: 'The ID of the business.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      business_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      appointment_date:
+        name: appointment_date
+        description: ''
+        required: true
+        example: blanditiis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      personels:
+        name: personels
+        description: ''
+        required: true
+        example: eum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      appointment_date: blanditiis
+      personels: eum
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/customer/appointment-create/{business_id}/check-clock'
+    metadata:
+      groupName: 'Randevu Oluşturma'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Saat Kontrolü'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      business_id:
+        name: business_id
+        description: 'The ID of the business.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      business_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      appointment_time:
+        name: appointment_time
+        description: ''
+        required: true
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      personels:
+        name: personels
+        description: ''
+        required: true
+        example: corporis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      appointment_time: est
+      personels: corporis
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/customer/appointment-create/{business_id}/summary'
+    metadata:
+      groupName: 'Randevu Oluşturma'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Randevu Özeti'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      business_id:
+        name: business_id
+        description: 'The ID of the business.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      business_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      appointment_time:
+        name: appointment_time
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      personels:
+        name: personels
+        description: ''
+        required: true
+        example: unde
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      room_id:
+        name: room_id
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      appointment_time: et
+      personels: unde
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

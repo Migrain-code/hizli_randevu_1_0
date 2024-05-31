@@ -14,844 +14,193 @@ paths:
       description: ''
       parameters: []
       responses:
-        500:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hizli_randevu.interviews' doesn't exist (Connection: mysql, SQL: select * from `interviews` where `status` = 1)"
-                  exception: Illuminate\Database\QueryException
-                  file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
-                  line: 829
-                  trace:
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
-                      line: 783
-                      function: runQueryCallback
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
-                      line: 431
-                      function: run
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                      line: 2872
-                      function: select
-                      class: Illuminate\Database\Connection
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                      line: 2860
-                      function: runSelect
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                      line: 3414
-                      function: 'Illuminate\Database\Query\{closure}'
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                      line: 2861
-                      function: onceWithColumns
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
-                      line: 739
-                      function: get
-                      class: Illuminate\Database\Query\Builder
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
-                      line: 723
-                      function: getModels
-                      class: Illuminate\Database\Eloquent\Builder
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\app\Http\Controllers\Api\MainPage\MainPageController.php'
-                      line: 34
-                      function: get
-                      class: Illuminate\Database\Eloquent\Builder
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
-                      line: 54
-                      function: index
-                      class: App\Http\Controllers\Api\MainPage\MainPageController
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
-                      line: 43
-                      function: callAction
-                      class: Illuminate\Routing\Controller
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                      line: 260
-                      function: dispatch
-                      class: Illuminate\Routing\ControllerDispatcher
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                      line: 205
-                      function: runController
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 806
-                      function: run
-                      class: Illuminate\Routing\Route
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 144
-                      function: 'Illuminate\Routing\{closure}'
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
-                      line: 50
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Routing\Middleware\SubstituteBindings
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 119
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 807
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 784
-                      function: runRouteWithinStack
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 748
-                      function: runRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 737
-                      function: dispatchToRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 200
-                      function: dispatch
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 144
-                      function: 'Illuminate\Foundation\Http\{closure}'
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                      line: 31
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                      line: 40
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                      line: 27
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                      line: 99
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
-                      line: 62
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Http\Middleware\HandleCors
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                      line: 39
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Http\Middleware\TrustProxies
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 119
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 175
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 144
-                      function: sendRequestThroughRouter
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 300
-                      function: handle
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 288
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 91
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 44
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 236
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 166
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 95
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 125
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 72
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 50
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                      line: 53
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                      line: 41
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                      line: 662
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 211
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
-                      line: 326
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 181
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                      line: 1096
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                      line: 324
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                      line: 175
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                      line: 201
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
-                      line: 37
-                      function: handle
-                      class: Illuminate\Foundation\Console\Kernel
-                      type: '->'
+                  categories:
+                    -
+                      id: 18
+                      name: Berberler
+                      icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/9CWBU8aVty4YKh6MZzfuRA0ax1SZmyr7THLL94mu.png'
+                    -
+                      id: 17
+                      name: Kuaförler
+                      icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/nCM1TXNsIXiG8tlce43KacyLNQEMumYMlNybz5Vc.png'
+                    -
+                      id: 19
+                      name: 'Güzellik ve Estetik Merkezleri'
+                      icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/MRog9M4odSmqADfC2XNkFjVsLpWU7YZuUhUjpBlx.png'
+                    -
+                      id: 21
+                      name: 'Nail Art Stüdyoları'
+                      icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/eb0iyPP7NOH1LeqYODHZuyfN3yJKzLKXjTOzXrhM.png'
+                  adverts: []
+                  activities:
+                    -
+                      id: 4
+                      title: 'Perferendis quis neq'
+                      image: 'https://file.hizlirandevu.com.tr/storage/default/activity/image.png'
+                      hotelName: 'Test Hotel'
+                      dateRange: '01 Haziran 16 Haziran'
+                      clock: '16:00 - 00:00'
+                      city:
+                        id: 7
+                        name: Antalya
+                  productAdverts:
+                    -
+                      id: 17
+                      title: 'Saç Kremi'
+                      price: 70₺
+                      link: 'https://customer.hizlirandevu.com.tr/salon/kuafor-savas-53'
+                      image: 'https://file.hizlirandevu.com.tr/storage/productAdsImages/RjshSfk3r6xFmzQHgeXdyHpOhSHOQHTj64pjviM7.png'
+                  interviews:
+                    -
+                      id: 1
+                      title: test
+                      name: 'Osman Balcı'
+                      image: 'https://file.hizlirandevu.com.tr/asdasdasd'
+                      viewCount: 4
+                      created_at: '31 Mayıs 2024'
                 properties:
-                  message:
-                    type: string
-                    example: "SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hizli_randevu.interviews' doesn't exist (Connection: mysql, SQL: select * from `interviews` where `status` = 1)"
-                  exception:
-                    type: string
-                    example: Illuminate\Database\QueryException
-                  file:
-                    type: string
-                    example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
-                  line:
-                    type: integer
-                    example: 829
-                  trace:
+                  categories:
                     type: array
                     example:
                       -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
-                        line: 783
-                        function: runQueryCallback
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
-                        line: 431
-                        function: run
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                        line: 2872
-                        function: select
-                        class: Illuminate\Database\Connection
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                        line: 2860
-                        function: runSelect
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                        line: 3414
-                        function: 'Illuminate\Database\Query\{closure}'
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php'
-                        line: 2861
-                        function: onceWithColumns
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
-                        line: 739
-                        function: get
-                        class: Illuminate\Database\Query\Builder
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php'
-                        line: 723
-                        function: getModels
-                        class: Illuminate\Database\Eloquent\Builder
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\app\Http\Controllers\Api\MainPage\MainPageController.php'
-                        line: 34
-                        function: get
-                        class: Illuminate\Database\Eloquent\Builder
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Controller.php'
-                        line: 54
-                        function: index
-                        class: App\Http\Controllers\Api\MainPage\MainPageController
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php'
-                        line: 43
-                        function: callAction
-                        class: Illuminate\Routing\Controller
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                        line: 260
-                        function: dispatch
-                        class: Illuminate\Routing\ControllerDispatcher
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Route.php'
-                        line: 205
-                        function: runController
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 806
-                        function: run
-                        class: Illuminate\Routing\Route
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 144
-                        function: 'Illuminate\Routing\{closure}'
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php'
-                        line: 50
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Routing\Middleware\SubstituteBindings
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 119
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 807
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 784
-                        function: runRouteWithinStack
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 748
-                        function: runRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 737
-                        function: dispatchToRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 200
-                        function: dispatch
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 144
-                        function: 'Illuminate\Foundation\Http\{closure}'
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                        line: 31
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                        line: 40
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                        line: 27
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                        line: 99
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
-                        line: 62
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Http\Middleware\HandleCors
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                        line: 39
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Http\Middleware\TrustProxies
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 119
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 175
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 144
-                        function: sendRequestThroughRouter
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 300
-                        function: handle
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 288
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 91
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 44
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 236
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 166
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 95
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 125
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 72
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 50
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                        line: 53
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                        line: 41
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                        line: 662
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 211
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
-                        line: 326
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 181
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                        line: 1096
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                        line: 324
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                        line: 175
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                        line: 201
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
-                        line: 37
-                        function: handle
-                        class: Illuminate\Foundation\Console\Kernel
-                        type: '->'
+                        id: 18
+                        name: Berberler
+                        icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/9CWBU8aVty4YKh6MZzfuRA0ax1SZmyr7THLL94mu.png'
+                      -
+                        id: 17
+                        name: Kuaförler
+                        icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/nCM1TXNsIXiG8tlce43KacyLNQEMumYMlNybz5Vc.png'
+                      -
+                        id: 19
+                        name: 'Güzellik ve Estetik Merkezleri'
+                        icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/MRog9M4odSmqADfC2XNkFjVsLpWU7YZuUhUjpBlx.png'
+                      -
+                        id: 21
+                        name: 'Nail Art Stüdyoları'
+                        icon: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/eb0iyPP7NOH1LeqYODHZuyfN3yJKzLKXjTOzXrhM.png'
                     items:
                       type: object
                       properties:
-                        file:
-                          type: string
-                          example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Database\Connection.php'
-                        line:
+                        id:
                           type: integer
-                          example: 783
-                        function:
+                          example: 18
+                        name:
                           type: string
-                          example: runQueryCallback
-                        class:
+                          example: Berberler
+                        icon:
                           type: string
-                          example: Illuminate\Database\Connection
-                        type:
+                          example: 'https://file.hizlirandevu.com.tr/storage/businessCategory_icons/9CWBU8aVty4YKh6MZzfuRA0ax1SZmyr7THLL94mu.png'
+                  adverts:
+                    type: array
+                    example: []
+                  activities:
+                    type: array
+                    example:
+                      -
+                        id: 4
+                        title: 'Perferendis quis neq'
+                        image: 'https://file.hizlirandevu.com.tr/storage/default/activity/image.png'
+                        hotelName: 'Test Hotel'
+                        dateRange: '01 Haziran 16 Haziran'
+                        clock: '16:00 - 00:00'
+                        city:
+                          id: 7
+                          name: Antalya
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 4
+                        title:
                           type: string
-                          example: '->'
+                          example: 'Perferendis quis neq'
+                        image:
+                          type: string
+                          example: 'https://file.hizlirandevu.com.tr/storage/default/activity/image.png'
+                        hotelName:
+                          type: string
+                          example: 'Test Hotel'
+                        dateRange:
+                          type: string
+                          example: '01 Haziran 16 Haziran'
+                        clock:
+                          type: string
+                          example: '16:00 - 00:00'
+                        city:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 7
+                            name:
+                              type: string
+                              example: Antalya
+                  productAdverts:
+                    type: array
+                    example:
+                      -
+                        id: 17
+                        title: 'Saç Kremi'
+                        price: 70₺
+                        link: 'https://customer.hizlirandevu.com.tr/salon/kuafor-savas-53'
+                        image: 'https://file.hizlirandevu.com.tr/storage/productAdsImages/RjshSfk3r6xFmzQHgeXdyHpOhSHOQHTj64pjviM7.png'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 17
+                        title:
+                          type: string
+                          example: 'Saç Kremi'
+                        price:
+                          type: string
+                          example: 70₺
+                        link:
+                          type: string
+                          example: 'https://customer.hizlirandevu.com.tr/salon/kuafor-savas-53'
+                        image:
+                          type: string
+                          example: 'https://file.hizlirandevu.com.tr/storage/productAdsImages/RjshSfk3r6xFmzQHgeXdyHpOhSHOQHTj64pjviM7.png'
+                  interviews:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: test
+                        name: 'Osman Balcı'
+                        image: 'https://file.hizlirandevu.com.tr/asdasdasd'
+                        viewCount: 4
+                        created_at: '31 Mayıs 2024'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: test
+                        name:
+                          type: string
+                          example: 'Osman Balcı'
+                        image:
+                          type: string
+                          example: 'https://file.hizlirandevu.com.tr/asdasdasd'
+                        viewCount:
+                          type: integer
+                          example: 4
+                        created_at:
+                          type: string
+                          example: '31 Mayıs 2024'
       tags:
         - Anasayfa
       security: []
@@ -877,9 +226,9 @@ paths:
       security: []
   /api/customer/notification:
     get:
-      summary: "Bildirim Listesi\n Bildirim Durumları\n 0 => Okunmadı\n 1 => okundu"
-      operationId: bildirimListesiBildirimDurumlar0Okunmad1Okundu
-      description: ''
+      summary: 'Bildirim Listesi'
+      operationId: bildirimListesi
+      description: "Bildirim Durumları\n 0 => Okunmadı\n 1 => okundu"
       parameters: []
       responses:
         401:
@@ -969,7 +318,7 @@ paths:
                 column:
                   type: string
                   description: ''
-                  example: vel
+                  example: et
               required:
                 - column
       security: []
@@ -1001,11 +350,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 336708878.257
+                  example: 1695.5481778
                 password:
                   type: string
                   description: ''
-                  example: harum
+                  example: qui
               required:
                 - phone
                 - password
@@ -1039,11 +388,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 26.8
+                  example: 4782656.3599147
                 code:
                   type: number
                   description: ''
-                  example: 9455194.413757
+                  example: 5175606.772
               required:
                 - phone
                 - code
@@ -1063,7 +412,17 @@ paths:
                 type: array
                 items:
                   type: object
-                example: []
+                example:
+                  -
+                    id: 4
+                    title: 'Perferendis quis neq'
+                    image: 'https://file.hizlirandevu.com.tr/storage/default/activity/image.png'
+                    hotelName: 'Test Hotel'
+                    dateRange: '01 Haziran 16 Haziran'
+                    clock: '16:00 - 00:00'
+                    city:
+                      id: 7
+                      name: Antalya
       tags:
         - Etkinlikler
       security: []
@@ -1085,11 +444,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 7.54
+                  example: 1.595947887
                 password:
                   type: string
                   description: ''
-                  example: reprehenderit
+                  example: porro
               required:
                 - phone
                 - password
@@ -1108,7 +467,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: et
+            value: repudiandae
       -
         in: path
         name: city_id
@@ -1122,7 +481,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: qui
+            value: debitis
       -
         in: path
         name: activity_date
@@ -1136,7 +495,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: voluptatem
+            value: aut
   '/api/activity/{id}':
     get:
       summary: 'Etkinlik detayı'
@@ -1144,688 +503,82 @@ paths:
       description: ''
       parameters: []
       responses:
-        404:
+        200:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Activity] 17'
-                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-                  file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
-                  line: 487
-                  trace:
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
-                      line: 463
-                      function: prepareException
-                      class: Illuminate\Foundation\Exceptions\Handler
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
-                      line: 54
-                      function: render
-                      class: Illuminate\Foundation\Exceptions\Handler
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
-                      line: 51
-                      function: render
-                      class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 188
-                      function: handleException
-                      class: Illuminate\Routing\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 119
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 807
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 784
-                      function: runRouteWithinStack
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 748
-                      function: runRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                      line: 737
-                      function: dispatchToRoute
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 200
-                      function: dispatch
-                      class: Illuminate\Routing\Router
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 144
-                      function: 'Illuminate\Foundation\Http\{closure}'
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                      line: 31
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                      line: 21
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                      line: 40
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                      line: 27
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                      line: 99
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
-                      line: 62
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Http\Middleware\HandleCors
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                      line: 39
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 183
-                      function: handle
-                      class: Illuminate\Http\Middleware\TrustProxies
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                      line: 119
-                      function: 'Illuminate\Pipeline\{closure}'
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 175
-                      function: then
-                      class: Illuminate\Pipeline\Pipeline
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                      line: 144
-                      function: sendRequestThroughRouter
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 300
-                      function: handle
-                      class: Illuminate\Foundation\Http\Kernel
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 288
-                      function: callLaravelOrLumenRoute
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 91
-                      function: makeApiCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 44
-                      function: makeResponseCall
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                      line: 35
-                      function: makeResponseCallIfConditionsPass
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 236
-                      function: __invoke
-                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 166
-                      function: iterateThroughStrategies
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                      line: 95
-                      function: fetchResponses
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 125
-                      function: processRoute
-                      class: Knuckles\Scribe\Extracting\Extractor
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 72
-                      function: extractEndpointsInfoFromLaravelApp
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                      line: 50
-                      function: extractEndpointsInfoAndWriteToDisk
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                      line: 53
-                      function: get
-                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 36
-                      function: handle
-                      class: Knuckles\Scribe\Commands\GenerateDocumentation
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                      line: 41
-                      function: 'Illuminate\Container\{closure}'
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 93
-                      function: unwrapIfClosure
-                      class: Illuminate\Container\Util
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                      line: 37
-                      function: callBoundMethod
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                      line: 662
-                      function: call
-                      class: Illuminate\Container\BoundMethod
-                      type: '::'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 211
-                      function: call
-                      class: Illuminate\Container\Container
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
-                      line: 326
-                      function: execute
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                      line: 181
-                      function: run
-                      class: Symfony\Component\Console\Command\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                      line: 1096
-                      function: run
-                      class: Illuminate\Console\Command
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                      line: 324
-                      function: doRunCommand
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                      line: 175
-                      function: doRun
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                      line: 201
-                      function: run
-                      class: Symfony\Component\Console\Application
-                      type: '->'
-                    -
-                      file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
-                      line: 37
-                      function: handle
-                      class: Illuminate\Foundation\Console\Kernel
-                      type: '->'
+                  id: 4
+                  title: 'Perferendis quis neq'
+                  phone: '05537021355'
+                  personelCount: 0
+                  sponsorCount: 0
+                  description: '<p>asdasdasdasdasdasd</p>'
+                  image: 'https://file.hizlirandevu.com.tr/storage/default/activity/image.png'
+                  hotelName: 'Test Hotel'
+                  dateRange: '01 Haziran 16 Haziran'
+                  clock: '16:00 - 00:00'
+                  city:
+                    id: 7
+                    name: Antalya
+                  sponsors: []
+                  personels: []
+                  photos: []
+                  embed_url: 'https://www.youtube.com/embed/FW-0mPlaRmc'
                 properties:
-                  message:
-                    type: string
-                    example: 'No query results for model [App\Models\Activity] 17'
-                  exception:
-                    type: string
-                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
-                  file:
-                    type: string
-                    example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
-                  line:
+                  id:
                     type: integer
-                    example: 487
-                  trace:
+                    example: 4
+                  title:
+                    type: string
+                    example: 'Perferendis quis neq'
+                  phone:
+                    type: string
+                    example: '05537021355'
+                  personelCount:
+                    type: integer
+                    example: 0
+                  sponsorCount:
+                    type: integer
+                    example: 0
+                  description:
+                    type: string
+                    example: '<p>asdasdasdasdasdasd</p>'
+                  image:
+                    type: string
+                    example: 'https://file.hizlirandevu.com.tr/storage/default/activity/image.png'
+                  hotelName:
+                    type: string
+                    example: 'Test Hotel'
+                  dateRange:
+                    type: string
+                    example: '01 Haziran 16 Haziran'
+                  clock:
+                    type: string
+                    example: '16:00 - 00:00'
+                  city:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 7
+                      name:
+                        type: string
+                        example: Antalya
+                  sponsors:
                     type: array
-                    example:
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
-                        line: 463
-                        function: prepareException
-                        class: Illuminate\Foundation\Exceptions\Handler
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
-                        line: 54
-                        function: render
-                        class: Illuminate\Foundation\Exceptions\Handler
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
-                        line: 51
-                        function: render
-                        class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 188
-                        function: handleException
-                        class: Illuminate\Routing\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 119
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 807
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 784
-                        function: runRouteWithinStack
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 748
-                        function: runRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
-                        line: 737
-                        function: dispatchToRoute
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 200
-                        function: dispatch
-                        class: Illuminate\Routing\Router
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 144
-                        function: 'Illuminate\Foundation\Http\{closure}'
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
-                        line: 31
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
-                        line: 21
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
-                        line: 40
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
-                        line: 27
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
-                        line: 99
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
-                        line: 62
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Http\Middleware\HandleCors
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
-                        line: 39
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 183
-                        function: handle
-                        class: Illuminate\Http\Middleware\TrustProxies
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
-                        line: 119
-                        function: 'Illuminate\Pipeline\{closure}'
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 175
-                        function: then
-                        class: Illuminate\Pipeline\Pipeline
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
-                        line: 144
-                        function: sendRequestThroughRouter
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 300
-                        function: handle
-                        class: Illuminate\Foundation\Http\Kernel
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 288
-                        function: callLaravelOrLumenRoute
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 91
-                        function: makeApiCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 44
-                        function: makeResponseCall
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
-                        line: 35
-                        function: makeResponseCallIfConditionsPass
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 236
-                        function: __invoke
-                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 166
-                        function: iterateThroughStrategies
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
-                        line: 95
-                        function: fetchResponses
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 125
-                        function: processRoute
-                        class: Knuckles\Scribe\Extracting\Extractor
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 72
-                        function: extractEndpointsInfoFromLaravelApp
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
-                        line: 50
-                        function: extractEndpointsInfoAndWriteToDisk
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
-                        line: 53
-                        function: get
-                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 36
-                        function: handle
-                        class: Knuckles\Scribe\Commands\GenerateDocumentation
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Util.php'
-                        line: 41
-                        function: 'Illuminate\Container\{closure}'
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 93
-                        function: unwrapIfClosure
-                        class: Illuminate\Container\Util
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
-                        line: 37
-                        function: callBoundMethod
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Container\Container.php'
-                        line: 662
-                        function: call
-                        class: Illuminate\Container\BoundMethod
-                        type: '::'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 211
-                        function: call
-                        class: Illuminate\Container\Container
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Command\Command.php'
-                        line: 326
-                        function: execute
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Console\Command.php'
-                        line: 181
-                        function: run
-                        class: Symfony\Component\Console\Command\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                        line: 1096
-                        function: run
-                        class: Illuminate\Console\Command
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                        line: 324
-                        function: doRunCommand
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\symfony\console\Application.php'
-                        line: 175
-                        function: doRun
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
-                        line: 201
-                        function: run
-                        class: Symfony\Component\Console\Application
-                        type: '->'
-                      -
-                        file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\artisan'
-                        line: 37
-                        function: handle
-                        class: Illuminate\Foundation\Console\Kernel
-                        type: '->'
-                    items:
-                      type: object
-                      properties:
-                        file:
-                          type: string
-                          example: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
-                        line:
-                          type: integer
-                          example: 463
-                        function:
-                          type: string
-                          example: prepareException
-                        class:
-                          type: string
-                          example: Illuminate\Foundation\Exceptions\Handler
-                        type:
-                          type: string
-                          example: '->'
+                    example: []
+                  personels:
+                    type: array
+                    example: []
+                  photos:
+                    type: array
+                    example: []
+                  embed_url:
+                    type: string
+                    example: 'https://www.youtube.com/embed/FW-0mPlaRmc'
       tags:
         - Etkinlikler
       security: []
@@ -1834,7 +587,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the activity.'
-        example: 17
+        example: 4
         required: true
         schema:
           type: integer
@@ -1878,7 +631,7 @@ paths:
                 business_id:
                   type: number
                   description: ''
-                  example: 48890335.1025
+                  example: 186315.19828
               required:
                 - business_id
       security: []
@@ -1931,7 +684,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the campaign.'
-        example: 20
+        example: 13
         required: true
         schema:
           type: integer
@@ -1976,11 +729,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: consequatur
                 password_confirmation:
                   type: string
                   description: ''
-                  example: officia
+                  example: aut
               required:
                 - password
                 - password_confirmation
@@ -2004,31 +757,31 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: et
+                  example: cupiditate
                 phone:
                   type: string
                   description: ''
-                  example: est
+                  example: quo
                 email:
                   type: string
                   description: ''
-                  example: facere
+                  example: provident
                 gender:
                   type: string
                   description: ''
-                  example: qui
+                  example: quidem
                 year:
                   type: number
                   description: ''
-                  example: 2.80884755
+                  example: 2492012.52
                 month:
                   type: number
                   description: ''
-                  example: 29.9308
+                  example: 26.44936153
                 day:
                   type: number
                   description: ''
-                  example: 156.42437009
+                  example: 589.75908
               required:
                 - name
                 - phone
@@ -2087,7 +840,206 @@ paths:
         in: path
         name: id
         description: 'The ID of the package sale.'
-        example: 4
+        example: 16
+        required: true
+        schema:
+          type: integer
+  '/api/customer/appointment-create/{business_id}/personel':
+    get:
+      summary: 'Personel Listesi'
+      operationId: personelListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Randevu Oluşturma'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                services:
+                  type: string
+                  description: ''
+                  example: voluptas
+                room_id:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - services
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/customer/appointment-create/{business_id}/clock':
+    get:
+      summary: 'Saat Listesi'
+      operationId: saatListesi
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Randevu Oluşturma'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_date:
+                  type: string
+                  description: ''
+                  example: blanditiis
+                personels:
+                  type: string
+                  description: ''
+                  example: eum
+              required:
+                - appointment_date
+                - personels
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/customer/appointment-create/{business_id}/check-clock':
+    get:
+      summary: 'Saat Kontrolü'
+      operationId: saatKontrol
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Randevu Oluşturma'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_time:
+                  type: string
+                  description: ''
+                  example: est
+                personels:
+                  type: string
+                  description: ''
+                  example: corporis
+              required:
+                - appointment_time
+                - personels
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/customer/appointment-create/{business_id}/summary':
+    get:
+      summary: 'Randevu Özeti'
+      operationId: randevuzeti
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'Randevu Oluşturma'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_time:
+                  type: string
+                  description: ''
+                  example: et
+                personels:
+                  type: string
+                  description: ''
+                  example: unde
+                room_id:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - appointment_time
+                - personels
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
         required: true
         schema:
           type: integer
@@ -2153,11 +1105,11 @@ paths:
                 rating:
                   type: string
                   description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
-                  example: ruqliic
+                  example: czdd
                 content:
                   type: string
                   description: ''
-                  example: eaque
+                  example: eum
                 terms:
                   type: boolean
                   description: 'Must be accepted.'
@@ -2185,6 +1137,121 @@ paths:
         required: true
         schema:
           type: integer
+  /api/interview:
+    get:
+      summary: 'Röportaj Listesi'
+      operationId: rportajListesi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    title: test
+                    name: 'Osman Balcı'
+                    image: 'https://file.hizlirandevu.com.tr/asdasdasd'
+                    viewCount: 4
+                    created_at: '31 Mayıs 2024'
+      tags:
+        - Röportajlar
+      security: []
+  '/api/interview/{id}':
+    get:
+      summary: 'Röportaj Detay'
+      operationId: rportajDetay
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  title: test
+                  name: 'Osman Balcı'
+                  description: asdasdasd
+                  video: sadasdas
+                  created_at: '31 Mayıs 2024'
+                  gallery:
+                    -
+                      id: 1
+                      image: 'https://file.hizlirandevu.com.tr/adasdas'
+                  slider:
+                    -
+                      id: 1
+                      image: 'https://file.hizlirandevu.com.tr/asdsasdasd'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  title:
+                    type: string
+                    example: test
+                  name:
+                    type: string
+                    example: 'Osman Balcı'
+                  description:
+                    type: string
+                    example: asdasdasd
+                  video:
+                    type: string
+                    example: sadasdas
+                  created_at:
+                    type: string
+                    example: '31 Mayıs 2024'
+                  gallery:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        image: 'https://file.hizlirandevu.com.tr/adasdas'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        image:
+                          type: string
+                          example: 'https://file.hizlirandevu.com.tr/adasdas'
+                  slider:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        image: 'https://file.hizlirandevu.com.tr/asdsasdasd'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        image:
+                          type: string
+                          example: 'https://file.hizlirandevu.com.tr/asdsasdasd'
+      tags:
+        - Röportajlar
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the interview.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   /api/customer/auth/forgot-password:
     post:
       summary: 'Telefon Kontrolü'
@@ -2204,7 +1271,7 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 4.053367
+                  example: 136.024
               required:
                 - phone
       security: []
@@ -2227,7 +1294,7 @@ paths:
                 code:
                   type: number
                   description: ''
-                  example: 2546.3119
+                  example: 1299.79545847
               required:
                 - code
       security: []
@@ -2299,7 +1366,7 @@ paths:
                     name: Adıyaman
                   -
                     id: 3
-                    name: Afyon
+                    name: Afyonkarahisar
                   -
                     id: 4
                     name: Ağrı
@@ -2314,22 +1381,22 @@ paths:
                     name: Antalya
                   -
                     id: 8
-                    name: Artvi̇n
+                    name: Artvin
                   -
                     id: 9
-                    name: Aydin
+                    name: Aydın
                   -
                     id: 10
-                    name: Balikesi̇r
+                    name: Balıkesir
                   -
                     id: 11
-                    name: Bi̇leci̇k
+                    name: Bilecik
                   -
                     id: 12
-                    name: Bi̇ngöl
+                    name: Bingöl
                   -
                     id: 13
-                    name: Bi̇tli̇s
+                    name: Bitlis
                   -
                     id: 14
                     name: Bolu
@@ -2350,37 +1417,37 @@ paths:
                     name: Çorum
                   -
                     id: 20
-                    name: Deni̇zli̇
+                    name: Denizli
                   -
                     id: 21
                     name: Diyarbakır
                   -
                     id: 22
-                    name: Edi̇rne
+                    name: Edirne
                   -
                     id: 23
-                    name: Elazığ
+                    name: Elâzığ
                   -
                     id: 24
-                    name: Erzi̇ncan
+                    name: Erzincan
                   -
                     id: 25
                     name: Erzurum
                   -
                     id: 26
-                    name: Eski̇şehi̇r
+                    name: Eskişehir
                   -
                     id: 27
-                    name: Gazi̇antep
+                    name: Gaziantep
                   -
                     id: 28
-                    name: Gi̇resun
+                    name: Giresun
                   -
                     id: 29
                     name: Gümüşhane
                   -
                     id: 30
-                    name: Hakkari̇
+                    name: Hakkâri
                   -
                     id: 31
                     name: Hatay
@@ -2389,13 +1456,13 @@ paths:
                     name: Isparta
                   -
                     id: 33
-                    name: İçel
+                    name: Mersin
                   -
                     id: 34
-                    name: İstanbul
+                    name: İstanbul
                   -
                     id: 35
-                    name: İzmi̇r
+                    name: İzmir
                   -
                     id: 36
                     name: Kars
@@ -2404,16 +1471,16 @@ paths:
                     name: Kastamonu
                   -
                     id: 38
-                    name: Kayseri̇
+                    name: Kayseri
                   -
                     id: 39
-                    name: Kırklareli̇
+                    name: Kırklareli
                   -
                     id: 40
-                    name: Kirşehi̇r
+                    name: Kırşehir
                   -
                     id: 41
-                    name: Kocaeli̇
+                    name: Kocaeli
                   -
                     id: 42
                     name: Konya
@@ -2425,13 +1492,13 @@ paths:
                     name: Malatya
                   -
                     id: 45
-                    name: Mani̇sa
+                    name: Manisa
                   -
                     id: 46
                     name: Kahramanmaraş
                   -
                     id: 47
-                    name: Mardi̇n
+                    name: Mardin
                   -
                     id: 48
                     name: Muğla
@@ -2440,10 +1507,10 @@ paths:
                     name: Muş
                   -
                     id: 50
-                    name: Nevşehi̇r
+                    name: Nevşehir
                   -
                     id: 51
-                    name: Ni̇ğde
+                    name: Niğde
                   -
                     id: 52
                     name: Ordu
@@ -2458,16 +1525,16 @@ paths:
                     name: Samsun
                   -
                     id: 56
-                    name: Si̇i̇rt
+                    name: Siirt
                   -
                     id: 57
-                    name: Si̇nop
+                    name: Sinop
                   -
                     id: 58
-                    name: Si̇vas
+                    name: Sivas
                   -
                     id: 59
-                    name: Teki̇rdağ
+                    name: Tekirdağ
                   -
                     id: 60
                     name: Tokat
@@ -2476,10 +1543,10 @@ paths:
                     name: Trabzon
                   -
                     id: 62
-                    name: Tunceli̇
+                    name: Tunceli
                   -
                     id: 63
-                    name: şanliurfa
+                    name: Şanlıurfa
                   -
                     id: 64
                     name: Uşak
@@ -2527,10 +1594,10 @@ paths:
                     name: Karabük
                   -
                     id: 79
-                    name: Ki̇li̇s
+                    name: Kilis
                   -
                     id: 80
-                    name: Osmani̇ye
+                    name: Osmaniye
                   -
                     id: 81
                     name: Düzce
@@ -2549,55 +1616,116 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  type: object
+                type: object
                 example:
-                  -
-                    id: 1
-                    name: Aladağ
-                  -
-                    id: 2
-                    name: Ceyhan
-                  -
-                    id: 3
-                    name: Çukurova
-                  -
-                    id: 4
-                    name: Feke
-                  -
-                    id: 5
-                    name: İmamoğlu
-                  -
-                    id: 6
-                    name: Karai̇sali
-                  -
-                    id: 7
-                    name: Karataş
-                  -
-                    id: 8
-                    name: Kozan
-                  -
-                    id: 9
-                    name: Pozanti
-                  -
-                    id: 10
-                    name: Sai̇mbeyli̇
-                  -
-                    id: 11
-                    name: Sariçam
-                  -
-                    id: 12
-                    name: Seyhan
-                  -
-                    id: 13
-                    name: Tufanbeyli̇
-                  -
-                    id: 14
-                    name: Yumurtalık
-                  -
-                    id: 15
-                    name: Yüreği̇r
+                  featured_districts: []
+                  districts:
+                    -
+                      id: 43
+                      name: Aladağ
+                    -
+                      id: 196
+                      name: Ceyhan
+                    -
+                      id: 263
+                      name: Çukurova
+                    -
+                      id: 368
+                      name: Feke
+                    -
+                      id: 488
+                      name: İmamoğlu
+                    -
+                      id: 531
+                      name: Karaisalı
+                    -
+                      id: 542
+                      name: Karataş
+                    -
+                      id: 608
+                      name: Kozan
+                    -
+                      id: 746
+                      name: Pozantı
+                    -
+                      id: 755
+                      name: Saimbeyli
+                    -
+                      id: 770
+                      name: Sarıçam
+                    -
+                      id: 796
+                      name: Seyhan
+                    -
+                      id: 889
+                      name: Tufanbeyli
+                    -
+                      id: 961
+                      name: Yumurtalık
+                    -
+                      id: 966
+                      name: Yüreğir
+                properties:
+                  featured_districts:
+                    type: array
+                    example: []
+                  districts:
+                    type: array
+                    example:
+                      -
+                        id: 43
+                        name: Aladağ
+                      -
+                        id: 196
+                        name: Ceyhan
+                      -
+                        id: 263
+                        name: Çukurova
+                      -
+                        id: 368
+                        name: Feke
+                      -
+                        id: 488
+                        name: İmamoğlu
+                      -
+                        id: 531
+                        name: Karaisalı
+                      -
+                        id: 542
+                        name: Karataş
+                      -
+                        id: 608
+                        name: Kozan
+                      -
+                        id: 746
+                        name: Pozantı
+                      -
+                        id: 755
+                        name: Saimbeyli
+                      -
+                        id: 770
+                        name: Sarıçam
+                      -
+                        id: 796
+                        name: Seyhan
+                      -
+                        id: 889
+                        name: Tufanbeyli
+                      -
+                        id: 961
+                        name: Yumurtalık
+                      -
+                        id: 966
+                        name: Yüreğir
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 43
+                        name:
+                          type: string
+                          example: Aladağ
       tags:
         - 'İL / İlçe'
       security: []
@@ -2606,6 +1734,1011 @@ paths:
         in: path
         name: id
         description: 'The ID of the city.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/business:
+    get:
+      summary: 'İşletme Listesi'
+      operationId: letmeListesi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: 'Kuaför Savaş'
+                    phone: kuaforsavasrize
+                    email: null
+                    city:
+                      id: 53
+                      name: Rize
+                    district:
+                      id: 753
+                      name: Merkez
+                    logo: 'https://file.hizlirandevu.com.tr/storage/businessLogos/GJAfLFOfULFLxAOxjN7YRHXrpUbVJSYrfe1qLAMc.png'
+                    start_time: '08:30'
+                    end_time: '21:00'
+                    wallpaper: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
+                    commentCount: 1
+                    point: 4
+                    address: null
+                    is_favorite: false
+                  -
+                    id: 2
+                    name: 'Derviş Anadol'
+                    phone: barberssdervisanadol
+                    email: null
+                    city:
+                      id: 16
+                      name: Bursa
+                    district:
+                      id: 527
+                      name: Karacabey
+                    logo: 'https://file.hizlirandevu.com.tr/storage/businessLogos/YaDjKUPUib2QS0xpFKYPLVuGQsnqZdbUKE5aKuXe.jpg'
+                    start_time: '09:00'
+                    end_time: '21:00'
+                    wallpaper: 'https://file.hizlirandevu.com.tr/storage/business_galleries/LuwECZPnOuZk883UchsuL4TFhAgrRwmNjbL3TFcw.webp'
+                    commentCount: 0
+                    point: 0
+                    address: null
+                    is_favorite: false
+                  -
+                    id: 4
+                    name: 'Taner POLAT'
+                    phone: tanerpolatofficial
+                    email: null
+                    city:
+                      id: 58
+                      name: Sivas
+                    district:
+                      id: 809
+                      name: Merkez
+                    logo: 'https://file.hizlirandevu.com.tr/storage/businessLogos/KhnDsqnHNaMPUTYIMCFlD4lozfUvYXoPYUNLCQFM.jpg'
+                    start_time: '09:00'
+                    end_time: '21:00'
+                    wallpaper: 'https://file.hizlirandevu.com.tr/storage/business_galleries/HCxSnymuy2odXNXsxxW3jrNUdLRwxhz4DR2pmmBU.jpg'
+                    commentCount: 0
+                    point: 0
+                    address: null
+                    is_favorite: false
+                  -
+                    id: 8
+                    name: 'OSMAN BALCI HAİR PALACE - TRABZON'
+                    phone: trabzonosmanbalci
+                    email: null
+                    city:
+                      id: 61
+                      name: Trabzon
+                    district:
+                      id: 707
+                      name: Ortahisar
+                    logo: 'https://file.hizlirandevu.com.tr/storage/default/user.png'
+                    start_time: '09:00'
+                    end_time: '21:00'
+                    wallpaper: 'https://file.hizlirandevu.com.tr/default/business.png'
+                    commentCount: 0
+                    point: 0
+                    address: null
+                    is_favorite: false
+      tags:
+        - İşletmeler
+      security: []
+  '/api/business/{id}':
+    get:
+      summary: 'İşletme Detay'
+      operationId: letmeDetay
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: 'Kuaför Savaş'
+                  phone: kuaforsavasrize
+                  email: null
+                  city:
+                    id: 53
+                    name: Rize
+                  district:
+                    id: 753
+                    name: Merkez
+                  logo: 'https://file.hizlirandevu.com.tr/storage/businessLogos/GJAfLFOfULFLxAOxjN7YRHXrpUbVJSYrfe1qLAMc.png'
+                  start_time: '08:30'
+                  end_time: '21:00'
+                  wallpaper: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
+                  commentCount: 1
+                  point: 4
+                  address: null
+                  gender:
+                    id: 3
+                    name: Kadın-Erkek
+                  is_favorite: false
+                  services:
+                    womanServices:
+                      featured:
+                        -
+                          id: 1
+                          name: 'Saç Kesimi'
+                          price: 250
+                        -
+                          id: 2
+                          name: 'Sakal Tıraşı'
+                          price: 150
+                      services:
+                        -
+                          id: 1
+                          name: Saç
+                          services:
+                            -
+                              id: 1
+                              name: 'Saç Kesimi'
+                              price: 250
+                            -
+                              id: 2
+                              name: 'Sakal Tıraşı'
+                              price: 150
+                          featuredServices:
+                            -
+                              id: 1
+                              name: 'Saç Kesimi'
+                              price: 250
+                            -
+                              id: 2
+                              name: 'Sakal Tıraşı'
+                              price: 150
+                    manService:
+                      featured:
+                        -
+                          id: 3
+                          name: 'Saç & Sakal'
+                          price: 400
+                        -
+                          id: 4
+                          name: 'Saç Yıkama & Fön'
+                          price: 150
+                        -
+                          id: 8
+                          name: 'Günlük Perma'
+                          price: 150
+                        -
+                          id: 11
+                          name: 'Cilt Bakımı'
+                          price: 500
+                      services:
+                        -
+                          id: 1
+                          name: Saç
+                          services:
+                            -
+                              id: 3
+                              name: 'Saç & Sakal'
+                              price: 400
+                            -
+                              id: 4
+                              name: 'Saç Yıkama & Fön'
+                              price: 150
+                            -
+                              id: 5
+                              name: Fön
+                              price: 100
+                            -
+                              id: 6
+                              name: 'Saç Düzleştirme (Silindir)'
+                              price: 500
+                            -
+                              id: 7
+                              name: 'Saç Düzleştirme (Keratin)'
+                              price: 600
+                            -
+                              id: 8
+                              name: 'Günlük Perma'
+                              price: 150
+                            -
+                              id: 9
+                              name: 'Kalıcı Perma'
+                              price: 750
+                            -
+                              id: 10
+                              name: 'Kalıcı perma + Saç kesimi'
+                              price: 1000
+                            -
+                              id: 12
+                              name: 'Sakal Boyama'
+                              price: 230
+                            -
+                              id: 13
+                              name: 'Saç Boyama (Gri)'
+                              price: 750
+                            -
+                              id: 14
+                              name: 'Saç Boyama (Tek Renk)'
+                              price: 350
+                          featuredServices:
+                            -
+                              id: 3
+                              name: 'Saç & Sakal'
+                              price: 400
+                            -
+                              id: 4
+                              name: 'Saç Yıkama & Fön'
+                              price: 150
+                            -
+                              id: 8
+                              name: 'Günlük Perma'
+                              price: 150
+                        -
+                          id: 7
+                          name: 'Cilt Bakımı'
+                          services:
+                            -
+                              id: 11
+                              name: 'Cilt Bakımı'
+                              price: 500
+                          featuredServices:
+                            -
+                              id: 3
+                              name: 'Saç & Sakal'
+                              price: 400
+                            -
+                              id: 4
+                              name: 'Saç Yıkama & Fön'
+                              price: 150
+                            -
+                              id: 8
+                              name: 'Günlük Perma'
+                              price: 150
+                            -
+                              id: 11
+                              name: 'Cilt Bakımı'
+                              price: 500
+                        -
+                          id: 14
+                          name: Kaş
+                          services:
+                            -
+                              id: 15
+                              name: 'Kaş Tasarımı'
+                              price: 100
+                          featuredServices:
+                            -
+                              id: 3
+                              name: 'Saç & Sakal'
+                              price: 400
+                            -
+                              id: 4
+                              name: 'Saç Yıkama & Fön'
+                              price: 150
+                            -
+                              id: 8
+                              name: 'Günlük Perma'
+                              price: 150
+                            -
+                              id: 11
+                              name: 'Cilt Bakımı'
+                              price: 500
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: 'Kuaför Savaş'
+                  phone:
+                    type: string
+                    example: kuaforsavasrize
+                  email:
+                    type: string
+                    example: null
+                  city:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 53
+                      name:
+                        type: string
+                        example: Rize
+                  district:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 753
+                      name:
+                        type: string
+                        example: Merkez
+                  logo:
+                    type: string
+                    example: 'https://file.hizlirandevu.com.tr/storage/businessLogos/GJAfLFOfULFLxAOxjN7YRHXrpUbVJSYrfe1qLAMc.png'
+                  start_time:
+                    type: string
+                    example: '08:30'
+                  end_time:
+                    type: string
+                    example: '21:00'
+                  wallpaper:
+                    type: string
+                    example: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
+                  commentCount:
+                    type: integer
+                    example: 1
+                  point:
+                    type: integer
+                    example: 4
+                  address:
+                    type: string
+                    example: null
+                  gender:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 3
+                      name:
+                        type: string
+                        example: Kadın-Erkek
+                  is_favorite:
+                    type: boolean
+                    example: false
+                  services:
+                    type: object
+                    properties:
+                      womanServices:
+                        type: object
+                        properties:
+                          featured:
+                            type: array
+                            example:
+                              -
+                                id: 1
+                                name: 'Saç Kesimi'
+                                price: 250
+                              -
+                                id: 2
+                                name: 'Sakal Tıraşı'
+                                price: 150
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                name:
+                                  type: string
+                                  example: 'Saç Kesimi'
+                                price:
+                                  type: integer
+                                  example: 250
+                          services:
+                            type: array
+                            example:
+                              -
+                                id: 1
+                                name: Saç
+                                services:
+                                  -
+                                    id: 1
+                                    name: 'Saç Kesimi'
+                                    price: 250
+                                  -
+                                    id: 2
+                                    name: 'Sakal Tıraşı'
+                                    price: 150
+                                featuredServices:
+                                  -
+                                    id: 1
+                                    name: 'Saç Kesimi'
+                                    price: 250
+                                  -
+                                    id: 2
+                                    name: 'Sakal Tıraşı'
+                                    price: 150
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                name:
+                                  type: string
+                                  example: Saç
+                                services:
+                                  type: array
+                                  example:
+                                    -
+                                      id: 1
+                                      name: 'Saç Kesimi'
+                                      price: 250
+                                    -
+                                      id: 2
+                                      name: 'Sakal Tıraşı'
+                                      price: 150
+                                  items:
+                                    type: object
+                                    properties:
+                                      id: { type: integer, example: 1 }
+                                      name: { type: string, example: 'Saç Kesimi' }
+                                      price: { type: integer, example: 250 }
+                                featuredServices:
+                                  type: array
+                                  example:
+                                    -
+                                      id: 1
+                                      name: 'Saç Kesimi'
+                                      price: 250
+                                    -
+                                      id: 2
+                                      name: 'Sakal Tıraşı'
+                                      price: 150
+                                  items:
+                                    type: object
+                                    properties:
+                                      id: { type: integer, example: 1 }
+                                      name: { type: string, example: 'Saç Kesimi' }
+                                      price: { type: integer, example: 250 }
+                      manService:
+                        type: object
+                        properties:
+                          featured:
+                            type: array
+                            example:
+                              -
+                                id: 3
+                                name: 'Saç & Sakal'
+                                price: 400
+                              -
+                                id: 4
+                                name: 'Saç Yıkama & Fön'
+                                price: 150
+                              -
+                                id: 8
+                                name: 'Günlük Perma'
+                                price: 150
+                              -
+                                id: 11
+                                name: 'Cilt Bakımı'
+                                price: 500
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 3
+                                name:
+                                  type: string
+                                  example: 'Saç & Sakal'
+                                price:
+                                  type: integer
+                                  example: 400
+                          services:
+                            type: array
+                            example:
+                              -
+                                id: 1
+                                name: Saç
+                                services:
+                                  -
+                                    id: 3
+                                    name: 'Saç & Sakal'
+                                    price: 400
+                                  -
+                                    id: 4
+                                    name: 'Saç Yıkama & Fön'
+                                    price: 150
+                                  -
+                                    id: 5
+                                    name: Fön
+                                    price: 100
+                                  -
+                                    id: 6
+                                    name: 'Saç Düzleştirme (Silindir)'
+                                    price: 500
+                                  -
+                                    id: 7
+                                    name: 'Saç Düzleştirme (Keratin)'
+                                    price: 600
+                                  -
+                                    id: 8
+                                    name: 'Günlük Perma'
+                                    price: 150
+                                  -
+                                    id: 9
+                                    name: 'Kalıcı Perma'
+                                    price: 750
+                                  -
+                                    id: 10
+                                    name: 'Kalıcı perma + Saç kesimi'
+                                    price: 1000
+                                  -
+                                    id: 12
+                                    name: 'Sakal Boyama'
+                                    price: 230
+                                  -
+                                    id: 13
+                                    name: 'Saç Boyama (Gri)'
+                                    price: 750
+                                  -
+                                    id: 14
+                                    name: 'Saç Boyama (Tek Renk)'
+                                    price: 350
+                                featuredServices:
+                                  -
+                                    id: 3
+                                    name: 'Saç & Sakal'
+                                    price: 400
+                                  -
+                                    id: 4
+                                    name: 'Saç Yıkama & Fön'
+                                    price: 150
+                                  -
+                                    id: 8
+                                    name: 'Günlük Perma'
+                                    price: 150
+                              -
+                                id: 7
+                                name: 'Cilt Bakımı'
+                                services:
+                                  -
+                                    id: 11
+                                    name: 'Cilt Bakımı'
+                                    price: 500
+                                featuredServices:
+                                  -
+                                    id: 3
+                                    name: 'Saç & Sakal'
+                                    price: 400
+                                  -
+                                    id: 4
+                                    name: 'Saç Yıkama & Fön'
+                                    price: 150
+                                  -
+                                    id: 8
+                                    name: 'Günlük Perma'
+                                    price: 150
+                                  -
+                                    id: 11
+                                    name: 'Cilt Bakımı'
+                                    price: 500
+                              -
+                                id: 14
+                                name: Kaş
+                                services:
+                                  -
+                                    id: 15
+                                    name: 'Kaş Tasarımı'
+                                    price: 100
+                                featuredServices:
+                                  -
+                                    id: 3
+                                    name: 'Saç & Sakal'
+                                    price: 400
+                                  -
+                                    id: 4
+                                    name: 'Saç Yıkama & Fön'
+                                    price: 150
+                                  -
+                                    id: 8
+                                    name: 'Günlük Perma'
+                                    price: 150
+                                  -
+                                    id: 11
+                                    name: 'Cilt Bakımı'
+                                    price: 500
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: integer
+                                  example: 1
+                                name:
+                                  type: string
+                                  example: Saç
+                                services:
+                                  type: array
+                                  example:
+                                    -
+                                      id: 3
+                                      name: 'Saç & Sakal'
+                                      price: 400
+                                    -
+                                      id: 4
+                                      name: 'Saç Yıkama & Fön'
+                                      price: 150
+                                    -
+                                      id: 5
+                                      name: Fön
+                                      price: 100
+                                    -
+                                      id: 6
+                                      name: 'Saç Düzleştirme (Silindir)'
+                                      price: 500
+                                    -
+                                      id: 7
+                                      name: 'Saç Düzleştirme (Keratin)'
+                                      price: 600
+                                    -
+                                      id: 8
+                                      name: 'Günlük Perma'
+                                      price: 150
+                                    -
+                                      id: 9
+                                      name: 'Kalıcı Perma'
+                                      price: 750
+                                    -
+                                      id: 10
+                                      name: 'Kalıcı perma + Saç kesimi'
+                                      price: 1000
+                                    -
+                                      id: 12
+                                      name: 'Sakal Boyama'
+                                      price: 230
+                                    -
+                                      id: 13
+                                      name: 'Saç Boyama (Gri)'
+                                      price: 750
+                                    -
+                                      id: 14
+                                      name: 'Saç Boyama (Tek Renk)'
+                                      price: 350
+                                  items:
+                                    type: object
+                                    properties:
+                                      id: { type: integer, example: 3 }
+                                      name: { type: string, example: 'Saç & Sakal' }
+                                      price: { type: integer, example: 400 }
+                                featuredServices:
+                                  type: array
+                                  example:
+                                    -
+                                      id: 3
+                                      name: 'Saç & Sakal'
+                                      price: 400
+                                    -
+                                      id: 4
+                                      name: 'Saç Yıkama & Fön'
+                                      price: 150
+                                    -
+                                      id: 8
+                                      name: 'Günlük Perma'
+                                      price: 150
+                                  items:
+                                    type: object
+                                    properties:
+                                      id: { type: integer, example: 3 }
+                                      name: { type: string, example: 'Saç & Sakal' }
+                                      price: { type: integer, example: 400 }
+      tags:
+        - İşletmeler
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/business/{business_id}/gallery':
+    get:
+      summary: 'İşletme Galerisi'
+      operationId: letmeGalerisi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
+                  -
+                    id: 2
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/4c4F1htnM4GLGdkC17m3CDggpYQb0iBDjjcaroLz.jpg'
+                  -
+                    id: 3
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/6eNhrJu9lM6Trc0ItLcyjqqFKfFsgVRSrC4u5Wn2.jpg'
+                  -
+                    id: 4
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/KixaHbuVTkDLBXtjRxe1qmZkXZe1Q9IUsiSvXH6r.jpg'
+                  -
+                    id: 5
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/JMelBhgzngGDhehUypjCEbKTAUuZvDiAIanhFcuB.jpg'
+                  -
+                    id: 6
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/ALnc41gVas0LX5yXWBO22M82jrAcYsqiYdvaoR1T.jpg'
+                  -
+                    id: 7
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/j7ra63UlEFM79MGHBBk4E3MVnwqknx3F4xJWD1Yh.jpg'
+                  -
+                    id: 8
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/wLPDh1LdCxyV48zePVwbrDSLgGFp4XbInZynwpz7.jpg'
+                  -
+                    id: 9
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/O1PwBbajaIlpj9S0vGus3IMdF8Ir3b9e0uq8Can1.jpg'
+                  -
+                    id: 10
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/wz8n3IFOHvTraN4Lighn0Dhuto3eiXldAYGzokN0.jpg'
+                  -
+                    id: 11
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/UZRNwzHE2NJbR0TIxXc7u2yM9j2ASHE4hXdH7MZe.jpg'
+                  -
+                    id: 12
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/QUMrtkiy2z9bLeUCgBYiMnLE9tkPNPMLTrsiCOA8.jpg'
+                  -
+                    id: 13
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/KykTSnbISAZQHugMnLnVAepIDfXWkiUrzUI2sRSI.jpg'
+                  -
+                    id: 14
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/c0Di4umkQ88QlQrC6aaQzC752M8Win4NpYwQ8IZF.jpg'
+                  -
+                    id: 15
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/reXoGLFwN9DW89y1vRCJxezxs1CJeBYYhG34X2dc.jpg'
+                  -
+                    id: 24
+                    image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/HhNZG1BesSuo5eJTcZxDmbcX67J99jiLA43DMago.webp'
+      tags:
+        - İşletmeler
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/business/{business_id}/about':
+    get:
+      summary: 'İşletme Hakkımızda'
+      operationId: letmeHakkmzda
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  phone: kuaforsavasrize
+                  instagram: 'https://instagram.com/kuaforsavasrize'
+                  about: "<p>Kuaförlük mesleğine çekirdekten başlayan&nbsp;<strong>Savaş Özdemir</strong>&nbsp;1997'de bu işe ilk adımını Rize'de atarak başladıktan kısa bir süre sonra Ankara'da 4 yıl kadar yaşayıp mesleğinde kendini geliştirerek memleketi Rize'ye tekrar dönüp çalışma hayatına devam etti.</p><p>İlk işletmesini 2005'de Rize'de kendi ismiyle açan&nbsp;<strong>Savaş ÖZDEMİR</strong>&nbsp;paylaştıkça çoğalır ilkesinden yola çıkarak 2013'te&nbsp;<strong>Mehmet Kalyoncu</strong>&nbsp;ile ortak olarak yoluna daha güçlü devam etmeye karar verdiler.</p><p>2019 yılına kadar birlikte işlettikleri&nbsp;<strong>Kuaför Savaş</strong>&nbsp;daha da güçlü bir hale getirmek için&nbsp;&nbsp;<strong>Murat İslamoğlu</strong>'nuda aralarına alarak sadece Rize'nin değil bölgenin de en donanımlı erkek kuaför ve bakım salonunu hizmete sunarak faaliyetlerine devam eden 3 ortak ilk günden bu yana benimsemiş oldukları gelişim ve yenilenme parolasıyla inovasyona olan inancıyla kaliteli hizmetten ödün vermeden bölgenin en iyisi olma çabasından asla vazgeçmeden her zaman yenilikleri ilk olarak müşterilerinin hizmetine sunarak çalışmalarına devam etmektedir.</p>"
+                  embed: "<iframe width=\"350\" height=\"350\" frameborder=\"0\" style=\"border:0;border-radius: 15px\"\r\n                    src=\"https://www.google.com/maps/embed/v1/place?q=41.02504200000001,40.520155&key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U\" allowfullscreen></iframe>"
+                  address: null
+                  workTimes:
+                    -
+                      id: 1
+                      name: Pazartesi
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 2
+                      name: Salı
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 3
+                      name: Çarşamba
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 4
+                      name: Perşembe
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 5
+                      name: Cuma
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 6
+                      name: Cumartesi
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 0
+                      name: Pazar
+                      clock: '08:30 - 21:00'
+                      status: false
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  phone:
+                    type: string
+                    example: kuaforsavasrize
+                  instagram:
+                    type: string
+                    example: 'https://instagram.com/kuaforsavasrize'
+                  about:
+                    type: string
+                    example: "<p>Kuaförlük mesleğine çekirdekten başlayan&nbsp;<strong>Savaş Özdemir</strong>&nbsp;1997'de bu işe ilk adımını Rize'de atarak başladıktan kısa bir süre sonra Ankara'da 4 yıl kadar yaşayıp mesleğinde kendini geliştirerek memleketi Rize'ye tekrar dönüp çalışma hayatına devam etti.</p><p>İlk işletmesini 2005'de Rize'de kendi ismiyle açan&nbsp;<strong>Savaş ÖZDEMİR</strong>&nbsp;paylaştıkça çoğalır ilkesinden yola çıkarak 2013'te&nbsp;<strong>Mehmet Kalyoncu</strong>&nbsp;ile ortak olarak yoluna daha güçlü devam etmeye karar verdiler.</p><p>2019 yılına kadar birlikte işlettikleri&nbsp;<strong>Kuaför Savaş</strong>&nbsp;daha da güçlü bir hale getirmek için&nbsp;&nbsp;<strong>Murat İslamoğlu</strong>'nuda aralarına alarak sadece Rize'nin değil bölgenin de en donanımlı erkek kuaför ve bakım salonunu hizmete sunarak faaliyetlerine devam eden 3 ortak ilk günden bu yana benimsemiş oldukları gelişim ve yenilenme parolasıyla inovasyona olan inancıyla kaliteli hizmetten ödün vermeden bölgenin en iyisi olma çabasından asla vazgeçmeden her zaman yenilikleri ilk olarak müşterilerinin hizmetine sunarak çalışmalarına devam etmektedir.</p>"
+                  embed:
+                    type: string
+                    example: "<iframe width=\"350\" height=\"350\" frameborder=\"0\" style=\"border:0;border-radius: 15px\"\r\n                    src=\"https://www.google.com/maps/embed/v1/place?q=41.02504200000001,40.520155&key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U\" allowfullscreen></iframe>"
+                  address:
+                    type: string
+                    example: null
+                  workTimes:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Pazartesi
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 2
+                        name: Salı
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 3
+                        name: Çarşamba
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 4
+                        name: Perşembe
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 5
+                        name: Cuma
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 6
+                        name: Cumartesi
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 0
+                        name: Pazar
+                        clock: '08:30 - 21:00'
+                        status: false
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Pazartesi
+                        clock:
+                          type: string
+                          example: '08:30 - 21:00'
+                        status:
+                          type: boolean
+                          example: true
+      tags:
+        - İşletmeler
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/business/{business_id}/personels':
+    get:
+      summary: 'İşletme Personel Listesi'
+      operationId: letmePersonelListesi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 2
+                    name: 'Savaş ÖZDEMİR'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/E19YlcjXj2UHTRLnSsRms8vGgiPsB0IbN5VLBj4k.jpg'
+                  -
+                    id: 3
+                    name: 'Mehmet KALYONCU'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/zQDl5croWX6y0B7pgAU4cVCt2adqG4bjf0Lw8zyw.jpg'
+                  -
+                    id: 4
+                    name: 'Muhammet Fatih Akın'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/Oksctk1vq6VuXlpXeN5fNs7Xm4nv4RogabWwDRb5.jpg'
+                  -
+                    id: 5
+                    name: 'Murat İSLAMOĞLU'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/bihwRPHDiPFEHzMvwXQTXrXx3AP8CRbPZaZmRfk4.jpg'
+                  -
+                    id: 6
+                    name: 'Turan SARUHAN'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/s4AKyhcz7gfUAybDNFzzVIvYvkElB0U7HMnH8mdD.jpg'
+                  -
+                    id: 7
+                    name: 'Emirhan İPSİZ'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/5VOiXiD4tcUhyCpoG8rVPAT17ybvpJggddjGWG6u.jpg'
+                  -
+                    id: 8
+                    name: 'Furkan LATİFOĞLU'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/QvrgPOyBmeWgNAH7xIQXVPrX9LsichXYw7xNXY81.jpg'
+                  -
+                    id: 9
+                    name: 'Taha YILMAZER'
+                    image: 'https://file.hizlirandevu.com.tr/storage/personel_images/0DkX7hWMRJYsAP2NJXe8BsjqzJOlGo6IWqcOnjQ3.jpg'
+      tags:
+        - İşletmeler
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/business/{business_id}/comments':
+    get:
+      summary: 'İşletme Yorum Listesi'
+      operationId: letmeYorumListesi
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    content: asdasd
+                    point: 4
+                    created_at: '31.05.2024 15:11:37'
+      tags:
+        - İşletmeler
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
         example: 1
         required: true
         schema:
@@ -2645,7 +2778,13 @@ tags:
     name: 'Paket Satışları'
     description: ''
   -
+    name: 'Randevu Oluşturma'
+    description: ''
+  -
     name: Randevularım
+    description: ''
+  -
+    name: Röportajlar
     description: ''
   -
     name: 'Sifremi Unuttum'
@@ -2658,4 +2797,7 @@ tags:
     description: ''
   -
     name: 'İL / İlçe'
+    description: ''
+  -
+    name: İşletmeler
     description: ''
