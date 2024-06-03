@@ -65,6 +65,18 @@
                                 @include('business.left.slider')
                                 <!-- iletişim alanı -->
                                 <div class="saloonDetailBox mb-4">
+                                    <a href="tel:0{{formatPhone($business->phone)}}" class="description mb-4 text-center d-flex justify-content-center align-items-center"
+                                         style="background-color: rgb(43 117 73 / 10%);
+                                            border-radius: 15px;
+                                            text-decoration: none;
+                                            padding: 10px;
+                                            font-size: 24px;
+                                            color: rgba(43, 117, 73, 1);">
+                                        0{{formatPhone($business->phone)}}
+                                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-2">
+                                            <path d="M21.6211 19.6326V17.9866C21.6211 17.1688 21.1232 16.4334 20.3639 16.1297L18.3297 15.316C17.364 14.9297 16.2633 15.3482 15.7981 16.2786L15.6211 16.6326C15.6211 16.6326 13.1211 16.1326 11.1211 14.1326C9.12109 12.1326 8.62109 9.63257 8.62109 9.63257L8.97511 9.45556C9.90547 8.99038 10.3239 7.88971 9.93764 6.92392L9.12398 4.88979C8.82025 4.13047 8.08484 3.63257 7.26703 3.63257H5.62109C4.51652 3.63257 3.62109 4.528 3.62109 5.63257C3.62109 14.4691 10.7845 21.6326 19.6211 21.6326C20.7257 21.6326 21.6211 20.7371 21.6211 19.6326Z" stroke="#2B7549FF" stroke-width="1.5" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </a>
                                     <div class="detailTitle">Hakkında</div>
                                     <div class="detailBoxContent">
                                         {!! $business->about !!}

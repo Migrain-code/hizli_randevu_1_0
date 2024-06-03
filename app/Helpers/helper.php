@@ -13,7 +13,10 @@ function image($path){
 function setting($key){
     return config('settings.'.$key);
 }
-
+function formatPhone($phone)
+{
+    return preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '($1) $2-$3', $phone);
+}
 function main($key){
     return config('main_pages.'.$key);
 }
