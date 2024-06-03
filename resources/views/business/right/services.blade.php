@@ -3,7 +3,6 @@
     <div class="tab-content" id="pills-tabContent">
         @include('business.right.parts.woman')
         @include('business.right.parts.man')
-        @include('business.right.parts.unisex')
 
     </div>
 </div>
