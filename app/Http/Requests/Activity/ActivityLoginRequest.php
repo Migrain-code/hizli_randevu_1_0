@@ -20,7 +20,7 @@ class ActivityLoginRequest extends FormRequest
     public function attributes()
     {
         return [
-            'activity_id' => "required",
+            'activity_id' => "Etkinlik Kimliği",
             'phone' => 'Telefon',
             'password' => 'Şifre',
         ];
