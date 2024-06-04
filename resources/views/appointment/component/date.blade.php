@@ -25,6 +25,7 @@
                                 @if($date->format('d.m.Y') == now()->format('d.m.Y')) checked @endif
                             />
                             <div class="dateSliderRadioText">
+                                <i>{{$date->translatedFormat('D')}}</i>
                                 <strong>{{$date->translatedFormat('d')}}</strong>
                                 <i>{{$date->translatedFormat('F')}}</i>
                             </div>
