@@ -24,6 +24,7 @@ class CustomerInfoResource extends JsonResource
             'email' => $this->email,
             'city' => CityListResource::make($this->city),
             'district' => DistrictListResource::make($this->district),
+            'user_gender' => $this->gender,
             'gender' => [
                 1 => [
                     'id' => 1,
