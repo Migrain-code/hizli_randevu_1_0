@@ -26,6 +26,7 @@ class ActivityDetailResource extends JsonResource
           'description' => $this->getDescription(),
           'image' => image($this->image),
           'hotelName' => $this->hotel_name,
+          'price' => $this->price,
           'dateRange' => $this->start_time->translatedFormat('d F'). " ". $this->end_time->translatedFormat('d F'),
           'clock' => $this->start_time->translatedFormat('H:i'). " - ". $this->end_time->translatedFormat('H:i'),
           'city' => CityListResource::make($this->city),

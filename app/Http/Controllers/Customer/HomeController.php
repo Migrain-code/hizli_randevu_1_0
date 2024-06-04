@@ -133,33 +133,9 @@ class HomeController extends Controller
 
     public function campaigns()
     {
-        /*$product = new Campaign();
-        $product->discount = 1;
-        $product->code = 0;
-        $product->start_time= "2023-11-06 21:22:36.000000";
-        $product->end_date= "2023-11-06 23:22:36.000000";
-        $product->image = "youtube.com";
-        $product->business_id = 8;
-        $product
-            ->setTranslation('title', 'en', 'Product Name in English')
-            ->setTranslation('title', 'de', 'Produktname auf Deutsch')
-            ->setTranslation('title', 'tr', 'Ürün Adı Türkçe')
-            ->setTranslation('title', 'fr', 'Nom du produit en français')
-            ->setTranslation('title', 'it', 'Nome del prodotto in italiano')
-            ->setTranslation('description', 'en', 'Product Name in en')
-            ->setTranslation('description', 'de', 'Product Name in de')
-            ->setTranslation('description', 'tr', 'Product Name in tr')
-            ->setTranslation('description', 'fr', 'Product Name in fr')
-            ->setTranslation('description', 'it', 'Product Name in it')
-            ->setTranslation('slug', 'en', Str::slug('Product Name in en'))
-            ->setTranslation('slug', 'de', Str::slug('Product Name in de'))
-            ->setTranslation('slug', 'tr', Str::slug('Product Name in tr'))
-            ->setTranslation('slug', 'fr', Str::slug('Product Name in fr'))
-            ->setTranslation('slug', 'it', Str::slug('Product Name in it'))
-            ->save();*/
         $customer = auth('customer')->user();
         $campaigns = $customer->campaigns()->paginate(setting('speed_pagination_number'));
-        //dd($campaigns);
+
         return view('customer.campaign.index', compact('campaigns'));
     }
 
