@@ -43,6 +43,8 @@ class BusinessService extends Model
                 if (isset($personelPrice)){
                     if (is_numeric($personelPrice)){
                         $price = $personelPrice + (($personelPrice * $findRoom->price) / 100);
+                    } else{
+                        $price = $this->price_type_id == 0 ? $this->price : $this->price . " - " . $this->max_price;
                     }
                 } else{
                     $price = $this->price + (($this->price * $findRoom->price) / 100);
