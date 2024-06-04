@@ -21,7 +21,7 @@ class InterviewDetailResource extends JsonResource
             'title' => $this->title,
             'name' => $this->name,
             'description' => $this->description,
-            'video' => $this->vide_url,
+            'embed' => $this->vide_url,
             'created_at' => $this->created_at->translatedFormat('d F Y'),
             'gallery' => InterviewGalleryResource::collection($this->galleries),
             'slider' => InterviewGalleryResource::collection($this->sliders),
