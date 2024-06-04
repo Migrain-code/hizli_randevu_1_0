@@ -67,7 +67,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: consequatur
+        example: labore
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -76,14 +76,14 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: aut
+        example: cupiditate
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      password: consequatur
-      password_confirmation: aut
+      password: labore
+      password_confirmation: cupiditate
     fileParameters: []
     responses: []
     responseFields: []
@@ -117,7 +117,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: cupiditate
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -126,7 +126,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: quo
+        example: unde
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,7 +135,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: provident
+        example: ab
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -144,7 +144,7 @@ endpoints:
         name: gender
         description: ''
         required: true
-        example: quidem
+        example: voluptates
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -153,7 +153,7 @@ endpoints:
         name: year
         description: ''
         required: true
-        example: 2492012.52
+        example: 364185.8367
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -162,7 +162,7 @@ endpoints:
         name: month
         description: ''
         required: true
-        example: 26.44936153
+        example: 33342549.666676
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -171,19 +171,19 @@ endpoints:
         name: day
         description: ''
         required: true
-        example: 589.75908
+        example: 28.555481223
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: cupiditate
-      phone: quo
-      email: provident
-      gender: quidem
-      year: 2492012.52
-      month: 26.44936153
-      day: 589.75908
+      name: quia
+      phone: unde
+      email: ab
+      gender: voluptates
+      year: 364185.8367
+      month: 33342549.666676
+      day: 28.555481223
     fileParameters: []
     responses: []
     responseFields: []

@@ -71,13 +71,13 @@ endpoints:
         name: id
         description: 'The ID of the package sale.'
         required: true
-        example: 16
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

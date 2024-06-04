@@ -26,7 +26,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 1695.5481778
+        example: 1.483531
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -35,14 +35,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: qui
+        example: ipsam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 1695.5481778
-      password: qui
+      phone: 1.483531
+      password: ipsam
     fileParameters: []
     responses: []
     responseFields: []
@@ -106,7 +106,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 4782656.3599147
+        example: 2.635681578
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -115,14 +115,14 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: 5175606.772
+        example: 25213767.5645
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 4782656.3599147
-      code: 5175606.772
+      phone: 2.635681578
+      code: 25213767.5645
     fileParameters: []
     responses: []
     responseFields: []
