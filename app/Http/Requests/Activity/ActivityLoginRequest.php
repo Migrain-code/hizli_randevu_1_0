@@ -11,6 +11,7 @@ class ActivityLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'activity_id' => "required",
             'phone' => 'required|numeric',
             'password' => 'required',
         ];
@@ -19,6 +20,7 @@ class ActivityLoginRequest extends FormRequest
     public function attributes()
     {
         return [
+            'activity_id' => "required",
             'phone' => 'Telefon',
             'password' => 'Şifre',
         ];
