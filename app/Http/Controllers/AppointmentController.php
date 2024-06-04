@@ -297,7 +297,7 @@ class AppointmentController extends Controller
 
                 $disabledDays[] = $this->findTimes($personel, $request->room_id);
 
-                if ($getDate->dayOfWeek == $business->off_day) {
+                if (isset($business->off_day) && $getDate->dayOfWeek == $business->off_day) {
                     return response()->json([
                         "status" => "error",
                         "message" => "İşletme bu tarihte hizmet vermemektedir"
