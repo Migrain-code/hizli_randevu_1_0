@@ -32,7 +32,7 @@ class CustomerInfoResource extends JsonResource
                     "name" => "Kadın",
                 ],
                 2 => [
-                    'id' => 1,
+                    'id' => 2,
                     "name" => "Erkek",
                 ],
             ],
