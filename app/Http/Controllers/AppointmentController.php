@@ -186,6 +186,7 @@ class AppointmentController extends Controller
         $appointment->room_id = $request->room_id == 0 ? null : $request->room_id;
         $appointment->save();
         $appointmentStartTime = Carbon::parse($request->appointment_time);
+        $approve_types = [];
         foreach ($request->services as $index => $serviceId) {
             $findService = BusinessService::find($serviceId);
             $appointmentService = new AppointmentServices();
@@ -195,6 +196,9 @@ class AppointmentController extends Controller
             $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
             $appointmentService->appointment_id = $appointment->id;
             $appointmentService->save();
+
+            $approve_types[] = $findService->approve_type;
+
             if ($this->checkClock($request->personels[$index], $appointmentService->start_time, $appointmentService->end_time, $appointment->id)) {
                 $appointment->services()->delete();
                 $appointment->delete();
@@ -211,24 +215,29 @@ class AppointmentController extends Controller
 
         $calculateTotal = $appointment->calculateTotal();
         $appointment->total = $calculateTotal;
-        if ($business->approve_type == 0) {
-            $appointment->status = 1; // Otomatik onay
-            foreach ($appointment->services as $service){
+        if (in_array(1, $approve_types)) { // hizmet manuel onay ise
+            $appointment->status = 0; // Otomatik onay
+            foreach ($appointment->services as $service) {
+                $service->status = 0;
+                $service->save();
+            }
+            $message = $business->name. " İşletmesine Randevunuz talebiniz alınmıştır. İşletmemiz en kısa sürede sizi bilgilendirecektir.";
+
+        } else {
+            $appointment->status = 1; // Otomatik onay ise
+            foreach ($appointment->services as $service) {
                 $service->status = 1;
                 $service->save();
             }
-        } else {
-            $appointment->status = 0; // Onay bekliyor
+            $message = $business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihine randevunuz oluşturuldu.";
         }
 
-
         if ($appointment->save()) {
-            $message = $business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihine randevunuz oluşturuldu.";
             $appointment->customer->sendSms($message);
             $appointment->sendPersonelNotification();
             return to_route('appointment.success', $appointment->id)->with('response', [
                 'status' => "success",
-                'message' => "Randevunuz " . $appointment->start_time . " - " . $appointment->end_time . " arasına randevunuz oluşturuldu",
+                'message' => $message,
             ]);
         }
 
@@ -243,8 +252,6 @@ class AppointmentController extends Controller
     {
         $appointment = Appointment::find($appointment);
         $business = $appointment->business;
-        $customer = $appointment->customer;
-        $customer->sendSms($business->name . ' İşletmesine ' . $appointment->start_time . ' - ' . $appointment->end_time . ' arasında randevunuz alındı.');
         return view('appointment.step5', compact('appointment', 'business'));
     }
 

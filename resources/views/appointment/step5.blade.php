@@ -44,7 +44,11 @@
                                 >
                                     <div class="servicesSuccessContent">
                                         <img src="/assets/images/success.svg" alt="" />
-                                        <strong>Randevu talebiniz başarıyla kaydedildi. İşletmemizden kısa bir süre içinde yanıt alacaksınız.</strong>
+                                        <strong>
+                                            @if(session('response'))
+                                                    {{session('response.message')}}
+                                            @endif
+                                        </strong>
                                         <p>
                                             <strong> "İlginiz için teşekkür ederiz!"</strong>
                                         </p>
