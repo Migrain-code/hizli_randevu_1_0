@@ -69,7 +69,7 @@ class ActivityController extends Controller
                     return response()->json([
                         'status' => "warning",
                         'message' => "Bu etkinliğe zaten katıldınız",
-                    ]);
+                    ], 422);
                 } else {
                     $activityPersonel = new ActivityBusiness();
                     $activityPersonel->activity_id = $request->activity_id;
@@ -87,13 +87,13 @@ class ActivityController extends Controller
                 return response()->json([
                     'status' => "danger",
                     'message' => "Kullanıcı Bilgisi Doğrulanamadı",
-                ]);
+                ], 422);
             }
         } else {
             return response()->json([
                 'status' => "warning",
                 'message' => "Girdiğiniz telefon numarası sistemde kayıtlı değil",
-            ]);
+            ], 422);
         }
     }
 }
