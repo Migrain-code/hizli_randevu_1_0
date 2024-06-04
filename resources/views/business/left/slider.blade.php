@@ -3,7 +3,8 @@
         @foreach($business->gallery as $bSlider)
             <div class="item">
                 <div class="saloonDetailSliderBigPhoto">
-                    <img src="{{image($bSlider->way)}}" alt="{{$bSlider->name}}"/>
+                    <img src="{{image($bSlider->way)}}" alt="{{$bSlider->name}}" style="height: 150px;
+    object-fit: cover;"/>
                 </div>
             </div>
         @endforeach
