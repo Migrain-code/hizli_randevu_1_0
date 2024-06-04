@@ -41,7 +41,9 @@ class BusinessService extends Model
             $findRoom = $this->business->rooms()->where('id', $room_id)->first();
             if ($findRoom){
                 if (isset($personelPrice)){
-                    $price = $personelPrice + (($personelPrice * $findRoom->price) / 100);
+                    if (is_numeric($personelPrice)){
+                        $price = $personelPrice + (($personelPrice * $findRoom->price) / 100);
+                    }
                 } else{
                     $price = $this->price + (($this->price * $findRoom->price) / 100);
                 }
