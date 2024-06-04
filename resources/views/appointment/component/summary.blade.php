@@ -90,7 +90,10 @@
                         @if(isset(request()['request']['selection_room_id']))
                             @php($toplam+= $service->getPrice(request()['request']['selection_room_id']))
                         @else
-                            @php($toplam+= $service->getPrice())
+                            @if(is_numeric($service->getPrice()))
+                                    @php($toplam+= $service->getPrice())
+                            @endif
+
                         @endif
                     @endif
 
