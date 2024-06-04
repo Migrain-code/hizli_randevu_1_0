@@ -20,7 +20,8 @@
                                 data-lightbox="image-1"
                                 data-title="{{$gallery->name}}"
                             >
-                                <img src="{{image($gallery->way)}}" alt="" />
+                                <img src="{{image($gallery->way)}}" style="height: 150px;
+    object-fit: cover;" alt="" />
                             </a>
                         </div>
                     @empty
