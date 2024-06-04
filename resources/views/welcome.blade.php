@@ -26,6 +26,20 @@
                                     <li class="nav-item" role="presentation">
                                         <button
                                             class="nav-link active"
+                                            id="pills-salonadi-tab"
+                                            data-bs-toggle="pill"
+                                            data-bs-target="#pills-salonadi"
+                                            type="button"
+                                            role="tab"
+                                            aria-controls="pills-salonadi"
+                                            aria-selected="false"
+                                        >
+                                            Salon Adı
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button
+                                            class="nav-link"
                                             id="pills-hizmet-tab"
                                             data-bs-toggle="pill"
                                             data-bs-target="#pills-hizmet"
@@ -51,24 +65,11 @@
                                             Salon Türü
                                         </button>
                                     </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button
-                                            class="nav-link"
-                                            id="pills-salonadi-tab"
-                                            data-bs-toggle="pill"
-                                            data-bs-target="#pills-salonadi"
-                                            type="button"
-                                            role="tab"
-                                            aria-controls="pills-salonadi"
-                                            aria-selected="false"
-                                        >
-                                            Salon Adı
-                                        </button>
-                                    </li>
+
                                 </ul>
                                 <div class="tab-content" id="pills-tabContent">
                                     <div
-                                        class="tab-pane fade show active"
+                                        class="tab-pane fade"
                                         id="pills-hizmet"
                                         role="tabpanel"
                                         aria-labelledby="pills-hizmet-tab"
@@ -190,7 +191,7 @@
                                         </form>
                                     </div>
                                     <div
-                                        class="tab-pane fade"
+                                        class="tab-pane fade  show active"
                                         id="pills-salonadi"
                                         role="tabpanel"
                                         aria-labelledby="pills-salonadi-tab"
@@ -198,7 +199,7 @@
                                     >
                                         <div class="customSelect iconSelect servicesSelect customTomSelect mb-4 mb-md-0">
                                             <select class="" id="salonName">
-
+                                                    <option value="">Salon Adını Yazınız</option>
                                             </select>
                                         </div>
 
