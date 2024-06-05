@@ -6,6 +6,7 @@ use App\Models\Admin\BussinessPackage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Carbon;
 
 
 class Business extends Authenticatable
@@ -167,5 +168,30 @@ class Business extends Authenticatable
             ->select('businesses.*')
             ->groupBy('businesses.id')
             ->orderByRaw('COUNT(appointments.id) DESC');
+    }
+
+    public function closeDays()
+    {
+        return $this->hasMany(BusinessCloseDate::class, 'business_id', 'id');
+    }
+
+    public function activeCloseDays()
+    {
+        return $this->closeDays()->where('status', 1);
+    }
+
+    public function isClosed($date)
+    {
+        $closeDate = Carbon::parse($date);
+        $businessCloseDates = $this->activeCloseDays;
+
+        $isClosed = $businessCloseDates->contains(function ($closeDateRecord) use ($closeDate) {
+            $startTime = Carbon::parse($closeDateRecord->start_time);
+            $endTime = Carbon::parse($closeDateRecord->end_time);
+
+            return $closeDate->between($startTime, $endTime);
+        });
+
+        return $isClosed;
     }
 }

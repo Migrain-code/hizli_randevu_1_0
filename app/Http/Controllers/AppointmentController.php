@@ -303,7 +303,12 @@ class AppointmentController extends Controller
             foreach ($personels as $personel) {
 
                 $disabledDays[] = $this->findTimes($personel, $request->room_id);
-
+                if ($business->isClosed($request->date)){
+                    return response()->json([
+                        'status' => "error",
+                        'message' => "İşletme bu tarihte hizmet vermemektedir"
+                    ]);
+                }
                 if (isset($business->off_day) && $getDate->dayOfWeek == $business->off_day) {
                     return response()->json([
                         "status" => "error",
@@ -341,7 +346,12 @@ class AppointmentController extends Controller
             }
 
         } else { // birden fazla ve farklı personel seçilmişse
-
+            if ($business->isClosed($request->date)){
+                return response()->json([
+                    'status' => "error",
+                    'message' => "İşletme bu tarihte hizmet vermemektedir"
+                ]);
+            }
             if (Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek == $business->off_day) {
                 return response()->json([
                     "status" => "error",
