@@ -37,7 +37,7 @@ class CustomerInfoResource extends JsonResource
                 ],
             ],
             'image' => image($this->image),
-            'birthday' => Carbon::parse($this->birthday)->format('d.m.Y')
+            'birthday' => Carbon::parse($this->birthday)
         ];
     }
 }

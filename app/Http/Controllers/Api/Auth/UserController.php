@@ -12,6 +12,7 @@ use App\Models\Customer;
 use App\Models\SmsConfirmation;
 use App\Services\Sms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 /**
@@ -80,7 +81,7 @@ class UserController extends Controller
         $customer->name = $request->input('name');
         $customer->email = $request->input('email');
         $customer->gender = $request->input('gender');
-        $customer->birthday = $request->input('year')."-".$request->input('month')."-". $request->input('day');
+        $customer->birthday = Carbon::parse($request->input('birthday'))->toDateString();
         $customer->city_id = $request->input('city_id');
         $customer->district_id = $request->input('district_id');
         if ($customer->save()){

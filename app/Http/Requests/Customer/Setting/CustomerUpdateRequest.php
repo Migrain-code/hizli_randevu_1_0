@@ -30,9 +30,7 @@ class CustomerUpdateRequest extends FormRequest
             'phone' => 'required',
             'email' => 'required',
             'gender' => 'required',
-            'year'=> 'required|numeric',
-            'month'=> 'required|numeric',
-            'day'=> 'required|numeric',
+            'birthday'=> 'nullable|date',
         ];
     }
 
@@ -43,9 +41,7 @@ class CustomerUpdateRequest extends FormRequest
             'phone' => 'Telefon Numarası',
             'email' => 'E-posta',
             'gender' => 'Cinsiyet',
-            'year'=> 'Yıl',
-            'month'=> 'Ay',
-            'day'=> 'Gün',
+            'birthday'=> 'Doğum Tarihi',
         ];
     }
 
