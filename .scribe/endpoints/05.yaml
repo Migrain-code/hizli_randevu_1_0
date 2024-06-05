@@ -61,13 +61,13 @@ endpoints:
         name: id
         description: 'The ID of the interview.'
         required: true
-        example: 18
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 18
+      id: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -78,7 +78,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Interview] 18",
+              "message": "No query results for model [App\\Models\\Interview] 9",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 487,

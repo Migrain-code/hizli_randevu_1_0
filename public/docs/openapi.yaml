@@ -233,7 +233,7 @@ paths:
                 column:
                   type: string
                   description: ''
-                  example: delectus
+                  example: aut
               required:
                 - column
       security: []
@@ -265,11 +265,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 1.483531
+                  example: 499904150.9
                 password:
                   type: string
                   description: ''
-                  example: ipsam
+                  example: nihil
               required:
                 - phone
                 - password
@@ -303,11 +303,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 2.635681578
+                  example: 527897.8726
                 code:
                   type: number
                   description: ''
-                  example: 25213767.5645
+                  example: 0.218
               required:
                 - phone
                 - code
@@ -349,15 +349,15 @@ paths:
                 activity_id:
                   type: string
                   description: ''
-                  example: quibusdam
+                  example: sunt
                 phone:
                   type: number
                   description: ''
-                  example: 5087366.6
+                  example: 243.92
                 password:
                   type: string
                   description: ''
-                  example: accusamus
+                  example: cum
               required:
                 - activity_id
                 - phone
@@ -377,7 +377,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: error
+            value: fugiat
       -
         in: path
         name: city_id
@@ -391,7 +391,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: dolores
+            value: veritatis
       -
         in: path
         name: activity_date
@@ -405,7 +405,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: architecto
+            value: dolor
   '/api/activity/{id}':
     get:
       summary: 'Etkinlik detayı'
@@ -420,7 +420,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Activity] 15'
+                  message: 'No query results for model [App\Models\Activity] 16'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 487
@@ -746,7 +746,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Activity] 15'
+                    example: 'No query results for model [App\Models\Activity] 16'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -1103,7 +1103,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the activity.'
-        example: 15
+        example: 16
         required: true
         schema:
           type: integer
@@ -1147,7 +1147,7 @@ paths:
                 business_id:
                   type: number
                   description: ''
-                  example: 52918781.4
+                  example: 11087.83117
               required:
                 - business_id
       security: []
@@ -1200,7 +1200,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the campaign.'
-        example: 8
+        example: 4
         required: true
         schema:
           type: integer
@@ -1245,11 +1245,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: labore
+                  example: assumenda
                 password_confirmation:
                   type: string
                   description: ''
-                  example: cupiditate
+                  example: deserunt
               required:
                 - password
                 - password_confirmation
@@ -1273,39 +1273,36 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: quia
+                  example: odio
                 phone:
                   type: string
                   description: ''
-                  example: unde
+                  example: dolores
                 email:
                   type: string
                   description: ''
-                  example: ab
+                  example: velit
                 gender:
                   type: string
                   description: ''
-                  example: voluptates
-                year:
-                  type: number
+                  example: et
+                birthday:
+                  type: string
+                  description: 'value geçerli bir tarih olmalıdır.'
+                  example: '2024-06-05T12:04:50'
+                city_id:
+                  type: string
                   description: ''
-                  example: 364185.8367
-                month:
-                  type: number
+                  example: null
+                district_id:
+                  type: string
                   description: ''
-                  example: 33342549.666676
-                day:
-                  type: number
-                  description: ''
-                  example: 28.555481223
+                  example: null
               required:
                 - name
                 - phone
                 - email
                 - gender
-                - year
-                - month
-                - day
       security: []
   /api/customer/package-sale:
     get:
@@ -1356,7 +1353,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the package sale.'
-        example: 20
+        example: 12
         required: true
         schema:
           type: integer
@@ -1391,7 +1388,7 @@ paths:
                 services:
                   type: string
                   description: ''
-                  example: vitae
+                  example: et
                 room_id:
                   type: string
                   description: ''
@@ -1439,11 +1436,11 @@ paths:
                 appointment_date:
                   type: string
                   description: ''
-                  example: repudiandae
+                  example: nobis
                 personels:
                   type: string
                   description: ''
-                  example: sed
+                  example: et
               required:
                 - appointment_date
                 - personels
@@ -1488,11 +1485,11 @@ paths:
                 appointment_time:
                   type: string
                   description: ''
-                  example: illo
+                  example: iure
                 personels:
                   type: string
                   description: ''
-                  example: voluptas
+                  example: necessitatibus
               required:
                 - appointment_time
                 - personels
@@ -1537,11 +1534,11 @@ paths:
                 appointment_time:
                   type: string
                   description: ''
-                  example: commodi
+                  example: quas
                 personels:
                   type: string
                   description: ''
-                  example: dignissimos
+                  example: fuga
                 room_id:
                   type: string
                   description: ''
@@ -1621,11 +1618,11 @@ paths:
                 rating:
                   type: string
                   description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
-                  example: redeqcpsjakhjeumkidqolfqgtyhofdlnenkmxpiniqkg
+                  example: lingicjkdpooqyqegxywmumesgvelmrvhkyxbydyoixqovkbajsnehpcyvqqpxjckcxolqpjub
                 content:
                   type: string
                   description: ''
-                  example: laboriosam
+                  example: enim
                 terms:
                   type: boolean
                   description: 'Must be accepted.'
@@ -1686,7 +1683,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Interview] 18'
+                  message: 'No query results for model [App\Models\Interview] 9'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 487
@@ -2012,7 +2009,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Interview] 18'
+                    example: 'No query results for model [App\Models\Interview] 9'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -2369,7 +2366,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the interview.'
-        example: 18
+        example: 9
         required: true
         schema:
           type: integer
@@ -2392,7 +2389,7 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 181825.69583
+                  example: 3362.966956
               required:
                 - phone
       security: []
@@ -2415,7 +2412,7 @@ paths:
                 code:
                   type: number
                   description: ''
-                  example: 11315914.893
+                  example: 3391.12529389
               required:
                 - code
       security: []

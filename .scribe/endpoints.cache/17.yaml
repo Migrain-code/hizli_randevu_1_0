@@ -78,13 +78,13 @@ endpoints:
         name: column
         description: ''
         required: true
-        example: delectus
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      column: delectus
+      column: aut
     fileParameters: []
     responses: []
     responseFields: []
