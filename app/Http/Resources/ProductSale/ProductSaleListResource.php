@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\ProductSale;
 
+use App\Http\Resources\Business\BusinessBasicResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductSaleListResource extends JsonResource
@@ -21,7 +22,8 @@ class ProductSaleListResource extends JsonResource
            'piece' => $this->piece,
            'price' => $this->total,
            'payment_type' => $this->paymentType(),
-           'seller_date' => $this->created_at->format('d.m.Y H:i')
+           'seller_date' => $this->created_at->format('d.m.Y H:i'),
+           'business' => BusinessBasicResource::make($this->business)
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\PackageSale;
 
+use App\Http\Resources\Business\BusinessBasicResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PackageSaleListResource extends JsonResource
@@ -25,7 +26,8 @@ class PackageSaleListResource extends JsonResource
            'remainingAmount' => $this->amount - $this->usages->sum('amount'),
            'total' => $this->total. "₺",
            'payedTotal' => $this->payments->sum('price'),
-           'remainingTotal' =>  $this->total - $this->payments->sum('price')
+           'remainingTotal' =>  $this->total - $this->payments->sum('price'),
+           'business' => BusinessBasicResource::make($this->business)
         ];
     }
 }
