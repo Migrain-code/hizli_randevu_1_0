@@ -31,6 +31,8 @@ class CustomerUpdateRequest extends FormRequest
             'email' => 'required',
             'gender' => 'required',
             'birthday'=> 'nullable|date',
+            'city_id' => 'nullable',
+            'district_id' => 'nullable'
         ];
     }
 
@@ -42,6 +44,8 @@ class CustomerUpdateRequest extends FormRequest
             'email' => 'E-posta',
             'gender' => 'Cinsiyet',
             'birthday'=> 'Doğum Tarihi',
+            'city_id' => 'Şehir',
+            'district_id' => 'İlçe'
         ];
     }
 
