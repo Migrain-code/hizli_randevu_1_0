@@ -18,7 +18,7 @@ class PackageSaleDetailResource extends JsonResource
         return [
             'id' => $this->id,
             'sellerDate' => $this->seller_date->format('d.m.Y H:i'),
-            'serviceId' => $this->service->id,
+            'serviceId' => $this->service->subCategory->getName(),
             'personelId' => $this->personel->id,
             'packageType' => $this->packageType("id"),
             'amount' => $this->amount,
