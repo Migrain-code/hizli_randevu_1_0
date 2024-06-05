@@ -87,7 +87,8 @@ class UserController extends Controller
         if ($customer->save()){
             return response()->json([
                 'status' => "success",
-                'message' => "Bilgileriniz Başarılı Bir Şekilde Güncellendi"
+                'message' => "Bilgileriniz Başarılı Bir Şekilde Güncellendi",
+                'user' => CustomerInfoResource::make($customer),
             ]);
         }
 
