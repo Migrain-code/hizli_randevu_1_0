@@ -4,6 +4,8 @@ namespace App\Http\Resources\Business;
 
 use App\Http\Resources\City\CityListResource;
 use App\Http\Resources\City\DistrictListResource;
+use App\Http\Resources\Gallery\GalleryListResource;
+use App\Models\DayList;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Carbon;
@@ -35,9 +37,28 @@ class BusinessDetailResource extends JsonResource
             'gender' => BusinessGenderResource::make($this->type),
             'is_favorite' => $this->checkFavorite(auth('api')->id()),
             'services' => $this->getService(),
+            'gallery' => GalleryListResource::collection($this->gallery),
+            'personels' => PersonelListResource::collection($this->personel),
+            'comments' => BusinessCommentListResource::collection($this->comments),
+            'about' => $this->about,
+            'embed' => $this->embed,
+            'workTimes' => $this->dayList()
         ];
     }
-
+    public function dayList()
+    {
+        $dayList = DayList::all();
+        $closeDays = [];
+        foreach($dayList as $day){
+            $closeDays[] = [
+                'id' => $day->id,
+                'name' => $day->name,
+                'clock' => $this->start_time. " - ".$this->end_time,
+                'status' => isset($this->off_day) && $day->id != $this->off_day
+            ];
+        }
+        return $closeDays;
+    }
     public function getService()
     {
         $business = $this;
