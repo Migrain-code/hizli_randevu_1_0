@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Business;
 
 use App\Http\Resources\Business\BusinessListResource;
+use App\Http\Resources\Customer\CustomerCommentResource;
 use App\Http\Resources\Customer\CustomerInfoResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,7 +22,7 @@ class BusinessCommentListResource extends JsonResource
            'content' => $this->content,
            'point' => $this->point,
            'created_at' => $this->created_at->format('d.m.Y H:i:s'),
-           'customer' => CustomerInfoResource::make($this->customer),
+           'customer' => CustomerCommentResource::make($this->customer),
         ];
     }
 }
