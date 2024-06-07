@@ -21,6 +21,7 @@ class BusinessDetailResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'phone' => $this->phone,
+            'instagram' =>"https://www.instagram.com/".$this->instagram,
             'email' => $this->email,
             'city' => CityListResource::make($this->cities),
             'district' => DistrictListResource::make($this->districts),
