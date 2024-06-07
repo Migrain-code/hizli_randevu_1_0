@@ -54,7 +54,7 @@ class BusinessDetailResource extends JsonResource
                 'id' => $day->id,
                 'name' => $day->name,
                 'clock' => $this->start_time. " - ".$this->end_time,
-                'status' => isset($this->off_day) && $day->id != $this->off_day
+                'status' => isset($this->off_day) ? $day->id != $this->off_day : false
             ];
         }
         return $closeDays;
