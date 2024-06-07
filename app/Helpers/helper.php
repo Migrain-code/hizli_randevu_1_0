@@ -13,6 +13,21 @@ function image($path){
 function setting($key){
     return config('settings.'.$key);
 }
+function cryptName($fullName) {
+    $parts = explode(' ', $fullName);
+    if (count($parts) < 2) {
+        // If the name does not contain a space (i.e., only one word), return it as is
+        return $fullName;
+    }
+
+    $firstName = $parts[0];
+    $lastName = $parts[count($parts) - 1];
+
+    $anonymizedLastName = $lastName[0] . str_repeat('*', strlen($lastName) - 1);
+
+    return $firstName . ' ' . $anonymizedLastName;
+}
+
 function formatPhone($phone)
 {
     return preg_replace('~.*(\d{3})[^\d]{0,7}(\d{3})[^\d]{0,7}(\d{4}).*~', '($1) $2-$3', $phone);
