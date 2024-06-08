@@ -70,13 +70,13 @@ endpoints:
         name: business_id
         description: ''
         required: true
-        example: 387478828.947
+        example: 437995.966
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      business_id: 387478828.947
+      business_id: 437995.966
     fileParameters: []
     responses: []
     responseFields: []

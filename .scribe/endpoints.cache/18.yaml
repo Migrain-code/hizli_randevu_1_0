@@ -38,7 +38,7 @@ endpoints:
         name: services
         description: ''
         required: true
-        example: est
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -53,7 +53,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      services: est
+      services: vero
     fileParameters: []
     responses:
       -
@@ -106,7 +106,7 @@ endpoints:
         name: appointment_date
         description: ''
         required: true
-        example: iste
+        example: sit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -115,14 +115,14 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: laudantium
+        example: libero
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_date: iste
-      personels: laudantium
+      appointment_date: sit
+      personels: libero
     fileParameters: []
     responses:
       -
@@ -175,7 +175,7 @@ endpoints:
         name: appointment_time
         description: ''
         required: true
-        example: aut
+        example: aspernatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -184,14 +184,14 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: dolore
+        example: quisquam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_time: aut
-      personels: dolore
+      appointment_time: aspernatur
+      personels: quisquam
     fileParameters: []
     responses:
       -
@@ -244,7 +244,7 @@ endpoints:
         name: appointment_time
         description: ''
         required: true
-        example: id
+        example: doloribus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -253,7 +253,7 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: eum
+        example: harum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -268,8 +268,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_time: id
-      personels: eum
+      appointment_time: doloribus
+      personels: harum
     fileParameters: []
     responses:
       -
@@ -317,8 +317,47 @@ endpoints:
       business_id: 1
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      services:
+        name: services
+        description: ''
+        required: true
+        example: minus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      personels:
+        name: personels
+        description: ''
+        required: true
+        example: magni
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      appointment_time:
+        name: appointment_time
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      room_id:
+        name: room_id
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      services: minus
+      personels: magni
+      appointment_time: et
     fileParameters: []
     responses: []
     responseFields: []

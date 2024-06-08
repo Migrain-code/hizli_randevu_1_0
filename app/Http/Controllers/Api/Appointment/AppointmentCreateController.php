@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Appointment;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Appointment\CheckClockRequest;
+use App\Http\Requests\Appointment\CreateRequest;
 use App\Http\Requests\Appointment\GetClockRequest;
 use App\Http\Requests\Appointment\GetPersonelRequest;
 use App\Http\Requests\Appointment\SummaryRequest;
@@ -368,7 +369,7 @@ class AppointmentCreateController extends Controller
      * @param Request $request
      * @return JsonResponse
      */
-    public function appointmentCreate(Request $request, Business $business)
+    public function appointmentCreate(CreateRequest $request, Business $business)
     {
         $appointment = new Appointment();
         $appointment->business_id = $business->id;

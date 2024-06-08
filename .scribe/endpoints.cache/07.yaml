@@ -28,7 +28,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 406.1
+        example: 3196.3931
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -37,14 +37,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: rem
+        example: harum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 406.1
-      password: rem
+      phone: 3196.3931
+      password: harum
     fileParameters: []
     responses: []
     responseFields: []
@@ -108,7 +108,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 2.0
+        example: 1459023.0392583
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -117,14 +117,14 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: 7750.1131
+        example: 2.24975846
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 2.0
-      code: 7750.1131
+      phone: 1459023.0392583
+      code: 2.24975846
     fileParameters: []
     responses: []
     responseFields: []
