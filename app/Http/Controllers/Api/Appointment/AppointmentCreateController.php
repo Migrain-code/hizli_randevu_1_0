@@ -8,14 +8,18 @@ use App\Http\Requests\Appointment\GetClockRequest;
 use App\Http\Requests\Appointment\GetPersonelRequest;
 use App\Http\Requests\Appointment\SummaryRequest;
 use App\Http\Resources\Business\BusinessRoomResource;
+use App\Models\Appointment;
 use App\Models\AppointmentServices;
 use App\Models\Business;
 use App\Models\BusinessService;
+use App\Models\Customer;
 use App\Models\Personel;
 use App\Models\PersonelRoom;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @group Randevu Oluşturma
@@ -357,6 +361,71 @@ class AppointmentCreateController extends Controller
             'total' => !in_array(1, $isCalculate) ? str($total) : "Hesaplanacak",
         ]);
     }
+
+    /**
+     * Randevu oluşturma
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function appointmentCreate(Request $request, Business $business)
+    {
+        $appointment = new Appointment();
+        $appointment->business_id = $business->id;
+        $appointment->customer_id = $this->customer->id;
+        $appointment->room_id = $request->room_id == 0 ? null : $request->room_id;
+        $appointment->save();
+        $appointmentStartTime = Carbon::parse($request->appointment_time);
+        $approve_types = [];
+        foreach ($request->services as $index => $serviceId) {
+            $findService = BusinessService::find($serviceId);
+            $appointmentService = new AppointmentServices();
+            $appointmentService->personel_id = $request->personels[$index];
+            $appointmentService->service_id = $serviceId;
+            $appointmentService->start_time = $appointmentStartTime;
+            $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
+            $appointmentService->appointment_id = $appointment->id;
+            $appointmentService->save();
+        }
+
+        $appointment->start_time = $appointment->services()->first()->start_time;
+        $appointment->end_time = $appointment->services()->skip($appointment->services()->count() - 1)->first()->end_time;
+
+
+        $calculateTotal = $appointment->calculateTotal();
+        $appointment->total = $calculateTotal;
+        if (in_array(1, $approve_types)) { // hizmet manuel onay ise
+            $appointment->status = 0; // Otomatik onay
+            foreach ($appointment->services as $service) {
+                $service->status = 0;
+                $service->save();
+            }
+            $message = $business->name. " İşletmesine Randevunuz talebiniz alınmıştır. İşletmemiz en kısa sürede sizi bilgilendirecektir.";
+
+        } else {
+            $appointment->status = 1; // Otomatik onay ise
+            foreach ($appointment->services as $service) {
+                $service->status = 1;
+                $service->save();
+            }
+            $message = $business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihine randevunuz oluşturuldu.";
+        }
+
+        if ($appointment->save()) {
+            $appointment->customer->sendSms($message);
+            $appointment->sendPersonelNotification();
+            return response()->json([
+                'status' => "success",
+                'message' => $message,
+            ]);
+        }
+        return response()->json([
+            'status' => "success",
+            'message' => "Bir hata sebebiyle randevunuz oluşturulamadı lütfen tekrar deneyiniz"
+
+        ]);
+    }
+
 
     public function findDisabledTimes($personel, $appointmentStartTime)
     {

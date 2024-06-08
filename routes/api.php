@@ -123,6 +123,7 @@ Route::prefix('customer')->group(function (){
             Route::get('clock', [AppointmentCreateController::class, 'getClock']);
             Route::get('check-clock', [AppointmentCreateController::class, 'checkClock']);
             Route::get('summary', [AppointmentCreateController::class, 'summary']);
+            Route::post('create', [AppointmentCreateController::class, 'appointmentCreate']);
         });
 
     });

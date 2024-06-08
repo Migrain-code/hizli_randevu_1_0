@@ -233,7 +233,7 @@ paths:
                 column:
                   type: string
                   description: ''
-                  example: architecto
+                  example: odit
               required:
                 - column
       security: []
@@ -265,11 +265,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 41235178.641378
+                  example: 406.1
                 password:
                   type: string
                   description: ''
-                  example: quibusdam
+                  example: rem
               required:
                 - phone
                 - password
@@ -303,11 +303,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 26.3
+                  example: 2.0
                 code:
                   type: number
                   description: ''
-                  example: 75.2965
+                  example: 7750.1131
               required:
                 - phone
                 - code
@@ -349,15 +349,15 @@ paths:
                 activity_id:
                   type: string
                   description: ''
-                  example: voluptate
+                  example: ut
                 phone:
                   type: number
                   description: ''
-                  example: 83.418613754
+                  example: 301.175
                 password:
                   type: string
                   description: ''
-                  example: et
+                  example: veniam
               required:
                 - activity_id
                 - phone
@@ -377,7 +377,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: doloribus
+            value: eaque
       -
         in: path
         name: city_id
@@ -391,7 +391,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: sit
+            value: tenetur
       -
         in: path
         name: activity_date
@@ -405,7 +405,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: dolor
+            value: sint
   '/api/activity/{id}':
     get:
       summary: 'Etkinlik detayı'
@@ -420,7 +420,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Activity] 10'
+                  message: 'No query results for model [App\Models\Activity] 7'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 487
@@ -746,7 +746,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Activity] 10'
+                    example: 'No query results for model [App\Models\Activity] 7'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -1103,7 +1103,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the activity.'
-        example: 10
+        example: 7
         required: true
         schema:
           type: integer
@@ -1147,7 +1147,7 @@ paths:
                 business_id:
                   type: number
                   description: ''
-                  example: 22.00761929
+                  example: 387478828.947
               required:
                 - business_id
       security: []
@@ -1200,7 +1200,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the campaign.'
-        example: 1
+        example: 15
         required: true
         schema:
           type: integer
@@ -1245,11 +1245,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: molestiae
+                  example: vero
                 password_confirmation:
                   type: string
                   description: ''
-                  example: molestias
+                  example: placeat
               required:
                 - password
                 - password_confirmation
@@ -1273,23 +1273,23 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: nihil
+                  example: doloremque
                 phone:
                   type: string
                   description: ''
-                  example: debitis
+                  example: omnis
                 email:
                   type: string
                   description: ''
-                  example: voluptatibus
+                  example: aperiam
                 gender:
                   type: string
                   description: ''
-                  example: dolor
+                  example: sit
                 birthday:
                   type: string
                   description: 'value geçerli bir tarih olmalıdır.'
-                  example: '2024-06-08T15:26:45'
+                  example: '2024-06-08T21:07:40'
                 city_id:
                   type: string
                   description: ''
@@ -1363,7 +1363,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the package sale.'
-        example: 7
+        example: 1
         required: true
         schema:
           type: integer
@@ -1398,7 +1398,7 @@ paths:
                 services:
                   type: string
                   description: ''
-                  example: at
+                  example: est
                 room_id:
                   type: string
                   description: ''
@@ -1446,11 +1446,11 @@ paths:
                 appointment_date:
                   type: string
                   description: ''
-                  example: autem
+                  example: iste
                 personels:
                   type: string
                   description: ''
-                  example: beatae
+                  example: laudantium
               required:
                 - appointment_date
                 - personels
@@ -1495,11 +1495,11 @@ paths:
                 appointment_time:
                   type: string
                   description: ''
-                  example: magni
+                  example: aut
                 personels:
                   type: string
                   description: ''
-                  example: vero
+                  example: dolore
               required:
                 - appointment_time
                 - personels
@@ -1544,11 +1544,11 @@ paths:
                 appointment_time:
                   type: string
                   description: ''
-                  example: similique
+                  example: id
                 personels:
                   type: string
                   description: ''
-                  example: sint
+                  example: eum
                 room_id:
                   type: string
                   description: ''
@@ -1556,6 +1556,25 @@ paths:
               required:
                 - appointment_time
                 - personels
+      security: []
+    parameters:
+      -
+        in: path
+        name: business_id
+        description: 'The ID of the business.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/customer/appointment-create/{business_id}/create':
+    post:
+      summary: 'Randevu oluşturma'
+      operationId: randevuOluturma
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Randevu Oluşturma'
       security: []
     parameters:
       -
@@ -1628,11 +1647,11 @@ paths:
                 rating:
                   type: string
                   description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
-                  example: cdwazznphpntzsiasuuqflcapsrfxmqqusneguwfwektkhvrirtcpdeoholnowhukbnocwza
+                  example: edcybyuqnwiasympsbrzirswuzjtekx
                 content:
                   type: string
                   description: ''
-                  example: ut
+                  example: voluptatem
                 terms:
                   type: boolean
                   description: 'Must be accepted.'
@@ -1693,7 +1712,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Interview] 9'
+                  message: 'No query results for model [App\Models\Interview] 13'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 487
@@ -2019,7 +2038,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Interview] 9'
+                    example: 'No query results for model [App\Models\Interview] 13'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -2376,7 +2395,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the interview.'
-        example: 9
+        example: 13
         required: true
         schema:
           type: integer
@@ -2399,7 +2418,7 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 16317175.6068
+                  example: 3.4
               required:
                 - phone
       security: []
@@ -2422,7 +2441,7 @@ paths:
                 code:
                   type: number
                   description: ''
-                  example: 3817.2749
+                  example: 1091361.0510029
               required:
                 - code
       security: []
@@ -2961,31 +2980,6 @@ paths:
                   is_favorite: false
                   services:
                     manService:
-                      featured:
-                        -
-                          id: 1
-                          name: 'Saç Kesimi'
-                          price: 250
-                        -
-                          id: 2
-                          name: 'Sakal Tıraşı'
-                          price: 150
-                        -
-                          id: 3
-                          name: 'Saç & Sakal'
-                          price: 400
-                        -
-                          id: 4
-                          name: 'Saç Yıkama & Fön'
-                          price: 150
-                        -
-                          id: 8
-                          name: 'Günlük Perma'
-                          price: 150
-                        -
-                          id: 11
-                          name: 'Cilt Bakımı'
-                          price: 500
                       services:
                         -
                           id: 1
@@ -2995,79 +2989,72 @@ paths:
                               id: 1
                               name: 'Saç Kesimi'
                               price: 250
+                              is_featured: true
                             -
                               id: 2
                               name: 'Sakal Tıraşı'
                               price: 150
+                              is_featured: true
                             -
                               id: 3
                               name: 'Saç & Sakal'
                               price: 400
+                              is_featured: true
                             -
                               id: 4
                               name: 'Saç Yıkama & Fön'
                               price: 150
+                              is_featured: true
                             -
                               id: 5
                               name: Fön
                               price: 100
+                              is_featured: false
                             -
                               id: 6
                               name: 'Saç Düzleştirme (Silindir)'
                               price: 500
+                              is_featured: false
                             -
                               id: 7
                               name: 'Saç Düzleştirme (Keratin)'
                               price: 600
+                              is_featured: false
                             -
                               id: 8
                               name: 'Günlük Perma'
                               price: 150
+                              is_featured: true
                             -
                               id: 9
                               name: 'Kalıcı Perma'
                               price: 750
+                              is_featured: false
                             -
                               id: 10
                               name: 'Kalıcı perma + Saç kesimi'
                               price: 1000
+                              is_featured: false
                             -
                               id: 12
                               name: 'Sakal Boyama'
                               price: 230
+                              is_featured: false
                             -
                               id: 13
                               name: 'Saç Boyama (Gri)'
                               price: 750
+                              is_featured: false
                             -
                               id: 14
                               name: 'Saç Boyama (Tek Renk)'
                               price: 350
+                              is_featured: false
                             -
                               id: 69
                               name: Topuz
                               price: 15
-                          featuredServices:
-                            -
-                              id: 1
-                              name: 'Saç Kesimi'
-                              price: 250
-                            -
-                              id: 2
-                              name: 'Sakal Tıraşı'
-                              price: 150
-                            -
-                              id: 3
-                              name: 'Saç & Sakal'
-                              price: 400
-                            -
-                              id: 4
-                              name: 'Saç Yıkama & Fön'
-                              price: 150
-                            -
-                              id: 8
-                              name: 'Günlük Perma'
-                              price: 150
+                              is_featured: false
                         -
                           id: 7
                           name: 'Cilt Bakımı'
@@ -3076,35 +3063,12 @@ paths:
                               id: 11
                               name: 'Cilt Bakımı'
                               price: 500
+                              is_featured: true
                             -
                               id: 66
                               name: Anti-Aging
                               price: 15
-                          featuredServices:
-                            -
-                              id: 1
-                              name: 'Saç Kesimi'
-                              price: 250
-                            -
-                              id: 2
-                              name: 'Sakal Tıraşı'
-                              price: 150
-                            -
-                              id: 3
-                              name: 'Saç & Sakal'
-                              price: 400
-                            -
-                              id: 4
-                              name: 'Saç Yıkama & Fön'
-                              price: 150
-                            -
-                              id: 8
-                              name: 'Günlük Perma'
-                              price: 150
-                            -
-                              id: 11
-                              name: 'Cilt Bakımı'
-                              price: 500
+                              is_featured: false
                         -
                           id: 14
                           name: Kaş
@@ -3113,31 +3077,7 @@ paths:
                               id: 15
                               name: 'Kaş Tasarımı'
                               price: 100
-                          featuredServices:
-                            -
-                              id: 1
-                              name: 'Saç Kesimi'
-                              price: 250
-                            -
-                              id: 2
-                              name: 'Sakal Tıraşı'
-                              price: 150
-                            -
-                              id: 3
-                              name: 'Saç & Sakal'
-                              price: 400
-                            -
-                              id: 4
-                              name: 'Saç Yıkama & Fön'
-                              price: 150
-                            -
-                              id: 8
-                              name: 'Günlük Perma'
-                              price: 150
-                            -
-                              id: 11
-                              name: 'Cilt Bakımı'
-                              price: 500
+                              is_featured: false
                         -
                           id: 10
                           name: Diğer
@@ -3146,31 +3086,7 @@ paths:
                               id: 67
                               name: 'Buhar Odası'
                               price: 50
-                          featuredServices:
-                            -
-                              id: 1
-                              name: 'Saç Kesimi'
-                              price: 250
-                            -
-                              id: 2
-                              name: 'Sakal Tıraşı'
-                              price: 150
-                            -
-                              id: 3
-                              name: 'Saç & Sakal'
-                              price: 400
-                            -
-                              id: 4
-                              name: 'Saç Yıkama & Fön'
-                              price: 150
-                            -
-                              id: 8
-                              name: 'Günlük Perma'
-                              price: 150
-                            -
-                              id: 11
-                              name: 'Cilt Bakımı'
-                              price: 500
+                              is_featured: false
                         -
                           id: 3
                           name: Makyaj
@@ -3179,31 +3095,7 @@ paths:
                               id: 68
                               name: 'Profesyonel Makyaj'
                               price: 15
-                          featuredServices:
-                            -
-                              id: 1
-                              name: 'Saç Kesimi'
-                              price: 250
-                            -
-                              id: 2
-                              name: 'Sakal Tıraşı'
-                              price: 150
-                            -
-                              id: 3
-                              name: 'Saç & Sakal'
-                              price: 400
-                            -
-                              id: 4
-                              name: 'Saç Yıkama & Fön'
-                              price: 150
-                            -
-                              id: 8
-                              name: 'Günlük Perma'
-                              price: 150
-                            -
-                              id: 11
-                              name: 'Cilt Bakımı'
-                              price: 500
+                              is_featured: false
                         -
                           id: 4
                           name: 'Estetik ve Güzellik'
@@ -3212,31 +3104,7 @@ paths:
                               id: 70
                               name: 'Cazmara Maske'
                               price: 15
-                          featuredServices:
-                            -
-                              id: 1
-                              name: 'Saç Kesimi'
-                              price: 250
-                            -
-                              id: 2
-                              name: 'Sakal Tıraşı'
-                              price: 150
-                            -
-                              id: 3
-                              name: 'Saç & Sakal'
-                              price: 400
-                            -
-                              id: 4
-                              name: 'Saç Yıkama & Fön'
-                              price: 150
-                            -
-                              id: 8
-                              name: 'Günlük Perma'
-                              price: 150
-                            -
-                              id: 11
-                              name: 'Cilt Bakımı'
-                              price: 500
+                              is_featured: false
                   gallery:
                     -
                       id: 1
@@ -3431,45 +3299,6 @@ paths:
                       manService:
                         type: object
                         properties:
-                          featured:
-                            type: array
-                            example:
-                              -
-                                id: 1
-                                name: 'Saç Kesimi'
-                                price: 250
-                              -
-                                id: 2
-                                name: 'Sakal Tıraşı'
-                                price: 150
-                              -
-                                id: 3
-                                name: 'Saç & Sakal'
-                                price: 400
-                              -
-                                id: 4
-                                name: 'Saç Yıkama & Fön'
-                                price: 150
-                              -
-                                id: 8
-                                name: 'Günlük Perma'
-                                price: 150
-                              -
-                                id: 11
-                                name: 'Cilt Bakımı'
-                                price: 500
-                            items:
-                              type: object
-                              properties:
-                                id:
-                                  type: integer
-                                  example: 1
-                                name:
-                                  type: string
-                                  example: 'Saç Kesimi'
-                                price:
-                                  type: integer
-                                  example: 250
                           services:
                             type: array
                             example:
@@ -3481,79 +3310,72 @@ paths:
                                     id: 1
                                     name: 'Saç Kesimi'
                                     price: 250
+                                    is_featured: true
                                   -
                                     id: 2
                                     name: 'Sakal Tıraşı'
                                     price: 150
+                                    is_featured: true
                                   -
                                     id: 3
                                     name: 'Saç & Sakal'
                                     price: 400
+                                    is_featured: true
                                   -
                                     id: 4
                                     name: 'Saç Yıkama & Fön'
                                     price: 150
+                                    is_featured: true
                                   -
                                     id: 5
                                     name: Fön
                                     price: 100
+                                    is_featured: false
                                   -
                                     id: 6
                                     name: 'Saç Düzleştirme (Silindir)'
                                     price: 500
+                                    is_featured: false
                                   -
                                     id: 7
                                     name: 'Saç Düzleştirme (Keratin)'
                                     price: 600
+                                    is_featured: false
                                   -
                                     id: 8
                                     name: 'Günlük Perma'
                                     price: 150
+                                    is_featured: true
                                   -
                                     id: 9
                                     name: 'Kalıcı Perma'
                                     price: 750
+                                    is_featured: false
                                   -
                                     id: 10
                                     name: 'Kalıcı perma + Saç kesimi'
                                     price: 1000
+                                    is_featured: false
                                   -
                                     id: 12
                                     name: 'Sakal Boyama'
                                     price: 230
+                                    is_featured: false
                                   -
                                     id: 13
                                     name: 'Saç Boyama (Gri)'
                                     price: 750
+                                    is_featured: false
                                   -
                                     id: 14
                                     name: 'Saç Boyama (Tek Renk)'
                                     price: 350
+                                    is_featured: false
                                   -
                                     id: 69
                                     name: Topuz
                                     price: 15
-                                featuredServices:
-                                  -
-                                    id: 1
-                                    name: 'Saç Kesimi'
-                                    price: 250
-                                  -
-                                    id: 2
-                                    name: 'Sakal Tıraşı'
-                                    price: 150
-                                  -
-                                    id: 3
-                                    name: 'Saç & Sakal'
-                                    price: 400
-                                  -
-                                    id: 4
-                                    name: 'Saç Yıkama & Fön'
-                                    price: 150
-                                  -
-                                    id: 8
-                                    name: 'Günlük Perma'
-                                    price: 150
+                                    is_featured: false
                               -
                                 id: 7
                                 name: 'Cilt Bakımı'
@@ -3562,35 +3384,12 @@ paths:
                                     id: 11
                                     name: 'Cilt Bakımı'
                                     price: 500
+                                    is_featured: true
                                   -
                                     id: 66
                                     name: Anti-Aging
                                     price: 15
-                                featuredServices:
-                                  -
-                                    id: 1
-                                    name: 'Saç Kesimi'
-                                    price: 250
-                                  -
-                                    id: 2
-                                    name: 'Sakal Tıraşı'
-                                    price: 150
-                                  -
-                                    id: 3
-                                    name: 'Saç & Sakal'
-                                    price: 400
-                                  -
-                                    id: 4
-                                    name: 'Saç Yıkama & Fön'
-                                    price: 150
-                                  -
-                                    id: 8
-                                    name: 'Günlük Perma'
-                                    price: 150
-                                  -
-                                    id: 11
-                                    name: 'Cilt Bakımı'
-                                    price: 500
+                                    is_featured: false
                               -
                                 id: 14
                                 name: Kaş
@@ -3599,31 +3398,7 @@ paths:
                                     id: 15
                                     name: 'Kaş Tasarımı'
                                     price: 100
-                                featuredServices:
-                                  -
-                                    id: 1
-                                    name: 'Saç Kesimi'
-                                    price: 250
-                                  -
-                                    id: 2
-                                    name: 'Sakal Tıraşı'
-                                    price: 150
-                                  -
-                                    id: 3
-                                    name: 'Saç & Sakal'
-                                    price: 400
-                                  -
-                                    id: 4
-                                    name: 'Saç Yıkama & Fön'
-                                    price: 150
-                                  -
-                                    id: 8
-                                    name: 'Günlük Perma'
-                                    price: 150
-                                  -
-                                    id: 11
-                                    name: 'Cilt Bakımı'
-                                    price: 500
+                                    is_featured: false
                               -
                                 id: 10
                                 name: Diğer
@@ -3632,31 +3407,7 @@ paths:
                                     id: 67
                                     name: 'Buhar Odası'
                                     price: 50
-                                featuredServices:
-                                  -
-                                    id: 1
-                                    name: 'Saç Kesimi'
-                                    price: 250
-                                  -
-                                    id: 2
-                                    name: 'Sakal Tıraşı'
-                                    price: 150
-                                  -
-                                    id: 3
-                                    name: 'Saç & Sakal'
-                                    price: 400
-                                  -
-                                    id: 4
-                                    name: 'Saç Yıkama & Fön'
-                                    price: 150
-                                  -
-                                    id: 8
-                                    name: 'Günlük Perma'
-                                    price: 150
-                                  -
-                                    id: 11
-                                    name: 'Cilt Bakımı'
-                                    price: 500
+                                    is_featured: false
                               -
                                 id: 3
                                 name: Makyaj
@@ -3665,31 +3416,7 @@ paths:
                                     id: 68
                                     name: 'Profesyonel Makyaj'
                                     price: 15
-                                featuredServices:
-                                  -
-                                    id: 1
-                                    name: 'Saç Kesimi'
-                                    price: 250
-                                  -
-                                    id: 2
-                                    name: 'Sakal Tıraşı'
-                                    price: 150
-                                  -
-                                    id: 3
-                                    name: 'Saç & Sakal'
-                                    price: 400
-                                  -
-                                    id: 4
-                                    name: 'Saç Yıkama & Fön'
-                                    price: 150
-                                  -
-                                    id: 8
-                                    name: 'Günlük Perma'
-                                    price: 150
-                                  -
-                                    id: 11
-                                    name: 'Cilt Bakımı'
-                                    price: 500
+                                    is_featured: false
                               -
                                 id: 4
                                 name: 'Estetik ve Güzellik'
@@ -3698,31 +3425,7 @@ paths:
                                     id: 70
                                     name: 'Cazmara Maske'
                                     price: 15
-                                featuredServices:
-                                  -
-                                    id: 1
-                                    name: 'Saç Kesimi'
-                                    price: 250
-                                  -
-                                    id: 2
-                                    name: 'Sakal Tıraşı'
-                                    price: 150
-                                  -
-                                    id: 3
-                                    name: 'Saç & Sakal'
-                                    price: 400
-                                  -
-                                    id: 4
-                                    name: 'Saç Yıkama & Fön'
-                                    price: 150
-                                  -
-                                    id: 8
-                                    name: 'Günlük Perma'
-                                    price: 150
-                                  -
-                                    id: 11
-                                    name: 'Cilt Bakımı'
-                                    price: 500
+                                    is_featured: false
                             items:
                               type: object
                               properties:
@@ -3739,93 +3442,79 @@ paths:
                                       id: 1
                                       name: 'Saç Kesimi'
                                       price: 250
+                                      is_featured: true
                                     -
                                       id: 2
                                       name: 'Sakal Tıraşı'
                                       price: 150
+                                      is_featured: true
                                     -
                                       id: 3
                                       name: 'Saç & Sakal'
                                       price: 400
+                                      is_featured: true
                                     -
                                       id: 4
                                       name: 'Saç Yıkama & Fön'
                                       price: 150
+                                      is_featured: true
                                     -
                                       id: 5
                                       name: Fön
                                       price: 100
+                                      is_featured: false
                                     -
                                       id: 6
                                       name: 'Saç Düzleştirme (Silindir)'
                                       price: 500
+                                      is_featured: false
                                     -
                                       id: 7
                                       name: 'Saç Düzleştirme (Keratin)'
                                       price: 600
+                                      is_featured: false
                                     -
                                       id: 8
                                       name: 'Günlük Perma'
                                       price: 150
+                                      is_featured: true
                                     -
                                       id: 9
                                       name: 'Kalıcı Perma'
                                       price: 750
+                                      is_featured: false
                                     -
                                       id: 10
                                       name: 'Kalıcı perma + Saç kesimi'
                                       price: 1000
+                                      is_featured: false
                                     -
                                       id: 12
                                       name: 'Sakal Boyama'
                                       price: 230
+                                      is_featured: false
                                     -
                                       id: 13
                                       name: 'Saç Boyama (Gri)'
                                       price: 750
+                                      is_featured: false
                                     -
                                       id: 14
                                       name: 'Saç Boyama (Tek Renk)'
                                       price: 350
+                                      is_featured: false
                                     -
                                       id: 69
                                       name: Topuz
                                       price: 15
+                                      is_featured: false
                                   items:
                                     type: object
                                     properties:
                                       id: { type: integer, example: 1 }
                                       name: { type: string, example: 'Saç Kesimi' }
                                       price: { type: integer, example: 250 }
-                                featuredServices:
-                                  type: array
-                                  example:
-                                    -
-                                      id: 1
-                                      name: 'Saç Kesimi'
-                                      price: 250
-                                    -
-                                      id: 2
-                                      name: 'Sakal Tıraşı'
-                                      price: 150
-                                    -
-                                      id: 3
-                                      name: 'Saç & Sakal'
-                                      price: 400
-                                    -
-                                      id: 4
-                                      name: 'Saç Yıkama & Fön'
-                                      price: 150
-                                    -
-                                      id: 8
-                                      name: 'Günlük Perma'
-                                      price: 150
-                                  items:
-                                    type: object
-                                    properties:
-                                      id: { type: integer, example: 1 }
-                                      name: { type: string, example: 'Saç Kesimi' }
-                                      price: { type: integer, example: 250 }
+                                      is_featured: { type: boolean, example: true }
                   gallery:
                     type: array
                     example:

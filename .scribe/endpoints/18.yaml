@@ -36,7 +36,7 @@ endpoints:
         name: services
         description: ''
         required: true
-        example: at
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -51,7 +51,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      services: at
+      services: est
     fileParameters: []
     responses:
       -
@@ -104,7 +104,7 @@ endpoints:
         name: appointment_date
         description: ''
         required: true
-        example: autem
+        example: iste
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -113,14 +113,14 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: beatae
+        example: laudantium
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_date: autem
-      personels: beatae
+      appointment_date: iste
+      personels: laudantium
     fileParameters: []
     responses:
       -
@@ -173,7 +173,7 @@ endpoints:
         name: appointment_time
         description: ''
         required: true
-        example: magni
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -182,14 +182,14 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: vero
+        example: dolore
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_time: magni
-      personels: vero
+      appointment_time: aut
+      personels: dolore
     fileParameters: []
     responses:
       -
@@ -242,7 +242,7 @@ endpoints:
         name: appointment_time
         description: ''
         required: true
-        example: similique
+        example: id
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -251,7 +251,7 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: sint
+        example: eum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -266,8 +266,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_time: similique
-      personels: sint
+      appointment_time: id
+      personels: eum
     fileParameters: []
     responses:
       -
@@ -279,6 +279,46 @@ endpoints:
           access-control-allow-origin: '*'
         description: null
         custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/customer/appointment-create/{business_id}/create'
+    metadata:
+      groupName: 'Randevu Oluşturma'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Randevu oluşturma'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      business_id:
+        name: business_id
+        description: 'The ID of the business.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      business_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null

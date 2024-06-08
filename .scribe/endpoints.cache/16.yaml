@@ -63,13 +63,13 @@ endpoints:
         name: id
         description: 'The ID of the campaign.'
         required: true
-        example: 1
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

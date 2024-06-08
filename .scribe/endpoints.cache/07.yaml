@@ -28,7 +28,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 41235178.641378
+        example: 406.1
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -37,14 +37,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: quibusdam
+        example: rem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 41235178.641378
-      password: quibusdam
+      phone: 406.1
+      password: rem
     fileParameters: []
     responses: []
     responseFields: []
@@ -108,7 +108,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 26.3
+        example: 2.0
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -117,14 +117,14 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: 75.2965
+        example: 7750.1131
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 26.3
-      code: 75.2965
+      phone: 2.0
+      code: 7750.1131
     fileParameters: []
     responses: []
     responseFields: []

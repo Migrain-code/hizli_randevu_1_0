@@ -125,7 +125,7 @@ endpoints:
         name: rating
         description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
         required: true
-        example: cdwazznphpntzsiasuuqflcapsrfxmqqusneguwfwektkhvrirtcpdeoholnowhukbnocwza
+        example: edcybyuqnwiasympsbrzirswuzjtekx
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -134,7 +134,7 @@ endpoints:
         name: content
         description: ''
         required: true
-        example: ut
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -149,8 +149,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      rating: cdwazznphpntzsiasuuqflcapsrfxmqqusneguwfwektkhvrirtcpdeoholnowhukbnocwza
-      content: ut
+      rating: edcybyuqnwiasympsbrzirswuzjtekx
+      content: voluptatem
       terms: true
     fileParameters: []
     responses: []

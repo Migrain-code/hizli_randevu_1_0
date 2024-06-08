@@ -78,13 +78,13 @@ endpoints:
         name: column
         description: ''
         required: true
-        example: architecto
+        example: odit
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      column: architecto
+      column: odit
     fileParameters: []
     responses: []
     responseFields: []
