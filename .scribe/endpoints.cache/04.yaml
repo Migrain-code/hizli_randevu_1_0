@@ -24,7 +24,7 @@ endpoints:
         name: todayActiviy
         description: ''
         required: false
-        example: fugiat
+        example: doloribus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -33,7 +33,7 @@ endpoints:
         name: city_id
         description: ''
         required: false
-        example: veritatis
+        example: sit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -48,8 +48,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      todayActiviy: fugiat
-      city_id: veritatis
+      todayActiviy: doloribus
+      city_id: sit
       activity_date: dolor
     queryParameters: []
     cleanQueryParameters: []
@@ -97,7 +97,7 @@ endpoints:
         name: activity_id
         description: ''
         required: true
-        example: sunt
+        example: voluptate
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -106,7 +106,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 243.92
+        example: 83.418613754
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -115,15 +115,15 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: cum
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      activity_id: sunt
-      phone: 243.92
-      password: cum
+      activity_id: voluptate
+      phone: 83.418613754
+      password: et
     fileParameters: []
     responses: []
     responseFields: []
@@ -153,13 +153,13 @@ endpoints:
         name: id
         description: 'The ID of the activity.'
         required: true
-        example: 16
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 10
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -170,7 +170,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Activity] 16",
+              "message": "No query results for model [App\\Models\\Activity] 10",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "C:\\Users\\Migrain\\Desktop\\projects\\randevu_project\\hizli_randevu_1_0\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 487,

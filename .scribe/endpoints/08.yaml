@@ -26,13 +26,13 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: 3362.966956
+        example: 16317175.6068
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone: 3362.966956
+      phone: 16317175.6068
     fileParameters: []
     responses: []
     responseFields: []
@@ -66,13 +66,13 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: 3391.12529389
+        example: 3817.2749
         type: number
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      code: 3391.12529389
+      code: 3817.2749
     fileParameters: []
     responses: []
     responseFields: []

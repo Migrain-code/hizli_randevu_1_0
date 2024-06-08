@@ -233,7 +233,7 @@ paths:
                 column:
                   type: string
                   description: ''
-                  example: aut
+                  example: architecto
               required:
                 - column
       security: []
@@ -265,11 +265,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 499904150.9
+                  example: 41235178.641378
                 password:
                   type: string
                   description: ''
-                  example: nihil
+                  example: quibusdam
               required:
                 - phone
                 - password
@@ -303,11 +303,11 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 527897.8726
+                  example: 26.3
                 code:
                   type: number
                   description: ''
-                  example: 0.218
+                  example: 75.2965
               required:
                 - phone
                 - code
@@ -349,15 +349,15 @@ paths:
                 activity_id:
                   type: string
                   description: ''
-                  example: sunt
+                  example: voluptate
                 phone:
                   type: number
                   description: ''
-                  example: 243.92
+                  example: 83.418613754
                 password:
                   type: string
                   description: ''
-                  example: cum
+                  example: et
               required:
                 - activity_id
                 - phone
@@ -377,7 +377,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: fugiat
+            value: doloribus
       -
         in: path
         name: city_id
@@ -391,7 +391,7 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: veritatis
+            value: sit
       -
         in: path
         name: activity_date
@@ -420,7 +420,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Activity] 16'
+                  message: 'No query results for model [App\Models\Activity] 10'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'C:\Users\Migrain\Desktop\projects\randevu_project\hizli_randevu_1_0\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 487
@@ -746,7 +746,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Activity] 16'
+                    example: 'No query results for model [App\Models\Activity] 10'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -1103,7 +1103,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the activity.'
-        example: 16
+        example: 10
         required: true
         schema:
           type: integer
@@ -1147,7 +1147,7 @@ paths:
                 business_id:
                   type: number
                   description: ''
-                  example: 11087.83117
+                  example: 22.00761929
               required:
                 - business_id
       security: []
@@ -1200,7 +1200,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the campaign.'
-        example: 4
+        example: 1
         required: true
         schema:
           type: integer
@@ -1245,11 +1245,11 @@ paths:
                 password:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: molestiae
                 password_confirmation:
                   type: string
                   description: ''
-                  example: deserunt
+                  example: molestias
               required:
                 - password
                 - password_confirmation
@@ -1273,23 +1273,23 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: odio
+                  example: nihil
                 phone:
                   type: string
                   description: ''
-                  example: dolores
+                  example: debitis
                 email:
                   type: string
                   description: ''
-                  example: velit
+                  example: voluptatibus
                 gender:
                   type: string
                   description: ''
-                  example: et
+                  example: dolor
                 birthday:
                   type: string
                   description: 'value geçerli bir tarih olmalıdır.'
-                  example: '2024-06-05T12:04:50'
+                  example: '2024-06-08T15:26:45'
                 city_id:
                   type: string
                   description: ''
@@ -1303,6 +1303,16 @@ paths:
                 - phone
                 - email
                 - gender
+      security: []
+  /api/customer/update-profile-photo:
+    post:
+      summary: 'Profil Fotoğrafı Güncelleme'
+      operationId: profilFotorafGncelleme
+      description: 'image değişkeni formdata gönderilecek'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Kullanıcı Bilgileri'
       security: []
   /api/customer/package-sale:
     get:
@@ -1353,7 +1363,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the package sale.'
-        example: 12
+        example: 7
         required: true
         schema:
           type: integer
@@ -1388,7 +1398,7 @@ paths:
                 services:
                   type: string
                   description: ''
-                  example: et
+                  example: at
                 room_id:
                   type: string
                   description: ''
@@ -1436,11 +1446,11 @@ paths:
                 appointment_date:
                   type: string
                   description: ''
-                  example: nobis
+                  example: autem
                 personels:
                   type: string
                   description: ''
-                  example: et
+                  example: beatae
               required:
                 - appointment_date
                 - personels
@@ -1485,11 +1495,11 @@ paths:
                 appointment_time:
                   type: string
                   description: ''
-                  example: iure
+                  example: magni
                 personels:
                   type: string
                   description: ''
-                  example: necessitatibus
+                  example: vero
               required:
                 - appointment_time
                 - personels
@@ -1534,11 +1544,11 @@ paths:
                 appointment_time:
                   type: string
                   description: ''
-                  example: quas
+                  example: similique
                 personels:
                   type: string
                   description: ''
-                  example: fuga
+                  example: sint
                 room_id:
                   type: string
                   description: ''
@@ -1618,11 +1628,11 @@ paths:
                 rating:
                   type: string
                   description: 'value değeri 1 karakter değerinden büyük olmalıdır.'
-                  example: lingicjkdpooqyqegxywmumesgvelmrvhkyxbydyoixqovkbajsnehpcyvqqpxjckcxolqpjub
+                  example: cdwazznphpntzsiasuuqflcapsrfxmqqusneguwfwektkhvrirtcpdeoholnowhukbnocwza
                 content:
                   type: string
                   description: ''
-                  example: enim
+                  example: ut
                 terms:
                   type: boolean
                   description: 'Must be accepted.'
@@ -2389,7 +2399,7 @@ paths:
                 phone:
                   type: number
                   description: ''
-                  example: 3362.966956
+                  example: 16317175.6068
               required:
                 - phone
       security: []
@@ -2412,7 +2422,7 @@ paths:
                 code:
                   type: number
                   description: ''
-                  example: 3391.12529389
+                  example: 3817.2749
               required:
                 - code
       security: []
@@ -2873,25 +2883,6 @@ paths:
                   type: object
                 example:
                   -
-                    id: 1
-                    name: 'Kuaför Savaş'
-                    phone: '05537021355'
-                    email: null
-                    city:
-                      id: 53
-                      name: Rize
-                    district:
-                      id: 753
-                      name: Merkez
-                    logo: 'https://file.hizlirandevu.com.tr/storage/businessLogos/GJAfLFOfULFLxAOxjN7YRHXrpUbVJSYrfe1qLAMc.png'
-                    start_time: '08:30'
-                    end_time: '21:00'
-                    wallpaper: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
-                    commentCount: 0
-                    point: 0
-                    address: null
-                    is_favorite: false
-                  -
                     id: 2
                     name: 'Derviş Anadol'
                     phone: barberssdervisanadol
@@ -2929,25 +2920,6 @@ paths:
                     point: 0
                     address: null
                     is_favorite: false
-                  -
-                    id: 8
-                    name: 'OSMAN BALCI HAİR PALACE - TRABZON'
-                    phone: trabzonosmanbalci
-                    email: null
-                    city:
-                      id: 61
-                      name: Trabzon
-                    district:
-                      id: 707
-                      name: Ortahisar
-                    logo: 'https://file.hizlirandevu.com.tr/storage/default/user.png'
-                    start_time: '09:00'
-                    end_time: '21:00'
-                    wallpaper: 'https://file.hizlirandevu.com.tr/default/business.png'
-                    commentCount: 0
-                    point: 0
-                    address: null
-                    is_favorite: false
       tags:
         - İşletmeler
       security: []
@@ -2968,6 +2940,7 @@ paths:
                   id: 1
                   name: 'Kuaför Savaş'
                   phone: '05537021355'
+                  instagram: 'https://www.instagram.com/kuaforsavasrize'
                   email: null
                   city:
                     id: 53
@@ -3264,6 +3237,127 @@ paths:
                               id: 11
                               name: 'Cilt Bakımı'
                               price: 500
+                  gallery:
+                    -
+                      id: 1
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
+                    -
+                      id: 2
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/4c4F1htnM4GLGdkC17m3CDggpYQb0iBDjjcaroLz.jpg'
+                    -
+                      id: 3
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/6eNhrJu9lM6Trc0ItLcyjqqFKfFsgVRSrC4u5Wn2.jpg'
+                    -
+                      id: 4
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/KixaHbuVTkDLBXtjRxe1qmZkXZe1Q9IUsiSvXH6r.jpg'
+                    -
+                      id: 5
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/JMelBhgzngGDhehUypjCEbKTAUuZvDiAIanhFcuB.jpg'
+                    -
+                      id: 6
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/ALnc41gVas0LX5yXWBO22M82jrAcYsqiYdvaoR1T.jpg'
+                    -
+                      id: 7
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/j7ra63UlEFM79MGHBBk4E3MVnwqknx3F4xJWD1Yh.jpg'
+                    -
+                      id: 8
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/wLPDh1LdCxyV48zePVwbrDSLgGFp4XbInZynwpz7.jpg'
+                    -
+                      id: 9
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/O1PwBbajaIlpj9S0vGus3IMdF8Ir3b9e0uq8Can1.jpg'
+                    -
+                      id: 10
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/wz8n3IFOHvTraN4Lighn0Dhuto3eiXldAYGzokN0.jpg'
+                    -
+                      id: 11
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/UZRNwzHE2NJbR0TIxXc7u2yM9j2ASHE4hXdH7MZe.jpg'
+                    -
+                      id: 12
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/QUMrtkiy2z9bLeUCgBYiMnLE9tkPNPMLTrsiCOA8.jpg'
+                    -
+                      id: 13
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/KykTSnbISAZQHugMnLnVAepIDfXWkiUrzUI2sRSI.jpg'
+                    -
+                      id: 14
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/c0Di4umkQ88QlQrC6aaQzC752M8Win4NpYwQ8IZF.jpg'
+                    -
+                      id: 15
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/reXoGLFwN9DW89y1vRCJxezxs1CJeBYYhG34X2dc.jpg'
+                    -
+                      id: 24
+                      image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/HhNZG1BesSuo5eJTcZxDmbcX67J99jiLA43DMago.webp'
+                  personels:
+                    -
+                      id: 2
+                      name: 'Savaş ÖZDEMİR'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/E19YlcjXj2UHTRLnSsRms8vGgiPsB0IbN5VLBj4k.jpg'
+                    -
+                      id: 3
+                      name: 'Mehmet KALYONCU'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/zQDl5croWX6y0B7pgAU4cVCt2adqG4bjf0Lw8zyw.jpg'
+                    -
+                      id: 4
+                      name: 'Muhammet Fatih Akın'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/Oksctk1vq6VuXlpXeN5fNs7Xm4nv4RogabWwDRb5.jpg'
+                    -
+                      id: 5
+                      name: 'Murat İSLAMOĞLU'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/bihwRPHDiPFEHzMvwXQTXrXx3AP8CRbPZaZmRfk4.jpg'
+                    -
+                      id: 6
+                      name: 'Turan SARUHAN'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/s4AKyhcz7gfUAybDNFzzVIvYvkElB0U7HMnH8mdD.jpg'
+                    -
+                      id: 7
+                      name: 'Emirhan İPSİZ'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/5VOiXiD4tcUhyCpoG8rVPAT17ybvpJggddjGWG6u.jpg'
+                    -
+                      id: 8
+                      name: 'Furkan LATİFOĞLU'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/QvrgPOyBmeWgNAH7xIQXVPrX9LsichXYw7xNXY81.jpg'
+                    -
+                      id: 9
+                      name: 'Taha YILMAZER'
+                      image: 'https://file.hizlirandevu.com.tr/storage/personel_images/0DkX7hWMRJYsAP2NJXe8BsjqzJOlGo6IWqcOnjQ3.jpg'
+                  comments: []
+                  about: "<p>Kuaförlük mesleğine çekirdekten başlayan&nbsp;<strong>Savaş Özdemir</strong>&nbsp;1997'de bu işe ilk adımını Rize'de atarak başladıktan kısa bir süre sonra Ankara'da 4 yıl kadar yaşayıp mesleğinde kendini geliştirerek memleketi Rize'ye tekrar dönüp çalışma hayatına devam etti.</p><p>İlk işletmesini 2005'de Rize'de kendi ismiyle açan&nbsp;<strong>Savaş ÖZDEMİR</strong>&nbsp;paylaştıkça çoğalır ilkesinden yola çıkarak 2013'te&nbsp;<strong>Mehmet Kalyoncu</strong>&nbsp;ile ortak olarak yoluna daha güçlü devam etmeye karar verdiler.</p><p>2019 yılına kadar birlikte işlettikleri&nbsp;<strong>Kuaför Savaş</strong>&nbsp;daha da güçlü bir hale getirmek için&nbsp;&nbsp;<strong>Murat İslamoğlu</strong>'nuda aralarına alarak sadece Rize'nin değil bölgenin de en donanımlı erkek kuaför ve bakım salonunu hizmete sunarak faaliyetlerine devam eden 3 ortak ilk günden bu yana benimsemiş oldukları gelişim ve yenilenme parolasıyla inovasyona olan inancıyla kaliteli hizmetten ödün vermeden bölgenin en iyisi olma çabasından asla vazgeçmeden her zaman yenilikleri ilk olarak müşterilerinin hizmetine sunarak çalışmalarına devam etmektedir.</p>"
+                  embed: "<iframe width=\"350\" height=\"350\" frameborder=\"0\" style=\"border:0;border-radius: 15px\"\r\n                    src=\"https://www.google.com/maps/embed/v1/place?q=41.02504200000001,40.520155&key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U\" allowfullscreen></iframe>"
+                  workTimes:
+                    -
+                      id: 1
+                      name: Pazartesi
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 2
+                      name: Salı
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 3
+                      name: Çarşamba
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 4
+                      name: Perşembe
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 5
+                      name: Cuma
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 6
+                      name: Cumartesi
+                      clock: '08:30 - 21:00'
+                      status: true
+                    -
+                      id: 0
+                      name: Pazar
+                      clock: '08:30 - 21:00'
+                      status: false
                 properties:
                   id:
                     type: integer
@@ -3274,6 +3368,9 @@ paths:
                   phone:
                     type: string
                     example: '05537021355'
+                  instagram:
+                    type: string
+                    example: 'https://www.instagram.com/kuaforsavasrize'
                   email:
                     type: string
                     example: null
@@ -3729,6 +3826,175 @@ paths:
                                       id: { type: integer, example: 1 }
                                       name: { type: string, example: 'Saç Kesimi' }
                                       price: { type: integer, example: 250 }
+                  gallery:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
+                      -
+                        id: 2
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/4c4F1htnM4GLGdkC17m3CDggpYQb0iBDjjcaroLz.jpg'
+                      -
+                        id: 3
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/6eNhrJu9lM6Trc0ItLcyjqqFKfFsgVRSrC4u5Wn2.jpg'
+                      -
+                        id: 4
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/KixaHbuVTkDLBXtjRxe1qmZkXZe1Q9IUsiSvXH6r.jpg'
+                      -
+                        id: 5
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/JMelBhgzngGDhehUypjCEbKTAUuZvDiAIanhFcuB.jpg'
+                      -
+                        id: 6
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/ALnc41gVas0LX5yXWBO22M82jrAcYsqiYdvaoR1T.jpg'
+                      -
+                        id: 7
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/j7ra63UlEFM79MGHBBk4E3MVnwqknx3F4xJWD1Yh.jpg'
+                      -
+                        id: 8
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/wLPDh1LdCxyV48zePVwbrDSLgGFp4XbInZynwpz7.jpg'
+                      -
+                        id: 9
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/O1PwBbajaIlpj9S0vGus3IMdF8Ir3b9e0uq8Can1.jpg'
+                      -
+                        id: 10
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/wz8n3IFOHvTraN4Lighn0Dhuto3eiXldAYGzokN0.jpg'
+                      -
+                        id: 11
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/UZRNwzHE2NJbR0TIxXc7u2yM9j2ASHE4hXdH7MZe.jpg'
+                      -
+                        id: 12
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/QUMrtkiy2z9bLeUCgBYiMnLE9tkPNPMLTrsiCOA8.jpg'
+                      -
+                        id: 13
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/KykTSnbISAZQHugMnLnVAepIDfXWkiUrzUI2sRSI.jpg'
+                      -
+                        id: 14
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/c0Di4umkQ88QlQrC6aaQzC752M8Win4NpYwQ8IZF.jpg'
+                      -
+                        id: 15
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/reXoGLFwN9DW89y1vRCJxezxs1CJeBYYhG34X2dc.jpg'
+                      -
+                        id: 24
+                        image: 'https://file.hizlirandevu.com.tr/storage/business_galleries/HhNZG1BesSuo5eJTcZxDmbcX67J99jiLA43DMago.webp'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        image:
+                          type: string
+                          example: 'https://file.hizlirandevu.com.tr/storage/business_galleries/fkbLzZ7zsV1X7uOcRy43mpYmFnvo882eNu8TkplC.jpg'
+                  personels:
+                    type: array
+                    example:
+                      -
+                        id: 2
+                        name: 'Savaş ÖZDEMİR'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/E19YlcjXj2UHTRLnSsRms8vGgiPsB0IbN5VLBj4k.jpg'
+                      -
+                        id: 3
+                        name: 'Mehmet KALYONCU'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/zQDl5croWX6y0B7pgAU4cVCt2adqG4bjf0Lw8zyw.jpg'
+                      -
+                        id: 4
+                        name: 'Muhammet Fatih Akın'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/Oksctk1vq6VuXlpXeN5fNs7Xm4nv4RogabWwDRb5.jpg'
+                      -
+                        id: 5
+                        name: 'Murat İSLAMOĞLU'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/bihwRPHDiPFEHzMvwXQTXrXx3AP8CRbPZaZmRfk4.jpg'
+                      -
+                        id: 6
+                        name: 'Turan SARUHAN'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/s4AKyhcz7gfUAybDNFzzVIvYvkElB0U7HMnH8mdD.jpg'
+                      -
+                        id: 7
+                        name: 'Emirhan İPSİZ'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/5VOiXiD4tcUhyCpoG8rVPAT17ybvpJggddjGWG6u.jpg'
+                      -
+                        id: 8
+                        name: 'Furkan LATİFOĞLU'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/QvrgPOyBmeWgNAH7xIQXVPrX9LsichXYw7xNXY81.jpg'
+                      -
+                        id: 9
+                        name: 'Taha YILMAZER'
+                        image: 'https://file.hizlirandevu.com.tr/storage/personel_images/0DkX7hWMRJYsAP2NJXe8BsjqzJOlGo6IWqcOnjQ3.jpg'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 2
+                        name:
+                          type: string
+                          example: 'Savaş ÖZDEMİR'
+                        image:
+                          type: string
+                          example: 'https://file.hizlirandevu.com.tr/storage/personel_images/E19YlcjXj2UHTRLnSsRms8vGgiPsB0IbN5VLBj4k.jpg'
+                  comments:
+                    type: array
+                    example: []
+                  about:
+                    type: string
+                    example: "<p>Kuaförlük mesleğine çekirdekten başlayan&nbsp;<strong>Savaş Özdemir</strong>&nbsp;1997'de bu işe ilk adımını Rize'de atarak başladıktan kısa bir süre sonra Ankara'da 4 yıl kadar yaşayıp mesleğinde kendini geliştirerek memleketi Rize'ye tekrar dönüp çalışma hayatına devam etti.</p><p>İlk işletmesini 2005'de Rize'de kendi ismiyle açan&nbsp;<strong>Savaş ÖZDEMİR</strong>&nbsp;paylaştıkça çoğalır ilkesinden yola çıkarak 2013'te&nbsp;<strong>Mehmet Kalyoncu</strong>&nbsp;ile ortak olarak yoluna daha güçlü devam etmeye karar verdiler.</p><p>2019 yılına kadar birlikte işlettikleri&nbsp;<strong>Kuaför Savaş</strong>&nbsp;daha da güçlü bir hale getirmek için&nbsp;&nbsp;<strong>Murat İslamoğlu</strong>'nuda aralarına alarak sadece Rize'nin değil bölgenin de en donanımlı erkek kuaför ve bakım salonunu hizmete sunarak faaliyetlerine devam eden 3 ortak ilk günden bu yana benimsemiş oldukları gelişim ve yenilenme parolasıyla inovasyona olan inancıyla kaliteli hizmetten ödün vermeden bölgenin en iyisi olma çabasından asla vazgeçmeden her zaman yenilikleri ilk olarak müşterilerinin hizmetine sunarak çalışmalarına devam etmektedir.</p>"
+                  embed:
+                    type: string
+                    example: "<iframe width=\"350\" height=\"350\" frameborder=\"0\" style=\"border:0;border-radius: 15px\"\r\n                    src=\"https://www.google.com/maps/embed/v1/place?q=41.02504200000001,40.520155&key=AIzaSyBcMXrk2ldIslFsanG5wUm5EuuTjkLfl8U\" allowfullscreen></iframe>"
+                  workTimes:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: Pazartesi
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 2
+                        name: Salı
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 3
+                        name: Çarşamba
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 4
+                        name: Perşembe
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 5
+                        name: Cuma
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 6
+                        name: Cumartesi
+                        clock: '08:30 - 21:00'
+                        status: true
+                      -
+                        id: 0
+                        name: Pazar
+                        clock: '08:30 - 21:00'
+                        status: false
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: Pazartesi
+                        clock:
+                          type: string
+                          example: '08:30 - 21:00'
+                        status:
+                          type: boolean
+                          example: true
       tags:
         - İşletmeler
       security: []
@@ -3842,32 +4108,32 @@ paths:
                       id: 1
                       name: Pazartesi
                       clock: '08:30 - 21:00'
-                      status: false
+                      status: true
                     -
                       id: 2
                       name: Salı
                       clock: '08:30 - 21:00'
-                      status: false
+                      status: true
                     -
                       id: 3
                       name: Çarşamba
                       clock: '08:30 - 21:00'
-                      status: false
+                      status: true
                     -
                       id: 4
                       name: Perşembe
                       clock: '08:30 - 21:00'
-                      status: false
+                      status: true
                     -
                       id: 5
                       name: Cuma
                       clock: '08:30 - 21:00'
-                      status: false
+                      status: true
                     -
                       id: 6
                       name: Cumartesi
                       clock: '08:30 - 21:00'
-                      status: false
+                      status: true
                     -
                       id: 0
                       name: Pazar
@@ -3899,32 +4165,32 @@ paths:
                         id: 1
                         name: Pazartesi
                         clock: '08:30 - 21:00'
-                        status: false
+                        status: true
                       -
                         id: 2
                         name: Salı
                         clock: '08:30 - 21:00'
-                        status: false
+                        status: true
                       -
                         id: 3
                         name: Çarşamba
                         clock: '08:30 - 21:00'
-                        status: false
+                        status: true
                       -
                         id: 4
                         name: Perşembe
                         clock: '08:30 - 21:00'
-                        status: false
+                        status: true
                       -
                         id: 5
                         name: Cuma
                         clock: '08:30 - 21:00'
-                        status: false
+                        status: true
                       -
                         id: 6
                         name: Cumartesi
                         clock: '08:30 - 21:00'
-                        status: false
+                        status: true
                       -
                         id: 0
                         name: Pazar
@@ -3944,7 +4210,7 @@ paths:
                           example: '08:30 - 21:00'
                         status:
                           type: boolean
-                          example: false
+                          example: true
       tags:
         - İşletmeler
       security: []

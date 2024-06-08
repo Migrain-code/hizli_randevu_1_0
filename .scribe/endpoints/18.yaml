@@ -36,7 +36,7 @@ endpoints:
         name: services
         description: ''
         required: true
-        example: et
+        example: at
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -51,7 +51,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      services: et
+      services: at
     fileParameters: []
     responses:
       -
@@ -104,7 +104,7 @@ endpoints:
         name: appointment_date
         description: ''
         required: true
-        example: nobis
+        example: autem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -113,14 +113,14 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: et
+        example: beatae
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_date: nobis
-      personels: et
+      appointment_date: autem
+      personels: beatae
     fileParameters: []
     responses:
       -
@@ -173,7 +173,7 @@ endpoints:
         name: appointment_time
         description: ''
         required: true
-        example: iure
+        example: magni
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -182,14 +182,14 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: necessitatibus
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_time: iure
-      personels: necessitatibus
+      appointment_time: magni
+      personels: vero
     fileParameters: []
     responses:
       -
@@ -242,7 +242,7 @@ endpoints:
         name: appointment_time
         description: ''
         required: true
-        example: quas
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -251,7 +251,7 @@ endpoints:
         name: personels
         description: ''
         required: true
-        example: fuga
+        example: sint
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -266,8 +266,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      appointment_time: quas
-      personels: fuga
+      appointment_time: similique
+      personels: sint
     fileParameters: []
     responses:
       -

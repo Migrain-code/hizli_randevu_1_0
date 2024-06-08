@@ -76,13 +76,13 @@ endpoints:
         name: column
         description: ''
         required: true
-        example: aut
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      column: aut
+      column: architecto
     fileParameters: []
     responses: []
     responseFields: []

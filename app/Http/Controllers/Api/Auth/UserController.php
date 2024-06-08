@@ -11,6 +11,7 @@ use App\Http\Resources\Customer\CustomerInfoResource;
 use App\Models\Customer;
 use App\Models\SmsConfirmation;
 use App\Services\Sms;
+use App\Services\UploadFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -97,6 +98,29 @@ class UserController extends Controller
             'message' => "Sistemsel Bir Hata Oluştu. Lütfen Çıkış Yapıp Tekrar Deneyiniz"
         ], 422);
 
+    }
+
+    /**
+     * Profil Fotoğrafı Güncelleme
+     *
+     * image değişkeni formdata gönderilecek
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateProfilePhoto(Request $request)
+    {
+        $customer = $this->customer;
+        if ($request->hasFile('image')) {
+            $response = UploadFile::uploadFile($request->file('image'), 'customer_profiles');
+            $customer->image = $response["image"]["way"];
+        }
+        $customer->save();
+        return response()->json([
+            'status' => "success",
+            'message' => "Profil Fotoğrafınız Başarılı Bir Şekilde Güncellendi",
+            'user' => CustomerInfoResource::make($customer),
+        ]);
     }
 
     public function existPhone($phone)

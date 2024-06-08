@@ -67,7 +67,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: assumenda
+        example: molestiae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -76,14 +76,14 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: deserunt
+        example: molestias
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      password: assumenda
-      password_confirmation: deserunt
+      password: molestiae
+      password_confirmation: molestias
     fileParameters: []
     responses: []
     responseFields: []
@@ -117,7 +117,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: odio
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -126,7 +126,7 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: dolores
+        example: debitis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,7 +135,7 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: velit
+        example: voluptatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -144,7 +144,7 @@ endpoints:
         name: gender
         description: ''
         required: true
-        example: et
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -153,7 +153,7 @@ endpoints:
         name: birthday
         description: 'value geçerli bir tarih olmalıdır.'
         required: false
-        example: '2024-06-05T12:04:50'
+        example: '2024-06-08T15:26:45'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -177,11 +177,41 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: odio
-      phone: dolores
-      email: velit
-      gender: et
-      birthday: '2024-06-05T12:04:50'
+      name: nihil
+      phone: debitis
+      email: voluptatibus
+      gender: dolor
+      birthday: '2024-06-08T15:26:45'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/customer/update-profile-photo
+    metadata:
+      groupName: 'Kullanıcı Bilgileri'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Profil Fotoğrafı Güncelleme'
+      description: 'image değişkeni formdata gönderilecek'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

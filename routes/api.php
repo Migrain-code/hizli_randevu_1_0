@@ -77,6 +77,8 @@ Route::prefix('customer')->group(function (){
         Route::post('change-password', [UserController::class, 'changePassword']);
         // Bilgileri Güncelle
         Route::post('update-info', [UserController::class, 'updateInfo']);
+        // Profil Foto Güncelle
+        Route::post('update-profile-photo', [UserController::class, 'updateProfilePhoto']);
 
         // Favori İşletmeler
         Route::apiResource('favorite', FavoriteController::class)->only([
