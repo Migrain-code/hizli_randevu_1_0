@@ -521,7 +521,7 @@ class AppointmentCreateController extends Controller
      *
      * Randevu Oluştur
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return JsonResponse
      */
     public function appointmentCreate(CreateRequest $request, Business $business)
     {
@@ -586,17 +586,15 @@ class AppointmentCreateController extends Controller
         }
         if ($appointment->save()) {
             //$appointment->customer->sendSms($message);
-            return to_route('business.appointment.index')->with('response', [
+            return response()->json([
                 'status' => "success",
                 'message' => "Randevunuz başarılı bir şekilde oluşturuldu",
             ]);
         }
-
-        return to_route('business.appointment.index')->with('response', [
+        return response()->json([
             'status' => "error",
             'message' => "Bir hata sebebiyle randevunuz oluşturulamadı lütfen tekrar deneyiniz",
-        ]);
-
+        ], 422);
     }
     public function findDisabledTimes($personel, $appointmentStartTime)
     {
