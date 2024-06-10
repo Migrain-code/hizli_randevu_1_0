@@ -597,13 +597,21 @@ class AppointmentCreateController extends Controller
 
         }
         if ($appointment->save()) {
-            //$appointment->customer->sendSms($message);
+            if (isset($request->campaign_id)){
+                $campaign = Campaign::find($request->campaign_id);
+                $discount = $campaign->discount;
+                $appointment->campaign_id = $request->campaign_id;
+                $appointment->discount = $discount;
+                $appointment->save();
+            }
+            $appointment->customer->sendSms($message);
             return response()->json([
                 'status' => "success",
                 'message' => "Randevunuz başarılı bir şekilde oluşturuldu",
                 'appointment' => AppointmentResource::make($appointment),
             ]);
         }
+
         return response()->json([
             'status' => "error",
             'message' => "Bir hata sebebiyle randevunuz oluşturulamadı lütfen tekrar deneyiniz",
