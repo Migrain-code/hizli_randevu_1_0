@@ -71,7 +71,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => "warning",
                 'message' => "Bu telefon numarası ile kayıtlı kullanıcı bulunmakta."
-            ]);
+            ], 422);
         } else {
             $this->createVerifyCode(clearPhone($request->phone));
             return response()->json([
