@@ -8,6 +8,8 @@ use App\Http\Requests\Appointment\CreateRequest;
 use App\Http\Requests\Appointment\GetClockRequest;
 use App\Http\Requests\Appointment\GetPersonelRequest;
 use App\Http\Requests\Appointment\SummaryRequest;
+use App\Http\Resources\Appointment\AppointmentResource;
+use App\Http\Resources\Business\BusinessListResource;
 use App\Http\Resources\Business\BusinessRoomResource;
 use App\Models\Appointment;
 use App\Models\AppointmentServices;
@@ -589,6 +591,10 @@ class AppointmentCreateController extends Controller
             return response()->json([
                 'status' => "success",
                 'message' => "Randevunuz başarılı bir şekilde oluşturuldu",
+                'summary' => [
+                    'business' => BusinessListResource::make($appointment->business),
+                    'appointment' => AppointmentResource::make($appointment),
+                ],
             ]);
         }
         return response()->json([
