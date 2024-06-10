@@ -28,7 +28,7 @@ class CustomerUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'phone' => 'required',
-            'email' => 'required',
+            //'email' => 'required',
             'gender' => 'required',
             'birthday'=> 'nullable|date',
             'city_id' => 'nullable',
@@ -41,7 +41,7 @@ class CustomerUpdateRequest extends FormRequest
         return [
             'name' => 'Müşteri Adı',
             'phone' => 'Telefon Numarası',
-            'email' => 'E-posta',
+            //'email' => 'E-posta',
             'gender' => 'Cinsiyet',
             'birthday'=> 'Doğum Tarihi',
             'city_id' => 'Şehir',
