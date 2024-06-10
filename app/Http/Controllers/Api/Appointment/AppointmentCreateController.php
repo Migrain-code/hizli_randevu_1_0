@@ -591,10 +591,7 @@ class AppointmentCreateController extends Controller
             return response()->json([
                 'status' => "success",
                 'message' => "Randevunuz başarılı bir şekilde oluşturuldu",
-                'summary' => [
-                    'business' => BusinessListResource::make($appointment->business),
-                    'appointment' => AppointmentResource::make($appointment),
-                ],
+                'appointment' => AppointmentResource::make($appointment),
             ]);
         }
         return response()->json([
