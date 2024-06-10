@@ -70,6 +70,17 @@ Route::prefix('customer')->group(function (){
         Route::post('forgot-password', [ResetPasswordController::class, 'forgotPassword']);// Şifremi unuttum
         Route::post('forgot-password/verify', [ResetPasswordController::class, 'verifyResetPassword']); //  Şifremi Unuttum Doğrulama
     });
+    // Randevu Adımları
+    Route::prefix('appointment-create/{business}/')->group(function () {
+        Route::get('personel', [AppointmentCreateController::class, 'getPersonel']);
+        Route::get('date', [AppointmentCreateController::class, 'getDate']);
+        Route::get('clock', [AppointmentCreateController::class, 'getClock']);
+        Route::get('check-clock', [AppointmentCreateController::class, 'checkClock']);
+        Route::post('use/coupon', [AppointmentCreateController::class, 'useCoupon']);
+        Route::post('delete/coupon', [AppointmentCreateController::class, 'deleteCoupon']);
+        Route::get('summary', [AppointmentCreateController::class, 'summary']);
+    });
+
     Route::middleware('auth:api')->group(function () {
         // kullanıcı bilgisi
         Route::get('user', [UserController::class, 'index']);
@@ -119,13 +130,6 @@ Route::prefix('customer')->group(function (){
 
         //Randevu oluşturma
         Route::prefix('appointment-create/{business}/')->group(function (){
-            Route::get('personel', [AppointmentCreateController::class, 'getPersonel']);
-            Route::get('date', [AppointmentCreateController::class, 'getDate']);
-            Route::get('clock', [AppointmentCreateController::class, 'getClock']);
-            Route::get('check-clock', [AppointmentCreateController::class, 'checkClock']);
-            Route::post('use/coupon', [AppointmentCreateController::class, 'useCoupon']);
-            Route::post('delete/coupon', [AppointmentCreateController::class, 'deleteCoupon']);
-            Route::get('summary', [AppointmentCreateController::class, 'summary']);
             Route::post('create', [AppointmentCreateController::class, 'appointmentCreate']);
         });
 
