@@ -114,6 +114,11 @@ class UserController extends Controller
         if ($request->hasFile('image')) {
             $response = UploadFile::uploadFile($request->file('image'), 'customer_profiles');
             $customer->image = $response["image"]["way"];
+        } else{
+            return response()->json([
+                'status' => "error",
+                'message' => "Lütfen Bir Görsel Seçiniz",
+            ], 422);
         }
         $customer->save();
         return response()->json([
