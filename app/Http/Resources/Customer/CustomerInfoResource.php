@@ -25,7 +25,7 @@ class CustomerInfoResource extends JsonResource
             'city' => CityListResource::make($this->city),
             'district' => DistrictListResource::make($this->district),
             'user_gender' => $this->gender,
-            'color' => "#212121",
+            'color' => $this->color,
             'gender' => [
                 1 => [
                     'id' => 1,
