@@ -147,8 +147,16 @@ class SearchController extends Controller
     public function businessCategorySearch($category)
     {
         $category = BusinessCategory::whereJsonContains('slug->' . App::getLocale(), $category)->first();
-        $businesses = Business::where('category_id', $category->id)->has('services')->has('personel')->paginate(12);
-        return view('search.service', compact('businesses', 'category'));
+        if (isset($category)){
+            $businesses = Business::where('category_id', $category->id)->has('services')->has('personel')->paginate(12);
+            return view('search.service', compact('businesses', 'category'));
+        }
+
+        return to_route('main')->with('response', [
+           'status' => "warning",
+           'message' => "Aradığınız türde işletme bulunamadı"
+        ]);
+
     }
 
     public function businessCategoryAndCitySearch($city, $category)
