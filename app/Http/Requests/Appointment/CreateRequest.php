@@ -11,7 +11,7 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'services' => "required",
+            //'services' => "required",
             'personels' => "required",
             'appointment_time' => "required",
             'room_id' => "nullable"
@@ -21,7 +21,7 @@ class CreateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'services' => "Hizmetler",
+            //'services' => "Hizmetler",
             'personels' => "Personeller",
             'appointment_time' => "Randevu Tarihi ve Saati",
         ];
