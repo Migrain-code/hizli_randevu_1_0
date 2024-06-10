@@ -504,13 +504,6 @@ class AppointmentCreateController extends Controller
                 $total += $calculatedServicePrice;
             }
 
-            if (isset($request->campaign_id)){
-                $campaign = Campaign::find($request->campaign_id);
-                $discount = $campaign->discount;
-                if (is_numeric($calculatedServicePrice)){
-                    $calculatedServicePrice -= ($calculatedServicePrice * $discount) / 100;
-                }
-            }
 
             $servicePrices [] = [
                 "id" => $service->id,
@@ -518,6 +511,13 @@ class AppointmentCreateController extends Controller
                 "price" => str($calculatedServicePrice),
             ];
 
+        }
+        if (isset($request->campaign_id)){
+            $campaign = Campaign::find($request->campaign_id);
+            $discount = $campaign->discount;
+            if (is_numeric($total)){
+                $total -= ($total * $discount) / 100;
+            }
         }
 
         return response()->json([
