@@ -80,7 +80,7 @@ class UserController extends Controller
         }
         $customer->phone = $phone;
         $customer->name = $request->input('name');
-        //$customer->email = $request->input('email');
+        $customer->color = $request->input('color');
         $customer->gender = $request->input('gender');
         $customer->birthday = Carbon::parse($request->input('birthday'))->toDateString();
         $customer->city_id = $request->input('city_id');
