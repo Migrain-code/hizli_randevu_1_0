@@ -13,7 +13,7 @@ class AddCommentRequest extends FormRequest
         return [
             'rating' => "required|min:1",
             'content' => "required",
-            'terms' => "accepted",
+            //'terms' => "accepted",
         ];
     }
 
@@ -22,7 +22,7 @@ class AddCommentRequest extends FormRequest
         return [
             'rating' => "Puan",
             'content' => "Yorum Metni",
-            'terms' => "Şartlar ve Koşullar"
+            //'terms' => "Şartlar ve Koşullar"
         ];
     }
 

@@ -440,7 +440,7 @@ class AppointmentCreateController extends Controller
     }
 
     /**
-     * Kampana Kodu Uygula
+     * Kampanya Kodu Uygula
      *
      * @urlParam campaign_code
      *
@@ -455,7 +455,8 @@ class AppointmentCreateController extends Controller
             if ($existCustomerList){
                 return response()->json([
                    'status' => "success",
-                   'message' => "Kampanya İndirimi Başarılı Bir Şekilde Uygulandı"
+                   'message' => "Kampanya İndirimi Başarılı Bir Şekilde Uygulandı",
+                   'campaign_id' => $campaign->id,
                 ]);
             } else{
                 return response()->json([
@@ -502,6 +503,15 @@ class AppointmentCreateController extends Controller
                 $calculatedServicePrice = $service->getPrice($room_id, $personelPrice?->price);
                 $total += $calculatedServicePrice;
             }
+
+            if (isset($request->campaign_id)){
+                $campaign = Campaign::find($request->campaign_id);
+                $discount = $campaign->discount;
+                if (is_numeric($calculatedServicePrice)){
+                    $calculatedServicePrice -= ($calculatedServicePrice * $discount) / 100;
+                }
+            }
+
             $servicePrices [] = [
                 "id" => $service->id,
                 "name" => $service->subCategory->getName(),
