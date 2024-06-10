@@ -156,14 +156,84 @@ class AppointmentCreateController extends Controller
                             ], 422);
                         } else {
                             //tüm koşullar sağlanmış ise personel saat takvimi
-                            for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time); $i->addMinute($personel->appointmentRange->time)) {
-                                $clocks[] = [
-                                    'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
-                                    'saat' => $i->format('H:i'),
-                                    'date' => $getDate->format('d.m.Y'),
-                                    'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
-                                    'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
-                                ];
+                            $checkCustomWorkTime = $personel->isCustomWorkTime($request->appointment_date);
+
+                            if (isset($checkCustomWorkTime)) {
+                                if (Carbon::parse($checkCustomWorkTime->start_time) < Carbon::parse($checkCustomWorkTime->end_time)) {
+                                    for ($i = Carbon::parse($checkCustomWorkTime->start_time); $i < Carbon::parse($checkCustomWorkTime->end_time); $i->addMinute($personel->appointmentRange->time)) {
+                                        $clocks[] = [
+                                            'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+                                            'saat' => $i->format('H:i'),
+                                            'date' => $getDate->format('d.m.Y'),
+                                            'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                                            'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
+                                        ];
+                                    }
+                                } else {
+                                    $lastTime = "";
+                                    for ($i = Carbon::parse($checkCustomWorkTime->start_time); $i < Carbon::parse($checkCustomWorkTime->end_time)->endOfDay(); $i->addMinute($personel->appointmentRange->time)) {
+                                        $clocks[] = [
+                                            'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+                                            'saat' => $i->format('H:i'),
+                                            'date' => $getDate->format('d.m.Y'),
+                                            'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                                            'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
+                                        ];
+                                        $lastTime = $i->format('H:i');
+                                    }
+
+                                    $newStartTime = $getDate->addDays(1);
+
+                                    for ($i = $newStartTime; $i < Carbon::parse($newStartTime->toDateString() . $checkCustomWorkTime->end_time); $i->addMinute($personel->appointmentRange->time)) {
+                                        $clocks[] = [
+                                            'id' => $i->format('d_m_Y_' . $i->format('H_i')),
+                                            'saat' => $i->format('H:i'),
+                                            'date' => $i->format('d.m.Y'),
+                                            'value' => $i->format('d.m.Y ' . $i->format('H:i')),
+                                            'durum' => in_array($i->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
+                                        ];
+                                    }
+
+                                }
+
+                            } else {
+                                if (Carbon::parse($personel->start_time) < Carbon::parse($personel->end_time)) {
+                                    for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time); $i->addMinute($personel->appointmentRange->time)) {
+                                        $clocks[] = [
+                                            'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+                                            'saat' => $i->format('H:i'),
+                                            'date' => $getDate->format('d.m.Y'),
+                                            'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                                            'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
+                                        ];
+                                    }
+                                } else {
+                                    $lastTime = "";
+                                    for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time)->endOfDay(); $i->addMinute($personel->appointmentRange->time)) {
+                                        $clocks[] = [
+                                            'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+                                            'saat' => $i->format('H:i'),
+                                            'date' => $getDate->format('d.m.Y'),
+                                            'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                                            'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
+                                        ];
+                                        $lastTime = $i->format('H:i');
+                                    }
+
+                                    $newStartTime = $getDate->addDays(1);
+
+                                    for ($i = $newStartTime; $i < Carbon::parse($newStartTime->toDateString() . $personel->end_time); $i->addMinute($personel->appointmentRange->time)) {
+                                        $clocks[] = [
+                                            'id' => $i->format('d_m_Y_H_i'),
+                                            'saat' => $i->format('H:i'),
+                                            'date' => $i->format('d.m.Y'),
+                                            'value' => $i->format('d.m.Y H:i'),
+                                            'durum' => in_array($i->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
+                                        ];
+                                    }
+
+                                }
+
                             }
 
 
