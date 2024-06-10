@@ -120,6 +120,7 @@ Route::prefix('customer')->group(function (){
         //Randevu oluşturma
         Route::prefix('appointment-create/{business}/')->group(function (){
             Route::get('personel', [AppointmentCreateController::class, 'getPersonel']);
+            Route::get('date', [AppointmentCreateController::class, 'getDate']);
             Route::get('clock', [AppointmentCreateController::class, 'getClock']);
             Route::get('check-clock', [AppointmentCreateController::class, 'checkClock']);
             Route::get('summary', [AppointmentCreateController::class, 'summary']);

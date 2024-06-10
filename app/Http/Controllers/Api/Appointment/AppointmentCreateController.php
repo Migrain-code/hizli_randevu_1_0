@@ -108,6 +108,59 @@ class AppointmentCreateController extends Controller
     }
 
     /**
+     *
+     * Tarih Listesi
+     * @param Request $request
+     * @return void
+     */
+    public function getDate()
+    {
+        $i = 0;
+        $remainingDate = [];
+
+        while ($i <= 30) {
+            $remainingDate[] = Carbon::now()->addDays($i);
+            $i++;
+        }
+
+        foreach ($remainingDate as $date) {
+            $dateStartOfDay = clone $date;
+            $dateStartOfDay->startOfDay();
+
+            $today = Carbon::now()->startOfDay();
+            $tomorrow = Carbon::now()->addDays(1)->startOfDay();
+
+            if ($dateStartOfDay->eq($today)) {
+                $dates[] = [
+                    'date' => $date->translatedFormat('d'),
+                    'day' => "Bugün",
+                    'month' => $date->translatedFormat('F'),
+                    'text' => "Bugün",
+                    'value' => $date->toDateString(),
+                ];
+            } else if ($dateStartOfDay->eq($tomorrow)) {
+                $dates[] = [
+                    'date' => $date->translatedFormat('d'),
+                    'day' => "Yarın",
+                    'text' => "Yarın",
+                    'month' => $date->translatedFormat('F'),
+                    'value' => $date->toDateString(),
+                ];
+            } else {
+                $dates[] = [
+                    'date' => $date->translatedFormat('d'),
+                    'month' => $date->translatedFormat('F'),
+                    'day' => $date->translatedFormat('l'),
+                    'text' => $date->translatedFormat('d F l'),
+                    'value' => $date->toDateString(),
+                ];
+            }
+        }
+
+        return response()->json($dates);
+    }
+
+    /**
      * Saat Listesi
      *
      * @param Request $request
