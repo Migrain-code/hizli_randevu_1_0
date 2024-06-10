@@ -528,7 +528,7 @@ class AppointmentCreateController extends Controller
     public function appointmentCreate(CreateRequest $request, Business $business)
     {
         $appointment = new Appointment();
-        $appointment->customer_id = $request->customer_id;
+        $appointment->customer_id = $this->customer->id;
         $appointment->business_id = $business->id;
         $appointment->room_id = $request->room_id == 0 ? null : $request->room_id;
         $appointment->save();
