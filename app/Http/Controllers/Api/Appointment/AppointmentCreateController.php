@@ -13,6 +13,7 @@ use App\Models\Appointment;
 use App\Models\AppointmentServices;
 use App\Models\Business;
 use App\Models\BusinessService;
+use App\Models\Campaign;
 use App\Models\Customer;
 use App\Models\Personel;
 use App\Models\PersonelRoom;
@@ -437,6 +438,36 @@ class AppointmentCreateController extends Controller
     }
 
     /**
+     * Kampana Kodu Uygula
+     *
+     * @urlParam campaign_code
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function useCoupon(Request $request)
+    {
+        $campaign = Campaign::where('code', $request->input('campaign_code'))->first();
+        if (isset($campaign)){
+            $existCustomerList = $campaign->customers()->where('customer_id', $this->customer->id)->exists();
+            if ($existCustomerList){
+                return response()->json([
+                   'status' => "success",
+                   'message' => "Kampanya İndirimi Başarılı Bir Şekilde Uygulandı"
+                ]);
+            } else{
+                return response()->json([
+                    'status' => "success",
+                    'message' => "Kampanya Kodunu Hatalı veya Yanlış Tuşladınız"
+                ], 422);
+            }
+        }
+        return response()->json([
+            'status' => "success",
+            'message' => "Kampanya Kodunu Hatalı veya Yanlış Tuşladınız"
+        ], 422);
+    }
+    /**
      * Randevu Özeti
      *
      * @param Request $request
@@ -487,44 +518,62 @@ class AppointmentCreateController extends Controller
     }
 
     /**
-     * Randevu oluşturma
      *
+     * Randevu Oluştur
      * @param Request $request
-     * @return JsonResponse
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function appointmentCreate(CreateRequest $request, Business $business)
     {
         $appointment = new Appointment();
+        $appointment->customer_id = $request->customer_id;
         $appointment->business_id = $business->id;
-        $appointment->customer_id = $this->customer->id;
         $appointment->room_id = $request->room_id == 0 ? null : $request->room_id;
         $appointment->save();
+
+        $personelIds = [];
+        $serviceIds = [];
+        foreach ($request->personels as $personelId) {
+            $personelIds[] = explode('_', $personelId)[0];
+            $serviceIds[] = explode('_', $personelId)[1];
+        }
+
         $appointmentStartTime = Carbon::parse($request->appointment_time);
         $approve_types = [];
-        foreach ($request->services as $index => $serviceId) {
+        foreach ($serviceIds as $index => $serviceId) {
             $findService = BusinessService::find($serviceId);
             $appointmentService = new AppointmentServices();
-            $appointmentService->personel_id = $request->personels[$index];
+            $appointmentService->personel_id = $personelIds[$index];
             $appointmentService->service_id = $serviceId;
             $appointmentService->start_time = $appointmentStartTime;
             $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
             $appointmentService->appointment_id = $appointment->id;
             $appointmentService->save();
+            $result = $this->checkPersonelClock($personelIds[$index], $appointmentService->start_time, $appointmentService->end_time, $request->room_id);
+
+            /*if ($result) {
+                $appointment->services()->delete();
+                $appointment->delete();
+                return response()->json([
+                    'status' => "error",
+                    'message' => "Seçtiğiniz saate " . $findService->time . " dakikalık hizmet seçtiniz. Bu saate randevu alamazsınız. Başka bir saat seçmelisiniz."
+                ]);
+            }*/
+            $approve_types[] = $findService->approve_type;
+
         }
 
         $appointment->start_time = $appointment->services()->first()->start_time;
         $appointment->end_time = $appointment->services()->skip($appointment->services()->count() - 1)->first()->end_time;
-
-
         $calculateTotal = $appointment->calculateTotal();
         $appointment->total = $calculateTotal;
-        if (in_array(1, $approve_types)) { // hizmet manuel onay ise
+        if (in_array(1, $approve_types)) { // hizmet maneul onay ise
             $appointment->status = 0; // Otomatik onay
             foreach ($appointment->services as $service) {
                 $service->status = 0;
                 $service->save();
             }
-            $message = $business->name. " İşletmesine Randevunuz talebiniz alınmıştır. İşletmemiz en kısa sürede sizi bilgilendirecektir.";
+            $message = $business->name . " İşletmesine Randevunuz talebiniz alınmıştır. İşletmemiz en kısa sürede sizi bilgilendirecektir.";
 
         } else {
             $appointment->status = 1; // Otomatik onay ise
@@ -532,25 +581,23 @@ class AppointmentCreateController extends Controller
                 $service->status = 1;
                 $service->save();
             }
-            $message = $business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihine randevunuz oluşturuldu.";
-        }
+            $message = $business->name . " İşletmesine " . $appointment->start_time->format('d.m.Y H:i') . " tarihine randevunuz oluşturuldu.";
 
+        }
         if ($appointment->save()) {
-            $appointment->customer->sendSms($message);
-            $appointment->sendPersonelNotification();
-            return response()->json([
+            //$appointment->customer->sendSms($message);
+            return to_route('business.appointment.index')->with('response', [
                 'status' => "success",
-                'message' => $message,
+                'message' => "Randevunuz başarılı bir şekilde oluşturuldu",
             ]);
         }
-        return response()->json([
-            'status' => "success",
-            'message' => "Bir hata sebebiyle randevunuz oluşturulamadı lütfen tekrar deneyiniz"
 
+        return to_route('business.appointment.index')->with('response', [
+            'status' => "error",
+            'message' => "Bir hata sebebiyle randevunuz oluşturulamadı lütfen tekrar deneyiniz",
         ]);
+
     }
-
-
     public function findDisabledTimes($personel, $appointmentStartTime)
     {
         $appointments = $personel->appointments()->whereDate('start_time', $appointmentStartTime->toDateString())->whereNotIn('status', [3])->get();

@@ -123,6 +123,8 @@ Route::prefix('customer')->group(function (){
             Route::get('date', [AppointmentCreateController::class, 'getDate']);
             Route::get('clock', [AppointmentCreateController::class, 'getClock']);
             Route::get('check-clock', [AppointmentCreateController::class, 'checkClock']);
+            Route::post('use/coupon', [AppointmentCreateController::class, 'useCoupon']);
+            Route::post('delete/coupon', [AppointmentCreateController::class, 'deleteCoupon']);
             Route::get('summary', [AppointmentCreateController::class, 'summary']);
             Route::post('create', [AppointmentCreateController::class, 'appointmentCreate']);
         });
