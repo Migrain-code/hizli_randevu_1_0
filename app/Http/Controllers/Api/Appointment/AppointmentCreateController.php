@@ -426,7 +426,7 @@ class AppointmentCreateController extends Controller
                 return response()->json([
                     'status' => "error",
                     'message' => "Seçtiğiniz saate " . $findService->time . " dakikalık hizmet seçtiniz. Bu saate randevu alamazsınız. Başka bir saat seçmelisiniz."
-                ]);
+                ], 422);
             }
 
         }
