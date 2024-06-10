@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Appointment;
 
+use App\Http\Resources\Business\BusinessBasicResource;
+use App\Http\Resources\Business\BusinessListResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AppointmentDetailResoruce extends JsonResource
@@ -16,6 +18,7 @@ class AppointmentDetailResoruce extends JsonResource
     {
         return [
             'id' => $this->id,
+            'business' => BusinessBasicResource::make($this->business),
             'name' => $this->customer->name,
             'date' => $this->start_time->format('d.m.Y H:i'),
             'status' => $this->status("text"),
