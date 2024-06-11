@@ -29,7 +29,7 @@ class BusinessController extends Controller
     {
         $businesses = Business::where('status', 1)->has('personel')->has('services')
             ->when($request->filled('name'), function ($q) use ($request){
-                $q->where('name', 'like', '%', $request->input('name'). "%");
+                $q->where('name', 'like', '%' . $request->input('name') . '%');
             })
             ->when($request->filled('gender'), function ($q) use ($request){
                 $q->where('type_id', $request->input('gender'))->where('type_id', 3);
