@@ -512,11 +512,13 @@ class AppointmentCreateController extends Controller
             ];
 
         }
+        $discount = 0;
         if (isset($request->campaign_id)){
             $campaign = Campaign::find($request->campaign_id);
             $discount = $campaign->discount;
             if (is_numeric($total)){
-                $total -= ($total * $discount) / 100;
+                $discount = ($total * $discount) / 100; // indirim tutarı
+                $total -= $discount; //indirimli tutar
             }
         }
 
@@ -525,6 +527,7 @@ class AppointmentCreateController extends Controller
             'date' => Carbon::parse($request->appointment_time)->translatedFormat('d F Y'),
             'clock' => Carbon::parse($request->appointment_time)->translatedFormat('H:i'),
             'prices' => $servicePrices,
+            'discount' => $discount,
             'total' => !in_array(1, $isCalculate) ? str($total) : "Hesaplanacak",
         ]);
     }
