@@ -17,7 +17,8 @@ class BusinessCategoryListResource extends JsonResource
         return [
           'id' => $this->id,
           'name' => $this->getName(),
-          'icon' => image($this->icon)
+          'icon' => image($this->icon),
+          'image' => image($this->mobile_image)
         ];
     }
 }
