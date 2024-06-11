@@ -513,6 +513,7 @@ class AppointmentCreateController extends Controller
 
         }
         $discount = 0;
+        $generalTotal = $total;
         if (isset($request->campaign_id)){
             $campaign = Campaign::find($request->campaign_id);
             $discount = $campaign->discount;
@@ -528,6 +529,7 @@ class AppointmentCreateController extends Controller
             'clock' => Carbon::parse($request->appointment_time)->translatedFormat('H:i'),
             'prices' => $servicePrices,
             'discount' => $discount,
+            'generalTotal' => !in_array(1, $isCalculate) ? str($generalTotal) : "Hesaplanacak",
             'total' => !in_array(1, $isCalculate) ? str($total) : "Hesaplanacak",
         ]);
     }
