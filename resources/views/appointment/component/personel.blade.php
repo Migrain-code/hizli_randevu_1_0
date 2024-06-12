@@ -1,3 +1,4 @@
+@if($rooms->count() > 0 && isset(request()['request']['selection_room_id']))
 <div class="servicesBox">
     <div
         class="d-flex align-items-center justify-content-between"
@@ -61,3 +62,4 @@
     </div>
 
 </div>
+@endif
