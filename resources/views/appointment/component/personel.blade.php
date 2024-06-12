@@ -32,17 +32,24 @@
                 >
                     <select class="tomSelect" name="personels[]"  @if($loop->last) id="lastSelect" @endif required>
                         <option value="">Personel Seçiniz</option>
-                        @forelse($service->personels as $service_personel)
-                            @if(isset(request()['request']['selection_room_id']) && isset($roomPersonelIds))
-                                @if(in_array($service_personel->personel->id, $roomPersonelIds))
-                                    <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+
+                            @forelse($service->personels as $service_personel)
+                                @if(isset(request()['request']['selection_room_id']) && isset($roomPersonelIds))
+                                    @if(in_array($service_personel->personel->id, $roomPersonelIds))
+                                        <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                                    @endif
+
+                                @else
+                                    @if($rooms->count() > 0 && isset(request()['request']['selection_room_id']))
+                                        <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                                    @else
+                                        <option value="">Oda seçimi Yapmadınız</option>
+                                    @endif
                                 @endif
-                            @else
-                                <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
-                            @endif
-                        @empty
-                            <option value="">Personel Bulunamadı</option>
-                        @endforelse
+                            @empty
+                                <option value="">Personel Bulunamadı</option>
+                            @endforelse
+
                     </select>
                 </div>
             @endforeach
