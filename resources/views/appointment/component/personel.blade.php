@@ -107,11 +107,8 @@
                                     @endif
 
                                 @else
-                                    @if($rooms->count() > 0 && isset(request()['request']['selection_room_id']))
-                                        <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
-                                    @else
-                                        <option value="">Oda seçimi Yapmadınız</option>
-                                    @endif
+                                    <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+
                                 @endif
                             @empty
                                 <option value="">Personel Bulunamadı</option>
