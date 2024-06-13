@@ -32,12 +32,20 @@ class MainPageController extends Controller
         $activities = Activity::whereStatus(0)->get();
         $productAdverts = ProductAds::where('status', 1)->get();
         $interviews = Interview::whereStatus(1)->get();
+        $isNotification = false;
+        if (auth('api')->check()){
+            $user = auth('api')->user();
+            if ($user->unReadNotifations->count() > 0){
+                $isNotification = true;
+            }
+        }
         return response()->json([
            'categories' => BusinessCategoryListResource::collection($categories),
            'adverts' => AdvertListResource::collection($adverts),
            'activities' => ActivityListResource::collection($activities),
            'productAdverts' => ProductAdvertListResource::collection($productAdverts),
            'interviews' => InterviewListResource::collection($interviews),
+           'is_notification' => $isNotification
         ]);
     }
 }
