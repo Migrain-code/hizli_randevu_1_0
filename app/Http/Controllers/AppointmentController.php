@@ -135,20 +135,66 @@ class AppointmentController extends Controller
         ]);
     }
 
-    public function checkClock($personelId, $startTime, $endTime, $appointmentId = null)
+    public function checkPersonelClock($business,$personelId, $startTime, $endTime, $roomId)
     {
+
         $findPersonel = Personel::find($personelId);
-        $appointments =  $findPersonel->appointments()->whereNotIn('status', [3])->get();
+        $disabledTimes = $this->findDisabledTimes($business,$findPersonel, $startTime, $roomId);
+
+        $disableds = [];
+        $currentDateTime = $startTime->copy();
+
+        while ($currentDateTime < $endTime) {
+            $disableds[] = $currentDateTime->format('d.m.Y H:i');
+            $currentDateTime->addMinutes(intval($findPersonel->appointmentRange->time));
+        }
+        $disabledConfig = [];
+        foreach ($disableds as $disabledTime) {
+            if (in_array($disabledTime, $disabledTimes)) {
+                $disabledConfig[] = 1;
+            } else {
+                $disabledConfig[] = 0;
+            }
+        }
+
+        return in_array(1, $disabledConfig);
+    }
+    public function findDisabledTimes($business,$personel, $appointmentStartTime, $roomId)
+    {
+        $appointments = $personel->appointments()->whereDate('start_time', $appointmentStartTime->toDateString())->whereNotIn('status', [3])->get();
+        $disabledTimes = [];
         foreach ($appointments as $appointment) {
-            if ($appointment->appointment_id != $appointmentId) {
-                // Randevuların çakışma durumunu kontrol et
-                if (($startTime->lt($appointment->end_time) && $endTime->gt($appointment->start_time)) ||
-                    ($endTime->gt($appointment->start_time) && $startTime->lt($appointment->end_time))) {
-                    return true;
+            $startDateTime = $appointment->start_time;
+            $endDateTime = $appointment->end_time;
+
+            $currentDateTime = $startDateTime->copy();
+            while ($currentDateTime < $endDateTime) {
+
+                $disabledTimes[] = $currentDateTime->format('d.m.Y H:i');
+
+                $currentDateTime->addMinutes(intval($personel->appointmentRange->time));
+            }
+        }
+
+        if (isset($roomId) && $roomId > 0) {
+            // oda tipi seçilmşse o odadaki randevuları al ve disabled dizisine ata
+            $appointmentsBusiness = $business->appointments()->where('room_id', $roomId)
+                ->whereDate('start_time', $appointmentStartTime->toDateString())
+                ->whereNotIn('status', [3])->get();
+            foreach ($appointmentsBusiness as $appointment) {
+                $businessStartDateTime = Carbon::parse($appointment->start_time);
+                $businessEndDateTime = Carbon::parse($appointment->end_time);
+
+                $businessCurrenDateTime = $businessStartDateTime->copy();
+                while ($businessCurrenDateTime < $businessEndDateTime) {
+
+                    $disabledTimes[] = $businessCurrenDateTime->format('d.m.Y H:i');
+
+                    $businessCurrenDateTime->addMinutes(intval($business->range->time));
                 }
             }
         }
-        return false;
+        return $disabledTimes;
     }
     public function appointmentCreate(Request $request)
     {
@@ -194,12 +240,11 @@ class AppointmentController extends Controller
             $appointmentService->service_id = $serviceId;
             $appointmentService->start_time = $appointmentStartTime;
             $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
-            $appointmentService->appointment_id = $appointment->id;
-            $appointmentService->save();
+
 
             $approve_types[] = $findService->approve_type;
 
-            if ($this->checkClock($request->personels[$index], $appointmentService->start_time, $appointmentService->end_time, $appointment->id)) {
+            if ($this->checkPersonelClock($business,$request->personels[$index], $appointmentService->start_time, $appointmentService->end_time, $appointment->id)) {
                 $appointment->services()->delete();
                 $appointment->delete();
                 return back()->with('response', [
@@ -207,6 +252,8 @@ class AppointmentController extends Controller
                     'message' => "Seçtiğiniz saate " . $findService->time . " dakikalık hizmet seçtiniz. Bu saate randevu alamazsınız. Başka bir saat seçmelisiniz."
                 ]);
             }
+            $appointmentService->appointment_id = $appointment->id;
+            $appointmentService->save();
         }
 
         $appointment->start_time = $appointment->services()->first()->start_time;

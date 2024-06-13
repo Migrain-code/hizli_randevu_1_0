@@ -30,7 +30,7 @@ class ActivityController extends Controller
      */
     public function index(Request $request)
     {
-        $activities = Activity::whereStatus(0)
+        $activities = Activity::whereStatus(1)
             ->when($request->filled('todayActiviy'), function ($q){
                 $q->whereDate('start_time', Carbon::now()->toDateString());
             })
