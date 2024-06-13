@@ -90,6 +90,7 @@ class BusinessDetailResource extends JsonResource
     function transformServices($womanServiceCategories)
     {
         $transformedDataWoman = [];
+        $transformedFeaturedServices = [];
         foreach ($womanServiceCategories as $category => $services) {
             $transformedServices = [];
             foreach ($services as $service) {
@@ -100,6 +101,13 @@ class BusinessDetailResource extends JsonResource
                     'price' => $service->price_type_id == 0 ? $service->price : $service->price . " - " . $service->max_price,
                     'is_featured' => $service->is_featured == 1,
                 ];
+                if ($service->is_featured == 1){
+                    $transformedFeaturedServices[] = [
+                        'id' => $service->id,
+                        'name' => $service->subCategory->getName(),
+                        'price' => $service->price_type_id == 0 ? $service->price : $service->price . " - " . $service->max_price,
+                    ];
+                }
 
             }
             $transformedDataWoman[] = [
@@ -110,6 +118,8 @@ class BusinessDetailResource extends JsonResource
         }
         return [
             'services' => $transformedDataWoman,
+            'featured' => $transformedFeaturedServices,
+
         ];
     }
 }
