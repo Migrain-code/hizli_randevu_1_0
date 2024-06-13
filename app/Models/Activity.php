@@ -44,4 +44,9 @@ class Activity extends Model
     {
         return $this->hasOne(City::class, 'id', 'city_id');
     }
+
+    public function district()
+    {
+        return $this->hasOne(District::class, 'id', 'district_id');
+    }
 }

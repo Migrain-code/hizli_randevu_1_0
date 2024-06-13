@@ -30,6 +30,7 @@ class ActivityDetailResource extends JsonResource
           'dateRange' => $this->start_time->translatedFormat('d F'). " ". $this->end_time->translatedFormat('d F'),
           'clock' => $this->start_time->translatedFormat('H:i'). " - ". $this->end_time->translatedFormat('H:i'),
           'city' => CityListResource::make($this->city),
+          'district' => CityListResource::make($this->district),
           'sponsors' => ActivitySponsorResource::collection($this->sponsors),
           'personels' => ActivityPersonelsResource::collection($this->personels),
           'photos' => ActivitySliderResource::collection($this->images),
