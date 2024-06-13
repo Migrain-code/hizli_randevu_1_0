@@ -118,7 +118,13 @@ class BusinessDetailResource extends JsonResource
         }
         return [
             'services' => $transformedDataWoman,
-            'featured' => $transformedFeaturedServices,
+            'featured' => [
+                [
+                    'id' => 0,
+                    'name' => "Sık Kullanılan",
+                    'services' => $transformedFeaturedServices
+                ]
+            ],
 
         ];
     }
