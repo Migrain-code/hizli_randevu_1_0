@@ -35,14 +35,16 @@ class BusinessDetailResource extends JsonResource
             'point' => $this->points(),
             'address' => $this->addresss,
             'gender' => BusinessGenderResource::make($this->type),
-            'is_favorite' => $this->checkFavorite(auth('api')->id()),
+            'is_favorite' => auth('api')->check() ? $this->checkFavorite(auth('api')->id()) : false,
             'services' => $this->getService(),
             'gallery' => GalleryListResource::collection($this->gallery),
             'personels' => PersonelListResource::collection($this->personel),
             'comments' => BusinessCommentListResource::collection($this->comments),
             'about' => $this->about,
             'embed' => $this->embed,
-            'workTimes' => $this->dayList()
+            'shareUrl' => "https://hizlirandevu.com.tr/".$this->slug,
+            'workTimes' => $this->dayList(),
+
         ];
     }
     public function dayList()

@@ -32,6 +32,8 @@ class BusinessListResource extends JsonResource
             'point' => $this->points(),
             'address' => $this->addresss,
             'is_favorite' => $this->checkFavorite(auth('api')->id()),
+            'min_price' => $this->services->min('price'),
+            'approve_type' => $this->approve_type == 0 ? "Otomatik Onay" : "Hızlı Onay"
         ];
     }
 }
