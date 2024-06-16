@@ -18,6 +18,7 @@ class NotificationListResource extends JsonResource
         return [
           'id' => $this->id,
           'title' => $this->title,
+          'icon' => image('default/notificationIcon.png'),
           'description' => $this->content,
           'created_at' => $this->created_at->format('d.m.Y'),
           'created_clock' => $this->created_at->format('H:i'),

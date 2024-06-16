@@ -25,9 +25,26 @@ use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use App\Services\NotificationService;
 
 class HomeController extends Controller
 {
+    protected $notificationService;
+
+    public function __construct(NotificationService $notificationService)
+    {
+        $this->notificationService = $notificationService;
+    }
+    public function sendNotification(Request $request)
+    {
+        $expoToken = $request->input('expo_token');
+        $title = $request->input('title');
+        $body = $request->input('body');
+
+        $response = $this->notificationService->sendPushNotification($expoToken, $title, $body);
+
+        return response()->json($response);
+    }
     public function index()
     {
         $brandList = Ads::where('type', 8)->get(); //Anasayfa marka reklamları

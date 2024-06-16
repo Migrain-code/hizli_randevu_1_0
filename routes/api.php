@@ -30,7 +30,7 @@ use App\Http\Controllers\Api\Appointment\AppointmentCreateController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+Route::get('notification/test', [\App\Http\Controllers\HomeController::class, 'sendNotification']);
 Route::post('/salon-ara', [\App\Http\Controllers\SearchController::class, 'salonName']);
 
 Route::prefix('appointment')->group(function (){
