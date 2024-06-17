@@ -128,6 +128,18 @@ class UserController extends Controller
         ]);
     }
 
+    public function deleteAccount()
+    {
+        $user = $this->customer;
+        $user->status = 2;
+        if ($user->save()){
+            return response()->json([
+                'status' => "success",
+                'message' => "Hesabınız Başarılı Bir Şekilde Silindi",
+            ], 200);
+        }
+    }
+
     public function existPhone($phone)
     {
         $existPhone = Customer::where('phone', $phone)->first();

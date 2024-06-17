@@ -91,6 +91,8 @@ Route::prefix('customer')->group(function (){
         // Profil Foto Güncelle
         Route::post('update-profile-photo', [UserController::class, 'updateProfilePhoto']);
 
+        Route::get('account-delete', [UserController::class, 'deleteAccount']);
+
         // Favori İşletmeler
         Route::apiResource('favorite', FavoriteController::class)->only([
             'index', 'store'
