@@ -32,7 +32,7 @@ class BusinessController extends Controller
                 $q->where('name', 'like', '%' . $request->input('name') . '%');
             })
             ->when($request->filled('gender'), function ($q) use ($request){
-                $q->where('type_id', $request->input('gender'))->where('type_id', 3);
+                $q->where('type_id', $request->input('gender'));
             })
             ->when($request->filled('order_type'), function ($q) use($request){
                 $orderType = $request->input('order_type');
