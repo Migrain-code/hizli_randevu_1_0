@@ -33,7 +33,7 @@ class BusinessDetailResource extends JsonResource
             'wallpaper' => image($this->gallery()->first()->way ?? "default/business.png"),
             'commentCount' => $this->comments->count(),
             'point' => $this->points(),
-            'address' => $this->addresss,
+            'address' => $this->address,
             'gender' => BusinessGenderResource::make($this->type),
             'is_favorite' => auth('api')->check() ? $this->checkFavorite(auth('api')->id()) : false,
             'services' => $this->getService(),
