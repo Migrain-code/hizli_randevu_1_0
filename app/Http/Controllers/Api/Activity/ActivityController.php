@@ -35,7 +35,7 @@ class ActivityController extends Controller
                 $q->whereDate('start_time', Carbon::now()->toDateString());
             })
             ->when($request->filled('city_id'), function ($q) use ($request){
-                $q->where('city_id', $request->city_id);
+                $q->where('city_id', $request->input('city_id'));
             })
             ->when($request->filled('activity_date'), function ($q) use ($request){
                 $q->whereDate('start_time', Carbon::parse($request->input('activity_date'))->toDateString());
