@@ -29,7 +29,7 @@ class MainPageController extends Controller
     {
         $categories = BusinessCategory::where('is_menu', 1)->whereStatus(1)->orderBy('order_number', 'asc')->get();
         $adverts = Ads::where('type', 10)->whereStatus(1)->get();
-        $activities = Activity::whereStatus(0)->get();
+        $activities = Activity::whereStatus(1)->get();
         $productAdverts = ProductAds::where('status', 1)->get();
         $interviews = Interview::whereStatus(1)->get();
         $isNotification = false;
