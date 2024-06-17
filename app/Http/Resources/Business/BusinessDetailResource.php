@@ -44,6 +44,8 @@ class BusinessDetailResource extends JsonResource
             'embed' => $this->embed,
             'shareUrl' => "https://hizlirandevu.com.tr/".$this->slug,
             'workTimes' => $this->dayList(),
+            'latitude' => $this->lat,
+            'longitude' => $this->longitude,
 
         ];
     }
