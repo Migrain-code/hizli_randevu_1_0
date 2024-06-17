@@ -195,21 +195,21 @@ class AppointmentCreateController extends Controller
                     return response()->json([
                         "status" => "error",
                         "message" => "İşletme bu tarihte hizmet vermemektedir"
-                    ], 422);
+                    ], 200);
                 } else {
                     //işletme kapalı değilse personel izin kontrolü
                     if (in_array(Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek, $personel->restDays()->pluck('day_id')->toArray())) {
                         return response()->json([
                             "status" => "error",
                             "message" => "Personel bu tarihte hizmet vermemektedir"
-                        ], 422);
+                        ], 200);
                     } else {
                         //personel kapalı değilse personel izin gün kontrolü
                         if ($personel->checkDateIsOff($getDate)) {
                             return response()->json([
                                 "status" => "error",
                                 "message" => "Personel bu tarihte hizmet vermemektedir"
-                            ], 422);
+                            ], 200);
                         } else {
                             //tüm koşullar sağlanmış ise personel saat takvimi
                             $checkCustomWorkTime = $personel->isCustomWorkTime($request->appointment_date);
@@ -307,7 +307,7 @@ class AppointmentCreateController extends Controller
                 return response()->json([
                     "status" => "error",
                     "message" => "İşletme bu tarihte hizmet vermemektedir"
-                ], 422);
+                ], 200);
             } else {
                 // işletme çalışma saatlerine randevu aralığına göre diziye ekle
                 $businessClocks = [];
@@ -379,7 +379,7 @@ class AppointmentCreateController extends Controller
                     return response()->json([
                         "status" => "error",
                         "message" => "Seçtiğiniz Hizmetler için uygun randevu aralığı bulunmamaktadır. Randevu Gününü,Personeli veya Hizmeti Değiştirerek Yeniden Saat Arayabilirsiniz."
-                    ], 422);
+                    ], 200);
                 }
             }
         }
