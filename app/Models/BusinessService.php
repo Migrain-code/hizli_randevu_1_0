@@ -58,6 +58,7 @@ class BusinessService extends Model
 
             }
         } else{
+
             if (isset($personelPrice)){
                 $price = $personelPrice;
             } else{

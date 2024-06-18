@@ -500,7 +500,9 @@ class AppointmentCreateController extends Controller
                     $isCalculate[] = 1;
                 }
             } else {
+
                 $calculatedServicePrice = $service->getPrice($room_id, $personelPrice?->price);
+
                 $total += $calculatedServicePrice;
             }
 
