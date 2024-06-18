@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\Register\RegisterRequest;
+use App\Http\Resources\Advert\AdvertListResource;
 use App\Http\Resources\Customer\CustomerInfoResource;
+use App\Models\Ads;
 use App\Models\Customer;
 use App\Models\SmsConfirmation;
 use App\Services\Sms;
@@ -18,6 +20,17 @@ use Illuminate\Support\Facades\Hash;
  */
 class AuthController extends Controller
 {
+    /**
+     * Login Slider
+     *
+     * @return \Illuminate\Http\JsonResponse
+     *
+     */
+    public function loginSlider()
+    {
+        $loginSlider = Ads::where('type', 11)->whereStatus(1)->get();
+        return response()->json(AdvertListResource::collection($loginSlider));
+    }
     /**
      * Giriş Yap
      * @return \Illuminate\Http\JsonResponse

@@ -64,6 +64,7 @@ Route::prefix('business/{business}/')->group(function (){
 Route::prefix('customer')->group(function (){
     Route::prefix('auth')->group(function (){
         Route::post('login', [AuthController::class, 'login']); // Giriş Yap
+        Route::get('login/slider', [AuthController::class, 'loginSlider']); // Giriş Yap
         Route::post('register', [AuthController::class, 'register']); // Kayıt Ol
         Route::post('verify', [VerifyController::class, 'verify']); // Kayıttaki Doğrulama
 
