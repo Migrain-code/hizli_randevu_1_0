@@ -37,7 +37,7 @@ class BusinessService extends Model
     public function getPrice($room_id = null, $personelPrice = null)
     {
         $price = 0;
-        if (isset($room_id)){
+        if (isset($room_id) && $room_id > 0){
             $findRoom = $this->business->rooms()->where('id', $room_id)->first();
             if ($findRoom){
                 if (isset($personelPrice)){

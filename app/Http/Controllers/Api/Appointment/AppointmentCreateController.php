@@ -481,7 +481,7 @@ class AppointmentCreateController extends Controller
     {
         $servicePrices = [];
         $needsCalculation = false; // Fiyat hesaplaması gereken durumları izlemek için bir değişken
-        $roomId = $request->room_id; // Daha anlamlı bir değişken ismi
+        $roomId = $request->input('room_id'); // Özel Oda ID
         $total = 0;
 
         foreach ($request->personels as $personelId) {
