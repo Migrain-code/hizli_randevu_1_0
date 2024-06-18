@@ -480,48 +480,56 @@ class AppointmentCreateController extends Controller
     public function summary(SummaryRequest $request, Business $business)
     {
         $servicePrices = [];
-        $isCalculate = [];
-        $room_id = $request->room_id;
+        $needsCalculation = false; // Fiyat hesaplaması gereken durumları izlemek için bir değişken
+        $roomId = $request->room_id; // Daha anlamlı bir değişken ismi
         $total = 0;
-        foreach ($request->personels as $personelId) {
-            $service = BusinessService::find(explode('_', $personelId)[1]);
 
-            $personelPrice = $service->getPersonelPrice(explode('_', $personelId)[0]);
-            if ($service->price_type_id == 1) {
-                if (isset($personelPrice)) {
-                    $calculatedServicePrice = $personelPrice?->price;
-                    if (is_numeric($calculatedServicePrice)) {
-                        $total += $calculatedServicePrice;
-                    } else {
-                        $isCalculate[] = 1;
+        foreach ($request->personels as $personelId) {
+            // Personel ve hizmet kimliklerini parçalama
+            list($personelIdPart, $serviceIdPart) = explode('_', $personelId);
+            $service = BusinessService::find($serviceIdPart);
+
+            // Personel fiyatını alma
+            $personelPrice = $service->getPersonelPrice($personelIdPart);
+            $calculatedServicePrice = null;
+
+            if ($service->price_type_id == 1) { // Fiyat tipi kontrolü
+                if (isset($personelPrice)) { // Personel fiyatı varsa
+                    $calculatedServicePrice = $personelPrice->price;
+                    if (!is_numeric($calculatedServicePrice)) { // Hesaplanabilir fiyat değilse
+                        $needsCalculation = true;
                     }
-                } else {
-                    $calculatedServicePrice = $service->price. " - ". $service->max_price;
-                    $isCalculate[] = 1;
+                } else { // Personel fiyatı yoksa
+                    $calculatedServicePrice = $service->price . " - " . $service->max_price;
+                    $needsCalculation = true;
                 }
-            } else {
-                $calculatedServicePrice = $service->getPrice($room_id, $personelPrice?->price);
+            } else { // Farklı fiyat tipi durumu
+                $calculatedServicePrice = $service->getPrice($roomId, $personelPrice->price ?? null);
+                $total += $calculatedServicePrice; // Toplam fiyata ekleme
+            }
+
+            if (is_numeric($calculatedServicePrice)) { // Hesaplanabilir fiyat kontrolü
                 $total += $calculatedServicePrice;
             }
 
-
-            $servicePrices [] = [
+            $servicePrices[] = [
                 "id" => $service->id,
                 "name" => $service->subCategory->getName(),
                 "price" => str($calculatedServicePrice),
             ];
-
         }
+
         $discount = 0;
-        $generalTotal = $total;
-        if (isset($request->campaign_id)){
+        if (isset($request->campaign_id)) { // Kampanya kontrolü
             $campaign = Campaign::find($request->campaign_id);
             $discount = $campaign->discount;
-            if (is_numeric($total)){
-                $discount = ($total * $discount) / 100; // indirim tutarı
-                $total -= $discount; //indirimli tutar
+            if (is_numeric($total)) { // Hesaplanabilir toplam kontrolü
+                $discount = ($total * $discount) / 100; // İndirim hesaplama
+                $total -= $discount; // İndirimli toplam
             }
         }
+
+        $generalTotal = $total; // Genel toplam
 
         return response()->json([
             'businessName' => $business->name,
@@ -529,10 +537,11 @@ class AppointmentCreateController extends Controller
             'clock' => Carbon::parse($request->appointment_time)->translatedFormat('H:i'),
             'prices' => $servicePrices,
             'discount' => $discount,
-            'generalTotal' => !in_array(1, $isCalculate) ? str($generalTotal) : "Hesaplanacak",
-            'total' => !in_array(1, $isCalculate) ? str($total) : "Hesaplanacak",
+            'generalTotal' => $needsCalculation ? "Hesaplanacak" : str($generalTotal), // Hesaplanacak durumu kontrolü
+            'total' => $needsCalculation ? "Hesaplanacak" : str($total), // Hesaplanacak durumu kontrolü
         ]);
     }
+
 
     /**
      *
