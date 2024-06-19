@@ -40,14 +40,15 @@ class CustomerAppointmentController extends Controller
         $appointments = $this->customer->appointments()->orderBy('status', 'asc')->get();
         return response()->json(AppointmentResource::collection($appointments));
     }
+
     /**
      * Randevuya Yorum Yap
      * @return \Illuminate\Http\JsonResponse
      */
     public function update(AddCommentRequest $request, Appointment $appointment)
     {
-        if($appointment->status == 6 or $appointment->status == 5){
-            if($appointment->comment_status == 0){
+        if ($appointment->status == 6 or $appointment->status == 5) {
+            if ($appointment->comment_status == 0) {
                 $businessComment = new BusinessComment();
                 $businessComment->business_id = $appointment->business_id;
                 $businessComment->appointment_id = $appointment->id;
@@ -56,26 +57,27 @@ class CustomerAppointmentController extends Controller
                 $businessComment->content = $request->input('content');
                 if ($businessComment->save()) {
                     $appointment->comment_status = 1;
-                    if ($appointment->save()){
+                    if ($appointment->save()) {
                         return response()->json([
                             'status' => "success",
                             'message' => "Yorumunuz Başarılı Bir Şekilde İletildi"
                         ]);
                     }
                 }
-            } else{
+            } else {
                 return response()->json([
                     'status' => "warning",
                     'message' => "Bu randevuya yorum gönderdiniz başka yorum gönderemezsiniz."
                 ], 422);
             }
-        } else{
+        } else {
             return response()->json([
                 'status' => "warning",
                 'message' => "Bu randevuya yorum yapabilmek için randevunun tamamlanmasını beklemeniz gerekmektedir."
             ], 422);
         }
     }
+
     /**
      * Randevu Detayı
      * @return \Illuminate\Http\JsonResponse
@@ -91,15 +93,19 @@ class CustomerAppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
-        if ($appointment->status = 0 || $appointment->status == 1){
+        if ($appointment->status = 0 || $appointment->status == 1) {
             $appointment->status = 3;
-            if($appointment->save()){
+            foreach ($appointment->services as $service) {
+                $service->status = 3;
+                $service->save();
+            }
+            if ($appointment->save()) {
                 return response()->json([
-                   'status' => "success",
-                   'message' => "Randevunuz Başarılı Bir Şekilde İptal Edildi",
+                    'status' => "success",
+                    'message' => "Randevunuz Başarılı Bir Şekilde İptal Edildi",
                 ]);
             }
-        } else{
+        } else {
             return response()->json([
                 'status' => "error",
                 'message' => "Randevu artık iptal edilemez",
