@@ -334,35 +334,15 @@ class AppointmentCreateController extends Controller
                                 ], 200);
                             } else {
                                 for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time)->endOfDay(); $i->addMinute($personel->appointmentRange->time)) {
-                                    if (!in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0])){
-                                        $clocks[] = [
-                                            'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
-                                            'saat' => $i->format('H:i'),
-                                            'date' => $getDate->format('d.m.Y'),
-                                            'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
-                                            'durum' => true,
-                                            'personel' => $personel->id
-                                        ];
-                                    }
+                                    $clocks[] = [
+                                        'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
+                                        'saat' => $i->format('H:i'),
+                                        'date' => $getDate->format('d.m.Y'),
+                                        'value' => $getDate->format('d.m.Y ' . $i->format('H:i')),
+                                        'durum' => in_array($getDate->format('d.m.Y ') . $i->format('H:i'), $disabledDays[0]) ? false : true,
+                                    ];
                                 }
 
-                                // Initialize arrays to keep track of unique and duplicate 'value' fields
-                                $uniqueValues = [];
-                                $uniqueData = [];
-                                $duplicates = [];
-
-                                foreach ($clocks as $item) {
-                                    if (!isset($uniqueValues[$item['value']])) {
-                                        $uniqueValues[$item['value']] = true;
-                                        $uniqueData[] = $item;
-                                    } else {
-                                        if (!isset($duplicates[$item['value']])) {
-                                            $duplicates[$item['value']] = $item;
-                                        }
-                                    }
-                                }
-
-                                $clocks = $uniqueData;
                             }
 
                         }
@@ -370,6 +350,36 @@ class AppointmentCreateController extends Controller
 
 
 
+                }
+// Value değerlerine göre gruplandır
+                $groupedValues = [];
+                foreach ($clocks as $item) {
+                    $value = $item['value'];
+                    if (!isset($groupedValues[$value])) {
+                        $groupedValues[$value] = [];
+                    }
+                    $groupedValues[$value][] = $item['durum'];
+                }
+
+                // Tüm personllerin dizide durum değeri true olan value değerlerini topla
+                $totalClocks = [];
+                foreach ($groupedValues as $value => $statuses) {
+                    if (count($statuses) > 1 && !in_array(false, $statuses)) {
+                        $totalClocks[] = $value;
+                    }
+                }
+
+                $clocks = [];
+
+                foreach ($totalClocks as $clock){
+                    $parsedClock = Carbon::parse($clock);
+                    $clocks[] = [
+                        'id' => $parsedClock->format('d_m_Y_' . $parsedClock->format('H_i')),
+                        'saat' => $parsedClock->format('H:i'),
+                        'date' => $parsedClock->format('d.m.Y'),
+                        'value' => $parsedClock->format('d.m.Y ' . $i->format('H:i')),
+                        'durum' => true
+                    ];
                 }
 
 
