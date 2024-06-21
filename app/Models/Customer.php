@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\NotificationService;
 use App\Services\Sms;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -96,6 +97,10 @@ class Customer extends Authenticatable
         $notification->slug = uniqid();
         $notification->customer_id = $this->id;
         $notification->save();
+
+        if (isset($this->device)){
+            NotificationService::sendPushNotification($this->device->token, $title, $message);
+        }
         return true;
     }
     public function getMonthlyPackageSales()
