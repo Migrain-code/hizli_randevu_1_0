@@ -9,7 +9,9 @@ use App\Http\Resources\Advert\AdvertListResource;
 use App\Http\Resources\Customer\CustomerInfoResource;
 use App\Models\Ads;
 use App\Models\Customer;
+use App\Models\Device;
 use App\Models\SmsConfirmation;
+use App\Services\NotificationService;
 use App\Services\Sms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -57,7 +59,19 @@ class AuthController extends Controller
             ], 401);
         }*/
         $token = $user->createToken('Access Token')->accessToken;
+        $title = "Merhaba ". $user->name;
+        $message = "Hızlı Randevu Sistemine Hoşgeldiniz";
+        if (isset($user->device)){
+            NotificationService::sendPushNotification($user->device->token, $title, $message);
+        } else{
+            $device = new Device();
+            $device->customer_id = $user->id;
+            $device->token = $request->input('device_token');
+            $device->type = 1;
+            $device->save();
 
+            NotificationService::sendPushNotification($device->token, $title, $message);
+        }
         return response()->json([
             'token' => $token,
             'user' => CustomerInfoResource::make($user),

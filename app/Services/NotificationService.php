@@ -5,16 +5,10 @@ use GuzzleHttp\Client;
 
 class NotificationService
 {
-    protected $client;
-
-    public function __construct(Client $client)
+    public static function sendPushNotification($expoToken, $title, $body)
     {
-        $this->client = $client;
-    }
-
-    public function sendPushNotification($expoToken, $title, $body)
-    {
-        $response = $this->client->post(env('EXPO_PUSH_URL'), [
+        $client = new Client();
+        $response = $client->post(env('EXPO_PUSH_URL'), [
             'json' => [
                 'to' => $expoToken,
                 'title' => $title,

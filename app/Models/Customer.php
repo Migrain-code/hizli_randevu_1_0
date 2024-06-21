@@ -20,7 +20,7 @@ class Customer extends Authenticatable
 
     public function device()
     {
-        return $this->hasOne(Device::class, 'customer_id', 'id');
+        return $this->hasOne(Device::class, 'customer_id', 'id')->where('type', 1);
     }
 
     public function campaigns()
