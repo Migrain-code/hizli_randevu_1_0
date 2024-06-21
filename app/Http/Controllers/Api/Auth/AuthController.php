@@ -69,8 +69,8 @@ class AuthController extends Controller
             }
             NotificationService::sendPushNotification($user->device->token, $title, $message);
         } else{
-            $deviceToken = $request->input('device_token');
-            if (isset($deviceToken)){
+
+            if ($request->filled('device_token')){
                 $device = new Device();
                 $device->customer_id = $user->id;
                 $device->token = $request->input('device_token');
