@@ -27,53 +27,61 @@ class BusinessController extends Controller
      */
     public function index(Request $request)
     {
-        $businesses = Business::where('status', 1)->has('personel')->has('services')
-            ->when($request->filled('name'), function ($q) use ($request){
-                $q->where('name', 'like', '%' . $request->input('name') . '%');
-            })
-            ->when($request->filled('gender'), function ($q) use ($request){
-                $q->where('type_id', $request->input('gender'));
-            })
-            ->when($request->filled('order_type'), function ($q) use($request){
-                $orderType = $request->input('order_type');
-                if ($orderType == "popularity"){
-                    $q->withCount('appointments')
-                        ->orderBy('appointments_count', 'desc');
-                } elseif ($orderType == "star_rating"){
-                    $q->withAvg('comments', 'point')
-                        ->orderBy('comments_avg_point', 'desc');
-                } elseif ($orderType == "min_price"){
-                    $q->join('services', 'services.business_id', '=', 'businesses.id')
-                        ->select('businesses.*', DB::raw('MIN(services.price) as min_price'))
-                        ->groupBy('businesses.id')
-                        ->orderBy('min_price', 'asc');
-                }elseif ($orderType == "max_price"){
-                    $q->join('services', 'services.business_id', '=', 'businesses.id')
-                        ->select('businesses.*', DB::raw('MAX(services.price) as max_price'))
-                        ->groupBy('businesses.id')
-                        ->orderBy('max_price', 'asc');
-                }
-            })
-            ->when($request->filled('lat'), function ($q) use ($request){
-                $lat = $request->input('lat');
-                $lng = $request->input('long');
+        if ($request->filled('lat')){
+            $lat = $request->input('lat'); // Kullanıcıdan alınan latitude
+            $lng = $request->input('long'); // Kullanıcıdan alınan longitude
 
-                $distance = 20;
-                $q->selectRaw("businesses.*, (6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(lat)))) AS distance", [$lat, $lng, $lat])
-                    ->havingRaw("distance < ?", [$distance])
-                    ->orderBy('distance');
-            })
-            ->when($request->filled('category_id'), function ($q) use ($request){
-                $q->where('category_id', $request->input('category_id'));
-            })
-            ->when($request->filled('city_id'), function ($q) use ($request){
-                $q->where('city', $request->input('city_id'));
-            })
-            ->when($request->filled('district_id'), function ($q) use ($request){
-                $q->where('district', $request->input('district_id'));
-            })
-            ->get();
+            $distance = 20; // Yakınlık yarıçapı (örneğin, 100 kilometre)
 
+            $businesses = Business::select('businesses.*')
+                ->when((!empty($lat) && !empty($lng)), function ($q) use ($lat, $lng, $distance) {
+                    $q->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(lat)))) AS distance", [$lat, $lng, $lat])
+                        ->havingRaw("distance < ?", [$distance]);
+                })
+                ->when($request->filled('category_id'), function ($q) use ($request){
+                    $q->where('category_id', $request->input('category_id'));
+                })
+                ->orderBy('distance', 'asc')
+                ->get();
+        } else{
+            $businesses = Business::where('status', 1)->has('personel')->has('services')
+                ->when($request->filled('name'), function ($q) use ($request){
+                    $q->where('name', 'like', '%' . $request->input('name') . '%');
+                })
+                ->when($request->filled('gender'), function ($q) use ($request){
+                    $q->where('type_id', $request->input('gender'));
+                })
+                ->when($request->filled('order_type'), function ($q) use($request){
+                    $orderType = $request->input('order_type');
+                    if ($orderType == "popularity"){
+                        $q->withCount('appointments')
+                            ->orderBy('appointments_count', 'desc');
+                    } elseif ($orderType == "star_rating"){
+                        $q->withAvg('comments', 'point')
+                            ->orderBy('comments_avg_point', 'desc');
+                    } elseif ($orderType == "min_price"){
+                        $q->join('services', 'services.business_id', '=', 'businesses.id')
+                            ->select('businesses.*', DB::raw('MIN(services.price) as min_price'))
+                            ->groupBy('businesses.id')
+                            ->orderBy('min_price', 'asc');
+                    }elseif ($orderType == "max_price"){
+                        $q->join('services', 'services.business_id', '=', 'businesses.id')
+                            ->select('businesses.*', DB::raw('MAX(services.price) as max_price'))
+                            ->groupBy('businesses.id')
+                            ->orderBy('max_price', 'asc');
+                    }
+                })
+                ->when($request->filled('category_id'), function ($q) use ($request){
+                    $q->where('category_id', $request->input('category_id'));
+                })
+                ->when($request->filled('city_id'), function ($q) use ($request){
+                    $q->where('city', $request->input('city_id'));
+                })
+                ->when($request->filled('district_id'), function ($q) use ($request){
+                    $q->where('district', $request->input('district_id'));
+                })
+                ->get();
+        }
         return response()->json(BusinessListResource::collection($businesses));
     }
 
