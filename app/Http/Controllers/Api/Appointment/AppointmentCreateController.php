@@ -377,7 +377,7 @@ class AppointmentCreateController extends Controller
                         'id' => $parsedClock->format('d_m_Y_' . $parsedClock->format('H_i')),
                         'saat' => $parsedClock->format('H:i'),
                         'date' => $parsedClock->format('d.m.Y'),
-                        'value' => $parsedClock->format('d.m.Y ' . $i->format('H:i')),
+                        'value' => $parsedClock->format('d.m.Y ' . $parsedClock->format('H:i')),
                         'durum' => true
                     ];
                 }
