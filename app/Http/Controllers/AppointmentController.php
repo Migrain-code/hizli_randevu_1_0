@@ -475,8 +475,9 @@ class AppointmentController extends Controller
             } else {
                 // işletme çalışma saatlerine randevu aralığına göre diziye ekle
                 foreach ($personels as $personel) {
-
+                    $disabledDays = [];
                     $disabledDays[] = $this->findTimes($personel, $request->room_id);
+
                     //işletme kapalı gün kontrolü
                     if (Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek == $business->off_day) {
                         return response()->json([
@@ -498,6 +499,7 @@ class AppointmentController extends Controller
                                     "message" => "Personel ".$personel->name." bu tarihte hizmet vermemektedir"
                                 ], 200);
                             } else {
+
                                 for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time)->endOfDay(); $i->addMinute($personel->appointmentRange->time)) {
                                     $clocks[] = [
                                         'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
@@ -516,6 +518,7 @@ class AppointmentController extends Controller
 
 
                 }
+
                 // Value değerlerine göre gruplandır
                 $groupedValues = [];
                 foreach ($clocks as $item) {
@@ -576,7 +579,7 @@ class AppointmentController extends Controller
         $disableds = [];
 
         // personelin dolu randevu saatlerini al iptal edilmişleri de dahil et
-        $appointments = $personel->appointments()->whereNotIn('status', [3])->get();
+        $appointments = $personel->appointments()->latest()->whereNotIn('status', [3])->get();
 
         foreach ($appointments as $appointment) {
             $startDateTime = Carbon::parse($appointment->start_time);
@@ -591,7 +594,7 @@ class AppointmentController extends Controller
             }
         }
 
-        // randevu almaya 30 dk öncesine kadar izin ver
+        // randevu almaya 5 dk öncesine kadar izin ver
         $startTime = Carbon::parse($personel->start_time);
         $endTime = Carbon::parse($personel->end_time);
         for ($i=$startTime;  $i < $endTime; $i->addMinutes(intval($personel->appointmentRange->time))){
@@ -600,7 +603,7 @@ class AppointmentController extends Controller
             }
         }
         $business = $personel->business;
-        if (isset($room_id)){
+        if (isset($room_id) && $room_id != ""){
             // oda tipi seçilmşse o odadaki randevuları al ve disabled dizisine ata
             $appointmentsBusiness = $business->appointments()->where('room_id', $room_id)->whereNotIn('status', [3])->get();
             foreach ($appointmentsBusiness as $appointment) {
@@ -616,6 +619,7 @@ class AppointmentController extends Controller
                 }
             }
         }
+
         return $disableds;
     }
 
