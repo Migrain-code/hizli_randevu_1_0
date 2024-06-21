@@ -59,8 +59,9 @@ class BusinessController extends Controller
                 $lng = $request->input('long');
 
                 $distance = 20;
-                $q->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(lat)))) AS distance", [$lat, $lng, $lat])
-                    ->havingRaw("distance < ?", [$distance]);
+                $q->selectRaw("businesses.*, (6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(lat)))) AS distance", [$lat, $lng, $lat])
+                    ->havingRaw("distance < ?", [$distance])
+                    ->orderBy('distance');
             })
             ->when($request->filled('category_id'), function ($q) use ($request){
                 $q->where('category_id', $request->input('category_id'));

@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\Activity\ActivityController;
 use \App\Http\Controllers\Api\Business\BusinessController;
 use App\Http\Controllers\Api\Interview\InterviewController;
 use App\Http\Controllers\Api\Appointment\AppointmentCreateController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -33,7 +34,7 @@ use App\Http\Controllers\Api\Appointment\AppointmentCreateController;
 Route::get('notification/test', [\App\Http\Controllers\HomeController::class, 'sendNotification']);
 Route::post('/salon-ara', [\App\Http\Controllers\SearchController::class, 'salonName']);
 
-Route::prefix('appointment')->group(function (){
+Route::prefix('appointment')->group(function () {
     Route::post('/clock/get-2', [AppointmentController::class, 'getClock']);
 });
 //Anasayfa
@@ -55,14 +56,14 @@ Route::apiResource('business', BusinessController::class)->only([
     'index', 'show'
 ]);;
 // İşletme Detayları
-Route::prefix('business/{business}/')->group(function (){
-   Route::get('gallery', [BusinessController::class, 'gallery']);
-   Route::get('about', [BusinessController::class, 'about']);
-   Route::get('personels', [BusinessController::class, 'personels']);
-   Route::get('comments', [BusinessController::class, 'comments']);
+Route::prefix('business/{business}/')->group(function () {
+    Route::get('gallery', [BusinessController::class, 'gallery']);
+    Route::get('about', [BusinessController::class, 'about']);
+    Route::get('personels', [BusinessController::class, 'personels']);
+    Route::get('comments', [BusinessController::class, 'comments']);
 });
-Route::prefix('customer')->group(function (){
-    Route::prefix('auth')->group(function (){
+Route::prefix('customer')->group(function () {
+    Route::prefix('auth')->group(function () {
         Route::post('login', [AuthController::class, 'login']); // Giriş Yap
         Route::get('login/slider', [AuthController::class, 'loginSlider']); // Giriş Yap
         Route::post('register', [AuthController::class, 'register']); // Kayıt Ol
@@ -108,7 +109,7 @@ Route::prefix('customer')->group(function (){
 
         //Randevular
         Route::apiResource('appointment', CustomerAppointmentController::class)->only([
-            'index', 'update','show', 'destroy'
+            'index', 'update', 'show', 'destroy'
         ]);
 
         //Yorumlar
@@ -118,21 +119,21 @@ Route::prefix('customer')->group(function (){
 
         //Bildirimler
         Route::apiResource('notification', NotificationController::class)->only([
-            'index','show'
+            'index', 'show'
         ]);
 
         //Kampanyalar
         Route::apiResource('campaign', CamapignController::class)->only([
-            'index','show'
+            'index', 'show'
         ]);
 
         //Bildirim İzinleri
         Route::apiResource('notification-permission', NotificationPermissionController::class)->only([
-            'index','update'
+            'index', 'update'
         ]);
 
         //Randevu oluşturma
-        Route::prefix('appointment-create/{business}/')->group(function (){
+        Route::prefix('appointment-create/{business}/')->group(function () {
             Route::post('create', [AppointmentCreateController::class, 'appointmentCreate']);
         });
 
