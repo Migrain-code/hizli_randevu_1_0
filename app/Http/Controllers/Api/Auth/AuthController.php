@@ -62,6 +62,11 @@ class AuthController extends Controller
         $title = "Merhaba ". $user->name;
         $message = "Hızlı Randevu Sistemine Hoşgeldiniz";
         if (isset($user->device)){
+            if ($user->device->token != $request->input('device_token')){
+                $device = $user->device;
+                $device->token = $request->input('device_token');
+                $device->save();
+            }
             NotificationService::sendPushNotification($user->device->token, $title, $message);
         } else{
             $device = new Device();
