@@ -57,8 +57,8 @@ class HomeController extends Controller
     public function appointments()
     {
         $customer = auth('customer')->user();
-
-        return view('customer.appointment.index', compact('customer'));
+        $appointments = $customer->appointments()->latest()->paginate(setting('speed_pagination_number'));
+        return view('customer.appointment.index', compact('customer', 'appointments'));
     }
 
     public function appointmentDetail($id)

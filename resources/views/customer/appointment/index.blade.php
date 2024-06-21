@@ -107,7 +107,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @forelse($customer->appointments()->paginate(12) as $appointment)
+                                                    @forelse($appointments as $appointment)
                                                         <tr>
                                                             <td data-label="Randevu kodu">#{{$appointment->id}}</td>
                                                             <td data-label="İşletme Adı">{{$appointment->business->name}}</td>
@@ -130,7 +130,7 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        {!! $customer->appointments()->paginate(setting('speed_pagination_number'))->links() !!}
+                                        {!! $appointments->links() !!}
                                     </div>
                                 </div>
                             </div>
