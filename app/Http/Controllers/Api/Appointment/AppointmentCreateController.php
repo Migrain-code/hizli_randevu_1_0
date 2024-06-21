@@ -323,14 +323,14 @@ class AppointmentCreateController extends Controller
                         if (in_array(Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek, $personel->restDays()->pluck('day_id')->toArray())) {
                             return response()->json([
                                 "status" => "error",
-                                "message" => "Personel bu tarihte hizmet vermemektedir"
+                                "message" => "Personel ".$personel->name." bu tarihte hizmet vermemektedir"
                             ], 200);
                         } else {
                             //personel kapalı değilse personel izin gün kontrolü
                             if ($personel->checkDateIsOff($getDate)) {
                                 return response()->json([
                                     "status" => "error",
-                                    "message" => "Personel bu tarihte hizmet vermemektedir"
+                                    "message" => "Personel ".$personel->name." bu tarihte hizmet vermemektedir"
                                 ], 200);
                             } else {
                                 for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time)->endOfDay(); $i->addMinute($personel->appointmentRange->time)) {
