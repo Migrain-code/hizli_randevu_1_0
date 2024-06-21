@@ -351,7 +351,7 @@ class AppointmentCreateController extends Controller
 
 
                 }
-// Value değerlerine göre gruplandır
+                // Value değerlerine göre gruplandır
                 $groupedValues = [];
                 foreach ($clocks as $item) {
                     $value = $item['value'];
@@ -371,6 +371,22 @@ class AppointmentCreateController extends Controller
 
                 $clocks = [];
 
+                $appStartTime = Carbon::parse($totalClocks[0]);
+                $endTime = Carbon::parse($totalClocks[count($totalClocks) - 1]);
+
+                $clockRange = $appStartTime->diffInMinutes($endTime);
+                $totalServiceTime = 0;
+
+                foreach ($serviceIds as $index => $serviceId) {
+                    $service = BusinessService::find($serviceId);
+                    $totalServiceTime += $service->time;
+                }
+                if ($clockRange < $totalServiceTime){
+                    return response()->json([
+                        "status" => "error",
+                        "message" => "Seçtiğiniz Hizmetlere Uygun Randevu Aralığı Bulunamadı"
+                    ], 200);
+                }
                 foreach ($totalClocks as $clock){
                     $parsedClock = Carbon::parse($clock);
                     $clocks[] = [
