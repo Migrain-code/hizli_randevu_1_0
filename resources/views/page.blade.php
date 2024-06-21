@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('title', $page->title)
+@section('description', $page->meta_description)
 @section('styles')
     <style>
         .privacy-policy {
