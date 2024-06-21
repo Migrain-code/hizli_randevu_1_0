@@ -73,7 +73,7 @@ class AppointmentCreateController extends Controller
             $servicePersonels = [];
             foreach ($service->personels as $item) {
                 if ($item->personel && $item->personel->status == 1) {
-                    if (isset($room_id)) {
+                    if ($business->rooms->count() > 0 && isset($room_id)) {
                         $roomPersonelIds = PersonelRoom::where('business_id', $item->personel->business_id)
                             ->where('room_id', $room_id)
                             ->pluck('personel_id')
