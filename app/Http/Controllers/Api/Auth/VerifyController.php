@@ -43,6 +43,7 @@ class VerifyController extends Controller
                     $user->phone = $code->phone;
                     $user->password = Hash::make($generatePassword);
                     $user->verify_phone = 1;
+                    $user->status = 1;
                     $user->save();
 
                     Sms::send($code->phone, config('speed_message_title') . " Sistemine giriş için şifreniz " . $generatePassword);

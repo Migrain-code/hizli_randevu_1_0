@@ -53,11 +53,11 @@ class AuthController extends Controller
                 'message' => 'Telefon Numarası veya şifre yanlış'
             ], 401);
         }
-        /*if ($user->status == 2){
+        if ($user->status == 2){
             return response()->json([
                 'message' => 'Telefon Numarası veya şifre yanlış'
             ], 401);
-        }*/
+        }
         $token = $user->createToken('Access Token')->accessToken;
         $title = "Merhaba ". $user->name;
         $message = "Hızlı Randevu Sistemine Hoşgeldiniz";
