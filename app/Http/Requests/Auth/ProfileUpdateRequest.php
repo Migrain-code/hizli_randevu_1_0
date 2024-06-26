@@ -26,7 +26,7 @@ class ProfileUpdateRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'status' => 'error',
-            'message' => $validator->errors()->first(),
+            'message' => "Profil Fotoğrafı 2MB değerinden küçük olmalıdır.",
             'errors' => $validator->errors()->all(),
         ], 422));
     }

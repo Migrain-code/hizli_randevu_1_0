@@ -32,6 +32,7 @@ class UserController extends Controller
             return $next($request);
         });
     }
+
     /**
      * Tüm Bilgileri
      * @return \Illuminate\Http\JsonResponse
@@ -50,10 +51,10 @@ class UserController extends Controller
     {
         $customer = $this->customer;
         $customer->password = Hash::make($request->password);
-        if ($customer->save()){
+        if ($customer->save()) {
             return response()->json([
-               'status' => "success",
-               'message' => "Şifreniz Güncellendi"
+                'status' => "success",
+                'message' => "Şifreniz Güncellendi"
             ]);
         }
         return response()->json([
@@ -71,8 +72,8 @@ class UserController extends Controller
     {
         $phone = $request->input('phone');
         $customer = $this->customer;
-        if ($customer->phone != $phone){
-            if ($this->existPhone($phone)){
+        if ($customer->phone != $phone) {
+            if ($this->existPhone($phone)) {
                 return response()->json([
                     'status' => "error",
                     'message' => "Yeni Girdiğiniz numara ile kayıtlı kullanıcı kaydı bulunuyor. Lütfen Başka bir numara deneyiniz"
@@ -86,7 +87,7 @@ class UserController extends Controller
         $customer->birthday = Carbon::parse($request->input('birthday'))->toDateString();
         $customer->city_id = $request->input('city_id');
         $customer->district_id = $request->input('district_id');
-        if ($customer->save()){
+        if ($customer->save()) {
             return response()->json([
                 'status' => "success",
                 'message' => "Bilgileriniz Başarılı Bir Şekilde Güncellendi",
@@ -115,7 +116,7 @@ class UserController extends Controller
         if ($request->hasFile('image')) {
             $response = UploadFile::uploadFile($request->file('image'), 'customer_profiles');
             $customer->image = $response["image"]["way"];
-        } else{
+        } else {
             return response()->json([
                 'status' => "error",
                 'message' => "Lütfen Bir Görsel Seçiniz",
@@ -133,7 +134,7 @@ class UserController extends Controller
     {
         $user = $this->customer;
         $user->status = 2;
-        if ($user->save()){
+        if ($user->save()) {
             return response()->json([
                 'status' => "success",
                 'message' => "Hesabınız Başarılı Bir Şekilde Silindi",
