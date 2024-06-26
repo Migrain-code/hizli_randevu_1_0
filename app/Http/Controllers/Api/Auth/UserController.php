@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\Password\ChangePasswordRequest;
+use App\Http\Requests\Auth\ProfileUpdateRequest;
 use App\Http\Requests\Auth\Register\RegisterRequest;
 use App\Http\Requests\Customer\Setting\CustomerUpdateRequest;
 use App\Http\Resources\Customer\CustomerInfoResource;
@@ -108,7 +109,7 @@ class UserController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function updateProfilePhoto(Request $request)
+    public function updateProfilePhoto(ProfileUpdateRequest $request)
     {
         $customer = $this->customer;
         if ($request->hasFile('image')) {
