@@ -78,7 +78,7 @@ class Customer extends Authenticatable
     {
         return $this->hasOne(District::class, 'id', 'district_id')->withDefault([
             'id' => 1,
-            'name' => "Konum Bulunamadı"
+            'name' => ""
         ]);
     }
 
