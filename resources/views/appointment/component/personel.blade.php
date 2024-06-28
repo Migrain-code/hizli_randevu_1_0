@@ -101,7 +101,7 @@
                             <option value="">Personel Seçiniz</option>
 
                             @forelse($service->personels as $service_personel)
-                                @if($service_personel->personel->status == 1)
+
                                     @if(isset(request()['request']['selection_room_id']) && isset($roomPersonelIds))
                                         @if(in_array($service_personel->personel->id, $roomPersonelIds))
                                             <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
@@ -111,7 +111,7 @@
                                         <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
 
                                     @endif
-                                @endif
+
 
                             @empty
                                 <option value="">Personel Bulunamadı</option>

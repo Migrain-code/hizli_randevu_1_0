@@ -31,7 +31,9 @@ class BusinessService extends Model
 
     public function personels()
     {
-        return $this->hasMany(PersonelService::class, 'service_id', 'id');
+        return $this->hasMany(PersonelService::class, 'service_id', 'id')->whereHas('personel', function ($q){
+            $q->where('status', 1);
+        });
     }
 
     public function getPrice($room_id = null, $personelPrice = null)
