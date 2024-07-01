@@ -196,7 +196,7 @@ class HomeController extends Controller
 
     public function page($slug)
     {
-        $page = Page::where('slug', $slug)->where('id', 5)->first();
+        $page = Page::where('slug', $slug)->first();
         return view('page', compact('page'));
     }
 }
