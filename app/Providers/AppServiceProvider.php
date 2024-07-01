@@ -55,7 +55,7 @@ class AppServiceProvider extends ServiceProvider
         }
         \Config::set('main_pages', $main_pages);
 
-        \View::share('use_pages', Page::whereIn('id', [5, 6, 7])->get());
+        \View::share('use_pages', Page::whereIn('id', [5, 6, 7])->where('type', 1)->get());
 
         $cities = City::orderBy('name')->get();
         View::share('cities', $cities);
