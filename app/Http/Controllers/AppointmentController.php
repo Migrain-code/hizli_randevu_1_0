@@ -282,6 +282,7 @@ class AppointmentController extends Controller
         if ($appointment->save()) {
             $appointment->customer->sendSms($message);
             $appointment->sendPersonelNotification();
+            $appointment->scheduleReminder();
             return to_route('appointment.success', $appointment->id)->with('response', [
                 'status' => "success",
                 'message' => $message,
