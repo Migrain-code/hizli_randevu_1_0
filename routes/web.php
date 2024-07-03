@@ -22,7 +22,11 @@ use App\Http\Controllers\BusinessTakePriceController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::domain('subdomain.hizlirandevu.com.tr')->group(function () {
+    Route::get('/', function () {
+        return 'Bu, sanal subdomain üzerinde çalışan bir route!';
+    });
+});
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('main');
 /*Route::domain('{business_slug}.hizlirandevu.com.tr')->group(function (){
     Route::get('/', [\App\Http\Controllers\HomeController::class, 'businessDetail'])->name('business.detail');
