@@ -623,6 +623,7 @@ class AppointmentCreateController extends Controller
             //$appointment->customer->sendSms($message);
             $title = "Randevunuz Oluşturuldu";
             $appointment->customer->sendNotification($title, $message);
+            $appointment->scheduleReminder();
             return response()->json([
                 'status' => "success",
                 'message' => "Randevunuz başarılı bir şekilde oluşturuldu",
