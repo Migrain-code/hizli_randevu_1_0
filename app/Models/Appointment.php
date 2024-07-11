@@ -249,7 +249,7 @@ class Appointment extends Model
     {
         // Randevu başlangıç saatinden 2 saat öncesini hesaplayın
 
-        $reminderTime = $this->start_time->subHours(2);
+        $reminderTime = $this->start_time->subMinutes($this->business->reminder_time);
 
         SendReminderJob::dispatch($this)->delay($reminderTime);
 
