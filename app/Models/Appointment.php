@@ -140,7 +140,7 @@ class Appointment extends Model
             $personelNotification->business_id = $this->business_id;
             $personelNotification->personel_id = $service->personel_id;
             $personelNotification->title = "Merhaba ".$service->personel->name." ,Yeni bir randevunuz var!";
-            $personelNotification->message = $this->customer->name. " "." adlı müşteriniz sizden ". $service->start_time. " tarihine ".$service->service->subCategory->getName()." hizmetine randevu aldı. Randevu kodu #".$this->appointment_id;
+            $personelNotification->message = $this->customer->name. " "." adlı müşteriniz sizden ". $service->start_time. " tarihine ".$service->service->subCategory->getName()." hizmetine randevu aldı.";
             $personelNotification->link = uniqid();
             $personelNotification->save();
 
