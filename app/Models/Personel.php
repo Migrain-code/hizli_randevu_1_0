@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\NotificationService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -30,7 +31,26 @@ class Personel extends Model
         return $this->hasOne(Business::class, 'id', 'business_id');
 
     }
+    public function device()
+    {
+        return $this->hasOne(Device::class, 'customer_id', 'id')->where('type', 2);
+    }
+    public function sendNotification($title, $message, $iconId = 1)
+    {
+        $notification = new PersonelNotification();
+        $notification->notification_id = $iconId;
+        $notification->title = $title;
+        $notification->content = $message;
+        $notification->status = 0;
+        $notification->slug = uniqid();
+        $notification->customer_id = $this->id;
+        $notification->save();
 
+        if (isset($this->device)){
+            NotificationService::sendPushNotification($this->device->token, $title, $message);
+        }
+        return true;
+    }
     public function appointments()
     {
         return $this->hasMany(AppointmentServices::class, 'personel_id', 'id');
