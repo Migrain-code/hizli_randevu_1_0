@@ -223,6 +223,7 @@ class HomeController extends Controller
         }
         $message = $appointment->business->name . ' İşletmesine ' . $appointment->start_time->format('d.m.Y H:i') . ' tarihindeki randevunuz iptal edildi.';
         $appointment->customer->sendSms($message);
+        $appointment->sendPersonelCancelNotification();
         $appointment->customer->sendNotification('Randevunuz Sizin Tarafınızdan İptal Edildi', $message);
         return response()->json([
             'status' => "success",

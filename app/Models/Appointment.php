@@ -149,6 +149,24 @@ class Appointment extends Model
             }
         }
     }
+
+    public function sendPersonelCancelNotification()
+    {
+        foreach ($this->services as $service){
+            $personelNotification = new PersonelNotification();
+            $personelNotification->business_id = $this->business_id;
+            $personelNotification->personel_id = $service->personel_id;
+            $personelNotification->title = "Randevu İptali";
+            $personelNotification->message = $this->customer->name. " "." adlı müşteriniz sizden ". $service->start_time. " tarihine ".$service->service->subCategory->getName()." aldığı randevuyu iptal etti.";
+            $personelNotification->link = uniqid();
+            $personelNotification->save();
+
+            if (isset($service->personel->device)){
+                NotificationService::sendPushNotification($service->personel->device->token, $personelNotification->title, $personelNotification->message);
+            }
+        }
+    }
+
     public function payments()
     {
         return $this->hasMany(AppointmentCollectionEntry::class, 'appointment_id', 'id');
