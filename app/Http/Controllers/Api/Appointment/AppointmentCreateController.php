@@ -625,7 +625,7 @@ class AppointmentCreateController extends Controller
             $appointment->customer->sendNotification($title, $message);
             $appointment->sendPersonelNotification();
             $appointment->scheduleReminder();
-
+            $appointment->calculateTotal();
             return response()->json([
                 'status' => "success",
                 'message' => "Randevunuz başarılı bir şekilde oluşturuldu",

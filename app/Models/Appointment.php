@@ -233,6 +233,7 @@ class Appointment extends Model
         $rangePrice = false;
         foreach ($this->services as $service) {
             $servicePrice = $service->servicePrice();
+
             if (is_numeric($servicePrice)){
                 $total+= $servicePrice;
             } else{
