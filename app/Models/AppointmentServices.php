@@ -32,12 +32,10 @@ class AppointmentServices extends Model
         $service = $this->service;
         $personelPrice = $this->getPersonelPrice;
 
-        if (isset($personelPrice)){
-            return $personelPrice->price;
-        }
         if ($service->price_type_id == 1 && $this->total == 0){ // aralıklı fiyatsa
-            return formatPrice($service->price). " - ". formatPrice($service->max_price);
+            return $service->price. " TL - ". $service->max_price. " TL";
         } else{
+
             if ($this->total > 0){
                 if (isset($this->appointment->room_id) && $this->appointment->room_id > 0) {
                     $room = $this->appointment->room;
@@ -45,6 +43,7 @@ class AppointmentServices extends Model
                         $servicePrice = $this->total + $room->price;
                     } else { // yüzde fiyat arttırma
                         $servicePrice = $this->total + (($this->total * $room->price) / 100);
+
                     }
                 } else {
                     $servicePrice = $this->total;
@@ -52,10 +51,16 @@ class AppointmentServices extends Model
             } else{
                 if (isset($this->appointment->room_id) && $this->appointment->room_id > 0) {
                     $room = $this->appointment->room;
+
                     if ($room->increase_type == 0) { // tl fiyat arttırma
                         $servicePrice = $service->price + $room->price;
                     } else { // yüzde fiyat arttırma
-                        $servicePrice = $service->price + (($service->price * $room->price) / 100);
+
+                        if (isset($personelPrice)){
+                            $servicePrice = $personelPrice->price + (($personelPrice->price * $room->price) / 100);
+                        } else{
+                            $servicePrice = $service->price + (($service->price * $room->price) / 100);
+                        }
                     }
                 } else {
                     $servicePrice = $service->price;
