@@ -16,6 +16,17 @@ class AppointmentDetailResoruce extends JsonResource
      */
     public function toArray($request)
     {
+        $totalPrice = $this->totalServiceAndProduct();
+        $collectedTotal = $this->calculateCollectedTotal();
+        $campaignDiscount = $this->discount;
+        if (is_numeric($totalPrice)){
+            $campaignDiscount = formatPrice(($totalPrice * $campaignDiscount) / 100);
+            $totalPrice = formatPrice($this->totalServiceAndProduct());
+
+        }
+        if (is_numeric($collectedTotal)){
+            $collectedTotal = formatPrice($collectedTotal);
+        }
         return [
             'id' => $this->id,
             'business' => BusinessBasicResource::make($this->business),
@@ -26,10 +37,10 @@ class AppointmentDetailResoruce extends JsonResource
             'comment_status' => $this->comment_status,
             'note' => $this->note,
             'isCampaign' => isset($this->campaign_id),
-            'campaignDiscount' => number_format(($this->totalServiceAndProduct() * $this->discount) / 100, 2),
+            'campaignDiscount' => $campaignDiscount,
             'cashPoint' =>  $this->point,
-            'total' => formatPrice($this->totalServiceAndProduct()), // toplam
-            'collectedTotal' => formatPrice($this->calculateCollectedTotal()), // kalan
+            'total' =>  $totalPrice, // toplam
+            'collectedTotal' => $collectedTotal, // kalan
             'services' => AppointmentServiceResource::collection($this->services),
         ];
     }
