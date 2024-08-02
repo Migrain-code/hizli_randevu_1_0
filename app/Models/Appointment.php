@@ -268,8 +268,11 @@ class Appointment extends Model
 
     public function calculateCollectedTotal() //tahsil edilecek tutar
     {
-        $total = $this->totalServiceAndProduct() - $this->calculateCampaignDiscount() - $this->point;
-        return $total;
+        if (is_numeric($this->totalServiceAndProduct()) && is_numeric($this->calculateCampaignDiscount())){
+            $total = $this->totalServiceAndProduct() - $this->calculateCampaignDiscount() - $this->point;
+            return $total;
+        }
+        return "Hesaplanacak";
     }
 
     public function remainingTotal() //kalan  tutar
