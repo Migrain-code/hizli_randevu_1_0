@@ -501,7 +501,7 @@ class AppointmentController extends Controller
                                 ], 200);
                             } else {
 
-                                for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time)->endOfDay(); $i->addMinute($personel->appointmentRange->time)) {
+                                for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time); $i->addMinute($personel->appointmentRange->time)) {
                                     $clocks[] = [
                                         'id' => $getDate->format('d_m_Y_' . $i->format('H_i')),
                                         'saat' => $i->format('H:i'),
