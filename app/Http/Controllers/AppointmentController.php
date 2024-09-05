@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\AppointmentServices;
 use App\Models\Business;
+use App\Models\BusinessCustomer;
 use App\Models\BusinessService;
 use App\Models\Customer;
 use App\Models\Personel;
@@ -278,8 +279,17 @@ class AppointmentController extends Controller
             }
             $message = $business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihine randevunuz oluşturuldu.";
         }
-
+        $appointment->location = "Hızlı Randevu Web";
         if ($appointment->save()) {
+            $existCustomer = $business->customers()->where('customer_id', $appointment->customer_id)->first();
+            if (!isset($existCustomer)){
+                $businessCustomer = new BusinessCustomer();
+                $businessCustomer->business_id = $business->id;
+                $businessCustomer->customer_id = $appointment->customer_id;
+                $businessCustomer->type = 0;
+                $businessCustomer->status = 1;
+                $businessCustomer->save();
+            }
             $appointment->customer->sendSms($message);
             $appointment->sendPersonelNotification();
             $appointment->scheduleReminder();
