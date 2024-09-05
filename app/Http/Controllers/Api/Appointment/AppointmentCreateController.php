@@ -14,6 +14,7 @@ use App\Http\Resources\Business\BusinessRoomResource;
 use App\Models\Appointment;
 use App\Models\AppointmentServices;
 use App\Models\Business;
+use App\Models\BusinessCustomer;
 use App\Models\BusinessService;
 use App\Models\Campaign;
 use App\Models\Customer;
@@ -626,6 +627,15 @@ class AppointmentCreateController extends Controller
             $appointment->sendPersonelNotification();
             $appointment->scheduleReminder();
             $appointment->calculateTotal();
+            $existCustomer = $business->customers()->where('customer_id', $appointment->customer_id)->first();
+            if (!isset($existCustomer)){
+                $businessCustomer = new BusinessCustomer();
+                $businessCustomer->business_id = $business->id;
+                $businessCustomer->customer_id = $appointment->customer_id;
+                $businessCustomer->type = 0;
+                $businessCustomer->status = 1;
+                $businessCustomer->save();
+            }
             return response()->json([
                 'status' => "success",
                 'message' => "Randevunuz başarılı bir şekilde oluşturuldu",
