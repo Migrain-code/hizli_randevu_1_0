@@ -34,7 +34,7 @@ class BusinessController extends Controller
             $distance = 20; // Yakınlık yarıçapı (örneğin, 100 kilometre)
 
             $businesses = Business::select('businesses.*')
-                ->when((!empty($lat) && !empty($lng)), function ($q) use ($lat, $lng, $distance) {
+                ->when((isset($lat) && isset($lng)), function ($q) use ($lat, $lng, $distance) {
                     $q->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(lat)))) AS distance", [$lat, $lng, $lat])
                         ->havingRaw("distance < ?", [$distance]);
                 })
