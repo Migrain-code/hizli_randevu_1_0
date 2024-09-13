@@ -191,7 +191,7 @@ class SearchController extends Controller
     {
         $businesses = Business::select('id', 'name')->where('name', 'like', '%' . $request->q . '%')
             ->has('services')->has('personel')
-            ->take(5)
+            ->take(50)
             ->get();
 
         return response()->json([
