@@ -45,6 +45,25 @@ class HomeController extends Controller
 
         return response()->json($response);
     }
+
+    public function editorTest()
+    {
+        $businesss = Business::find(3);
+        return response()->json([
+            'about' => $businesss->about,
+        ]);
+    }
+
+    public function editorUpdate(Request $request)
+    {
+        $businesss = Business::find(3);
+        $businesss->about = $request->about;
+        $businesss->save();
+        return response()->json([
+           'status' => "success",
+           'message' => "Hakkımızda metni güncellendi"
+        ]);
+    }
     public function index()
     {
         $brandList = Ads::where('type', 8)->get(); //Anasayfa marka reklamları

@@ -31,6 +31,9 @@ use App\Http\Controllers\Api\Appointment\AppointmentCreateController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::get('editor/test', [\App\Http\Controllers\HomeController::class, 'editorTest']);
+Route::post('editor/update', [\App\Http\Controllers\HomeController::class, 'editorUpdate']);
+
 Route::get('notification/test', [\App\Http\Controllers\HomeController::class, 'sendNotification']);
 Route::post('/salon-ara', [\App\Http\Controllers\SearchController::class, 'salonName']);
 
