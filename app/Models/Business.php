@@ -68,7 +68,7 @@ class Business extends Authenticatable
     }
     public function personel()
     {
-        return $this->hasMany(Personel::class, 'business_id', 'id');
+        return $this->hasMany(Personel::class, 'business_id', 'id')->orderBy('order_number', 'asc');
     }
 
     public function sliders()
