@@ -38,7 +38,12 @@
                                         <div
                                             class="col-xl-7 d-flex align-items-center justify-content-between justify-content-xl-end"
                                         >
-                                            <span>{{$service["price"]}} TL</span>
+                                            @if($service["price"] == 0)
+                                                <span>Bilgi için arayın</span>
+                                            @else
+                                                <span>{{$service["price"]}} TL</span>
+                                            @endif
+
                                             <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service["id"]))])}}">Randevu Al</a>
                                         </div>
                                     </div>
@@ -83,7 +88,11 @@
                                         <div
                                             class="col-xl-7 d-flex align-items-center justify-content-between justify-content-xl-end"
                                         >
-                                            <span>{{$service["price"]}} TL</span>
+                                            @if($service["price"] == 0)
+                                                <span>Bilgi için arayın</span>
+                                            @else
+                                                <span>{{$service["price"]}} TL</span>
+                                            @endif
                                             <a href="{{ route('step1.show', ['business' => $business->slug, 'request' => array('services' => array($service["id"]))])}}">Randevu Al</a>
                                         </div>
                                     </div>
