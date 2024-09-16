@@ -34,20 +34,6 @@
     @if($business->type_id == 3)
         <li class="nav-item" role="presentation">
             <button
-                class="nav-link active"
-                id="pills-1-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-1"
-                type="button"
-                role="tab"
-                aria-controls="pills-1"
-                aria-selected="true"
-            >
-                Kadın
-            </button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button
                 class="nav-link"
                 id="pills-2-tab"
                 data-bs-toggle="pill"
@@ -60,6 +46,21 @@
                 Erkek
             </button>
         </li>
+        <li class="nav-item" role="presentation">
+            <button
+                class="nav-link active"
+                id="pills-1-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-1"
+                type="button"
+                role="tab"
+                aria-controls="pills-1"
+                aria-selected="true"
+            >
+                Kadın
+            </button>
+        </li>
+
 
         {{--
         <li class="nav-item" role="presentation">
