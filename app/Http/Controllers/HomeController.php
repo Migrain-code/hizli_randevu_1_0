@@ -12,6 +12,7 @@ use App\Models\Business;
 use App\Models\BusinessCategory;
 use App\Models\BusinessService;
 use App\Models\City;
+use App\Models\Customer;
 use App\Models\CustomerContact;
 use App\Models\CustomerFaq;
 use App\Models\CustomerFaqCategory;
@@ -37,13 +38,12 @@ class HomeController extends Controller
     }
     public function sendNotification(Request $request)
     {
-        $expoToken = $request->input('expo_token');
-        $title = $request->input('title');
-        $body = $request->input('body');
+        $customer = Customer::find(2);
+        $customer->sendNotification("Link test", "Hızlı randevu instagram sayfamızı takip edin. https://www.instagram.com/hizli_randevu/");
 
-        $response = $this->notificationService->sendPushNotification($expoToken, $title, $body);
-
-        return response()->json($response);
+        return response()->json([
+            "status" => "success",
+        ]);
     }
 
     public function editorTest()
