@@ -12,3 +12,12 @@
 <meta name="twitter:title" content="{{setting('speed_site_title')}}">
 <meta name="twitter:description" content="{{setting('speed_meta_descriptions')}}">
 <meta name="twitter:image" content="{{image(setting('speed_favicon'))}}">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-39BFTPYXC2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-39BFTPYXC2');
+</script>
