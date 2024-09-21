@@ -453,9 +453,7 @@ class AppointmentCreateController extends Controller
             'status' => "success",
             'message' => "Saat seçim işleminiz onaylandı. Müşteri Seçebilirsiniz"
         ]);
-        /*if ($this->checkPersonelClock($request->personel_id, $appointmentService->start_time, $appointmentService->end_time, $appointment->id)) {
 
-        }*/
     }
 
     /**
@@ -580,15 +578,34 @@ class AppointmentCreateController extends Controller
         $approve_types = [];
         foreach ($serviceIds as $index => $serviceId) {
             $findService = BusinessService::find($serviceId);
-            $appointmentService = new AppointmentServices();
-            $appointmentService->personel_id = $personelIds[$index];
-            $appointmentService->service_id = $serviceId;
-            $appointmentService->start_time = $appointmentStartTime;
-            $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
-            $appointmentService->appointment_id = $appointment->id;
-            $appointmentService->save();
+            if($findService){
+                $appointmentService = new AppointmentServices();
+                $appointmentService->personel_id = $personelIds[$index];
+                $appointmentService->service_id = $serviceId;
+                $appointmentService->start_time = $appointmentStartTime;
+                $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
+                $appointmentService->appointment_id = $appointment->id;
+                $appointmentService->save();
+                if ($business->id == 21){
+                    $result = $this->checkPersonelClock($request->personels[$index], $appointmentService->start_time, $appointmentService->end_time, $appointment->id);
 
-            $approve_types[] = $findService->approve_type;
+                    if ($result) {
+                        $appointment->services()->delete();
+                        $appointment->delete();
+                        return response()->json([
+                            'status' => "error",
+                            'message' => "Üzgünüz, seçmiş olduğunuz randevu saati doludur. Lütfen farklı bir saat seçmeyi deneyin ya da bir süre sonra tekrar kontrol edin."
+                        ], 422);
+
+                    } else{
+                        $approve_types[] = $findService->approve_type;
+                    }
+                } else{
+                    $approve_types[] = $findService->approve_type;
+
+                }
+            }
+
 
         }
 
@@ -624,9 +641,9 @@ class AppointmentCreateController extends Controller
             }
             //$appointment->customer->sendSms($message);
             $title = "Randevunuz Oluşturuldu";
-            $appointment->customer->sendNotification($title, $message);
-            $appointment->sendPersonelNotification();
-            $appointment->scheduleReminder();
+            //$appointment->customer->sendNotification($title, $message);
+            //$appointment->sendPersonelNotification();
+            //$appointment->scheduleReminder();
             $appointment->calculateTotal();
             $existCustomer = $business->customers()->where('customer_id', $appointment->customer_id)->first();
             if (!isset($existCustomer)){
@@ -649,9 +666,15 @@ class AppointmentCreateController extends Controller
             'message' => "Bir hata sebebiyle randevunuz oluşturulamadı lütfen tekrar deneyiniz",
         ], 422);
     }
-    public function findDisabledTimes($personel, $appointmentStartTime)
+    public function findDisabledTimes($personel, $appointmentStartTime, $appointmentId = null)
     {
-        $appointments = $personel->appointments()->whereDate('start_time', $appointmentStartTime->toDateString())->whereNotIn('status', [3])->get();
+        $appointments = $personel->appointments()
+            ->when(isset($appointmentId), function ($q) use ($appointmentId){
+                $q->whereNotIn('appointment_id', [$appointmentId]);
+            })
+            ->whereDate('start_time', $appointmentStartTime->toDateString())
+            ->whereNotIn('status', [3])
+            ->get();
         $disabledTimes = [];
         foreach ($appointments as $appointment) {
             $startDateTime = $appointment->start_time;
@@ -668,11 +691,11 @@ class AppointmentCreateController extends Controller
         return $disabledTimes;
     }
 
-    public function checkPersonelClock($personelId, $startTime, $endTime)
+    public function checkPersonelClock($personelId, $startTime, $endTime, $appointmentId = null)
     {
 
         $findPersonel = Personel::find($personelId);
-        $disabledTimes = $this->findDisabledTimes($findPersonel, $startTime);
+        $disabledTimes = $this->findDisabledTimes($findPersonel, $startTime, $appointmentId);
 
         $disableds = [];
         $currentDateTime = $startTime->copy();
