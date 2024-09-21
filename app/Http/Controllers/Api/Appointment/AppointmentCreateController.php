@@ -586,23 +586,19 @@ class AppointmentCreateController extends Controller
                 $appointmentService->end_time = $appointmentStartTime->addMinutes($findService->time);
                 $appointmentService->appointment_id = $appointment->id;
                 $appointmentService->save();
-                if ($business->id == 21){
-                    $result = $this->checkPersonelClock($request->personels[$index], $appointmentService->start_time, $appointmentService->end_time, $appointment->id);
 
-                    if ($result) {
-                        $appointment->services()->delete();
-                        $appointment->delete();
-                        return response()->json([
-                            'status' => "error",
-                            'message' => "Üzgünüz, seçmiş olduğunuz randevu saati doludur. Lütfen farklı bir saat seçmeyi deneyin ya da bir süre sonra tekrar kontrol edin."
-                        ], 422);
+                $result = $this->checkPersonelClock($request->personels[$index], $appointmentService->start_time, $appointmentService->end_time, $appointment->id);
 
-                    } else{
-                        $approve_types[] = $findService->approve_type;
-                    }
+                if ($result) {
+                    $appointment->services()->delete();
+                    $appointment->delete();
+                    return response()->json([
+                        'status' => "error",
+                        'message' => "Üzgünüz, seçmiş olduğunuz randevu saati doludur. Lütfen farklı bir saat seçmeyi deneyin ya da bir süre sonra tekrar kontrol edin."
+                    ], 422);
+
                 } else{
                     $approve_types[] = $findService->approve_type;
-
                 }
             }
 
