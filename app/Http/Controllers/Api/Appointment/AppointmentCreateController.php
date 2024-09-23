@@ -637,9 +637,9 @@ class AppointmentCreateController extends Controller
             }
             //$appointment->customer->sendSms($message);
             $title = "Randevunuz Oluşturuldu";
-            //$appointment->customer->sendNotification($title, $message);
-            //$appointment->sendPersonelNotification();
-            //$appointment->scheduleReminder();
+            $appointment->customer->sendNotification($title, $message);
+            $appointment->sendPersonelNotification();
+            $appointment->scheduleReminder();
             $appointment->calculateTotal();
             $existCustomer = $business->customers()->where('customer_id', $appointment->customer_id)->first();
             if (!isset($existCustomer)){
