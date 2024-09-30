@@ -225,6 +225,7 @@ class HomeController extends Controller
         $appointment->customer->sendSms($message);
         $appointment->sendPersonelCancelNotification();
         $appointment->customer->sendNotification('Randevunuz Sizin Tarafınızdan İptal Edildi', $message);
+        DB::table('jobs')->where('id', $appointment->job_id)->delete();
         return response()->json([
             'status' => "success",
             'message' => $appointment->start_time->format('d.m.Y H:i') . " Tarihindeki Randevunuz Başarılı Bir Şekilde İptal Edildi",

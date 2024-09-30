@@ -14,6 +14,7 @@ use App\Models\BusinessComment;
 use App\Models\CustomerFavorite;
 use Cassandra\Custom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group Randevularım
@@ -105,6 +106,7 @@ class CustomerAppointmentController extends Controller
                 $message = $appointment->business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihindeki randevunuz sizin tarafınızdan iptal edildi";
                 $customer->sendNotification($title, $message);
                 $appointment->sendPersonelCancelNotification();
+                DB::table('jobs')->where('id', $appointment->job_id)->delete();
                 return response()->json([
                     'status' => "success",
                     'message' => "Randevunuz Başarılı Bir Şekilde İptal Edildi",
