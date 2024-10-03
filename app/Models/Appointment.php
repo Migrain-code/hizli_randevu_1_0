@@ -285,9 +285,12 @@ class Appointment extends Model
         // Randevu başlangıç saatinden hatırlatma zamanını hesaplayın
         $reminderTime = $this->start_time->subMinutes($this->business->reminder_time);
 
+        // Şu anki zaman ile hatırlatma zamanı arasındaki farkı hesaplayın
+        $delay = $reminderTime->diffInSeconds(now());
+
         // Job'u dispatch et ve job ID'sini alın
         $job = new SendReminderJob($this);
-        $jobId = app('queue')->push($job->delay($reminderTime));
+        $jobId = app('queue')->later(now()->addSeconds($delay), $job);
 
         // Job ID'sini randevu kaydına kaydedin
         $this->job_id = $jobId;
