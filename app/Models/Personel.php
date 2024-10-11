@@ -89,7 +89,10 @@ class Personel extends Model
     {
         return $this->hasMany(PersonelRestDay::class, 'personel_id', 'id')->where('status', 1);
     }
-
+    public function restDayAll()
+    {
+        return $this->hasMany(PersonelRestDay::class, 'personel_id', 'id');
+    }
     public function appointmentRange()
     {
         return $this->hasOne(AppointmentRange::class, 'id', 'range');

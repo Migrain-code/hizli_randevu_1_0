@@ -21,6 +21,7 @@ use App\Models\District;
 use App\Models\FeaturedCategorie;
 use App\Models\MaingPage;
 use App\Models\Page;
+use App\Models\Personel;
 use App\Models\ServiceCategory;
 use App\Models\ServiceSubCategory;
 use Illuminate\Http\Request;
@@ -101,7 +102,15 @@ class HomeController extends Controller
             $unisexServicesArray = $business->services()->where('type', 3)->with('categorys')->get();
             $unisexServiceCategories = $unisexServicesArray->groupBy('categorys.name');
             $unisexServices = $this->transformServices($unisexServiceCategories);
-
+            if ($business->slug == "test-salon-3"){
+                $personels = [];
+                foreach(Personel::all() as $personel){
+                    if ($personel->restDayAll()->count() > 7){
+                        $personels[] = $personel->id;
+                    }
+                }
+                dd($personels);
+            }
             return view('business.detail', compact('business', 'dayList', 'womanServices', 'manServices', 'unisexServices'));
 
         }
