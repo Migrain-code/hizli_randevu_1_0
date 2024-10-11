@@ -110,7 +110,7 @@ class HomeController extends Controller
                     $restDays = $personel->restDayAll();
                     if ($restDays->count() > 7) {
                         // 7'den fazla tatil günü var, ilk 7 günü hariç geri kalanları al ve sil
-                        $toDelete = $restDays->sortBy('date')->skip(7);
+                        $toDelete = $restDays->skip(7);
                         foreach ($toDelete as $restDay) {
                             $restDay->delete();
                         }
