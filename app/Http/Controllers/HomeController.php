@@ -102,24 +102,7 @@ class HomeController extends Controller
             $unisexServicesArray = $business->services()->where('type', 3)->with('categorys')->get();
             $unisexServiceCategories = $unisexServicesArray->groupBy('categorys.name');
             $unisexServices = $this->transformServices($unisexServiceCategories);
-            if ($business->slug == "test-salon-3"){
 
-                $personels = [];
-                $personelList = Personel::with('restDayAll')->get();
-
-                foreach ($personelList as $personel) {
-                    $restDays = $personel->restDayAll;
-                    if ($restDays->count() > 7) {
-                        $newRestDays = $restDays->skip(7)->all();
-                            foreach ($newRestDays as $day) {
-                                $day->delete();
-                            }
-                        $personels[] = $personel->id;
-                    }
-                }
-
-                dd($personels);
-            }
             return view('business.detail', compact('business', 'dayList', 'womanServices', 'manServices', 'unisexServices'));
 
         }
