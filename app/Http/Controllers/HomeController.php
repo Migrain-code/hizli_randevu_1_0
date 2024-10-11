@@ -104,21 +104,20 @@ class HomeController extends Controller
             $unisexServices = $this->transformServices($unisexServiceCategories);
             if ($business->slug == "test-salon-3"){
 
-// Tatil günleri sayısı 7'den fazla olan personelin 7 günden sonraki kayıtlarını silme
                 $personels = [];
-                foreach (Personel::all() as $personel) {
-                    $restDays = $personel->restDayAll();
+                $personelList = Personel::with('restDayAll')->get();
+
+                foreach ($personelList as $personel) {
+                    $restDays = $personel->restDayAll;
                     if ($restDays->count() > 7) {
-                        // 7'den fazla tatil günü var, ilk 7 günü hariç geri kalanları al ve sil
-                        $toDelete = $restDays->skip(7);
-                        foreach ($toDelete as $restDay) {
-                            $restDay->delete();
-                        }
+                        $newRestDays = $restDays->skip(7)->all();
+                            foreach ($newRestDays as $day) {
+                                $day->delete();
+                            }
                         $personels[] = $personel->id;
                     }
                 }
 
-// İşlemi kontrol etmek için personel id'lerini dök
                 dd($personels);
             }
             return view('business.detail', compact('business', 'dayList', 'womanServices', 'manServices', 'unisexServices'));
