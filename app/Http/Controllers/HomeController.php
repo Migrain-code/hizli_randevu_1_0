@@ -121,19 +121,20 @@ class HomeController extends Controller
         foreach ($womanServiceCategories as $category => $services) {
             $transformedServices = [];
             foreach ($services as $service) {
-                //if ($service->personels->count() > 0) { //hizmeti veren personel sayısı birden fazla ise listede göster
-                $transformedServices[] = [
-                    'id' => $service->id,
-                    'name' => $service->subCategory->getName(),
-                    'price' => $service->price_type_id == 0 ? $service->price : $service->price . " - " . $service->max_price,
-
-                ];
-                if ($service->is_featured == 1){
-                    $transformedFeaturedServices[] = [
+                if ($service->personels->count() > 0) { //hizmeti veren personel sayısı birden fazla ise listede göster
+                    $transformedServices[] = [
                         'id' => $service->id,
                         'name' => $service->subCategory->getName(),
                         'price' => $service->price_type_id == 0 ? $service->price : $service->price . " - " . $service->max_price,
+
                     ];
+                    if ($service->is_featured == 1) {
+                        $transformedFeaturedServices[] = [
+                            'id' => $service->id,
+                            'name' => $service->subCategory->getName(),
+                            'price' => $service->price_type_id == 0 ? $service->price : $service->price . " - " . $service->max_price,
+                        ];
+                    }
                 }
 
             }
