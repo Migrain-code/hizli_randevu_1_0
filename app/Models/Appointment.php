@@ -151,8 +151,9 @@ class Appointment extends Model
     }
     public function sendOfficialCreateNotification()
     {
-        if (isset($this->business->official)){
-            $official = $this->business->official;
+        $official = $this->business->official;
+        if (isset($official) && isset($official->devicePermission)){
+
             if ($official->devicePermission->is_all == 1){
                 //herkese alınan randevular için bildirimler
                 foreach ($this->services as $service){
