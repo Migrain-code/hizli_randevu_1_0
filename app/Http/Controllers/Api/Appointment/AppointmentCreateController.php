@@ -639,6 +639,7 @@ class AppointmentCreateController extends Controller
             $title = "Randevunuz Oluşturuldu";
             $appointment->customer->sendNotification($title, $message);
             $appointment->sendPersonelNotification();
+            $appointment->sendOfficialCreateNotification();
             $appointment->scheduleReminder();
             $appointment->calculateTotal();
             $existCustomer = $business->customers()->where('customer_id', $appointment->customer_id)->first();

@@ -149,7 +149,46 @@ class Appointment extends Model
             }
         }
     }
+    public function sendOfficialCreateNotification()
+    {
+        if (isset($this->business->official)){
+            $official = $this->business->official;
+            if ($official->devicePermission->is_all == 1){
+                //herkese alınan randevular için bildirimler
+                foreach ($this->services as $service){
+                    $title = "İşletmenize Bir Randevu Alındı";
+                    $message = sprintf(
+                        '%s adlı müşteriniz, %s personelinize %s tarihine %s hizmetine randevu aldı.',
+                        $this->customer->name,
+                        $service->personel->name,
+                        $service->start_time->format('d.m.Y H:i'),
+                        $service->service->subCategory->getName()
+                    );
+                    $official->sendNotification($title, $message);
+                }
+            }
+            if ($official->devicePermission->is_me == 1){
+                $personel = $official->personelAccount();
+                if (isset($personel)){
+                    foreach ($this->services as $service){
+                        if ($service->personel_id == $personel->id){
+                            $title = "Personel Hesabınıza Bir Randevu Alındı";
+                            $message = sprintf(
+                                '%s adlı müşteriniz, %s personel hesabınıza %s tarihine %s hizmetine randevu aldı.',
+                                $this->customer->name,
+                                $service->personel->name,
+                                $service->start_time->format('d.m.Y H:i'),
+                                $service->service->subCategory->getName()
+                            );
+                            $official->sendNotification($title, $message);
+                        }
+                    }
+                }
+            }
 
+        }
+
+    }
     public function sendPersonelCancelNotification()
     {
         foreach ($this->services as $service){

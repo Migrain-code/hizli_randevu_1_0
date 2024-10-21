@@ -291,7 +291,11 @@ class AppointmentController extends Controller
                 $businessCustomer->save();
             }
             $appointment->customer->sendSms($message);
+            // personellere alınan randevular için personele gönderilen bildirimler
             $appointment->sendPersonelNotification();
+            //personellere alınan randevular için yöneticiye gönderilen bildirimler
+            $appointment->sendOfficialCreateNotification();
+            // randevu hatırlatma bildirimi
             $appointment->scheduleReminder();
             return to_route('appointment.success', $appointment->id)->with('response', [
                 'status' => "success",

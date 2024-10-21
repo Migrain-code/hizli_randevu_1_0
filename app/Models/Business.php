@@ -136,6 +136,16 @@ class Business extends Authenticatable
     {
         return $this->hasMany(BusinessComment::class, 'business_id', 'id')/*->where('status', 1)*/->latest();
     }
+    public function officials()
+    {
+        return $this->hasMany(BusinessOfficial::class, 'company_id', 'company_id');
+    }
+    public function official()
+    {
+        return $this->hasOne(BusinessOfficial::class, 'business_id', 'id')->withDefault([
+            'name' => "Yetkilisi Yok"
+        ]);
+    }
 
     public function checkFavorite($customerId)
     {
