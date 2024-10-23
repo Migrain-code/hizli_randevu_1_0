@@ -190,7 +190,7 @@ class AppointmentCreateController extends Controller
         if (count($uniquePersonals) == 1) {
             foreach ($personels as $personel) {
 
-                $disabledDays[] = $this->findTimes($personel, $request->room_id);
+                $disabledDays[] = $this->findTimes($personel, $request->room_id, $getDate);
                 //işletme kapalı gün kontrolü
                 if (Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek == $business->off_day) {
                     return response()->json([
@@ -206,7 +206,8 @@ class AppointmentCreateController extends Controller
                         ], 200);
                     } else {
                         //personel kapalı değilse personel izin gün kontrolü
-                        if ($personel->checkDateIsOff($getDate)) {
+                        $personelRestDay = $personel->checkDateIsOff($getDate);
+                        if (isset($personelRestDay) && ($personelRestDay->end_time->format("Y-m-d") != $getDate->format('Y-m-d'))) {
                             return response()->json([
                                 "status" => "error",
                                 "message" => "Personel bu tarihte hizmet vermemektedir"
@@ -312,7 +313,7 @@ class AppointmentCreateController extends Controller
                 // işletme çalışma saatlerine randevu aralığına göre diziye ekle
                 foreach ($personels as $personel) {
                     $disabledDays = [];
-                    $disabledDays[] = $this->findTimes($personel, $request->room_id);
+                    $disabledDays[] = $this->findTimes($personel, $request->room_id, $getDate);
                     //işletme kapalı gün kontrolü
                     if (Carbon::parse($getDate->format('d.m.Y'))->dayOfWeek == $business->off_day) {
                         return response()->json([
@@ -328,10 +329,11 @@ class AppointmentCreateController extends Controller
                             ], 200);
                         } else {
                             //personel kapalı değilse personel izin gün kontrolü
-                            if ($personel->checkDateIsOff($getDate)) {
+                            $personelRestDay = $personel->checkDateIsOff($getDate);
+                            if (isset($personelRestDay) && ($personelRestDay->end_time->format("Y-m-d") != $getDate->format('Y-m-d'))) {
                                 return response()->json([
                                     "status" => "error",
-                                    "message" => "Personel ".$personel->name." bu tarihte hizmet vermemektedir"
+                                    "message" => "Personel bu tarihte hizmet vermemektedir"
                                 ], 200);
                             } else {
                                 for ($i = Carbon::parse($personel->start_time); $i < Carbon::parse($personel->end_time); $i->addMinute($personel->appointmentRange->time)) {
@@ -711,7 +713,7 @@ class AppointmentCreateController extends Controller
         return false;
     }
 
-    public function findTimes($personel, $room_id)
+    public function findTimes($personel, $room_id, $appointment_date = null)
     {
         $disableds = [];
 
@@ -739,6 +741,24 @@ class AppointmentCreateController extends Controller
                 $disableds[] = $i->format('d.m.Y H:i');
             }
         }
+        if (isset($appointment_date)){
+            //personel izin saatlerini de ekle
+            $offDays = $personel->stayOffDays()
+                ->whereDate('start_time', '<=', Carbon::parse($appointment_date))
+                ->whereDate('end_time', '>=', Carbon::parse($appointment_date))->get();
+
+            foreach ($offDays as $offDay) {
+                $leaveStart = Carbon::parse($offDay->start_time);
+                $leaveEnd = Carbon::parse($offDay->end_time);
+
+                $leaveDateTime = $leaveStart->copy();
+                while ($leaveDateTime < $leaveEnd) {
+                    $disableds[] = $leaveDateTime->format('d.m.Y H:i');
+                    $leaveDateTime->addMinutes(intval($personel->appointmentRange->time));
+                }
+            }
+        }
+
         $business = $personel->business;
         if (isset($room_id) && $room_id > 0) {
             // oda tipi seçilmşse o odadaki randevuları al ve disabled dizisine ata

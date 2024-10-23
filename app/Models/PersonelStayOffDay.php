@@ -9,7 +9,7 @@ class PersonelStayOffDay extends Model
 {
     use HasFactory;
 
-    protected $dates = ["start_time", 'end_time'];
+    protected $casts = ["start_time" => "datetime", 'end_time' => "datetime"];
 
     public function personel()
     {
