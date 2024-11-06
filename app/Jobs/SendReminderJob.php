@@ -9,10 +9,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class SendReminderJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     protected $appointment;
 
     /**
@@ -28,18 +30,16 @@ class SendReminderJob implements ShouldQueue
      */
     public function handle()
     {
-        // Randevunun hala mevcut olup olmadığını kontrol et
-        $appointment = Appointment::find($this->appointment->id);
-        if (!$appointment) {
-            // Eğer randevu bulunamazsa, job'u sonlandır
-            return;
+        try {
+            // Hatırlatma mesajını gönderme kodu buraya gelecek
+            $customer = $this->appointment->customer;
+            $business = $this->appointment->business;
+            $message = "Değerli Müşterimiz, {$business->name} işletmesinden aldığınız {$this->appointment->start_time->translatedFormat('d F Y H:i')} randevusu için bir hatırlatma mesajıdır. Zamanında gelmenizi rica ederiz. Teşekkürler.";
+            $customer->sendSms($message);
+            $customer->sendNotification('Randevu Hatırlatma', $message);
+        } catch (\Exception $e) {
+            // Hata durumunda loglama yapabilir ve job'un fail durumuna düşmesini engelleyebilirsiniz
+            Log::error("SendReminderJob failed: " . $e->getMessage());
         }
-
-        // Hatırlatma mesajını gönderme kodu buraya gelecek
-        $customer = $appointment->customer;
-        $business = $appointment->business;
-        $message = "Değerli Müşterimiz, {$business->name} işletmesinden aldığınız {$appointment->start_time->format('d.m.Y H:i')} randevusu için bir hatırlatma mesajıdır. Zamanında gelmenizi rica ederiz. Teşekkürler.";
-        //Sms::send($customer->phone, $message);
-        $customer->sendNotification('Randevu Hatırlatma', $message);
     }
 }
