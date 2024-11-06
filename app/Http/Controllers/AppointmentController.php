@@ -327,7 +327,7 @@ class AppointmentController extends Controller
             $currentDateTime = $startDateTime->copy();
             while ($currentDateTime <= $endDateTime) {
                 $disableds[] = $currentDateTime->format('d.m.Y H:i');
-                $currentDateTime->addMinutes($business->range->time);
+                $currentDateTime->addMinutes($business->range->time ?? 30);
             }
         }
 
