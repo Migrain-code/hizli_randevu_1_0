@@ -772,7 +772,7 @@ class AppointmentCreateController extends Controller
 
                     $disableds[] = $businessCurrenDateTime->format('d.m.Y H:i');
 
-                    $businessCurrenDateTime->addMinutes(intval($business->range->time));
+                    $businessCurrenDateTime->addMinutes(intval($business->range->time ?? 30));
                 }
             }
         }
