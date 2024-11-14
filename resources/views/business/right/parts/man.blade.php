@@ -1,5 +1,5 @@
 <div
-    class="tab-pane fade @if($business->type_id == 2) show active @endif"
+    class="tab-pane fade @if($business->type_id == 2 || $business->type_id == 3) show active @endif"
     id="pills-2"
     role="tabpanel"
     aria-labelledby="pills-profile-tab"

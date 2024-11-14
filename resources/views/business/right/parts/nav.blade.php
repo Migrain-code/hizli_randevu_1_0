@@ -34,7 +34,7 @@
     @if($business->type_id == 3)
         <li class="nav-item" role="presentation">
             <button
-                class="nav-link"
+                class="nav-link active"
                 id="pills-2-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-2"
@@ -48,7 +48,7 @@
         </li>
         <li class="nav-item" role="presentation">
             <button
-                class="nav-link active"
+                class="nav-link"
                 id="pills-1-tab"
                 data-bs-toggle="pill"
                 data-bs-target="#pills-1"
