@@ -510,7 +510,7 @@ class AppointmentCreateController extends Controller
         }
         $totalServiceTime = $business->services()->whereIn('id', $serviceIds)->sum('time');
 
-        $appointmentStartTime = $request->appointment_time;
+        $appointmentStartTime = Carbon::parse($request->appointment_time);
         foreach ($request->personels as $personelId) {
             $service = BusinessService::find(explode('_', $personelId)[1]);
             $personel = Personel::find(explode('_', $personelId)[0]);
