@@ -232,9 +232,25 @@ class AppointmentController extends Controller
 
         $appointment->room_id = $request->room_id == 0 ? null : $request->room_id;
         $appointment->save();
+
         $appointmentStartTime = Carbon::parse($request->appointment_time);
+        $totalServiceTime = $business->services()->whereIn('id', $request->services)->sum('time');
+
         $approve_types = [];
         foreach ($request->services as $index => $serviceId) {
+            $personel = Personel::find($request->personels[$index]);
+            $startDate = $appointmentStartTime->copy();
+            $appointmentEndTime = $startDate->copy()->addMinutes($totalServiceTime);
+            $personelEndTime = Carbon::parse($startDate->format('d-m-Y'). " ". $personel->end_time);
+            if ($appointmentEndTime > $personelEndTime){
+                $appointment->delete();
+                return back()->with('response', [
+                    'status' => "error",
+                    'message' => "Seçmiş Olduğunuz Hizmetin Süresi Personelin
+              Çalışma Saatini Aşıyor. Seçtiğiniz hizmetlerin süresi toplam: ".$totalServiceTime. " dakikadır.
+              Daha erken bir saate veya başka bir tarihe randevu almanızı öneririz."
+                ]);
+            }
             $findService = BusinessService::find($serviceId);
             $appointmentService = new AppointmentServices();
             $appointmentService->personel_id = $request->personels[$index];

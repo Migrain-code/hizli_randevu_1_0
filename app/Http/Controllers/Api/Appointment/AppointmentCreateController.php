@@ -502,9 +502,31 @@ class AppointmentCreateController extends Controller
         $isCalculate = [];
         $room_id = $request->room_id;
         $total = 0;
+        $personelIds = [];
+        $serviceIds = [];
+        foreach ($request->personels as $personelId) {
+            $personelIds[] = explode('_', $personelId)[0];
+            $serviceIds[] = explode('_', $personelId)[1];
+        }
+        $totalServiceTime = $business->services()->whereIn('id', $serviceIds)->sum('time');
+
+        $appointmentStartTime = $request->appointment_time;
         foreach ($request->personels as $personelId) {
             $service = BusinessService::find(explode('_', $personelId)[1]);
+            $personel = Personel::find(explode('_', $personelId)[0]);
+            $startDate = $appointmentStartTime->copy();
+            $appointmentEndTime = $startDate->copy()->addMinutes($totalServiceTime);
+            $personelEndTime = Carbon::parse($startDate->format('d-m-Y'). " ". $personel->end_time);
+            if ($appointmentEndTime > $personelEndTime){
 
+                return response()->json([
+                    'status' => "error",
+                    'message' => "Seçmiş Olduğunuz Hizmetin Süresi Personelin
+              Çalışma Saatini Aşıyor. Seçtiğiniz hizmetlerin süresi toplam: ".$totalServiceTime. " dakikadır.
+              Daha erken bir saate veya başka bir tarihe randevu almanızı öneririz."
+                ], 422);
+
+            }
             $personelPrice = $service->getPersonelPrice(explode('_', $personelId)[0]);
             if ($service->price_type_id == 1) {
                 if (isset($personelPrice)) {
