@@ -591,9 +591,7 @@ class AppointmentCreateController extends Controller
 
                 return response()->json([
                     'status' => "error",
-                    'message' => "Seçmiş Olduğunuz Hizmetin Süresi Personelin
-              Çalışma Saatini Aşıyor. Seçtiğiniz hizmetlerin süresi toplam: ".$totalServiceTime. " dakikadır.
-              Daha erken bir saate veya başka bir tarihe randevu almanızı öneririz."
+                    'message' => "Seçmiş Olduğunuz Hizmetin Süresi Personelin Çalışma Saatini Aşıyor. Seçtiğiniz hizmetlerin süresi toplam: ".$totalServiceTime. " dakikadır. Daha erken bir saate veya başka bir tarihe randevu almanızı öneririz."
                 ], 422);
 
             }
