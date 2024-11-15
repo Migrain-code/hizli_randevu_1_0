@@ -246,9 +246,7 @@ class AppointmentController extends Controller
                 $appointment->delete();
                 return back()->with('response', [
                     'status' => "error",
-                    'message' => "Seçmiş Olduğunuz Hizmetin Süresi Personelin
-              Çalışma Saatini Aşıyor. Seçtiğiniz hizmetlerin süresi toplam: ".$totalServiceTime. " dakikadır.
-              Daha erken bir saate veya başka bir tarihe randevu almanızı öneririz."
+                    'message' => "Seçmiş Olduğunuz Hizmetin Süresi Personelin Çalışma Saatini Aşıyor. Seçtiğiniz hizmetlerin süresi toplam: ".$totalServiceTime. " dakikadır.Daha erken bir saate veya başka bir tarihe randevu almanızı öneririz."
                 ]);
             }
             $findService = BusinessService::find($serviceId);
