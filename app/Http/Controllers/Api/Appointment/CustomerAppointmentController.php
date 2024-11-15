@@ -104,8 +104,10 @@ class CustomerAppointmentController extends Controller
                 $customer = $appointment->customer;
                 $title = "Randevunuz İptal Edildi";
                 $message = $appointment->business->name. " İşletmesine ". $appointment->start_time->format('d.m.Y H:i'). " tarihindeki randevunuz sizin tarafınızdan iptal edildi";
-                $customer->sendNotification($title, $message);
+                $appointment->createCancelSms();
                 $appointment->sendPersonelCancelNotification();
+                $appointment->createCancelNotification($message);
+
                 DB::table('jobs')->where('id', $appointment->job_id)->delete();
                 return response()->json([
                     'status' => "success",
