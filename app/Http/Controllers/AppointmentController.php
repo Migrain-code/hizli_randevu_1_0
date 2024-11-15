@@ -290,7 +290,7 @@ class AppointmentController extends Controller
                 $businessCustomer->status = 1;
                 $businessCustomer->save();
             }
-            $appointment->customer->sendSms($message);
+            $appointment->createCustomerSms();// randevu oluşturma mesajı gönder müşteriye
             // personellere alınan randevular için personele gönderilen bildirimler
             $appointment->sendPersonelNotification();
             //personellere alınan randevular için yöneticiye gönderilen bildirimler

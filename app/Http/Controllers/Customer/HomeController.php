@@ -222,13 +222,13 @@ class HomeController extends Controller
             $service->save();
         }
         $message = $appointment->business->name . ' İşletmesine ' . $appointment->start_time->format('d.m.Y H:i') . ' tarihindeki randevunuz iptal edildi.';
-        $appointment->customer->sendSms($message);
+        $appointment->createCancelSms();
         $appointment->sendPersonelCancelNotification();
-        $appointment->customer->sendNotification('Randevunuz Sizin Tarafınızdan İptal Edildi', $message);
+        $appointment->createCancelNotification($message);
         DB::table('jobs')->where('id', $appointment->job_id)->delete();
         return response()->json([
             'status' => "success",
-            'message' => $appointment->start_time->format('d.m.Y H:i') . " Tarihindeki Randevunuz Başarılı Bir Şekilde İptal Edildi",
+            'message' => $appointment->start_time->format('d F Y H:i') . " Tarihindeki Randevunuz Başarılı Bir Şekilde İptal Edildi",
         ]);
     }
 

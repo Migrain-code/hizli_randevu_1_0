@@ -132,6 +132,89 @@ class Appointment extends Model
     {
         return $this->hasMany(AppointmentServices::class, 'appointment_id', 'id');
     }
+    public function customerReminderMessage()
+    {
+        $message = SystemMessage::find(11)->message;
+        $serviceName="";
+        foreach ($this->services as $service) {
+            $serviceName .= sprintf(
+                "%s - %s | %s\n ➤ Personel: %s\n",
+                $service->start_time->format('H:i'),
+                $service->end_time->format('H:i'),
+                $service->service->subCategory->getName(),
+                $service->personel->name // Personel adını buradan alıyoruz
+            );
+        }
+        $customerMessage = sprintf(
+            $message,
+            $this->customer->name,
+            $this->business->name,
+            $this->business->phone,
+            $this->start_time->translatedFormat('d F Y'),
+            $this->start_time->format('H:i'), // Saat
+            $serviceName,
+            $this->status('text'),
+            createLink($this->business->lat, $this->business->longitude)
+        );
+        $this->customer->sendSms($customerMessage);
+        return $customerMessage;
+    }
+    public function createCancelSms()
+    {
+        $message = SystemMessage::find(13)->message;
+        $serviceName="";
+        foreach ($this->services as $service) {
+            $serviceName .= sprintf(
+                "%s - %s | %s\n ➤ Personel: %s\n",
+                $service->start_time->format('H:i'),
+                $service->end_time->format('H:i'),
+                $service->service->subCategory->getName(),
+                $service->personel->name // Personel adını buradan alıyoruz
+            );
+        }
+        $customerMessage = sprintf(
+            $message,
+            $this->customer->name,
+            $this->business->name,
+            $this->start_time->translatedFormat('d F Y'),
+            $this->start_time->format('H:i'), // Saat
+            $serviceName,
+            $this->status('text'),
+        );
+        $this->customer->sendSms($customerMessage);
+        return $customerMessage;
+    }
+    public function createCustomerSms($id = 1)
+    {
+        $message = SystemMessage::find($id)->message;
+        $serviceName="";
+        foreach ($this->services as $service) {
+            $serviceName .= sprintf(
+                "%s - %s | %s\n ➤ Personel: %s\n",
+                $service->start_time->format('H:i'),
+                $service->end_time->format('H:i'),
+                $service->service->subCategory->getName(),
+                $service->personel->name // Personel adını buradan alıyoruz
+            );
+        }
+        $customerMessage = sprintf(
+            $message,
+            $this->customer->name,
+            $this->business->name,
+            $this->business->phone,
+            $this->start_time->translatedFormat('d F Y'),
+            $this->start_time->format('H:i'), // Saat
+            $serviceName,
+            $this->status('text'),
+            createLink($this->business->lat, $this->business->longitude)
+        );
+        $this->customer->sendSms($customerMessage);
+        return $customerMessage;
+    }
+    public function createCancelNotification($message)
+    {
+        $this->customer->sendNotification('Randevunuz Sizin Tarafınızdan İptal Edildi', $message);
+    }
 
     public function sendPersonelNotification()
     {

@@ -7,6 +7,11 @@ function storage($path): string
 {
     return asset('storage/' . $path);
 }
+function createLink($lat, $long)
+{
+    return "https://www.google.com/maps?q={$lat},{$long}";
+}
+
 function image($path){
     return env('IMAGE_URL').$path;
 }

@@ -639,9 +639,12 @@ class AppointmentCreateController extends Controller
             }
             //$appointment->customer->sendSms($message);
             $title = "Randevunuz Oluşturuldu";
-            $appointment->customer->sendNotification($title, $message);
+            $appointment->createCustomerSms();// randevu oluşturma mesajı gönder müşteriye
+            // personellere alınan randevular için personele gönderilen bildirimler
             $appointment->sendPersonelNotification();
+            //personellere alınan randevular için yöneticiye gönderilen bildirimler
             $appointment->sendOfficialCreateNotification();
+            // randevu hatırlatma bildirimi
             $appointment->scheduleReminder();
             $appointment->calculateTotal();
             $existCustomer = $business->customers()->where('customer_id', $appointment->customer_id)->first();
