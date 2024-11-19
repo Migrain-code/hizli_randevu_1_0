@@ -38,7 +38,7 @@ class CustomerAppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = $this->customer->appointments()->latest()->orderBy('status', 'asc')->get();
+        $appointments = $this->customer->appointments()->latest()->orderBy('status', 'asc')->take(40)->get();
         return response()->json(AppointmentResource::collection($appointments));
     }
 
