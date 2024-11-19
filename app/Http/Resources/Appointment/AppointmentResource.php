@@ -4,6 +4,7 @@ namespace App\Http\Resources\Appointment;
 
 use App\Http\Resources\Business\BusinessListResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Carbon;
 
 class AppointmentResource extends JsonResource
 {
@@ -19,7 +20,7 @@ class AppointmentResource extends JsonResource
             'id' => $this->id,
             'business' => BusinessListResource::make($this->business),
             'service' => $this->getServiceName(),
-            'date' => $this->start_time->format('d.m.y H:i'),
+            'date' => Carbon::parse($this->start_time)->format('d.m.y H:i'),
             'status' => $this->status("text"),
             'statusColor' => $this->status("color"),
             'total' => $this->calculateTotal(), // toplam
