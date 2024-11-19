@@ -15,16 +15,35 @@ class AppointmentResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+       return [
             'id' => $this->id,
             'business' => BusinessListResource::make($this->business),
-            'service' => $this->services->first()->service->subCategory->name . ($this->services->count() > 1 ? " +".$this->services->count()-1 : ""),
+            'service' => $this->getServiceName(),
             'date' => $this->start_time->format('d.m.y H:i'),
             'status' => $this->status("text"),
             'statusColor' => $this->status("color"),
             'total' => $this->calculateTotal(), // toplam
             'collectedTotal' => $this->calculateTotal() // kalan
         ];
+    }
+
+    public function getServiceName()
+    {
+        $apService = $this->services->first();
+
+        if (isset($apService) && isset($apService->service) && isset($apService->service->subCategory)) {
+            $serviceName = $apService->service->subCategory->name;
+
+            // Ek hizmetler varsa adı güncelle
+            if ($this->services->count() > 1) {
+                $serviceName .= " +" . ($this->services->count() - 1);
+            }
+        } else {
+            // Hata döndür veya varsayılan bir işlem gerçekleştir
+            $serviceName = "Hizmet silinmiş";
+        }
+
+        return $serviceName;
     }
 
 }
