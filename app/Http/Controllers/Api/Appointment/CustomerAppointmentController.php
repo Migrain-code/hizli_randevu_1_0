@@ -109,6 +109,7 @@ class CustomerAppointmentController extends Controller
                 $appointment->createCancelNotification($message);
 
                 DB::table('jobs')->where('id', $appointment->job_id)->delete();
+                DB::table('jobs')->where('id', $appointment->job_comment_id)->delete();
                 return response()->json([
                     'status' => "success",
                     'message' => "Randevunuz Başarılı Bir Şekilde İptal Edildi",

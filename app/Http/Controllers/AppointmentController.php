@@ -311,6 +311,9 @@ class AppointmentController extends Controller
             $appointment->sendOfficialCreateNotification();
             // randevu hatırlatma bildirimi
             $appointment->scheduleReminder();
+            if ($appointment->business->is_comment_sms == 1){
+                $appointment->commentReminder();
+            }
             return to_route('appointment.success', $appointment->id)->with('response', [
                 'status' => "success",
                 'message' => $message,

@@ -661,6 +661,9 @@ class AppointmentCreateController extends Controller
             $appointment->sendOfficialCreateNotification();
             // randevu hatırlatma bildirimi
             $appointment->scheduleReminder();
+            if ($appointment->business->is_comment_sms == 1){
+                $appointment->commentReminder();
+            }
             $appointment->calculateTotal();
             $existCustomer = $business->customers()->where('customer_id', $appointment->customer_id)->first();
             if (!isset($existCustomer)){

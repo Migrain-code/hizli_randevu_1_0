@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\SendCommentMessageJob;
 use App\Jobs\SendReminderJob;
 use App\Services\NotificationService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -416,4 +417,22 @@ class Appointment extends Model
         $this->job_id = $jobId;
         $this->save();
     }
+    public function commentReminder()
+    {
+        // Randevu bitiş saati
+        $endTime = $this->end_time; // 2024-11-11 21:00:00
+        // 120 dakika öncesini belirleyin
+        $reminderTime = $endTime->copy()->addMinutes(60);
+
+        // İş için belirlenen mutlak zamanı kullanarak job'u oluştur
+        $job = new SendCommentMessageJob($this);
+
+        // Belirli bir tarihte işin çalışması için `later` metodunu mutlak tarih ile kullanın
+        $jobId = app('queue')->later($reminderTime, $job);
+
+        // Job ID'sini randevu kaydına kaydedin
+        $this->job_comment_id = $jobId;
+        $this->save();
+    }
+
 }
