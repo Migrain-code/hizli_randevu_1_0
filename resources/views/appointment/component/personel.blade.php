@@ -37,13 +37,17 @@
 
                                  @forelse($service->personels as $service_personel)
                                      @if(isset(request()['request']['selection_room_id']) && isset($roomPersonelIds))
-                                         @if(in_array($service_personel->personel->id, $roomPersonelIds))
-                                             <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                                         @if($service_personel->personel->is_delete == 0)
+                                             @if(in_array($service_personel->personel->id, $roomPersonelIds))
+                                                 <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                                             @endif
                                          @endif
 
                                      @else
                                          @if($rooms->count() > 0 && isset(request()['request']['selection_room_id']))
+                                             @if($service_personel->personel->is_delete == 0)
                                              <option value="{{$service_personel->personel->id}}" @selected(in_array($service_personel->personel->id, $selectedPersonelIds))>{{$service_personel->personel->name}}</option>
+                                             @endif
                                          @else
                                              <option value="">Oda seçimi Yapmadınız</option>
                                          @endif
