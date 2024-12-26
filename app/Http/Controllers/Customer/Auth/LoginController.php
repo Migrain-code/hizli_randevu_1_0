@@ -61,6 +61,13 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $phone = clearPhone($request->input('phone'));
+        if ($phone == "05323672052"){
+            $user = Customer::where('phone', 'like', '%' .$phone.'%')->where('status', 1)->first();
+            dd($user);
+            if ($user && Hash::check($request->input('password'), $user->password)) {
+
+            }
+        }
         $user = Customer::where('phone', 'like', '%' .$phone.'%')->where('status', 1)->first();
 
         if ($user && Hash::check($request->input('password'), $user->password)) {
