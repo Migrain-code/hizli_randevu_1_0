@@ -91,7 +91,7 @@
                                 @if(is_numeric($service->getPrice(request()['request']['selection_room_id'])))
                                     @php($toplam+= $service->getPrice(request()['request']['selection_room_id']))
                                 @else
-                                    @php( $toplam = "Hesaplanacak";)
+                                    @php( $toplam = "Hesaplanacak")
                                 @endif
 
                         @else
