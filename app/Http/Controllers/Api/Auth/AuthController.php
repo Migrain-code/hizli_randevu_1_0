@@ -15,6 +15,7 @@ use App\Services\NotificationService;
 use App\Services\Sms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /**
  * @group Customer Authentication
@@ -40,8 +41,32 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $phone = clearPhone($request->phone);
-        $user = Customer::where('phone', 'like', '%' .$phone.'%')->where('status', 1)->first();
+        if (Str::startsWith($phone, '0')) {
+            $user = Customer::where('phone', 'like', '%' . $phone . '%')
+                ->where('status', 1)
+                ->first();
 
+            // Eğer sonuç bulunamazsa başındaki "0"ı kaldırıp tekrar dene
+            if (!$user) {
+                $phoneWithoutZero = ltrim($phone, '0');
+                $user = Customer::where('phone', 'like', '%' . $phoneWithoutZero . '%')
+                    ->where('status', 1)
+                    ->first();
+            }
+        } else {
+            // Başında "0" yoksa önce olduğu gibi sorgula
+            $user = Customer::where('phone', 'like', '%' . $phone . '%')
+                ->where('status', 1)
+                ->first();
+
+            // Eğer sonuç bulunamazsa başına "0" ekleyip tekrar dene
+            if (!$user) {
+                $phoneWithZero = '0' . $phone;
+                $user = Customer::where('phone', 'like', '%' . $phoneWithZero . '%')
+                    ->where('status', 1)
+                    ->first();
+            }
+        }
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'status'=> "error",

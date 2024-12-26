@@ -63,37 +63,33 @@ class LoginController extends Controller
     {
         $phone = clearPhone($request->input('phone'));
         $user = null;
-        if ($phone == "05323672052"){
-            if (Str::startsWith($phone, '0')) {
-                $user = Customer::where('phone', 'like', '%' . $phone . '%')
+
+        if (Str::startsWith($phone, '0')) {
+            $user = Customer::where('phone', 'like', '%' . $phone . '%')
+                ->where('status', 1)
+                ->first();
+
+            // Eğer sonuç bulunamazsa başındaki "0"ı kaldırıp tekrar dene
+            if (!$user) {
+                $phoneWithoutZero = ltrim($phone, '0');
+                $user = Customer::where('phone', 'like', '%' . $phoneWithoutZero . '%')
                     ->where('status', 1)
                     ->first();
-
-                // Eğer sonuç bulunamazsa başındaki "0"ı kaldırıp tekrar dene
-                if (!$user) {
-                    $phoneWithoutZero = ltrim($phone, '0');
-                    $user = Customer::where('phone', 'like', '%' . $phoneWithoutZero . '%')
-                        ->where('status', 1)
-                        ->first();
-                }
-            } else {
-                // Başında "0" yoksa önce olduğu gibi sorgula
-                $user = Customer::where('phone', 'like', '%' . $phone . '%')
-                    ->where('status', 1)
-                    ->first();
-
-                // Eğer sonuç bulunamazsa başına "0" ekleyip tekrar dene
-                if (!$user) {
-                    $phoneWithZero = '0' . $phone;
-                    $user = Customer::where('phone', 'like', '%' . $phoneWithZero . '%')
-                        ->where('status', 1)
-                        ->first();
-                }
             }
+        } else {
+            // Başında "0" yoksa önce olduğu gibi sorgula
+            $user = Customer::where('phone', 'like', '%' . $phone . '%')
+                ->where('status', 1)
+                ->first();
 
-            dd($user);
+            // Eğer sonuç bulunamazsa başına "0" ekleyip tekrar dene
+            if (!$user) {
+                $phoneWithZero = '0' . $phone;
+                $user = Customer::where('phone', 'like', '%' . $phoneWithZero . '%')
+                    ->where('status', 1)
+                    ->first();
+            }
         }
-        $user = Customer::where('phone', 'like', '%' .$phone.'%')->where('status', 1)->first();
 
         if ($user && Hash::check($request->input('password'), $user->password)) {
             $user->checkPermissions();
