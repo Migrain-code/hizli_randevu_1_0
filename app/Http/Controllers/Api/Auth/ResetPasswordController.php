@@ -58,7 +58,7 @@ class ResetPasswordController extends Controller
 
             } else {
                 $generatePassword = rand(100000, 999999);
-                $user = Customer::where('phone', $code->phone)->first();
+                $user = Customer::where('phone', $code->phone)->where('status', 1)->first();
                 if (!$user){
                     return response()->json([
                         'status' => "warning",
