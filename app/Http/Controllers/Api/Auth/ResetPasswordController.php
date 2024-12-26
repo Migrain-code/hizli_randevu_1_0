@@ -24,7 +24,7 @@ class ResetPasswordController extends Controller
      */
     public function forgotPassword(ForgotPasswordRequest $request)
     {
-        $user = Customer::where('phone', clearPhone($request->input('phone')))->first();
+        $user = Customer::where('phone', clearPhone($request->input('phone')))->where('status', 1)->first();
         if ($user) {
             $this->resetVerifyCode($request->input('phone'));
             return response()->json([
