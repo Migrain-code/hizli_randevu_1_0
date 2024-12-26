@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -61,12 +62,36 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $phone = clearPhone($request->input('phone'));
+        $user = null;
         if ($phone == "05323672052"){
-            $user = Customer::where('phone', 'like', '%' .$phone.'%')->where('status', 1)->first();
-            dd($user);
-            if ($user && Hash::check($request->input('password'), $user->password)) {
+            if (Str::startsWith($phone, '0')) {
+                $user = Customer::where('phone', 'like', '%' . $phone . '%')
+                    ->where('status', 1)
+                    ->first();
 
+                // Eğer sonuç bulunamazsa başındaki "0"ı kaldırıp tekrar dene
+                if (!$user) {
+                    $phoneWithoutZero = ltrim($phone, '0');
+                    $user = Customer::where('phone', 'like', '%' . $phoneWithoutZero . '%')
+                        ->where('status', 1)
+                        ->first();
+                }
+            } else {
+                // Başında "0" yoksa önce olduğu gibi sorgula
+                $user = Customer::where('phone', 'like', '%' . $phone . '%')
+                    ->where('status', 1)
+                    ->first();
+
+                // Eğer sonuç bulunamazsa başına "0" ekleyip tekrar dene
+                if (!$user) {
+                    $phoneWithZero = '0' . $phone;
+                    $user = Customer::where('phone', 'like', '%' . $phoneWithZero . '%')
+                        ->where('status', 1)
+                        ->first();
+                }
             }
+
+            dd($user);
         }
         $user = Customer::where('phone', 'like', '%' .$phone.'%')->where('status', 1)->first();
 
