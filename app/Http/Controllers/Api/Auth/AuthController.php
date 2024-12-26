@@ -124,7 +124,7 @@ class AuthController extends Controller
 
     public function existPhone($phone)
     {
-        $existPhone = Customer::where('phone', $phone)->first();
+        $existPhone = Customer::where('phone', $phone)->where('status', 1)->first();
         if ($existPhone != null) {
             $result = true;
         } else {
