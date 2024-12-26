@@ -60,7 +60,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $user = Customer::where('phone', clearPhone($request->input('phone')))->first();
+        $phone = clearPhone($request->input('phone'));
+        $user = Customer::where('phone', 'like', '%' .$phone.'%')->where('status', 1)->first();
 
         if ($user && Hash::check($request->input('password'), $user->password)) {
             $user->checkPermissions();
