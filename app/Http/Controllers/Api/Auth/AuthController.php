@@ -40,7 +40,7 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $phone = clearPhone($request->phone);
-        $user = Customer::where('phone', $phone)->first();
+        $user = Customer::where('phone', $phone)->where('status', 1)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
