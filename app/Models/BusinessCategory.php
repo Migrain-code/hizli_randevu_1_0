@@ -10,7 +10,7 @@ class BusinessCategory extends Model
 {
     use HasFactory, HasTranslations;
 
-    protected $translatable = ['name', 'slug', 'meta_title', 'meta_description'];
+    protected $translatable = ['name', 'slug', 'meta_title','description', 'meta_description'];
 
     public function getName()
     {
@@ -26,7 +26,10 @@ class BusinessCategory extends Model
     {
         return $this->translate('meta_description');
     }
-
+    public function getDescription()
+    {
+        return $this->translate('description');
+    }
     public function getMetaTitle()
     {
         return $this->translate('meta_title');

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\BusinessCategory;
+namespace App\Http\Resources\Service;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class BusinessCategoryListResource extends JsonResource
+class ServiceListResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,10 +17,8 @@ class BusinessCategoryListResource extends JsonResource
         return [
           'id' => $this->id,
           'name' => $this->getName(),
-          'icon' => image($this->icon),
-          'image' => image($this->mobile_image),
-          'description' => $this->getDescription(),
-          'color' => $this->color,
+          'icon' => image($this->image),
+          'color' => $this->color
         ];
     }
 }
